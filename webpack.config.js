@@ -10,6 +10,8 @@ const alias = { svelte: path.resolve('node_modules', 'svelte') };
 const extensions = ['.mjs', '.js', '.json', '.svelte', '.html'];
 const mainFields = ['svelte', 'module', 'browser', 'main'];
 
+const sass = require('svelte-preprocess-sass').sass;
+
 module.exports = {
 	client: {
 		entry: config.client.entry(),
@@ -24,7 +26,11 @@ module.exports = {
 						options: {
 							dev,
 							hydratable: true,
-							hotReload: false // pending https://github.com/sveltejs/svelte/issues/2377
+							hotReload: false, // pending https://github.com/sveltejs/svelte/issues/2377
+							emitCss: !config.dev,
+							cascade: false,
+							store: true,
+							style: sass({}, { name: 'scss' }),
 						}
 					}
 				}

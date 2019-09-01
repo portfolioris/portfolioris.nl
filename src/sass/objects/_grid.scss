@@ -1,0 +1,34 @@
+/*  =========================================================================
+    Grid
+    ========================================================================= */
+
+.o-grid {
+  display: grid;
+  list-style: none;
+  margin-left: 0;
+  padding: 0;
+}
+
+.o-grid--gutter {
+  grid-gap: $blocss-space;
+}
+
+.o-grid--4of12 {
+  @include blocss-media-query(lap) {
+    grid-template-columns: repeat(8, 1fr);
+
+    > * {
+      grid-column: span 4;
+    }
+  }
+
+  @include blocss-media-query(desk) {
+    grid-template-columns: repeat(12, 1fr);
+  }
+}
+
+.o-grid--equalheight {
+  > * {
+    align-self: stretch;
+  }
+}

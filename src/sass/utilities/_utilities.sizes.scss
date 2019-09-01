@@ -1,0 +1,15 @@
+/*  =========================================================================
+    utilities.typography.sizes
+    Describes font sizing.
+    ========================================================================= */
+
+/*  Sizes
+    ========================================================================= */
+
+.u-milli {
+  @include supple-font-size($milli, $important: true);
+}
+
+.u-micro {
+  @include supple-font-size($micro, $important: true);
+}

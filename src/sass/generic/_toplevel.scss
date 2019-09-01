@@ -1,0 +1,44 @@
+/*  =========================================================================
+    foundation.generic.toplevel
+    Describes toplevel styles such as HTML, body, etc.
+    ========================================================================= */
+
+/*  Variables
+    Variables used in this module
+    ========================================================================= */
+
+
+
+/*  Functions/Mixins
+    Functions and/or mixins used in this module
+    ========================================================================= */
+
+
+
+/*  Module
+    Core module
+    ========================================================================= */
+
+html {
+  font-family: $font-family-primary;
+  color: $black;
+  text-decoration-skip-ink: auto;
+}
+
+body {
+  margin: 0;
+}
+
+hr {
+  border: 0;
+  height: 1px;
+  background: $gray-medium;
+}
+
+button svg {
+  pointer-events: none;
+}
+
+figure {
+  margin: 0;
+}
