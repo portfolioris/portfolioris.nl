@@ -1,22 +1,13 @@
 <script>
-	import Nav from '../components/Nav.svelte';
+	import Navigation from '../components/organisms/Navigation.svelte';
 
-	export let segment;
+	export let items;
 </script>
 
-<style>
-	main {
-		position: relative;
-		max-width: 56em;
-		background-color: white;
-		padding: 2em;
-		margin: 0 auto;
-		box-sizing: border-box;
-	}
+<style global lang="scss">
+	@import "../sass/leading.scss";
 </style>
 
-<Nav {segment}/>
-
-<main>
+<Navigation items>
 	<slot></slot>
-</main>
+</Navigation>
