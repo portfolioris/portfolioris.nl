@@ -1,7 +1,7 @@
 <script>
   import Button from '../atoms/Button.svelte';
 
-  let items = [];
+  export let items;
 </script>
 
 <nav>
@@ -10,7 +10,7 @@
         <li class="o-layout__cell  o-layout__cell--fit">
           <Button
             modifier="transparent"
-            text="{item.title}"
+            text="{item.text}"
             href="{item.href}"
           />
         </li>

@@ -1,11 +1,63 @@
 <script>
-  let handleClickToggleMenu;
+  export let handleToggleMenu;
+  export let menuIsOpen;
 </script>
+
+<style lang="scss" type="text/scss">
+  @import "engine";
+
+  .c-menu-toggle {
+    padding: $supple-space-tiny;
+    width: 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: $white;
+    line-height: 1;
+
+    &.is-open {
+      text-decoration: none;
+
+      .c-menu-toggle__dash--middle {
+        transform: scaleX(0);
+      }
+
+      .c-menu-toggle__dash--top {
+        transform: translate(-4.5px, 4.5px) rotate(45deg);
+      }
+
+      .c-menu-toggle__dash--bottom {
+        transform: translate(-4.5px, -4.5px) rotate(-45deg);
+      }
+    }
+
+    #{$global-interaction-states} {
+      color: $white;
+    }
+  }
+
+  .c-menu-toggle__icon {
+    overflow: visible;
+  }
+
+  .c-menu-toggle__dash {
+    transition: transform $base-transition-duration $base-timing-function;
+    transform-origin: center;
+  }
+
+  .c-menu-toggle__label {
+    @include supple-font-size(10px, false);
+
+    display: block;
+  }
+</style>
 
 <a
   href="#navigation"
-  class="c-menu-toggle  [is-open]"
-  on:click={handleClickToggleMenu}
+  class="c-menu-toggle"
+  class:is-open={menuIsOpen}
+  on:click={handleToggleMenu}
 >
   <svg viewBox="0 0 24 24" class="c-menu-toggle__icon">
     <defs>
@@ -18,6 +70,6 @@
     </g>
   </svg>
   <span class="c-menu-toggle__label">
-      menu
-    </span>
+    menu
+  </span>
 </a>
