@@ -24,7 +24,7 @@
 </script>
 
 <style lang="scss" type="text/scss">
-  @import "../../sass/engine";
+  @import "src/sass/engine";
 
   /*  Page wrappers
       ========================================================================= */
