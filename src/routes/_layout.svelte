@@ -1,20 +1,14 @@
 <script context="module">
   export async function preload({ path, query, params }) {
     const response = await this.fetch(`pages.json`);
-    if (response.ok) {
-      const md = await response.json();
-      return { md };
-    } else {
-      return this.error(response.statusCode, 'boo')
-    }
+    const pages = await response.json();
+    return { pages };
   }
 </script>
 
 <script>
   export let segment;
-  console.log(segment);
-  export let md;
-  const items = md;
+  export let pages;
   import Navigation from '../components/organisms/Navigation.svelte';
 </script>
 
@@ -22,6 +16,6 @@
   @import "../sass/leading.scss";
 </style>
 
-<Navigation items="{items}" activePage="{segment}">
+<Navigation items="{pages}" activePage="{segment}">
   <slot></slot>
 </Navigation>

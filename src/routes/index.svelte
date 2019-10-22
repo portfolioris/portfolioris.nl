@@ -1,18 +1,19 @@
 <script context="module">
   export async function preload({ path, query, params }) {
     const response = await this.fetch(`pages.json`);
-    if (response.ok) {
-      const md = await response.json();
-      return { md };
-    } else {
-      return this.error(response.statusCode, 'boo');
-    }
+    const pages = await response.json();
+    return { pages };
   }
 </script>
 
 <script>
-  export let md; // = 'foo';
+  export let pages;
 </script>
 
 index
-{md}
+
+<ul>
+    {#each pages as item}
+      <li>{item.text}</li>
+    {/each}
+</ul>

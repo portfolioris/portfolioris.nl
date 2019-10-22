@@ -10,7 +10,7 @@
       <div class="u-milli">
         <div class="o-layout  o-layout--gutter-small">
           <div class="o-layout__cell  o-layout__cell--fit">
-            <Text richText="© Portfolioris 2018" class="u-m-b-none" />
+            <Text text="© Portfolioris 2018" class="u-m-b-none" />
           </div>
             <!--
             <div class="o-layout__cell  o-layout__cell--fit">
