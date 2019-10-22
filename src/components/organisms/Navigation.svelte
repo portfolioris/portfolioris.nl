@@ -7,9 +7,8 @@
 
   let isLoaded = false;
   let menuIsOpen = false;
-  export let items;
-  let activePageId = 0;
-  // let handleToggleMenu;
+  export let activePage;
+  export let items = [];
 
   onMount(() => {
     isLoaded = true;
@@ -91,7 +90,7 @@
   <div class="c-body-wrap__header">
     <Header
       {items}
-      activePageId={activePageId}
+      activePage={activePage}
       handleToggleMenu={handleToggleMenu}
       menuIsOpen={menuIsOpen}
     />
@@ -116,6 +115,7 @@
           {#each items as item}
             <li class="u-m-b-tiny">
               <Button
+                element="a"
                 text={item.text}
                 href="{item.href}"
                 on:click="{() => closeMenu}"

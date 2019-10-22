@@ -1,7 +1,5 @@
 <script context="module">
   export async function preload({ params, query }) {
-    console.log(params.slug);
-
     const res = await this.fetch(`${params.slug}.json`);
 
     if (res.status === 200) {

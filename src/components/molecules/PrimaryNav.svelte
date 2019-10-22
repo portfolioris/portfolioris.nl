@@ -2,6 +2,8 @@
   import Button from '../atoms/Button.svelte';
 
   export let items;
+  export let activePage;
+  let foo;
 </script>
 
 <nav>
@@ -9,8 +11,10 @@
       {#each items as item}
         <li class="o-layout__cell  o-layout__cell--fit">
           <Button
+            element="a"
+            isActive="{activePage === item.href}"
             modifier="transparent"
-            text="{item.text}"
+            label="{item.text}"
             href="{item.href}"
           />
         </li>

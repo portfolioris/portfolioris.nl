@@ -7,7 +7,7 @@
   export let menuIsOpen = false;
   export let handleToggleMenu;
   export let items;
-  let activePageId;
+  export let activePage;
 </script>
 
 <style lang="scss" type="text/scss">
@@ -51,7 +51,7 @@
               </div>
               <div class="o-layout__cell  o-layout__cell--fit  o-layout__cell--center">
                 <div class="u-hidden@until-desk">
-                  <PrimaryNav {items} activePageId={activePageId} />
+                  <PrimaryNav {items} activePage={activePage} />
                 </div>
               </div>
             </div>

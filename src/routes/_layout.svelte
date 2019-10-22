@@ -1,22 +1,27 @@
-<script>
-  import Navigation from '../components/organisms/Navigation.svelte';
+<script context="module">
+  export async function preload({ path, query, params }) {
+    const response = await this.fetch(`pages.json`);
+    if (response.ok) {
+      const md = await response.json();
+      return { md };
+    } else {
+      return this.error(response.statusCode, 'boo')
+    }
+  }
+</script>
 
-  export let items = [
-    {
-    	text: 'foo',
-		href: '#foo'
-	},
-    {
-    	text: 'bar',
-		href: '#bar'
-	},
-  ];
+<script>
+  export let segment;
+  console.log(segment);
+  export let md;
+  const items = md;
+  import Navigation from '../components/organisms/Navigation.svelte';
 </script>
 
 <style global lang="scss">
   @import "../sass/leading.scss";
 </style>
 
-<Navigation {items}>
+<Navigation items="{items}" activePage="{segment}">
   <slot></slot>
 </Navigation>
