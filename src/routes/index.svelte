@@ -14,6 +14,6 @@ index
 
 <ul>
     {#each pages as item}
-      <li>{item.text}</li>
+      <li>{item.data.title}</li>
     {/each}
 </ul>

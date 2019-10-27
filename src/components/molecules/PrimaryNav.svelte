@@ -3,7 +3,6 @@
 
   export let items;
   export let activePage;
-  let foo;
 </script>
 
 <nav>
@@ -12,10 +11,10 @@
         <li class="o-layout__cell  o-layout__cell--fit">
           <Button
             element="a"
-            isActive="{activePage === item.href}"
+            isActive="{activePage === item.slug}"
             modifier="transparent"
-            label="{item.text}"
-            href="{item.href}"
+            label="{item.data.title}"
+            href="{item.slug}"
           />
         </li>
       {/each}

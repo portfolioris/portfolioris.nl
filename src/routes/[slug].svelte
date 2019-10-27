@@ -11,6 +11,7 @@
 </script>
 
 <script>
+  import ModularPageTemplate from '../components/ModularPageTemplate.svelte';
   export let data;
 </script>
 
@@ -18,4 +19,6 @@
   <title>{data.title}</title>
 </svelte:head>
 
-<h1>{data.title}</h1>
+{#if data.pageType === 'modularPage'}
+    <ModularPageTemplate modules={data.modules} />
+{/if}
