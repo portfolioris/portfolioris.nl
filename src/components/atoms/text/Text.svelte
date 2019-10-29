@@ -3,6 +3,6 @@
 </script>
 
 <div class="u-module  u-m-b">
-    {text}
+    {@html text}
 </div>
 

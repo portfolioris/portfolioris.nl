@@ -13,6 +13,7 @@
 <script>
   import ModularPageTemplate from '../components/ModularPageTemplate.svelte';
   export let data;
+  export let parsedContent;
 </script>
 
 <svelte:head>
@@ -22,3 +23,6 @@
 {#if data.pageType === 'modularPage'}
     <ModularPageTemplate modules={data.modules} />
 {/if}
+
+{@html parsedContent}
+

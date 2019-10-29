@@ -8,3 +8,5 @@ modules:
     type: richTextBlock
 ---
 
+# home
+This should be an h1.

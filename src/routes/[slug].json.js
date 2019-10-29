@@ -1,6 +1,3 @@
-import fs from 'fs';
-import path from 'path';
-import matter from 'gray-matter';
 import getPages from '../getPages';
 
 export function get(req, res, next) {
@@ -9,7 +6,8 @@ export function get(req, res, next) {
   // the `slug` parameter is available because this file is called [slug].json.js
   const { slug } = req.params;
 
-  const page = pages.find((page) => page.slug === slug);
+  const page = pages.get(slug);
+
   if (page) {
     res.writeHead(200, {'Content-Type': 'application/json'});
 
