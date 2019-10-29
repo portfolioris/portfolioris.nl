@@ -16,7 +16,8 @@
     "marked": "^0.7.0",
     "polka": "^1.0.0-next.7",
     "sirv": "^0.4.0",
-    "supple": "^2.1.1"
+    "supple": "^2.1.1",
+    "swiper": "^5.2.0"
   },
   "devDependencies": {
     "@babel/core": "^7.6.4",
