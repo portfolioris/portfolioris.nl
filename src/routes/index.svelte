@@ -1,19 +1,16 @@
 <script context="module">
   export async function preload({ path, query, params }) {
-    const response = await this.fetch(`pages.json`);
-    const pages = await response.json();
-    return { pages };
+    const res = await this.fetch(`[slug].json`);
+    return await res.json();
   }
 </script>
 
 <script>
-  export let pages;
+    import ModularPageTemplate from '../components/ModularPageTemplate.svelte';
+    export let data;
+    export let parsedContent;
 </script>
 
-index
+<ModularPageTemplate modules={data.modules}></ModularPageTemplate>
 
-<ul>
-    {#each pages as item}
-      <li>{item.data.title}</li>
-    {/each}
-</ul>
+{@html parsedContent}

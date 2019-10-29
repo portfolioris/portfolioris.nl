@@ -13,7 +13,8 @@ const getPages = () => {
       const md = fs.readFileSync(`src/pages/${file}`, 'utf-8');
       const pageData = matter(md);
       pageData.parsedContent = marked(pageData.content);
-      pages.set(path.basename(file, '.md'), pageData);
+      pageData.slug = path.basename(file, '.md') === 'home' ? '/' : path.basename(file, '.md');
+      pages.set(pageData.slug, pageData);
     });
 
   return pages;

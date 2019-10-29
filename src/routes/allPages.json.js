@@ -12,7 +12,6 @@ export function get(req, res, next) {
 
   pages.forEach((page, key) => {
     pageArray.push({
-      slug: key,
       ...page,
     });
   });

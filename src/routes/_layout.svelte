@@ -1,6 +1,6 @@
 <script context="module">
   export async function preload({ path, query, params }) {
-    const response = await this.fetch(`pages.json`);
+    const response = await this.fetch(`allPages.json`);
     const pages = await response.json();
     return { pages };
   }

@@ -89,7 +89,7 @@
 <div class="c-body-wrap">
   <div class="c-body-wrap__header">
     <Header
-      {items}
+      items={items}
       activePage={activePage}
       handleToggleMenu={handleToggleMenu}
       menuIsOpen={menuIsOpen}

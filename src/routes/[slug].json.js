@@ -6,7 +6,13 @@ export function get(req, res, next) {
   // the `slug` parameter is available because this file is called [slug].json.js
   const { slug } = req.params;
 
-  const page = pages.get(slug);
+  let page = null;
+
+  if (slug === '[slug]') {
+    page = pages.get('/');
+  } else {
+    page = pages.get(slug);
+  }
 
   if (page) {
     res.writeHead(200, {'Content-Type': 'application/json'});

@@ -51,7 +51,7 @@
               </div>
               <div class="o-layout__cell  o-layout__cell--fit  o-layout__cell--center">
                 <div class="u-hidden@until-desk">
-                  <PrimaryNav {items} activePage={activePage} />
+                  <PrimaryNav items={items} activePage={activePage} />
                 </div>
               </div>
             </div>
