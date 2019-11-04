@@ -1,10 +1,10 @@
 <script>
     import marked from 'marked';
     export let text;
-    const ctext = marked(text);
+    let parsedText = marked(text);
 </script>
 
 <div class="u-module  u-m-b">
-    {@html ctext}
+    {@html parsedText}
 </div>
 

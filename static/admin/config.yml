@@ -30,8 +30,8 @@ collections:
             fields:
               - { label: 'Heading', name: 'heading', widget: 'string' }
               - { label: 'Hide heading visually', name: 'hideHeadingVisually', widget: 'boolean', required: false }
-              - { label: 'View all blogs', name: 'viewAllBlogs', widget: 'string' }
-              - { label: 'Latest #', name: 'latest', widget: 'number' }
+              - { label: 'View all blogs', name: 'viewAllBlogs', widget: 'string', required: false }
+              - { label: 'Latest #', name: 'latest', widget: 'number', required: false }
           - label: 'Rich text'
             name: 'richTextBlock'
             fields:

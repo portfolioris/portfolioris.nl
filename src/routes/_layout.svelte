@@ -10,6 +10,7 @@
   export let segment;
   export let pages;
   import Navigation from '../components/organisms/Navigation.svelte';
+  import 'highlight.js/styles/github.css';
 </script>
 
 <style global lang="scss">
