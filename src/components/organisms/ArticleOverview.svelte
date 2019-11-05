@@ -3,6 +3,8 @@
     import Layer from '../atoms/objects/Layer.svelte';
     import Retain from '../atoms/objects/Retain.svelte';
     import Heading from '../atoms/text/Heading.svelte';
+    import ArticleOverviewItem from '../molecules/ArticleOverviewItem.svelte';
+    import Button from '../atoms/Button.svelte';
 
     export let heading;
     export let hideHeadingVisually = false;
@@ -35,8 +37,8 @@
                         <div class="o-layout__cell  o-layout__cell--fit">
                             <p>
                                 <Button
-                                    href={viewAllBlogs.entry.uri}
-                                    text={viewAllBlogs.customText}
+                                    href="#viewAllBlogs.entry.uri}"
+                                    text="#viewAllBlogs.customText}"
                                 />
                             </p>
                         </div>

@@ -13,7 +13,7 @@
             element="a"
             isActive="{activePage === item.slug}"
             modifier="transparent"
-            label="{item.data.title}"
+            label="{item.attributes.title}"
             href="{item.slug}"
           />
         </li>

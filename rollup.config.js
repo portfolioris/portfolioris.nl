@@ -37,7 +37,7 @@ export default {
 				dev,
 				hydratable: true,
 				// hotReload: true,
-				// emitCss: true,
+				emitCss: true,
 			}),
 			resolve({
 				browser: true,

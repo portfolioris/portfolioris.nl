@@ -12,17 +12,13 @@
 
 <script>
   import ModularPageTemplate from '../components/ModularPageTemplate.svelte';
-  export let data;
-  export let parsedContent;
+  export let attributes;
 </script>
 
 <svelte:head>
-  <title>{data.title}</title>
+  <title>{attributes.title}</title>
 </svelte:head>
 
-{#if data.pageType === 'modularPage'}
-    <ModularPageTemplate modules={data.modules} />
+{#if attributes.pageType === 'modularPage'}
+    <ModularPageTemplate modules={attributes.modules} />
 {/if}
-
-{@html parsedContent}
-
