@@ -37,8 +37,8 @@
                         <div class="o-layout__cell  o-layout__cell--fit">
                             <p>
                                 <Button
-                                    href="#viewAllBlogs.entry.uri}"
-                                    text="#viewAllBlogs.customText}"
+                                        href="#viewAllBlogs.entry.uri}"
+                                        text="#viewAllBlogs.customText}"
                                 />
                             </p>
                         </div>
