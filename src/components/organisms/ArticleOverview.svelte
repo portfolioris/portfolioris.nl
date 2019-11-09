@@ -1,4 +1,6 @@
 <script>
+    import { pageStore } from './../../pageStore';
+
     import Theme from '../atoms/utilities/Theme.svelte';
     import Layer from '../atoms/objects/Layer.svelte';
     import Retain from '../atoms/objects/Retain.svelte';
@@ -9,7 +11,13 @@
     export let heading;
     export let hideHeadingVisually = false;
     export let viewAllBlogs = false;
-    export let items = [];
+    export let latest = null;
+
+    let items;
+
+    const unsubscribe = pageStore.subscribe(value => {
+        items = value;
+    });
 </script>
 <section>
     <Theme color="black">
@@ -27,7 +35,10 @@
                 <ul class="o-layout  o-layout--gutter  o-layout--equalheight  u-m-b-none">
                     {#each items as item}
                         <li class="o-layout__cell   u-fraction--1/2@from-lap  u-fraction--1/3@from-desk  u-m-b">
-                            <ArticleOverviewItem {...item} />
+                            <ArticleOverviewItem
+                                title={item.attributes.title}
+                                more="todo:stuff"
+                            />
                         </li>
                     {/each}
                 </ul>

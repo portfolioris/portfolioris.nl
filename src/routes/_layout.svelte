@@ -7,10 +7,16 @@
 </script>
 
 <script>
-  export let segment;
-  export let pages;
+  // import { writable } from 'svelte/store';
+  // export const count = writable(0);
   import Navigation from '../components/organisms/Navigation.svelte';
   import 'highlight.js/styles/github.css';
+
+  export let segment;
+  export let pages;
+
+  import { pageStore } from './../pageStore.js';
+  pageStore.set(pages);
 </script>
 
 <style global lang="scss">

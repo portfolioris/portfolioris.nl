@@ -1,11 +1,11 @@
 <script>
   // import { A, Button, Span } from 'svelte-elements';
 
-  // export let element = 'button';
+  export let element = 'button';
   export let href = undefined;
   export let type = undefined;
   export let label;
-  export let icon;
+  export let icon = null;
   export let hideLabel = false;
   export let modifier;
   export let isActive = false;

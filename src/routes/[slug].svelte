@@ -6,7 +6,7 @@
       return await res.json();
     }
 
-    this.error(404, 'Nee');
+    this.error(404, 'Not found');
   }
 </script>
 

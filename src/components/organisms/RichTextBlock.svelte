@@ -4,8 +4,8 @@
   import Retain from '../atoms/objects/Retain.svelte';
   import Text from '../atoms/text/Text.svelte';
 
-  export let collapseTop;
-  export let collapseBottom;
+  export let collapseTop = false;
+  export let collapseBottom = false;
   export let richText;
 </script>
 
