@@ -10,14 +10,14 @@ marked.setOptions({
   },
 });
 
-const getPages = () => {
+const getPages = (markdownFilesPath) => {
   const pages = new Map();
 
   fs
-    .readdirSync('src/pages')
+    .readdirSync(markdownFilesPath)
     .filter(file => file[0] !== '.' && path.extname(file) === '.md')
     .map(file => {
-      const md = fs.readFileSync(`src/pages/${file}`, 'utf-8');
+      const md = fs.readFileSync(`${markdownFilesPath}/${file}`, 'utf-8');
       const pageData = matter(md);
       pageData.parsedContent = marked(pageData.body);
       pageData.slug = path.basename(file, '.md') === 'home' ? '/' : path.basename(file, '.md');

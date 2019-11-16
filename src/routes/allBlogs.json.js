@@ -1,7 +1,7 @@
 import getPages from '../getPages';
 
 export function get(req, res, next) {
-  const pages = getPages('src/pages');
+  const pages = getPages('src/pages/blog');
 
   res.writeHead(200, {
     'Content-Type': 'application/json',

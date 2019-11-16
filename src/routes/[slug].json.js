@@ -1,7 +1,7 @@
 import getPages from '../getPages';
 
 export function get(req, res, next) {
-  const pages = getPages();
+  const pages = getPages('src/pages');
 
   // the `slug` parameter is available because this file is called [slug].json.js
   const { slug } = req.params;

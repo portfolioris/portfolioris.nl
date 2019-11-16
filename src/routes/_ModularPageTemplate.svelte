@@ -1,13 +1,13 @@
 <script>
-  import RichTextBlock from './organisms/RichTextBlock.svelte';
-  import ArticleOverview from './organisms/ArticleOverview.svelte';
+  import RichTextBlock from '../components/organisms/RichTextBlock.svelte';
+  import ArticleOverview from '../components/organisms/ArticleOverview.svelte';
 
   export let modules;
 </script>
 
 {#each modules as module}
   {#if module.type  === 'richTextBlock'}
-    <RichTextBlock richText={module.richText} />
+    <RichTextBlock {...module} />
   {/if}
   {#if module.type  === 'blogOverview'}
     <ArticleOverview {...module} />

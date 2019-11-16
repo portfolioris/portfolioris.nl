@@ -1,5 +1,5 @@
 <script>
-    import { pageStore } from './../../pageStore';
+    import { blogStore } from './../../pageStore';
 
     import Theme from '../atoms/utilities/Theme.svelte';
     import Layer from '../atoms/objects/Layer.svelte';
@@ -15,7 +15,7 @@
 
     let items;
 
-    const unsubscribe = pageStore.subscribe(value => {
+    const unsubscribe = blogStore.subscribe(value => {
         items = value;
     });
 </script>
@@ -25,19 +25,20 @@
             <Retain>
                 <div class:u-visually-hidden={hideHeadingVisually}>
                     <Heading
-                            text={heading}
-                            level={2}
-                            stylingLevel={2}
+                        text={heading}
+                        level={2}
+                        stylingLevel={2}
                     />
                 </div>
             </Retain>
             <Retain size="breakout">
-                <ul class="o-layout  o-layout--gutter  o-layout--equalheight  u-m-b-none">
+                <ul class="o-layout  o-layout--gutter  o-layout--equalheight">
                     {#each items as item}
-                        <li class="o-layout__cell   u-fraction--1/2@from-lap  u-fraction--1/3@from-desk  u-m-b">
+                        <li class="o-layout__cell   u-fraction--1/2@from-lap  u-fraction--1/3@from-desk">
                             <ArticleOverviewItem
                                 title={item.attributes.title}
-                                more="todo:stuff"
+                                subheading={item.attributes.subtitle}
+                                uri={item.slug}
                             />
                         </li>
                     {/each}

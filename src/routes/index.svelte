@@ -6,7 +6,7 @@
 </script>
 
 <script>
-    import ModularPageTemplate from '../components/ModularPageTemplate.svelte';
+    import ModularPageTemplate from '../routes/_ModularPageTemplate.svelte';
     export let attributes;
 </script>
 
