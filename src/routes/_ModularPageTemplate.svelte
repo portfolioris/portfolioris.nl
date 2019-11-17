@@ -5,6 +5,10 @@
   export let modules;
 </script>
 
+<svelte:head>
+  <title>{title}</title>
+</svelte:head>
+
 {#each modules as module}
   {#if module.type  === 'richTextBlock'}
     <RichTextBlock {...module} />

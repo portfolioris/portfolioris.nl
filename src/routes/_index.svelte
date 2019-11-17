@@ -7,11 +7,14 @@
 
 <script>
     import ModularPageTemplate from '../routes/_ModularPageTemplate.svelte';
-    export let attributes;
+    export let title;
+    export let modules;
 </script>
 
 <svelte:head>
-    <title>{attributes.title}</title>
+  <title>{title}</title>
 </svelte:head>
 
-<ModularPageTemplate modules={attributes.modules}></ModularPageTemplate>
+{#if modules}
+<ModularPageTemplate modules={modules}></ModularPageTemplate>
+{/if}

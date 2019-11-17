@@ -11,10 +11,10 @@
         <li class="o-layout__cell  o-layout__cell--fit">
           <Button
             element="a"
-            isActive="{activePage === item.slug}"
+            isActive="{activePage === item.menuItem[0].uri}"
             modifier="transparent"
-            label="{item.attributes.title}"
-            href="{item.slug}"
+            label="{item.title}"
+            href="{item.menuItem[0].uri === '__home__' ? '/' : item.menuItem[0].uri}"
           />
         </li>
       {/each}

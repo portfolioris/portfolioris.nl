@@ -9,12 +9,17 @@
     "start": "node __sapper__/build"
   },
   "dependencies": {
+    "apollo-boost": "^0.4.4",
     "compression": "^1.7.1",
+    "dotenv": "^8.2.0",
+    "graphql": "^14.5.8",
     "highlight.js": "^9.16.2",
     "marked": "^0.7.0",
+    "node-fetch": "^2.6.0",
     "polka": "^1.0.0-next.7",
     "sirv": "^0.4.0",
-    "supple": "^2.1.1"
+    "supple": "^2.1.1",
+    "svelte-apollo": "^0.3.0"
   },
   "devDependencies": {
     "@babel/core": "^7.7.2",

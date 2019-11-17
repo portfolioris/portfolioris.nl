@@ -1,14 +1,40 @@
 <script context="module">
-  export async function preload({ path, query, params }) {
+  import { gql } from "apollo-boost";
+  import { client } from '../apollo';
+
+  const ARTICLES = gql`
+    {
+      entries(section: mainNavigation) {
+        ... on MainNavigation {
+          id
+          title
+          menuItem {
+            uri
+          }
+        }
+      }
+    }
+  `;
+
+  export async function preload() {
+    return {
+      pages: await client.query({ query: ARTICLES })
+    };
     const response = await this.fetch(`allPages.json`);
-    const pages = await response.json();
+    const pages2 = await response.json();
     const response2 = await this.fetch(`allBlogs.json`);
-    const blogs = await response2.json();
-    return { pages, blogs };
+    const blogs2 = await response2.json();
+    return { pages2, blogs2 };
   }
 </script>
 
 <script>
+  // import { setClient, restore } from 'svelte-apollo';
+  // export let pages;
+  // console.log(pages);
+  // restore(client, ARTICLES, cache.data);
+  // setClient(client);
+
   import Navigation from '../components/organisms/Navigation.svelte';
   import 'highlight.js/styles/github.css';
 
@@ -26,6 +52,6 @@
   @import "../sass/leading.scss";
 </style>
 
-<Navigation items="{pages}" activePage="{segment}">
+<Navigation items="{pages.data.entries}" activePage="{segment}">
   <slot></slot>
 </Navigation>

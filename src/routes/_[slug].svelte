@@ -1,5 +1,6 @@
 <script context="module">
-  export async function preload({ params, query }) {
+  export async function preload({ host, path, params, query }) {
+    console.log(host, path, params, query);
     const res = await this.fetch(`${params.slug}.json`);
 
     if (res.status === 200) {
@@ -13,12 +14,14 @@
 <script>
   import ModularPageTemplate from '../routes/_ModularPageTemplate.svelte';
   export let attributes;
+  export let section = {};
+  export let title;
 </script>
 
 <svelte:head>
-  <title>{attributes.title}</title>
+  <title>{title}</title>
 </svelte:head>
 
-{#if attributes.pageType === 'modularPage'}
+{#if section.handle === 'modularPage'}
     <ModularPageTemplate modules={attributes.modules} />
 {/if}
