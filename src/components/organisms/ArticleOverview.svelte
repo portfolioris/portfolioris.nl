@@ -1,5 +1,5 @@
 <script>
-    import { blogStore } from './../../pageStore';
+    // import { blogStore } from './../../pageStore';
 
     import Theme from '../atoms/utilities/Theme.svelte';
     import Layer from '../atoms/objects/Layer.svelte';
@@ -13,11 +13,11 @@
     export let viewAllBlogs = false;
     export let latest = null;
 
-    let items;
-
-    const unsubscribe = blogStore.subscribe(value => {
-        items = value;
-    });
+    let items = [];
+    //
+    // const unsubscribe = blogStore.subscribe(value => {
+    //     items = value;
+    // });
 </script>
 <section>
     <Theme color="black">

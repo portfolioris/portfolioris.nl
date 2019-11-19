@@ -2,18 +2,14 @@
   import RichTextBlock from '../components/organisms/RichTextBlock.svelte';
   import ArticleOverview from '../components/organisms/ArticleOverview.svelte';
 
-  export let modules;
+  export let modules = [];
 </script>
 
-<svelte:head>
-  <title>{title}</title>
-</svelte:head>
-
 {#each modules as module}
-  {#if module.type  === 'richTextBlock'}
+  {#if module.__typename  === 'ModulesRichTextBlock'}
     <RichTextBlock {...module} />
   {/if}
-  {#if module.type  === 'blogOverview'}
+  {#if module.__typename  === 'ModulesRichTextBlock'}
     <ArticleOverview {...module} />
   {/if}
 {/each}

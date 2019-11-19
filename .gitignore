@@ -7,3 +7,5 @@ yarn-error.log
 .env.*
 .graphqlconfig
 schema.graphql
+codegen.yml
+graphql.schema.json

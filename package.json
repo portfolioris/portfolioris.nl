@@ -6,7 +6,8 @@
     "dev": "sapper dev",
     "build": "sapper build",
     "export": "sapper export",
-    "start": "node __sapper__/build"
+    "start": "node __sapper__/build",
+    "codegen": "graphql-codegen --config codegen.yml"
   },
   "dependencies": {
     "apollo-boost": "^0.4.4",
@@ -27,6 +28,10 @@
     "@babel/plugin-transform-runtime": "^7.6.2",
     "@babel/preset-env": "^7.7.1",
     "@babel/runtime": "^7.7.2",
+    "@graphql-codegen/cli": "^1.8.3",
+    "@graphql-codegen/fragment-matcher": "1.8.3",
+    "@graphql-codegen/introspection": "1.8.3",
+    "@rollup/plugin-json": "^4.0.0",
     "autoprefixer": "^9.7.1",
     "front-matter": "^3.0.2",
     "postcss": "^7.0.21",
