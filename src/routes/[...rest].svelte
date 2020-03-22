@@ -17,6 +17,4 @@
   export let modules = [];
 </script>
 
-{#if section.handle === 'modularPage'}
-  <ModularPageTemplate modules={modules} />
-{/if}
+<ModularPageTemplate modules={modules} />

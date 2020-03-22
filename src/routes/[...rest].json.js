@@ -33,10 +33,15 @@ __typename
 const pages = client.query({ query: PAGES });
 
 export async function get(req, res, next) {
-  const uri = req.params.rest.join('/');
+  let uri = '__home__'; // craft's home uri
+
+  // if not root
+  if (req.params.rest[0] !== 'undefined') {
+    // create uri to match
+    uri = req.params.rest.join('/');
+  }
 
   const result = await pages;
-
   const pageData = result.data.entries.find((entry) => entry.uri === uri);
 
   if (pageData) {

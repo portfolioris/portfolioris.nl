@@ -1,57 +1,22 @@
 <script context="module">
-  import { gql } from 'apollo-boost';
-  // import { client } from '../apollo';
-
-  const PAGES = gql`
-    query ModularPage {
-      entries {
-        uri
-        title
-        section {
-          handle
-        }
-        __typename
-        ... on ModularPage {
-          __typename
-          modules {
-__typename
-            ... on ModulesRichTextBlock {
-              __typename
-              richText
-            }
-            ... on ModulesBlogOverview {
-              __typename
-              heading
-              hideHeadingVisually
-              latest
-            }
-          }
-        }
-      }
+  import MPT from './[...rest].svelte';
+  export async function preload({ params }) {
+    const res = await this.fetch(`${params.rest}.json`);
+    const data = await res.json();
+    if (res.status === 200) {
+      return data;
+    } else {
+      this.error(res.status, data.message);
     }
-  `;
-
-  export async function preload() {
-    // return {
-    //   cache: await client.query({ query: PAGES })
-    // }
   }
 </script>
 
 <script>
-  import { setClient, restore, query } from 'svelte-apollo';
-  // export let cache;
-  // console.log(cache)
-  // restore(client, PAGES, cache.data);
-  // setClient(client);
-  //
-  // import ModularPageTemplate from './_ModularPageTemplate.svelte';
-  //
-  // export let title;
-  // export let section = {};
-  // export let modules = [];
-  // import PAGE from '../queries/modularPage.graphql';
-  // const stuff = query(client, PAGE);
-  // console.log(cache.data.entries[0])
+  import ModularPageTemplate from './_ModularPageTemplate.svelte';
+  export let title = 'not set';
+  export let section = {};
+  export let modules = [];
 </script>
+
+<ModularPageTemplate modules={modules} />
 
