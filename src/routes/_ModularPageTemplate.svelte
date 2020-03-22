@@ -9,7 +9,7 @@
   {#if module.__typename  === 'ModulesRichTextBlock'}
     <RichTextBlock {...module} />
   {/if}
-  {#if module.___typename  === 'ModulesBlogOverview'}
+  {#if module.__typename  === 'ModulesBlogOverview'}
     <ArticleOverview {...module} />
   {/if}
 {/each}

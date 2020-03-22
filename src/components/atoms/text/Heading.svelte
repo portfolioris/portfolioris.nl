@@ -12,16 +12,8 @@
     }
 </script>
 
-<style type="text/scss" lang="scss">
-    /*  Imports
-        ========================================================================= */
-
+<style global type="text/scss" lang="scss">
     @import "engine";
-
-
-
-    /*  Headings
-        ========================================================================= */
 
     h1,
     h2,
@@ -42,31 +34,6 @@
             &:focus,
             &:active {
                 color: $green;
-            }
-        }
-    }
-
-
-    .u-h0 {
-        @include supple-font-size($alpha, false);
-    }
-
-
-
-    /*  Theming
-        ========================================================================= */
-
-    .t-bg--black {
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6 {
-            &,
-            span,
-            a {
-                //color: $white;
             }
         }
     }
