@@ -4,10 +4,10 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "sapper dev",
-    "build": "sapper build",
-    "export": "sapper export",
+    "build": "npm run codegen && sapper build",
+    "export": "npm run codegen && sapper export",
     "start": "node __sapper__/build",
-    "codegen": "graphql-codegen --config codegen.yml"
+    "codegen": "graphql-codegen --config codegen.yml -r dotenv/config"
   },
   "dependencies": {
     "apollo-boost": "^0.4.7",

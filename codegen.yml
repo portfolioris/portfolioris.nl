@@ -1,0 +1,10 @@
+overwrite: true
+schema:
+  - ${CRAFT_API_URL}:
+      headers:
+        Authorization: ${CRAFT_API_TOKEN}
+documents: "src/queries/*.graphql"
+generates:
+  ./graphql.schema.json:
+    plugins:
+      - "introspection"

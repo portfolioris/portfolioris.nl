@@ -1,11 +1,8 @@
 .DS_Store
 /node_modules/
 /src/node_modules/@sapper/
-yarn-error.log
-/cypress/screenshots/
 /__sapper__/
+.env
 .env.*
 .graphqlconfig
-schema.graphql
-codegen.yml
 graphql.schema.json

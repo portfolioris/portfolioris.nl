@@ -1,0 +1,23 @@
+query ModularPage($uri: String!) {
+  entry(uri: $uri) {
+    uri
+    title
+    __typename
+    ... on ModularPage {
+      __typename
+      modules {
+        __typename
+        ... on ModulesRichTextBlock {
+          __typename
+          richText
+        }
+        ... on ModulesBlogOverview {
+          __typename
+          heading
+          hideHeadingVisually
+          latest
+        }
+      }
+    }
+  }
+}
