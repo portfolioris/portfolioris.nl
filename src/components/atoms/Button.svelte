@@ -1,13 +1,13 @@
 <script>
   // import { A, Button, Span } from 'svelte-elements';
 
-  export let element = 'button';
+  // export let element = 'button';
   export let href = undefined;
   export let type = undefined;
   export let label;
   export let icon = null;
   export let hideLabel = false;
-  export let modifier;
+  // export let modifier;
   export let isActive = false;
 
   // let renderElement = Button;
@@ -39,7 +39,7 @@
 
   $c-button--states: "&:hover, &:active, &:focus, &.is-active" !default;
 
-  $c-button--space: $supple-space !default;
+  $c-button--space: $supple-space-base !default;
 
 
   // Default settings

@@ -33,6 +33,7 @@ export default {
 		input: config.client.input(),
 		output: config.client.output(),
 		plugins: [
+			json(),
 			replace({
 				'process.browser': true,
 				'process.env.NODE_ENV': JSON.stringify(mode)
@@ -49,7 +50,6 @@ export default {
 				dedupe
 			}),
 			commonjs(),
-			json(),
 
 			legacy && babel({
 				extensions: ['.js', '.mjs', '.html', '.svelte'],
@@ -112,7 +112,8 @@ export default {
 				'process.env.NODE_ENV': JSON.stringify(mode)
 			}),
 			commonjs(),
-			!dev && terser()
+			!dev && terser(),
+			json(),
 		],
 
 		onwarn,

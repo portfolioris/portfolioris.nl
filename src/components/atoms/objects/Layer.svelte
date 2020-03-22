@@ -34,15 +34,15 @@
   }
 
   .o-layer--medium {
-    padding: $supple-space 0 0;
+    padding: $supple-space-base 0 0;
   }
 
   .o-layer--large {
-    padding: $supple-space 0 0;
+    padding: $supple-space-base 0 0;
   }
 
   .o-layer--huge {
-    padding: $supple-space*2 0 $supple-space 0;
+    padding: $supple-space-base*2 0 $supple-space-base 0;
   }
 
   .o-layer--flat {
@@ -57,11 +57,11 @@
 
   @include supple-mq(desk) {
     .o-layer--large {
-      padding: $supple-space*2 0 $supple-space*1;
+      padding: $supple-space-base*2 0 $supple-space-base*1;
     }
 
     .o-layer--huge {
-      padding: $supple-space*4 0 $supple-space*3;
+      padding: $supple-space-base*4 0 $supple-space-base*3;
     }
   }
 

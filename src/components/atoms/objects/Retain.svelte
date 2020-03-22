@@ -32,8 +32,8 @@
 
   @include supple-mq(lap) {
     .o-retain {
-      padding-left: $supple-space;
-      padding-right: $supple-space;
+      padding-left: $supple-space-base;
+      padding-right: $supple-space-base;
     }
   }
 
@@ -44,8 +44,8 @@
     }
 
     .o-retain--breakout {
-      padding-left: calc(9% - #{supple-value-to-rem($supple-space)});
-      padding-right: calc(9% - #{supple-value-to-rem($supple-space)});
+      padding-left: calc(9% - #{supple-value-to-rem($supple-space-base)});
+      padding-right: calc(9% - #{supple-value-to-rem($supple-space-base)});
     }
   }
 

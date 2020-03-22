@@ -5,14 +5,14 @@
     export let title;
     export let uri;
     export let subheading;
-    export let postDate;
+    // export let postDate;
 </script>
 
 <style type="text/scss" lang="scss">
     @import 'engine';
 
     article {
-        padding: $supple-space;
+        padding: $supple-space-base;
         height: 100%;
         position: relative;
 

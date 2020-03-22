@@ -45,7 +45,7 @@
     background-color: $white;
 
     &.is-open {
-      transform: translateX(calc(100% - #{$supple-space * 3 - $supple-space-tiny}));
+      transform: translateX(calc(100% - #{$supple-space-base * 3 - $supple-space-tiny}));
     }
   }
 
@@ -56,7 +56,7 @@
     height: 100%;
     overflow: auto;
     -webkit-overflow-scrolling: touch;
-    padding-top: $supple-space * 3;
+    padding-top: $supple-space-base * 3;
     transition: transform $base-transition-duration $base-timing-function;
 
     //@include blocss-media-query(lap) {

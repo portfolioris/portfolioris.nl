@@ -3,9 +3,9 @@
     export let stylingLevel;
     export let text;
     export let href;
-    export let className;
+    export let className = '';
     export { className as class };
-    let stylingLevelClass;
+    let stylingLevelClass = '';
 
     if (stylingLevel) {
       stylingLevelClass = `h${stylingLevel}`;
