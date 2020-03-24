@@ -1,5 +1,4 @@
 <script context="module">
-  import MPT from './[...rest].svelte';
   export async function preload({ params }) {
     const res = await this.fetch(`${params.rest}.json`);
     const data = await res.json();
@@ -13,8 +12,7 @@
 
 <script>
   import ModularPageTemplate from './_ModularPageTemplate.svelte';
-  export let title = 'not set';
-  export let section = {};
+  // let title;
   export let modules = [];
 </script>
 

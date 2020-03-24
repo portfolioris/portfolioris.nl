@@ -12,8 +12,7 @@
 
 <script>
   import ModularPageTemplate from './_ModularPageTemplate.svelte';
-  export let title = 'not set';
-  export let section = {};
+  // let title;
   export let modules = [];
 </script>
 
