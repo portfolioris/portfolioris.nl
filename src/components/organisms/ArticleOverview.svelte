@@ -11,7 +11,7 @@
     export let viewAllBlogs = false;
     // export let latest = null;
 
-    let items = [];
+    export let items = [];
 </script>
 <section>
     <Theme color="black">
@@ -30,9 +30,9 @@
                     {#each items as item}
                         <li class="o-layout__cell   u-fraction--1/2@from-lap  u-fraction--1/3@from-desk">
                             <ArticleOverviewItem
-                                title={item.attributes.title}
-                                subheading={item.attributes.subtitle}
-                                uri={item.slug}
+                                title={item.title}
+                                subheading={item.subheading}
+                                uri={item.uri}
                             />
                         </li>
                     {/each}

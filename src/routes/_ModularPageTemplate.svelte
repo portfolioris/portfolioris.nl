@@ -2,6 +2,7 @@
   import RichTextBlock from '../components/organisms/RichTextBlock.svelte';
   import ArticleOverview from '../components/organisms/ArticleOverview.svelte';
 
+  export let blogs = [];
   export let modules = [];
 </script>
 
@@ -10,6 +11,6 @@
     <RichTextBlock {...module} />
   {/if}
   {#if module.__typename  === 'ModulesBlogOverview'}
-    <ArticleOverview {...module} />
+    <ArticleOverview {...module} items={blogs} />
   {/if}
 {/each}

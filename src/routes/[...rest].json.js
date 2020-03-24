@@ -3,7 +3,7 @@ import { client } from '../apollo';
 
 const PAGES = gql`
   query ModularPage {
-    entries(section: modularPage) {
+    allPages: entries(section: modularPage) {
       uri
       title
       section {
@@ -27,6 +27,15 @@ __typename
         }
       }
     }
+    allBlogs: entries(section: [blog]) {
+      ... on Blog {
+        id
+        title
+        subheading
+        uri
+        postDate
+      }
+    }
   }
 `;
 
@@ -42,14 +51,14 @@ export async function get(req, res, next) {
   }
 
   const result = await pages;
-  const pageData = result.data.entries.find((entry) => entry.uri === uri);
+  const pageData = result.data.allPages.find((entry) => entry.uri === uri);
 
   if (pageData) {
     res.writeHead(200, {
       'Content-Type': 'application/json'
     });
 
-    res.end(JSON.stringify(pageData));
+    res.end(JSON.stringify({ ...pageData, blogs: result.data.allBlogs }));
   } else {
     res.writeHead(404, {
       'Content-Type': 'application/json'
