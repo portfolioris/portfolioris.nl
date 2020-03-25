@@ -34,6 +34,7 @@
     "postcss": "^7.0.27",
     "postcss-load-config": "^2.1.0",
     "postcss-normalize": "^8.0.1",
+    "postcss-pxtorem": "^5.1.1",
     "rollup": "^1.32.1",
     "rollup-plugin-babel": "^4.4.0",
     "rollup-plugin-commonjs": "^10.0.0",
@@ -44,7 +45,6 @@
     "sapper": "^0.27.11",
     "sass": "^1.26.3",
     "svelte": "^3.20.1",
-    "svelte-elements": "^0.4.2",
     "svelte-preprocess": "^3.5.0"
   }
 }

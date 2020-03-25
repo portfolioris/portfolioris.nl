@@ -1,14 +1,17 @@
 <script>
   import Button from '../atoms/Button.svelte';
+  import Layout from '../atoms/objects/Layout.svelte';
+  import Cell from '../atoms/objects/Cell.svelte';
 
   export let items;
   export let activePage;
 </script>
 
-<nav>
-  <ul class="o-layout  o-layout--gutter-small  o-layout--inline  u-m-b-none">
+<nav aria-labelledby="nav-primary">
+  <div class="u-visually-hidden" id="nav-primary">Primary</div>
+  <Layout element="ul" gutter="small">
       {#each items as item}
-        <li class="o-layout__cell  o-layout__cell--fit">
+        <Cell element="li" fit>
           <Button
             element="a"
             isActive="{activePage === item.menuItem[0].uri}"
@@ -16,7 +19,7 @@
             label="{item.title}"
             href="{item.menuItem[0].uri === '__home__' ? '/' : item.menuItem[0].uri}"
           />
-        </li>
+        </Cell>
       {/each}
-  </ul>
+  </Layout>
 </nav>
