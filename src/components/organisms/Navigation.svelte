@@ -73,6 +73,15 @@
     }
   }
 
+  .c-body-wrap__nav-list {
+    list-style: none;
+    margin-left: 0;
+  }
+
+  .c-body-wrap__nav-item {
+    margin-bottom: $supple-space-tiny;
+  }
+
 
 
   /*  Responsive
@@ -111,13 +120,14 @@
     id="navigation"
   >
     <Retain>
-      <ul class="o-list-bare">
+      <ul class="c-body-wrap__nav-list">
           {#each items as item}
-            <li class="u-m-b-tiny">
+            <li class="c-body-wrap__nav-item">
               <Button
                 element="a"
-                text={item.text}
-                href="{item.href}"
+                isActive="{activePage === item.menuItem[0].uri}"
+                label="{item.title}"
+                href="{item.menuItem[0].uri === '__home__' ? '/' : item.menuItem[0].uri}"
                 on:click="{() => closeMenu}"
               />
             </li>

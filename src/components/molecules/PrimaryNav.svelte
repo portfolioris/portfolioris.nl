@@ -9,7 +9,7 @@
 
 <nav aria-labelledby="nav-primary">
   <div class="u-visually-hidden" id="nav-primary">Primary</div>
-  <Layout element="ul" gutter="small">
+  <Layout element="ul" gutter="small" margin="none">
       {#each items as item}
         <Cell element="li" fit>
           <Button

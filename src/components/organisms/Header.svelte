@@ -23,7 +23,6 @@
 
   .c-header__logo {
     margin-right: $supple-space-small;
-    margin-bottom: $supple-space-base;
     width: 52px;
     height: 52px;
     display: block;
