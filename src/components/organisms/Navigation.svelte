@@ -42,7 +42,7 @@
     transition: transform $base-transition-duration $base-timing-function;
     position: relative;
     z-index: 1;
-    background-color: $white;
+    // background-color: $white;
 
     &.is-open {
       transform: translateX(calc(100% - #{$supple-space-base * 3 - $supple-space-tiny}));

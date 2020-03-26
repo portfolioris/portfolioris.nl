@@ -32,24 +32,11 @@ $mq-breakpoints: (
 $supple-fractions: 2 3 4;
 $supple-breakpoint-has-fractions: (lap, desk);
 //$supple-fractions-name-fraction: 'x' !default;
-$supple-fractions-delimiter: '\\/' !default;
+//$supple-fractions-delimiter: '\\/' !default;
 //$blocss-breakpoint-has-layout-fit: ("lap", "desk");
 //$blocss-breakpoint-has-layout-fill: ("lap", "desk");
 //$blocss-breakpoint-has-visually-hidden: ("palm", "max-lap", "lap", "desk");
-$supple-breakpoint-has-hidden: (from: desk, until: desk);
-
-$supple-spacing-properties: (
-  'p': 'padding',
-  'm': 'margin',
-);
-
-$supple-spacing-directions: (
-  null: null,
-  '-t': '-top',
-  '-r': '-right',
-  '-b': '-bottom',
-  '-l': '-left',
-) !default;
+//$supple-breakpoint-has-hidden: (from: desk, until: desk);
 
 
 
