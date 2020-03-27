@@ -43,13 +43,13 @@
           {/each}
       </Layout>
 
-        {#if viewAllBlogs}
-          <Layout align="center">
-            <Cell fit>
+        {#if viewAllBlogs.entry}
+          <Layout>
+            <Cell fit align="center">
               <p>
                 <Button
-                  href="#viewAllBlogs.entry.uri}"
-                  text="#viewAllBlogs.customText}"
+                  href={viewAllBlogs.entry.uri}
+                  label={viewAllBlogs.customText}
                 />
               </p>
             </Cell>

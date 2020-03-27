@@ -7,7 +7,7 @@
   export let label;
   export let icon = null;
   export let hideLabel = false;
-  // export let modifier;
+  export let modifier;
   export let isActive = false;
 
   // let renderElement = Button;
@@ -95,8 +95,8 @@
     line-height: 0; /* [1] */
     font-weight: 500;
     text-decoration: none;
-    background-color: $c-button--background-color;
-    color: $c-button--color;
+    background-color: $green; // $c-button--background-color;
+    color: $black; // $c-button--color;
     appearance: none;
     transition-property: color, background-color;
     transition-duration: $c-button--transition-duration;
@@ -155,6 +155,11 @@
     color: $c-button--disabled-color !important;
     cursor: not-allowed;
   }
+
+  .c-button--transparent {
+    background-color: transparent;
+    color: $white;
+  }
 </style>
 
 <a
@@ -162,6 +167,7 @@
   type={type}
   class="c-button"
   class:is-active="{isActive}"
+  class:c-button--transparent={modifier === 'transparent'}
 >
   <span class="c-button__inner">
     <span class="c-button__label" class:u-visually-hidden="{hideLabel}">

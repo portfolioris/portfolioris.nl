@@ -17,12 +17,20 @@ __typename
           ... on ModulesRichTextBlock {
             __typename
             richText
+            collapseTop
+            collapseBottom
           }
           ... on ModulesBlogOverview {
             __typename
             heading
             hideHeadingVisually
             latest
+            viewAllBlogs {
+              entry {
+                uri
+              }
+              customText
+            }
           }
         }
       }
