@@ -16,7 +16,7 @@
       collapseBottom={collapseBottom}
     >
       <Retain size="narrow">
-        <Text text={richText} type="md" />
+        <Text text={richText} />
       </Retain>
     </Layer>
   </Theme>

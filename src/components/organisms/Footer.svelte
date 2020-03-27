@@ -19,7 +19,7 @@
       <div class="u-milli">
         <div class="o-layout  o-layout--gutter-small">
           <div class="o-layout__cell  o-layout__cell--fit  u-module">
-            <Text text="© Portfolioris 2019" />
+            <p>© Portfolioris 2019</p>
           </div>
             <!--
             <div class="o-layout__cell  o-layout__cell--fit">

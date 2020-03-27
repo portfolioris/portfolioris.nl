@@ -14,7 +14,7 @@
     "compression": "^1.7.1",
     "dotenv": "^8.2.0",
     "graphql": "^14.6.0",
-    "marked": "^0.8.1",
+    "marked": "^0.8.2",
     "node-fetch": "^2.6.0",
     "polka": "^1.0.0-next.11",
     "sirv": "^0.4.0",
@@ -30,7 +30,7 @@
     "@graphql-codegen/fragment-matcher": "^1.13.1",
     "@graphql-codegen/introspection": "^1.13.1",
     "@rollup/plugin-json": "^4.0.2",
-    "autoprefixer": "^9.7.4",
+    "autoprefixer": "^9.7.5",
     "postcss": "^7.0.27",
     "postcss-load-config": "^2.1.0",
     "postcss-normalize": "^8.0.1",
@@ -45,6 +45,6 @@
     "sapper": "^0.27.11",
     "sass": "^1.26.3",
     "svelte": "^3.20.1",
-    "svelte-preprocess": "^3.5.0"
+    "svelte-preprocess": "^3.6.0"
   }
 }
