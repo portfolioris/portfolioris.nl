@@ -4,13 +4,22 @@
   import Text from '../atoms/text/Text.svelte';
 </script>
 
+<style type="text/scss" lang="scss">
+  @import "engine";
+
+  footer {
+    background-color: $white;
+    color: $black;
+  }
+</style>
+
 <footer>
-  <Layer size="small">
+  <Layer size="medium">
     <Retain>
       <div class="u-milli">
         <div class="o-layout  o-layout--gutter-small">
-          <div class="o-layout__cell  o-layout__cell--fit">
-            <Text text="© Portfolioris 2019" class="u-m-b-none" />
+          <div class="o-layout__cell  o-layout__cell--fit  u-module">
+            <Text text="© Portfolioris 2019" />
           </div>
             <!--
             <div class="o-layout__cell  o-layout__cell--fit">
