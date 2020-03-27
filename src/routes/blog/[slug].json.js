@@ -1,5 +1,15 @@
 import { gql } from 'apollo-boost';
 import { client } from '../../apollo';
+import marked from 'marked';
+import hljs from 'highlight.js';
+import css from 'highlight.js/lib/languages/css';
+
+hljs.registerLanguage('css', css);
+const renderer = new marked.Renderer();
+
+renderer.image = (input) => {
+  return '<img src="http://placehold.it/300x300" />';
+};
 
 const BLOG = gql`
   query BlogPost($uri: String!) {
@@ -50,6 +60,16 @@ export async function get(req, res, next) {
     res.writeHead(200, {
       'Content-Type': 'application/json'
     });
+
+    result.data.entry.richText = marked(
+      result.data.entry.richText,
+      {
+        renderer,
+        highlight: (code, language) => {
+          const validLanguage = hljs.getLanguage(language) ? language : 'css';
+          return hljs.highlight(validLanguage, code).value;
+        }
+      });
 
     res.end(JSON.stringify({ ...result.data }));
   } else {

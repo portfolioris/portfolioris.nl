@@ -12,7 +12,6 @@
 
 <script>
   import Navigation from '../components/organisms/Navigation.svelte';
-  // import 'highlight.js/styles/github.css';
 
   export let segment;
   export let navItems = [];

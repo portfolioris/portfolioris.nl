@@ -52,7 +52,7 @@
   </Layer>
   <Layer collapseTop>
     <Retain size="narrow">
-      <Text text={richText} />
+      {@html richText}
     </Retain>
   </Layer>
 </article>
