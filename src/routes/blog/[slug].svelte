@@ -17,6 +17,13 @@
   import Text from '../../components/atoms/text/Text.svelte';
   import DateString from '../../components/atoms/text/DateString.svelte';
 
+  import { onMount } from 'svelte';
+
+  onMount(() => {
+    console.log('the component has mounted');
+    import ('lazysizes'); // eslint-disable-line global-require
+    import ('lazysizes/plugins/rias/ls.rias'); // eslint-disable-line global-require
+  });
   export let data;
 
   const {
@@ -48,13 +55,27 @@
     }
   }
 
-  :global(.codeblock) {
+  :global(.c-codeblock) {
     background-color: $white;
     padding: $supple-space-base;
     margin-left: -$supple-space-base;
     margin-right: -$supple-space-base;
     color: $black;
     overflow: auto;
+  }
+
+  :global(figure) {
+    margin-bottom: $supple-space-base;
+
+    img {
+      display: block;
+    }
+  }
+
+  :global(figcaption) {
+    font-weight: $font-weight-bold;
+    font-size: $milli;
+    font-style: italic;
   }
 </style>
 
