@@ -47,6 +47,15 @@
       }
     }
   }
+
+  :global(.codeblock) {
+    background-color: $white;
+    padding: $supple-space-base;
+    margin-left: -$supple-space-base;
+    margin-right: -$supple-space-base;
+    color: $black;
+    overflow: auto;
+  }
 </style>
 
 <article>
