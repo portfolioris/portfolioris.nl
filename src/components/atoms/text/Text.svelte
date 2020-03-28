@@ -1,12 +1,12 @@
 <script>
   import marked from 'marked';
+
   export let text;
+  export let modifier;
 </script>
 
-<style global type="text/scss" lang="scss">
+<style type="text/scss" lang="scss">
   @import "engine";
-
-  @import "highlight.js/scss/a11y-light.scss";
 
   :global(a) {
     color: $green;
@@ -18,12 +18,22 @@
     }
   }
 
-  pre {
-    background-color: $white;
-    padding: 0.5em;
-    color: $black;
-    overflow: auto;
+  .intro {
+    font-weight: $font-weight-bold;
+  }
+
+  .byline {
+    @include supple-font-size($micro);
   }
 </style>
 
-{@html marked(text)}
+<div
+  class:intro={modifier === 'intro'}
+  class:byline={modifier === 'byline'}
+>
+    {#if text}
+        {@html marked(text)}
+    {:else}
+      <p><slot /></p>
+    {/if}
+</div>

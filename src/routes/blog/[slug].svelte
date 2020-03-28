@@ -31,28 +31,49 @@
       richText,
     },
   } = data;
-
 </script>
+
+<style type="text/scss" lang="scss">
+  @import "engine";
+
+  header {
+    margin-bottom: $supple-space-base;
+
+    > :global(*) {
+      margin-bottom: 0;
+
+      > :global(*:last-child) {
+        margin-bottom: 0;
+      }
+    }
+  }
+</style>
 
 <article>
   <Layer>
-    <header>
-      <Retain size="narrow">
+    <Retain size="narrow">
+      <header>
         <Heading
           level={1}
+          stylingLevel={0}
           text={title}
         />
         <Text
           text={subheading}
           modifier="intro"
         />
-        <p>Added by {firstName} {lastName}, <DateString date={postDate} /></p>
-      </Retain>
-    </header>
+        <Text
+          modifier="byline"
+        >
+          Added by {firstName} {lastName},
+          <DateString date={postDate} />
+        </Text>
+      </header>
+    </Retain>
   </Layer>
   <Layer collapseTop>
     <Retain size="narrow">
-      {@html richText}
+        {@html richText}
     </Retain>
   </Layer>
 </article>

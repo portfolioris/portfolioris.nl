@@ -67,7 +67,7 @@ export async function get(req, res, next) {
         renderer,
         highlight: (code, language) => {
           const validLanguage = hljs.getLanguage(language) ? language : 'css';
-          return hljs.highlight(validLanguage, code).value;
+          return `<div class="codeblock">${hljs.highlight(validLanguage, code).value}</div>`;
         }
       });
 
