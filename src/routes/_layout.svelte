@@ -15,11 +15,17 @@
 
   export let segment;
   export let navItems = [];
+  export let globals;
+
+  import { globalsStore } from './stores.js';
+  globalsStore.set(globals);
 </script>
 
 <style global lang="scss">
   @import "../sass/leading.scss";
 </style>
+
+
 
 <Navigation items="{navItems}" activePage="{segment}">
   <slot></slot>

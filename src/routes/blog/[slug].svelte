@@ -55,28 +55,28 @@
     }
   }
 
-  :global(.c-codeblock) {
-    background-color: $white;
-    padding: $supple-space-base;
-    margin-left: -$supple-space-base;
-    margin-right: -$supple-space-base;
-    color: $black;
-    overflow: auto;
-  }
+  article {
+    :global(.c-codeblock) {
+      background-color: $white;
+      padding: $supple-space-base;
+      margin-left: -$supple-space-base;
+      margin-right: -$supple-space-base;
+      color: $black;
+      overflow: auto;
+    }
 
-  :global(figure) {
-    margin-bottom: $supple-space-base;
+    :global(figure) {
+      margin-bottom: $supple-space-base;
+    }
 
-    img {
-      display: block;
+    :global(figcaption) {
+      font-weight: $font-weight-bold;
+      font-size: $milli;
+      font-style: italic;
     }
   }
 
-  :global(figcaption) {
-    font-weight: $font-weight-bold;
-    font-size: $milli;
-    font-style: italic;
-  }
+
 </style>
 
 <article>

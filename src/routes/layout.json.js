@@ -10,6 +10,13 @@ const MAIN_NAV = gql`{
       }
     }
   }
+  globals {
+    settings {
+      siteName
+      siteLanguage
+      twitterHandle
+    }
+  }
 }`;
 
 const pages = client.query({ query: MAIN_NAV });
