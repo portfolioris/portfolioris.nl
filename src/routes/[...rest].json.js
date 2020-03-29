@@ -44,6 +44,13 @@ __typename
         postDate
       }
     }
+    globals {
+      settings {
+        siteName
+        siteLanguage
+        twitterHandle
+      }
+    }
   }
 `;
 
@@ -66,7 +73,7 @@ export async function get(req, res, next) {
       'Content-Type': 'application/json'
     });
 
-    res.end(JSON.stringify({ ...pageData, blogs: result.data.allBlogs }));
+    res.end(JSON.stringify({ ...pageData, blogs: result.data.allBlogs, globals: result.data.globals }));
   } else {
     res.writeHead(404, {
       'Content-Type': 'application/json'

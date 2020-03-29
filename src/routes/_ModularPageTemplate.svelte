@@ -5,17 +5,17 @@
   export let blogs = [];
   export let modules = [];
   export let title;
+  export let globals;
 
-  let settings;
-
-  import { globalsStore } from './stores.js';
-  globalsStore.subscribe(val => {
-    settings = (val.settings);
-  });
+  const {
+    settings: {
+      siteName,
+    }
+  } = globals;
 </script>
 
 <svelte:head>
-  <title>{title} • {settings.siteName}</title>
+  <title>{title} • {siteName}</title>
 </svelte:head>
 
 {#each modules as module}

@@ -37,6 +37,11 @@
       postDate,
       richText,
     },
+    globals: {
+      settings: {
+        siteName,
+      },
+    },
   } = data;
 </script>
 
@@ -78,6 +83,10 @@
 
 
 </style>
+
+<svelte:head>
+  <title>{title} • {siteName}</title>
+</svelte:head>
 
 <article>
   <Layer>
