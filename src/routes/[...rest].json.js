@@ -12,8 +12,9 @@ const PAGES = gql`
       __typename
       ... on ModularPage {
         __typename
+        description
         modules {
-__typename
+          __typename
           ... on ModulesRichTextBlock {
             __typename
             richText
@@ -70,17 +71,21 @@ export async function get(req, res, next) {
 
   if (pageData) {
     res.writeHead(200, {
-      'Content-Type': 'application/json'
-    });
-
-    res.end(JSON.stringify({ ...pageData, blogs: result.data.allBlogs, globals: result.data.globals }));
-  } else {
-    res.writeHead(404, {
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
     });
 
     res.end(JSON.stringify({
-      message: `Not found in lookup`
+      ...pageData,
+      blogs: result.data.allBlogs,
+      globals: result.data.globals,
+    }));
+  } else {
+    res.writeHead(404, {
+      'Content-Type': 'application/json',
+    });
+
+    res.end(JSON.stringify({
+      message: `Not found in lookup`,
     }));
   }
 }

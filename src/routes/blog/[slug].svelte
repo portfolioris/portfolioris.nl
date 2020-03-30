@@ -29,6 +29,7 @@
   const {
     entry: {
       title,
+      description,
       subheading,
       author: {
         firstName,
@@ -40,6 +41,7 @@
     globals: {
       settings: {
         siteName,
+        twitterHandle,
       },
     },
   } = data;
@@ -80,12 +82,12 @@
       font-style: italic;
     }
   }
-
-
 </style>
 
 <svelte:head>
   <title>{title} • {siteName}</title>
+  <meta name="description" content={description}>
+  <meta name="twitter:site" content={twitterHandle}>
 </svelte:head>
 
 <article>

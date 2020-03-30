@@ -21,6 +21,10 @@
   @import "../sass/leading.scss";
 </style>
 
+<svelte:head>
+  <meta name="twitter:card" content="summary">
+</svelte:head>
+
 <Navigation items="{navItems}" activePage="{segment}">
   <slot></slot>
 </Navigation>
