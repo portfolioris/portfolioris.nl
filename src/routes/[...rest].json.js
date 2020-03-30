@@ -6,8 +6,11 @@ const PAGES = gql`
     allPages: entries(section: modularPage) {
       uri
       title
-      section {
-        handle
+      level
+      ancestors {
+        title
+        level
+        uri
       }
       __typename
       ... on ModularPage {
@@ -50,6 +53,7 @@ const PAGES = gql`
         siteName
         siteLanguage
         twitterHandle
+        domain
       }
     }
   }

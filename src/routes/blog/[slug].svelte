@@ -48,7 +48,7 @@
     },
   } = data;
 
-  const schema = {
+  const schema = [{ // todo: add breadcrumb levels for nested pages
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [{
@@ -62,7 +62,12 @@
       "name": title,
       "item": `${domain}/${uri}`
     }]
-  };
+  },{
+    '@context': 'http://schema.org',
+    '@type': 'WebSite',
+    url: domain,
+    name: siteName,
+  }];
 </script>
 
 <style type="text/scss" lang="scss">
