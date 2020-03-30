@@ -31,6 +31,7 @@
       title,
       description,
       subheading,
+      uri,
       author: {
         firstName,
         lastName,
@@ -42,9 +43,26 @@
       settings: {
         siteName,
         twitterHandle,
+        domain,
       },
     },
   } = data;
+
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Blog",
+      "item": `${domain}/blog`
+    },{
+      "@type": "ListItem",
+      "position": 2,
+      "name": title,
+      "item": `${domain}/${uri}`
+    }]
+  };
 </script>
 
 <style type="text/scss" lang="scss">
@@ -88,6 +106,8 @@
   <title>{title} • {siteName}</title>
   <meta name="description" content={description}>
   <meta name="twitter:site" content={twitterHandle}>
+
+  {@html `<script type="application/ld+json">${JSON.stringify(schema)}</script>`}
 </svelte:head>
 
 <article>

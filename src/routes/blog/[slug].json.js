@@ -33,6 +33,7 @@ const BLOG = gql`
     entry(uri: $uri) {
       id
       title
+      uri
       ... on Blog {
         title
         subheading

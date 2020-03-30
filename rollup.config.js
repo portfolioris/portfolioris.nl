@@ -25,7 +25,9 @@ const preprocess = sveltePreprocess({
 		includePaths: ['src/sass', 'node_modules']
 	},
 	postcss: true,
-	// ...
+	preserve: [
+		'ld+json',
+	],
 });
 
 export default {
