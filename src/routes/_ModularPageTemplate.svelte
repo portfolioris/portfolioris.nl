@@ -25,7 +25,7 @@
       "@type": "ListItem",
       "position": level,
       "name": title,
-      "item": `${domain}/${uri}`
+      "item": `${domain}/${uri !== '__home__' ? uri : ''}`
     }]
   },{
     '@context': 'http://schema.org',
