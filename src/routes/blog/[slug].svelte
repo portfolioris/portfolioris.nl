@@ -20,9 +20,8 @@
   import { onMount } from 'svelte';
 
   onMount(() => {
-    console.log('the component has mounted');
-    import ('lazysizes'); // eslint-disable-line global-require
-    import ('lazysizes/plugins/rias/ls.rias'); // eslint-disable-line global-require
+    import ('lazysizes');
+    import ('lazysizes/plugins/rias/ls.rias');
   });
   export let data;
 
