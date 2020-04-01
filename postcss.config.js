@@ -4,7 +4,7 @@ module.exports = {
       grid: true,
     },
     'postcss-normalize': {},
-  //   'postcss-object-fit-images': {},
+    // 'postcss-object-fit-images': {},
     'postcss-pxtorem': {
       propList: ['*'],
       minPixelValue: 4,

@@ -1,9 +1,9 @@
 import { gql } from 'apollo-boost';
-import { client } from '../../apollo';
 import marked from 'marked';
 import hljs from 'highlight.js';
 import css from 'highlight.js/lib/languages/css';
 import Figure from '../../components/molecules/Figure.svelte';
+import { client } from '../../apollo';
 
 hljs.registerLanguage('css', css);
 const renderer = new marked.Renderer();

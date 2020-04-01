@@ -1,28 +1,29 @@
-import { ApolloClient, HttpLink, InMemoryCache, IntrospectionFragmentMatcher
+import {
+  ApolloClient, HttpLink, InMemoryCache, IntrospectionFragmentMatcher,
 } from 'apollo-boost';
 import fetch from 'node-fetch';
-import introspectionQueryResultData from './../graphql.schema';
+import introspectionQueryResultData from '../graphql.schema.json';
 
 const link = new HttpLink({
   uri: `${process.env.CRAFT_API_URL}`,
   headers: {
     'Content-type': 'application/json',
-    'Authorization': process.env.CRAFT_API_TOKEN,
+    Authorization: process.env.CRAFT_API_TOKEN,
   },
   fetch,
 });
 
 const fragmentMatcher = new IntrospectionFragmentMatcher({
-  introspectionQueryResultData
+  introspectionQueryResultData,
 });
 
 const cache = new InMemoryCache({
-  fragmentMatcher
+  fragmentMatcher,
 });
 
 const client = new ApolloClient({
   cache,
-  link
+  link,
 });
 
 export { client };

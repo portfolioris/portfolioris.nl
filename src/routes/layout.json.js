@@ -14,22 +14,22 @@ const MAIN_NAV = gql`{
 
 const pages = client.query({ query: MAIN_NAV });
 
-export async function get(req, res, next) {
+export async function get(req, res) {
   const result = await pages;
 
   if (result) {
     res.writeHead(200, {
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
     });
 
     res.end(JSON.stringify(result.data));
   } else {
     res.writeHead(404, {
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
     });
 
     res.end(JSON.stringify({
-      message: `Not found nav`
+      message: 'Not found nav',
     }));
   }
 }
