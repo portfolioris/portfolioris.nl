@@ -37,7 +37,7 @@
                 title={item.title}
                 subheading={item.subheading}
                 uri={item.uri}
-                postDate={item.postDate}
+                postDate={item.postDate * 1000}
               />
             </Cell>
           {/each}

@@ -1,5 +1,6 @@
 import { gql } from 'apollo-boost';
 import { client } from '../apollo';
+import getMoviesFromApi from './getMoviesFromApi';
 
 const PAGES = gql`
   query ModularPage {
@@ -17,6 +18,7 @@ const PAGES = gql`
         __typename
         description
         modules {
+          __typename
           typename: __typename
           ... on ModulesRichTextBlock {
             __typename
@@ -35,6 +37,12 @@ const PAGES = gql`
               }
               customText
             }
+          }
+          ... on ModulesMovies {
+            __typename
+            heading
+            richText
+            linktoletterboxd
           }
         }
       }
@@ -67,7 +75,7 @@ const BLOGS = gql`
 const pagesQuery = client.query({ query: PAGES });
 const blogsQuery = client.query({ query: BLOGS });
 
-export async function get(req, res, next) {
+export async function get(req, res) {
   let uri = '__home__'; // craft's home uri
 
   // if not root
@@ -83,6 +91,10 @@ export async function get(req, res, next) {
     if (pageData.modules.some((module) => module.typename === 'ModulesBlogOverview')) {
       const blogs = await blogsQuery;
       pageData.blogs = blogs.data.allBlogs;
+    }
+
+    if (pageData.modules.some((module) => module.typename === 'ModulesMovies')) {
+      pageData.movies = await getMoviesFromApi();
     }
 
     res.writeHead(200, {

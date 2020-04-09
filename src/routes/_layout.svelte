@@ -1,6 +1,6 @@
 <script context="module">
   export async function preload() {
-    const res = await this.fetch('layout.json');
+    const res = await this.fetch('nav.json');
     const data = await res.json();
     if (res.status === 200) {
       return data;

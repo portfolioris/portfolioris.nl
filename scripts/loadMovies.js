@@ -10,14 +10,14 @@ const parser = new Parser({
   },
 });
 
-(async () => {
-  await parser.parseURL('https://letterboxd.com/portfolioris/rss/', (err, feed) => {
-    feed.items.sort((a, b) => {
-      return new Date(b.watchedDate) - new Date(a.watchedDate);
-    });
+const getMovies = (async () => {
+  const feed = await parser.parseURL('https://letterboxd.com/portfolioris/rss/');
 
-    feed.items.forEach((item) => {
-      console.log(`${item.filmTitle}: ${item.watchedDate}`);
-    });
+  feed.items.sort((a, b) => {
+    return new Date(b.watchedDate) - new Date(a.watchedDate);
   });
-})();
+
+  return feed;
+});
+
+export default getMovies;

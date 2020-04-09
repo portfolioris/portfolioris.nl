@@ -131,7 +131,7 @@
           modifier="byline"
         >
           Added by {firstName} {lastName},
-          <DateString date={postDate} />
+          <DateString date={postDate * 1000} />
         </Text>
       </header>
     </Retain>

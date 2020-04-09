@@ -1,8 +1,10 @@
 <script>
   import RichTextBlock from '../components/organisms/RichTextBlock.svelte';
   import ArticleOverview from '../components/organisms/ArticleOverview.svelte';
+  import LatestMovies from '../components/organisms/LatestMovies.svelte';
 
   export let blogs = [];
+  export let movies = [];
   export let modules = [];
   export let title;
   export let description;
@@ -15,19 +17,19 @@
       siteName,
       twitterHandle,
       domain,
-    }
+    },
   } = globals;
 
   const schema = [{
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [{
-      "@type": "ListItem",
-      "position": level,
-      "name": title,
-      "item": `${domain}/${uri !== '__home__' ? uri : ''}`
-    }]
-  },{
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    'itemListElement': [{
+      '@type': 'ListItem',
+      'position': level,
+      'name': title,
+      'item': `${domain}/${uri !== '__home__' ? uri : ''}`,
+    }],
+  }, {
     '@context': 'http://schema.org',
     '@type': 'WebSite',
     url: domain,
@@ -48,5 +50,8 @@
   {/if}
   {#if module.__typename  === 'ModulesBlogOverview'}
     <ArticleOverview {...module} items={blogs} />
+  {/if}
+  {#if module.__typename  === 'ModulesMovies'}
+    <LatestMovies {...module} items={movies} />
   {/if}
 {/each}
