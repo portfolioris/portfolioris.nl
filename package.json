@@ -7,7 +7,8 @@
     "build": "npm run codegen && sapper build",
     "export": "npm run codegen && sapper export",
     "start": "node __sapper__/build",
-    "codegen": "graphql-codegen --config codegen.yml -r dotenv/config"
+    "codegen": "graphql-codegen --config codegen.yml -r dotenv/config",
+    "movies": "node scripts/loadMovies.js"
   },
   "dependencies": {
     "apollo-boost": "^0.4.7",
@@ -36,6 +37,7 @@
     "babel-eslint": "^10.1.0",
     "eslint": "^6.8.0",
     "eslint-config-airbnb-base": "^14.1.0",
+    "eslint-plugin-import": "^2.20.2",
     "eslint-plugin-svelte3": "^2.7.3",
     "postcss": "^7.0.27",
     "postcss-load-config": "^2.1.0",
@@ -48,6 +50,7 @@
     "rollup-plugin-replace": "^2.0.0",
     "rollup-plugin-svelte": "^5.2.0",
     "rollup-plugin-terser": "^5.3.0",
+    "rss-parser": "^3.7.6",
     "sapper": "^0.27.11",
     "sass": "^1.26.3",
     "svelte": "^3.20.1",

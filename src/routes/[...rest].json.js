@@ -17,7 +17,7 @@ const PAGES = gql`
         __typename
         description
         modules {
-          __typename
+          typename: __typename
           ... on ModulesRichTextBlock {
             __typename
             richText
@@ -39,15 +39,6 @@ const PAGES = gql`
         }
       }
     }
-    allBlogs: entries(section: [blog]) {
-      ... on Blog {
-        id
-        title
-        subheading
-        uri
-        postDate
-      }
-    }
     globals {
       settings {
         siteName
@@ -59,7 +50,22 @@ const PAGES = gql`
   }
 `;
 
-const pages = client.query({ query: PAGES });
+const BLOGS = gql`
+  {
+    allBlogs: entries(section: [blog]) {
+      ... on Blog {
+        id
+        title
+        subheading
+        uri
+        postDate
+      }
+    }
+  }
+`;
+
+const pagesQuery = client.query({ query: PAGES });
+const blogsQuery = client.query({ query: BLOGS });
 
 export async function get(req, res, next) {
   let uri = '__home__'; // craft's home uri
@@ -70,17 +76,21 @@ export async function get(req, res, next) {
     uri = req.params.rest.join('/');
   }
 
-  const result = await pages;
+  const result = await pagesQuery;
   const pageData = result.data.allPages.find((entry) => entry.uri === uri);
 
   if (pageData) {
+    if (pageData.modules.some((module) => module.typename === 'ModulesBlogOverview')) {
+      const blogs = await blogsQuery;
+      pageData.blogs = blogs.data.allBlogs;
+    }
+
     res.writeHead(200, {
       'Content-Type': 'application/json',
     });
 
     res.end(JSON.stringify({
       ...pageData,
-      blogs: result.data.allBlogs,
       globals: result.data.globals,
     }));
   } else {
@@ -89,7 +99,7 @@ export async function get(req, res, next) {
     });
 
     res.end(JSON.stringify({
-      message: `Not found in lookup`,
+      message: 'Not found in lookup',
     }));
   }
 }
