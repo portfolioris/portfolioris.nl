@@ -31,13 +31,13 @@
               {#each items as item}
                 <tr>
                   <td>
-                    {item.filmTitle} ({item.filmYear})
+                    <a href="https://www.themoviedb.org/movie/{item.id}">{item.title}</a> (<DateString date={item.release_date} as="year" />)
                   </td>
                   <td>
-                    <DateString date={item.watchedDate} />
+                    <DateString date={item.account_rating.created_at} />
                   </td>
                   <td>
-                    {item.rating * 2} <small>/ 10</small>
+                    {item.account_rating.value} <small>/ 10</small>
                   </td>
                 </tr>
               {/each}

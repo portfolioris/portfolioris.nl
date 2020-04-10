@@ -1,8 +1,11 @@
 <script>
   export let date;
-  // const dateObj = new Date(date * 1000);
+  export let as;
   const dateObj = new Date(date);
-  const options = { year: 'numeric', month: 'long', day: 'numeric' };
+  let options = { year: 'numeric', month: 'long', day: 'numeric' };
+  if (as === 'year') {
+    options = { year: 'numeric' };
+  }
   const format = new Intl.DateTimeFormat('en', options);
   const dateString = format.format(dateObj);
 </script>

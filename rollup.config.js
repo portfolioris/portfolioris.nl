@@ -17,7 +17,7 @@ const onwarn = (warning, onwarn) => (warning.code === 'CIRCULAR_DEPENDENCY' && /
 const dedupe = importee => importee === 'svelte' || importee.startsWith('svelte/');
 
 require('dotenv').config({
-	path: `.env.${process.env.NODE_ENV}`,
+	path: '.env',
 });
 
 const preprocess = sveltePreprocess({

@@ -1,23 +1,18 @@
-// import Parser from 'rss-parser';
-const Parser = require('rss-parser');
+const fetch = require('node-fetch');
+
+require('dotenv').config({
+  path: `.env.${process.env.NODE_ENV}`,
+});
 
 const getMoviesFromApi = (async () => {
-  const parser = new Parser({
-    customFields: {
-      item: [
-        ['letterboxd:filmTitle', 'filmTitle'],
-        ['letterboxd:memberRating', 'rating'],
-        ['letterboxd:watchedDate', 'watchedDate'],
-        ['letterboxd:filmYear', 'filmYear'],
-      ],
+  const response = await fetch(process.env.TMDB_API_URL, {
+    headers: {
+      Authorization: process.env.TMDB_API_TOKEN,
     },
   });
-  const feed = await parser.parseURL('https://letterboxd.com/portfolioris/rss/');
-  feed.items.sort((a, b) => {
-    return new Date(b.watchedDate) - new Date(a.watchedDate);
-  });
 
-  return feed.items;
+  const result = await response.json();
+  return result.results;
 });
 
 export default getMoviesFromApi;

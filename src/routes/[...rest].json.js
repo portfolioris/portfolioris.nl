@@ -40,9 +40,7 @@ const PAGES = gql`
           }
           ... on ModulesMovies {
             __typename
-            heading
             richText
-            linktoletterboxd
           }
         }
       }
