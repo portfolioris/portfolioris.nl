@@ -38,6 +38,8 @@
   }
 
   .c-menu-toggle__icon {
+    height: 1em;
+    width: 1em;
     overflow: visible;
   }
 

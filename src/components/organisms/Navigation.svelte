@@ -18,7 +18,8 @@
     menuIsOpen = false;
   }
 
-  function handleToggleMenu() {
+  function handleToggleMenu(e) {
+    e.preventDefault();
     menuIsOpen = !menuIsOpen;
   }
 </script>
