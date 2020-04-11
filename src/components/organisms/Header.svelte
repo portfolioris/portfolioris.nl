@@ -23,9 +23,19 @@
 
   .c-header__logo {
     margin-right: $supple-space-small;
-    width: 52px;
-    height: 52px;
     display: block;
+
+    img {
+      width: 52px;
+      height: 52px;
+      display: block;
+    }
+
+    #{$global-interaction-states} {
+      img {
+        filter: drop-shadow(0 0 $supple-space-small $white);
+      }
+    }
   }
 
   .c-header__primary-nav {
@@ -43,15 +53,14 @@
   }
 </style>
 
-<header>
+<header id="main-nav">
   <Layer size="flat">
     <Retain size="full">
       <div class="c-header">
         <Layout align="middle">
           <Cell fit>
-            <a href="/">
-              <img src="/assets/img/logo--portfolioris-small.svg" alt="Portfolioris"
-                   class="c-header__logo" />
+            <a href="/" class="c-header__logo">
+              <img src="/assets/img/logo--portfolioris-small.svg" alt="Portfolioris" />
             </a>
           </Cell>
           <Cell fit align="center">

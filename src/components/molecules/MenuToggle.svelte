@@ -8,13 +8,16 @@
 
   .c-menu-toggle {
     padding: $supple-space-tiny;
-    width: 32px;
+    width: 40px;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-decoration: none;
     color: $white;
     line-height: 1;
+    border-radius: 50%;
+    transition: $base-transition-duration $base-timing-function;
+    transition-property: color, background-color;
 
     &.is-open {
       text-decoration: none;
@@ -32,8 +35,14 @@
       }
     }
 
-    #{$global-interaction-states} {
-      color: $white;
+    &:focus-visible {
+      color: $black;
+      background-color: $white;
+    }
+
+    &:-moz-focusring {
+      color: $black;
+      background-color: $white;
     }
   }
 

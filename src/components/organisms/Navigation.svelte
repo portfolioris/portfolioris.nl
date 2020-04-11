@@ -35,6 +35,16 @@
     margin: auto;
   }
 
+  :global(.c-body__skip-link) {
+    position: absolute;
+    z-index: 1;
+    transform: translateX(-100%);
+  }
+
+  :global(.c-body__skip-link:focus) {
+    transform: none;
+  }
+
   .c-body-wrap {
     overflow: hidden;
   }
@@ -43,7 +53,6 @@
     transition: transform $base-transition-duration $base-timing-function;
     position: relative;
     z-index: 1;
-    // background-color: $white;
 
     &.is-open {
       transform: translateX(calc(100% - #{$supple-space-base * 3 - $supple-space-tiny}));
@@ -60,12 +69,9 @@
     padding-top: $supple-space-base * 3;
     transition: transform $base-transition-duration $base-timing-function;
 
-    //@include blocss-media-query(lap) {
-    //  padding-top: $blocss-space * 4;
-    //}
-
     &.is-loaded {
       position: absolute;
+      z-index: -1;
       transform: translateX(-50%);
     }
 
@@ -96,6 +102,20 @@
 
 </style>
 
+<Button
+  href="#main-nav"
+  label="Jump to main navigation"
+  class="c-body__skip-link"
+/>
+
+<Button
+  href="#main"
+  label="Jump to content"
+  class="c-body__skip-link"
+/>
+
+
+
 <div class="c-body-wrap">
   <div class="c-body-wrap__header">
     <Header
@@ -109,7 +129,7 @@
     class="c-body-wrap__main"
     class:is-open={menuIsOpen}
   >
-    <main>
+    <main id="main">
       <slot />
     </main>
     <Footer />

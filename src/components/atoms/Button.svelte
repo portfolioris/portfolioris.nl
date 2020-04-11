@@ -11,15 +11,8 @@
   export let isActive = false;
   export let onClick;
 
-  // let renderElement = Button;
-  //
-  // if (element === 'a') {
-  //   renderElement = A;
-  // }
-  //
-  // if (element === 'span') {
-  //   renderElement = Span;
-  // }
+  let className = '';
+  export { className as class };
 </script>
 
 <style lang="scss" type="text/scss">
@@ -166,7 +159,7 @@
 <a
   href={href}
   type={type}
-  class="c-button"
+  class="c-button  {className}"
   class:is-active="{isActive}"
   class:c-button--transparent={modifier === 'transparent'}
   on:click={onClick}
