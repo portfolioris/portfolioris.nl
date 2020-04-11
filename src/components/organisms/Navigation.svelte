@@ -110,7 +110,7 @@
     class:is-open={menuIsOpen}
   >
     <main>
-      <slot></slot>
+      <slot />
     </main>
     <Footer />
   </div>
@@ -129,7 +129,7 @@
                 isActive="{activePage === item.menuItem[0].uri}"
                 label="{item.title}"
                 href="{item.menuItem[0].uri === '__home__' ? '/' : item.menuItem[0].uri}"
-                on:click="{() => closeMenu}"
+                onClick={closeMenu}
               />
             </li>
           {/each}

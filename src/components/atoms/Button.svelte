@@ -9,6 +9,7 @@
   export let hideLabel = false;
   export let modifier;
   export let isActive = false;
+  export let onClick;
 
   // let renderElement = Button;
   //
@@ -168,6 +169,7 @@
   class="c-button"
   class:is-active="{isActive}"
   class:c-button--transparent={modifier === 'transparent'}
+  on:click={onClick}
 >
   <span class="c-button__inner">
     <span class="c-button__label" class:u-visually-hidden="{hideLabel}">
