@@ -1,6 +1,6 @@
 import { gql } from 'apollo-boost';
 import { client } from '../apollo';
-import getMoviesFromApi from './getMoviesFromApi';
+import { getBooks, getMovies } from './getDataFromApi';
 
 const PAGES = gql`
   query ModularPage {
@@ -92,7 +92,11 @@ export async function get(req, res) {
     }
 
     if (pageData.modules.some((module) => module.typename === 'ModulesMovies')) {
-      pageData.movies = await getMoviesFromApi();
+      pageData.movies = await getMovies();
+    }
+
+    if (pageData.modules.some((module) => module.typename === 'ModulesBooks')) {
+      pageData.books = await getBooks();
     }
 
     res.writeHead(200, {

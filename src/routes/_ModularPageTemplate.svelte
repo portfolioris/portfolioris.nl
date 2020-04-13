@@ -2,9 +2,11 @@
   import RichTextBlock from '../components/organisms/RichTextBlock.svelte';
   import ArticleOverview from '../components/organisms/ArticleOverview.svelte';
   import LatestMovies from '../components/organisms/LatestMovies.svelte';
+  import LatestBooks from '../components/organisms/LatestBooks.svelte';
 
   export let blogs = [];
   export let movies = [];
+  export let books = [];
   export let modules = [];
   export let title;
   export let description;
@@ -53,5 +55,8 @@
   {/if}
   {#if module.__typename  === 'ModulesMovies'}
     <LatestMovies {...module} items={movies} />
+  {/if}
+  {#if module.__typename  === 'ModulesBooks'}
+    <LatestBooks {...module} items={books} />
   {/if}
 {/each}

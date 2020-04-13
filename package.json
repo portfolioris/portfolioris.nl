@@ -51,6 +51,7 @@
     "sapper": "^0.27.12",
     "sass": "^1.26.3",
     "svelte": "^3.20.1",
-    "svelte-preprocess": "^3.7.1"
+    "svelte-preprocess": "^3.7.1",
+    "xml2js": "^0.4.23"
   }
 }
