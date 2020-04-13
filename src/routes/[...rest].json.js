@@ -74,15 +74,7 @@ const pagesQuery = client.query({ query: PAGES });
 const blogsQuery = client.query({ query: BLOGS });
 
 export async function get(req, res) {
-  let uri = '__home__'; // craft's home uri
-
-  // if not root
-  if (req.params.rest[0] !== 'undefined') {
-    // create uri to match
-    uri = req.params.rest.join('/');
-  }
-
-
+  const uri = req.params.rest.join('/');
   const result = await pagesQuery;
   const pageData = result.data.allPages.find((entry) => entry.uri === uri);
 
