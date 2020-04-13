@@ -82,6 +82,7 @@ export async function get(req, res) {
     uri = req.params.rest.join('/');
   }
 
+
   const result = await pagesQuery;
   const pageData = result.data.allPages.find((entry) => entry.uri === uri);
 

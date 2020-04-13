@@ -36,7 +36,7 @@
               <ArticleOverviewItem
                 title={item.title}
                 subheading={item.subheading}
-                uri={item.uri}
+                uri="{item.uri}/"
                 postDate={item.postDate * 1000}
               />
             </Cell>
@@ -48,7 +48,7 @@
             <Cell fit align="center">
               <p>
                 <Button
-                  href={viewAllBlogs.entry.uri}
+                  href="{viewAllBlogs.entry.uri}/"
                   label={viewAllBlogs.customText}
                 />
               </p>

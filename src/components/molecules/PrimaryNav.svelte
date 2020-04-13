@@ -17,7 +17,7 @@
             isActive="{activePage === item.menuItem[0].uri}"
             modifier="transparent"
             label="{item.title}"
-            href="{item.menuItem[0].uri === '__home__' ? '/' : item.menuItem[0].uri}"
+            href="{item.menuItem[0].uri === '__home__' ? '' : item.menuItem[0].uri}/"
           />
         </Cell>
       {/each}

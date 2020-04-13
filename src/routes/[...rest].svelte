@@ -1,5 +1,6 @@
 <script context="module">
   export async function preload({ params }) {
+    params.rest.pop();
     const res = await this.fetch(`${params.rest}.json`);
     const data = await res.json();
     if (res.status === 200) {

@@ -49,6 +49,11 @@
     overflow: hidden;
   }
 
+  .c-body-wrap__header {
+    position: relative;
+    z-index: 1;
+  }
+
   .c-body-wrap__main {
     transition: transform $base-transition-duration $base-timing-function;
     position: relative;
@@ -71,7 +76,6 @@
 
     &.is-loaded {
       position: absolute;
-      z-index: -1;
       transform: translateX(-50%);
     }
 
@@ -148,7 +152,7 @@
                 element="a"
                 isActive="{activePage === item.menuItem[0].uri}"
                 label="{item.title}"
-                href="{item.menuItem[0].uri === '__home__' ? '/' : item.menuItem[0].uri}"
+                href="{item.menuItem[0].uri === '__home__' ? '' : item.menuItem[0].uri}/"
                 onClick={closeMenu}
               />
             </li>
