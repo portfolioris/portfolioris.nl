@@ -42,6 +42,10 @@ const PAGES = gql`
             __typename
             richText
           }
+          ... on ModulesBooks {
+            __typename
+            richText
+          }
         }
       }
     }

@@ -29,11 +29,12 @@
       width: 52px;
       height: 52px;
       display: block;
+      transition: filter $base-transition-duration-short $base-timing-function;
     }
 
     #{$global-interaction-states} {
       img {
-        filter: drop-shadow(0 0 $supple-space-small $white);
+        filter: drop-shadow(0 0 $supple-space-tiny $white);
       }
     }
   }

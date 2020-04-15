@@ -3,7 +3,6 @@
   import Layer from '../atoms/objects/Layer.svelte';
   import Retain from '../atoms/objects/Retain.svelte';
   import Text from '../atoms/text/Text.svelte';
-  import DateString from '../atoms/text/DateString.svelte';
 
   export let collapseTop = false;
   export let collapseBottom = false;

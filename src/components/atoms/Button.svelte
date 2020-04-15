@@ -1,71 +1,19 @@
 <script>
-  // import { A, Button, Span } from 'svelte-elements';
-
-  // export let element = 'button';
   export let href = undefined;
   export let type = undefined;
   export let label;
   export let icon = null;
   export let hideLabel = false;
-  export let modifier;
+  export let modifier = '';
   export let isActive = false;
-  export let onClick;
+  export let onClick = null;
 
   let className = '';
   export { className as class };
 </script>
 
 <style lang="scss" type="text/scss">
-  /*  =========================================================================
-    Foundation.Atoms.Button
-    ========================================================================= */
-  /*  Imports
-      ========================================================================= */
   @import "engine";
-
-
-
-  /*  Variables
-      ========================================================================= */
-
-  // Config switches
-  $c-button--transition-duration: $base-transition-duration-short !default;
-
-  $c-button--states: "&:hover, &:active, &:focus, &.is-active" !default;
-
-  $c-button--space: $supple-space-base !default;
-
-
-  // Default settings
-  $c-button--space-vertical: $supple-space-small !default;
-  $c-button--space-horizontal: $supple-space-small !default;
-  $c-button--icon-offset: $c-button--space !default;
-  $c-button--icon-animation-offset: 10px !default;
-
-  $c-button--color: $white !default;
-  $c-button--background-color: $black !default;
-
-
-  // variants
-  $c-button--active-background-color: $green !default;
-
-  $c-button--secondary-color: $gray-light !default;
-  $c-button--secondary-active-color: $gray-light !default;
-
-  $c-button--disabled-color: $gray-light !default;
-  $c-button--disabled-background-color: $gray-light !default;
-
-
-
-  @keyframes rotate {
-    from {
-      transform: rotate(0deg);
-    }
-
-    to {
-      transform: rotate(360deg);
-    }
-  }
 
 
 
@@ -93,7 +41,7 @@
     color: $black; // $c-button--color;
     appearance: none;
     transition-property: color, background-color;
-    transition-duration: $c-button--transition-duration;
+    transition-duration: $base-transition-duration-short;
     transition-timing-function: linear;
     cursor: pointer;
 
@@ -101,8 +49,8 @@
     &:active,
     &:focus,
     &.is-active {
-      background-color: $c-button--active-background-color;
-      color: $c-button--color;
+      background-color: $green;
+      color: $white;
       text-decoration: none;
       outline: none;
     }
@@ -124,30 +72,8 @@
 
   .c-button__label {
     display: flex;
-    padding-top: $c-button--space-vertical; /* [2] */
-    padding-bottom: $c-button--space-vertical; /* [2] */
-    padding-right: $c-button--space-horizontal; /* [2] */
-    padding-left: $c-button--space-horizontal; /* [2] */
+    padding: $supple-space-small;
     line-height: 1;
-  }
-
-  .c-button__wrap-icon {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    transition: transform $c-button--transition-duration $base-timing-function;
-    background-color: $green;
-    padding-top: $c-button--space-vertical; /* [2] */
-    padding-bottom: $c-button--space-vertical; /* [2] */
-    padding-right: $c-button--space-horizontal; /* [2] */
-    padding-left: $c-button--space-horizontal; /* [2] */
-    line-height: 1;
-  }
-
-  .c-button:disabled {
-    background-color: $c-button--disabled-background-color !important;
-    color: $c-button--disabled-color !important;
-    cursor: not-allowed;
   }
 
   .c-button--transparent {

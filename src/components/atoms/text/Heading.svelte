@@ -37,12 +37,16 @@
     }
   }
 
-  .h0 {
-    font-size: $alpha;
-  }
+
 
   .no-margin {
     margin-bottom: 0;
+  }
+
+  @include supple-mq(desk) {
+    h1 {
+      font-size: $alpha;
+    }
   }
 </style>
 

@@ -116,25 +116,27 @@
 
 <article>
   <Layer>
-    <Retain size="narrow">
-      <header>
+    <header>
+      <Retain>
         <Heading
-          level={1}
-          stylingLevel={0}
-          text={title}
+                level={1}
+                stylingLevel={0}
+                text={title}
+        />
+      </Retain>
+      <Retain size="narrow">
+        <Text
+                text={subheading}
+                modifier="intro"
         />
         <Text
-          text={subheading}
-          modifier="intro"
-        />
-        <Text
-          modifier="byline"
+                modifier="byline"
         >
           Added by {firstName} {lastName},
           <DateString date={postDate * 1000} />
         </Text>
-      </header>
-    </Retain>
+      </Retain>
+    </header>
   </Layer>
   <Layer collapseTop>
     <Retain size="narrow">
