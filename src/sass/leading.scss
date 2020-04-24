@@ -1,15 +1,5 @@
 @import "engine";
 
-:root {
-  --green: #7dff00;
-}
-
-@supports (color: color(display-p3 1 1 1)) {
-  :root {
-    --green: color(display-p3 0 1 0);
-  }
-}
-
 /* Generic */
 /* stylelint-disable-next-line at-rule-no-unknown, scss/at-rule-no-unknown */
 @import-normalize; /* [1] */
