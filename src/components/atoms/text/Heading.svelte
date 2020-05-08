@@ -30,7 +30,7 @@
 
     a {
       text-decoration: none;
-      color: $black;
+      color: $color-black;
       transition: color $base-transition-duration-short linear;
 
       #{$global-interaction-states} {

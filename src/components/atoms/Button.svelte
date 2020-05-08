@@ -1,4 +1,5 @@
 <script>
+  export let element;
   export let href = undefined;
   export let type = undefined;
   export let label;
@@ -14,7 +15,6 @@
 
 <style lang="scss" type="text/scss">
   @import 'engine';
-
 
 
   /*  Module
@@ -38,7 +38,7 @@
     font-weight: 500;
     text-decoration: none;
     background-color: $green; // $c-button--background-color;
-    color: $black; // $c-button--color;
+    color: $color-black; // $c-button--color;
     appearance: none;
     transition-property: color, background-color;
     transition-duration: $base-transition-duration-short;
@@ -50,12 +50,11 @@
     &:focus,
     &.is-active {
       background-color: $green;
-      color: $white;
+      color: $color-white;
       text-decoration: none;
       outline: none;
     }
   }
-
 
 
   /*  Elements
@@ -78,26 +77,49 @@
 
   .c-button--transparent {
     background-color: transparent;
-    color: $white;
+    color: $color-white;
   }
 </style>
 
-<a
-  href={href}
-  type={type}
-  class="c-button  {className}"
-  class:is-active="{isActive}"
-  class:c-button--transparent={modifier === 'transparent'}
-  on:click={onClick}
->
+{#if element === 'button'}
+  <button
+    type={type}
+    class="c-button  {className}"
+    class:is-active="{isActive}"
+    class:c-button--transparent={modifier === 'transparent'}
+    on:click={onClick}
+  >
   <span class="c-button__inner">
     <span class="c-button__label" class:u-visually-hidden="{hideLabel}">
       {label}
     </span>
-    {#if icon}
-      <span class="c-button__wrap-icon">
+      {#if icon}
+        <span class="c-button__wrap-icon">
         <mark>icon</mark>
       </span>
-    {/if}
+      {/if}
   </span>
-</a>
+  </button>
+{:else}
+  <a
+    href={href}
+    type={type}
+    class="c-button  {className}"
+    class:is-active="{isActive}"
+    class:c-button--transparent={modifier === 'transparent'}
+    on:click={onClick}
+  >
+  <span class="c-button__inner">
+    <span class="c-button__label" class:u-visually-hidden="{hideLabel}">
+      {label}
+    </span>
+      {#if icon}
+        <span class="c-button__wrap-icon">
+        <mark>icon</mark>
+      </span>
+      {/if}
+  </span>
+  </a>
+{/if}
+
+

@@ -14,7 +14,7 @@
     transition: color $base-transition-duration $base-timing-function;
 
     #{$global-interaction-states} {
-      color: $white;
+      color: $color-white;
     }
   }
 

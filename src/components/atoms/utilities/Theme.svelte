@@ -6,19 +6,19 @@
   @import 'engine';
 
   .t-bg--black {
-    background-color: $black;
+    background-color: $color-black;
   }
 
   .t-bg--white {
-    background-color: $white;
+    background-color: $color-white;
   }
 
   .t-color--light {
-    color: $white;
+    color: $color-white;
   }
 
   .t-color--dark {
-    color: $black;
+    color: $color-black;
   }
 </style>
 

@@ -13,7 +13,7 @@
     flex-direction: column;
     align-items: center;
     text-decoration: none;
-    color: $white;
+    color: $color-white;
     line-height: 1;
     border-radius: 50%;
     transition: $base-transition-duration $base-timing-function;
@@ -36,13 +36,13 @@
     }
 
     &:focus-visible {
-      color: $black;
-      background-color: $white;
+      color: $color-black;
+      background-color: $color-white;
     }
 
     &:-moz-focusring {
-      color: $black;
-      background-color: $white;
+      color: $color-black;
+      background-color: $color-white;
     }
   }
 

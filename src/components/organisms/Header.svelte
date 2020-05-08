@@ -16,9 +16,9 @@
   @import 'engine';
 
   .c-header {
-    background-color: $black;
+    background-color: $color-black;
     padding: $supple-space-tiny;
-    box-shadow: 0 0 $supple-space-small transparentize($black, 0.5);
+    box-shadow: 0 0 $supple-space-small transparentize($color-black, 0.5);
   }
 
   .c-header__logo {
@@ -34,7 +34,7 @@
 
     #{$global-interaction-states} {
       img {
-        filter: drop-shadow(0 0 $supple-space-tiny $white);
+        filter: drop-shadow(0 0 $supple-space-tiny $color-white);
       }
     }
   }

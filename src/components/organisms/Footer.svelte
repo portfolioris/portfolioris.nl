@@ -8,8 +8,8 @@
   @import 'engine';
 
   footer {
-    background-color: $white;
-    color: $black;
+    background-color: $color-white;
+    color: $color-black;
   }
 </style>
 

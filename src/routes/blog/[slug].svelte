@@ -18,6 +18,7 @@
   import DateString from '../../components/atoms/text/DateString.svelte';
 
   import { onMount } from 'svelte';
+  import BlogReplyForm from '../../components/molecules/forms/BlogReplyForm.svelte';
 
   onMount(() => {
     import ('lazysizes');
@@ -48,20 +49,20 @@
   } = data;
 
   const schema = [{ // todo: add breadcrumb levels for nested pages
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [{
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Blog",
-      "item": `${domain}/blog`
-    },{
-      "@type": "ListItem",
-      "position": 2,
-      "name": title,
-      "item": `${domain}/${uri}`
-    }]
-  },{
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    'itemListElement': [{
+      '@type': 'ListItem',
+      'position': 1,
+      'name': 'Blog',
+      'item': `${domain}/blog`,
+    }, {
+      '@type': 'ListItem',
+      'position': 2,
+      'name': title,
+      'item': `${domain}/${uri}`,
+    }],
+  }, {
     '@context': 'http://schema.org',
     '@type': 'WebSite',
     url: domain,
@@ -84,11 +85,11 @@
     }
 
     :global(.c-codeblock) {
-      background-color: $white;
+      background-color: $color-white;
       padding: $supple-space-base;
       margin-left: -$supple-space-base;
       margin-right: -$supple-space-base;
-      color: $black;
+      color: $color-black;
       overflow: auto;
     }
   }
@@ -128,7 +129,22 @@
   </Layer>
   <Layer collapseTop>
     <Retain size="narrow">
-        {@html richText}
+<!--        {@html richText}-->
     </Retain>
   </Layer>
 </article>
+
+<aside>
+  <!--<Layer collapseTop>
+    <Retain size="narrow">
+      <Heading text="Comments" level={2} />
+      <p><mark>comments</mark></p>
+    </Retain>
+  </Layer>-->
+  <Layer collapseTop>
+    <Retain size="narrow">
+      <Heading text="Leave a reply" level={2} />
+      <BlogReplyForm />
+    </Retain>
+  </Layer>
+</aside>

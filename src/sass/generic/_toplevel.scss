@@ -8,8 +8,8 @@
 
 html {
   font-family: $font-family-primary;
-  background-color: $black;
-  color: $white;
+  background-color: $color-black;
+  color: $color-white;
   text-decoration-skip-ink: auto;
 }
 
@@ -20,7 +20,7 @@ body {
 hr {
   border: 0;
   height: 1px;
-  background: $gray-medium;
+  background: $color-white;
 }
 
 button svg {

@@ -12,8 +12,8 @@
   @import 'engine';
 
   article {
-    background-color: $white;
-    color: $black;
+    background-color: $color-white;
+    color: $color-black;
     padding: $supple-space-base;
     position: relative;
     margin-bottom: $supple-space-base;

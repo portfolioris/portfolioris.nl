@@ -1,0 +1,24 @@
+%inputText {
+	border: 2px solid $color-white;
+	border-radius: 3px;
+	background: $color-white;
+	padding: calc(#{$supple-space-tiny * 1.5} - 2px) calc(#{$supple-space-small} - 2px);
+	color: $color-black;
+	outline: 0;
+	box-shadow: none;
+	width: 100%;
+	font: inherit;
+	line-height: $supple-line-height-ratio;
+	appearance: none;
+	transition: border-color $base-transition-duration-short $base-timing-function;
+
+	&:focus,
+	&:hover {
+		// border-color: $color-gray;
+	}
+
+	&[aria-invalid='true'],
+	&.input-validation-error { // for compatibility with umbraco forms
+		border-color: $color-error;
+	}
+}
