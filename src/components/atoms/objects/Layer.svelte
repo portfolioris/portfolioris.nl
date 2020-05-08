@@ -5,7 +5,7 @@
 </script>
 
 <style type="text/scss" lang="scss">
-  @import "engine";
+  @import 'engine';
 
   /*  Module
       ========================================================================= */
@@ -14,7 +14,7 @@
     position: relative;
 
     &::after {
-      content: "";
+      content: '';
       display: table;
       clear: both;
     }

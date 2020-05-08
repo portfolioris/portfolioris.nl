@@ -4,7 +4,7 @@
 </script>
 
 <style lang="scss" type="text/scss">
-  @import "engine";
+  @import 'engine';
 
   .c-menu-toggle {
     padding: $supple-space-tiny;
@@ -59,7 +59,6 @@
 
   .c-menu-toggle__label {
     @include supple-font-size(10px, false);
-
     display: block;
   }
 </style>

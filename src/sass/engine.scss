@@ -10,17 +10,17 @@
 
 /* Settings */
 
-@import "vars";
+@import 'vars';
 
-@import "supple/lib/settings/defaults";
+@import '~supple/lib/settings/defaults';
 
-@import "supple/lib/settings/responsive";
+@import '~supple/lib/settings/responsive';
 
 
 
 /* Tools */
-@import "sass-mq/mq";
+@import '~sass-mq/mq';
 
-@import "supple/lib/tools/functions";
+@import '~supple/lib/tools/functions';
 
-@import "supple/lib/tools/mixins";
+@import '~supple/lib/tools/mixins';

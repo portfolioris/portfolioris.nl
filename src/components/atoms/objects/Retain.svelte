@@ -3,10 +3,7 @@
 </script>
 
 <style type="text/scss" lang="scss">
-  /*  Imports
-      ========================================================================= */
-
-  @import "engine";
+  @import 'engine';
 
 
 

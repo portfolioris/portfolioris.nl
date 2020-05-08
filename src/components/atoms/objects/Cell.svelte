@@ -8,15 +8,9 @@
 </script>
 
 <style lang="scss" type="text/scss">
-  @import "engine";
-  @import "supple/lib/objects/layout";
-  @import "supple/lib/utilities/fractions";
-
-  .o-layout__cell {
-    .o-layout--equalheight & {
-      background-color: lime;
-    }
-  }
+  @import 'engine';
+  @import 'supple/lib/objects/layout';
+  @import 'supple/lib/utilities/fractions';
 </style>
 
 {#if element === 'div'}

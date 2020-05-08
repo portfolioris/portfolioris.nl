@@ -13,7 +13,7 @@
 </script>
 
 <style lang="scss" type="text/scss">
-  @import "engine";
+  @import 'engine';
 
   .c-header {
     background-color: $black;

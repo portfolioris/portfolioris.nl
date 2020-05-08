@@ -3,7 +3,7 @@
 </script>
 
 <style type="text/scss" lang="scss">
-  @import "engine";
+  @import 'engine';
 
   .t-bg--black {
     background-color: $black;

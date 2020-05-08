@@ -5,7 +5,7 @@
 </script>
 
 <style type="text/scss" lang="scss">
-  @import "engine";
+  @import 'engine';
 
   footer {
     background-color: $white;

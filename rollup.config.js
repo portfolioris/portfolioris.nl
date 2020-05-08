@@ -6,7 +6,9 @@ import babel from 'rollup-plugin-babel';
 import { terser } from 'rollup-plugin-terser';
 import config from 'sapper/config/rollup';
 import sveltePreprocess from 'svelte-preprocess';
+import tildeImporter from 'node-sass-tilde-importer';
 import json from '@rollup/plugin-json';
+import stylelint from 'rollup-plugin-stylelint';
 import pkg from './package.json';
 
 const mode = process.env.NODE_ENV;
@@ -23,6 +25,7 @@ require('dotenv').config({
 const preprocess = sveltePreprocess({
   scss: {
     includePaths: ['src/sass', 'node_modules'],
+    importer: tildeImporter,
   },
   postcss: true,
   preserve: [
@@ -83,6 +86,7 @@ export default {
     input: config.server.input(),
     output: config.server.output(),
     plugins: [
+      stylelint(),
       replace({
         'process.browser': false,
         'process.env.NODE_ENV': JSON.stringify(mode),
@@ -93,7 +97,7 @@ export default {
         dev,
       }),
       resolve({
-        dedupe: ['svelte']
+        dedupe: ['svelte'],
       }),
       commonjs(),
       json(),

@@ -6,7 +6,7 @@
 </script>
 
 <style type="text/scss" lang="scss">
-  @import "engine";
+  @import 'engine';
 
   :global(a) {
     color: $green;

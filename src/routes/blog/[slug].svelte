@@ -70,30 +70,9 @@
 </script>
 
 <style type="text/scss" lang="scss">
-  @import "engine";
-
-  header {
-    margin-bottom: $supple-space-base;
-
-    > :global(*) {
-      margin-bottom: 0;
-
-      > :global(*:last-child) {
-        margin-bottom: 0;
-      }
-    }
-  }
+  @import 'engine';
 
   article {
-    :global(.c-codeblock) {
-      background-color: $white;
-      padding: $supple-space-base;
-      margin-left: -$supple-space-base;
-      margin-right: -$supple-space-base;
-      color: $black;
-      overflow: auto;
-    }
-
     :global(figure) {
       margin-bottom: $supple-space-base;
     }
@@ -102,6 +81,15 @@
       font-weight: $font-weight-bold;
       font-size: $milli;
       font-style: italic;
+    }
+
+    :global(.c-codeblock) {
+      background-color: $white;
+      padding: $supple-space-base;
+      margin-left: -$supple-space-base;
+      margin-right: -$supple-space-base;
+      color: $black;
+      overflow: auto;
     }
   }
 </style>

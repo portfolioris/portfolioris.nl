@@ -18,7 +18,7 @@
     position: relative;
     margin-bottom: $supple-space-base;
 
-    & :global(a::after) { // b/c there is no <a> here ....
+    :global(a::after) { // b/c there is no <a> here ....
       content: '';
       position: absolute;
       z-index: 2;

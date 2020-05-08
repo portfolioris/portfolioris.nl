@@ -10,8 +10,8 @@
   /**
    * 1. Add :global to apply style cross-component
    */
-  @import "engine";
-  @import "supple/lib/objects/layout";
+  @import 'engine';
+  @import 'supple/lib/objects/layout';
 
   .o-layout--margin-none {
     margin-bottom: 0;

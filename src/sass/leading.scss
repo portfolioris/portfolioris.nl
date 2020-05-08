@@ -1,42 +1,41 @@
-@import "engine";
+@import 'engine';
 
 /* Generic */
 /* stylelint-disable-next-line at-rule-no-unknown, scss/at-rule-no-unknown */
 @import-normalize; /* [1] */
 
-@import "supple/lib/generic/reset";
+@import '~supple/lib/generic/reset';
 
 /* Elements */
-@import "generic/toplevel";
+@import 'generic/toplevel';
+@import 'generic/typography';
 
-@import "generic/typography";
+@import '~highlight.js/scss/a11y-light.scss'; // generated in rte, so cannot be scoped
 
-@import "highlight.js/scss/a11y-light.scss"; // generated in rte, so cannot be scoped
+//@import 'supple/lib/elements/headings';
 
-//@import "supple/lib/elements/headings";
-
-//@import "elements/links";
+//@import 'elements/links';
 
 /* Objects */
-//@import "supple/lib/objects/list-clean";
+//@import 'supple/lib/objects/list-clean';
 
-//@import "supple/lib/objects/layout";
+//@import 'supple/lib/objects/layout';
 
-//@import "supple/lib/objects/flexembed";
+//@import 'supple/lib/objects/flexembed';
 
 /* Utilities */
-//@import "supple/lib/utilities/fractions";
+//@import 'supple/lib/utilities/fractions';
 
-//@import "supple/lib/utilities/module";
+//@import 'supple/lib/utilities/module';
 
-@import "supple/lib/utilities/visually-hidden";
+@import '~supple/lib/utilities/visually-hidden';
 
-//@import "supple/lib/utilities/hidden";
+//@import 'supple/lib/utilities/hidden';
 
-//@import "supple/lib/utilities/spacing";
+//@import 'supple/lib/utilities/spacing';
 
-//@import "utilities/text";
+//@import 'utilities/text';
 
-//@import "utilities/utilities.sizes";
+//@import 'utilities/utilities.sizes';
 
-//@import "utilities/utilities.various";
+//@import 'utilities/utilities.various';
