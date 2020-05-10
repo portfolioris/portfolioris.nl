@@ -8,12 +8,13 @@
   export let name;
   export let required;
   export let error;
+  export let register;
 </script>
 
 <FormField>
   <Label for={name} text={label} />
 
-  <InputText name={name} required={required} />
+  <InputText name={name} required={required} register={register} />
 
   <FormError name={name} text={error} />
 </FormField>

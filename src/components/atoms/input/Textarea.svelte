@@ -1,6 +1,7 @@
 <script>
   export let name;
   export let required = false;
+  export let register;
 </script>
 
 <style type="text/scss" lang="scss">
@@ -16,4 +17,5 @@
   id={name}
   name={name}
   required={required}
+  use:register
 ></textarea>

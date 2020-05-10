@@ -6,6 +6,7 @@
   export let required;
   export let autocomplete;
   export let hasError = false;
+  export let register;
 </script>
 
 <style type="text/scss" lang="scss">
@@ -27,4 +28,5 @@
   autocomplete={autocomplete}
   aria-invalid={hasError ? 'true' : null}
   aria-describedby={hasError ? `error_${name}` : null}
+  use:register
 >
