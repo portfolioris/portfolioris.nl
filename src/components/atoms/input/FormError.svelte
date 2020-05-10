@@ -15,5 +15,5 @@
 </style>
 
 {#if text}
-  <p id={name}>{text}</p>
+  <p id={`error_${name}`}>{text}</p>
 {/if}

@@ -14,12 +14,13 @@
   });
 
   function handleSubmit(e) {
-    console.log(e);
     e.preventDefault();
   }
 
   const register = function (node) {
-    console.log(node);
+    node.addEventListener('blur', () => {
+      formState[node.id] = node.validity;
+    });
   };
 
 </script>
@@ -35,7 +36,7 @@
     label="Message"
     name="message"
     required
-    fieldState={formState.email}
+    fieldState={formState.message}
     register={register}
   />
 
@@ -45,6 +46,7 @@
         label="Name"
         name="name"
         required
+        fieldState={formState.name}
         register={register}
       />
     </Cell>
@@ -53,6 +55,7 @@
         label="Email"
         name="email"
         required
+        fieldState={formState.email}
         register={register}
       />
     </Cell>

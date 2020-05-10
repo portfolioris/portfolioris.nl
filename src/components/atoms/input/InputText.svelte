@@ -5,8 +5,8 @@
   export let value = null;
   export let required;
   export let autocomplete;
-  export let hasError = false;
   export let register;
+  export let fieldState = {};
 </script>
 
 <style type="text/scss" lang="scss">
@@ -26,7 +26,7 @@
   value={value}
   required={required}
   autocomplete={autocomplete}
-  aria-invalid={hasError ? 'true' : null}
-  aria-describedby={hasError ? `error_${name}` : null}
+  aria-invalid={!fieldState.valid ? 'true' : null}
+  aria-describedby={!fieldState.valid ? `error_${name}` : null}
   use:register
 >

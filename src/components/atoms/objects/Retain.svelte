@@ -1,5 +1,5 @@
 <script>
-  export let size;
+  export let size = null;
 </script>
 
 <style type="text/scss" lang="scss">

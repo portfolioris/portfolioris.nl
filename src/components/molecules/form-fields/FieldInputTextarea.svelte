@@ -7,15 +7,17 @@
   export let label;
   export let name;
   export let required;
-  export let error;
   export let register;
+  export let fieldState;
 </script>
 
-<FormField>
+<FormField fieldState={fieldState} name={name}>
   <Label for={name} text={label} />
-
-  <Textarea name={name} required={required} register={register} />
-
-  <FormError name={name} text={error} />
+  <Textarea
+    name={name}
+    required={required}
+    register={register}
+    fieldState={fieldState}
+  />
 </FormField>
 
