@@ -7,21 +7,26 @@
   export let blogs = [];
   export let movies = [];
   export let books = [];
-  export let modules = [];
-  export let title;
-  export let description;
-  export let globals;
+  // export let modules = [];
+  export let children = [];
+  // export let title;
+  // export let description;
+  // export let globals;
   export let uri;
   export let level;
+  export let header;
+  export let site;
 
   const {
-    settings: {
-      siteName,
-      twitterHandle,
-      domain,
-    },
-  } = globals;
+    title,
+    metadata: {
+      description,
+    }
+  } = header;
 
+  const twitterHandle = site.site.metadata.twitterHandle;
+  const domain = site.site.metadata.domain;
+  const siteName = site.site.title;
   const schema = [{
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
@@ -29,7 +34,7 @@
       '@type': 'ListItem',
       'position': level,
       'name': title,
-      'item': `${domain}/${uri !== '__home__' ? uri : ''}`,
+      'item': `${domain}/${uri !== '/' ? uri : ''}`,
     }],
   }, {
     '@context': 'http://schema.org',
@@ -46,17 +51,17 @@
   {@html `<script type="application/ld+json">${JSON.stringify(schema)}</script>`}
 </svelte:head>
 
-{#each modules as module}
-  {#if module.__typename  === 'ModulesRichTextBlock'}
-    <RichTextBlock {...module} />
+{#each children as module}
+  {#if module.moduleTemplate  === 'modular/richtextblock'}
+    <RichTextBlock {...module.header} />
   {/if}
-  {#if module.__typename  === 'ModulesBlogOverview'}
-    <ArticleOverview {...module} items={blogs} />
+  {#if module.moduleTemplate  === 'modular/blogoverview'}
+    <ArticleOverview {...module.header} items={blogs} />
   {/if}
-  {#if module.__typename  === 'ModulesMovies'}
+  {#if module.moduleTemplate  === 'ModulesMovies'}
     <LatestMovies {...module} items={movies} />
   {/if}
-  {#if module.__typename  === 'ModulesBooks'}
+  {#if module.moduleTemplate  === 'ModulesBooks'}
     <LatestBooks {...module} items={books} />
   {/if}
 {/each}

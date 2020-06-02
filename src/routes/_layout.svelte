@@ -1,9 +1,9 @@
 <script context="module">
   export async function preload() {
     const res = await this.fetch('nav.json');
-    const data = await res.json();
+    const navItems = await res.json();
     if (res.status === 200) {
-      return data;
+      return { navItems };
     } else {
       this.error(res.status, data.message);
     }
@@ -25,6 +25,6 @@
   <meta name="twitter:card" content="summary">
 </svelte:head>
 
-<Navigation items="{navItems}" activePage="{segment}">
+<Navigation items="{navItems}" activePage="/{segment}">
   <slot></slot>
 </Navigation>
