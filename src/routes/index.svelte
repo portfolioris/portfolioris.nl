@@ -13,7 +13,6 @@
 <script>
   import ModularPageTemplate from './_ModularPageTemplate.svelte';
   export let data;
-  console.log(data.children);
 </script>
 
 <ModularPageTemplate uri="/" {...data} />

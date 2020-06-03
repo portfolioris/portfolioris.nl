@@ -58,10 +58,10 @@
   {#if module.moduleTemplate  === 'modular/blogoverview'}
     <ArticleOverview {...module.header} items={blogs} />
   {/if}
-  {#if module.moduleTemplate  === 'ModulesMovies'}
-    <LatestMovies {...module} items={movies} />
+  {#if module.moduleTemplate  === 'modular/movies'}
+    <LatestMovies {...module.header} items={movies} />
   {/if}
-  {#if module.moduleTemplate  === 'ModulesBooks'}
-    <LatestBooks {...module} items={books} />
+  {#if module.moduleTemplate  === 'modular/books'}
+    <LatestBooks {...module.header} items={books} />
   {/if}
 {/each}
