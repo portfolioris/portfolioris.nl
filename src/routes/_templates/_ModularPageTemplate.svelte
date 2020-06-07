@@ -1,8 +1,8 @@
 <script>
-  import RichTextBlock from '../components/organisms/RichTextBlock.svelte';
-  import ArticleOverview from '../components/organisms/ArticleOverview.svelte';
-  import LatestMovies from '../components/organisms/LatestMovies.svelte';
-  import LatestBooks from '../components/organisms/LatestBooks.svelte';
+  import ArticleOverview from '../../components/organisms/ArticleOverview.svelte';
+  import LatestMovies from '../../components/organisms/LatestMovies.svelte';
+  import LatestBooks from '../../components/organisms/LatestBooks.svelte';
+  import RichTextBlock from '../../components/organisms/RichTextBlock.svelte';
 
   export let blogs = [];
   export let movies = [];
@@ -21,7 +21,7 @@
     title,
     metadata: {
       description,
-    }
+    },
   } = header;
 
   const twitterHandle = site.site.metadata.twitterHandle;

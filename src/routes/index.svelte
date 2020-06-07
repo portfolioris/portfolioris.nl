@@ -11,7 +11,7 @@
 </script>
 
 <script>
-  import ModularPageTemplate from './_ModularPageTemplate.svelte';
+  import ModularPageTemplate from './_templates/_ModularPageTemplate.svelte';
   export let data;
 </script>
 

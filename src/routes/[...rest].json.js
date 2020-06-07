@@ -3,7 +3,7 @@ import { getBooks, getMovies } from './getDataFromApi';
 
 export async function get(req, res) {
   let uri = req.params.rest.join('/');
-  if (uri === 'home') {
+  if (uri === 'home') { // defined in index.svelte
     uri = '';
   }
 
@@ -11,33 +11,27 @@ export async function get(req, res) {
   const siteData = await siteQuery.json();
 
   if (!siteData.pages[`/${uri}`]) {
-    res.writeHead(404, {
-      'Content-Type': 'application/json',
-    });
-    res.end(JSON.stringify({
-      message: 'Not found in lookup',
-    }));
+    res.writeHead(404, { 'Content-Type': 'application/json' });
+    res.end(JSON.stringify({ message: 'Not found in lookup' }));
     return;
   }
 
   const pageQuery = await fetch(`${process.env.GRAV_API_URL}${uri}`);
   const pageData = await pageQuery.json();
 
-  if (pageData.children.some((module) => module.moduleTemplate === 'modular/blogoverview')) {
-    // pageData.blogs = [{}, {}];
-  }
-  /*
-  if (pageData.modules.some((module) => module.typename === 'ModulesBlogOverview')) {
-    const blogs = await blogsQuery;
-    pageData.blogs = blogs.data.allBlogs;
-  }
-  */
-  if (pageData.children.some((module) => module.moduleTemplate === 'modular/movies')) {
-    pageData.movies = await getMovies();
-  }
+  if (pageData.template === 'modular') {
+    if (pageData.children.some((module) => module.moduleTemplate === 'modular/blogoverview')) {
+      const blogsQuery = await fetch(`${process.env.GRAV_API_URL}blog?data=blogs`);
+      pageData.blogs = await blogsQuery.json();
+    }
 
-  if (pageData.children.some((module) => module.moduleTemplate === 'modular/books')) {
-    pageData.books = await getBooks();
+    if (pageData.children.some((module) => module.moduleTemplate === 'modular/movies')) {
+      pageData.movies = await getMovies();
+    }
+
+    if (pageData.children.some((module) => module.moduleTemplate === 'modular/books')) {
+      pageData.books = await getBooks();
+    }
   }
 
   res.writeHead(200, {

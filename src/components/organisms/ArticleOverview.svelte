@@ -1,5 +1,4 @@
 <script>
-  import Theme from '../atoms/utilities/Theme.svelte';
   import Layer from '../atoms/objects/Layer.svelte';
   import Retain from '../atoms/objects/Retain.svelte';
   import Heading from '../atoms/text/Heading.svelte';
@@ -35,9 +34,9 @@
             <Cell lap={[1, 2]} desk={[1, 3]}>
               <ArticleOverviewItem
                 title={item.title}
-                subheading={item.subheading}
+                subheading={item.subtitle}
                 uri="{item.uri}"
-                postDate={item.postDate * 1000}
+                postDate={item.date}
               />
             </Cell>
           {/each}
