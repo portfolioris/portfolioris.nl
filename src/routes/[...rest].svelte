@@ -21,6 +21,5 @@
 {/if}
 
 {#if data.template === 'item'}
-  {console.log(data)}
   <BlogTemplate {...data} />
 {/if}

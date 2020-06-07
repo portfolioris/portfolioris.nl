@@ -3,16 +3,22 @@ import { getBooks, getMovies } from './getDataFromApi';
 import marked from 'marked';
 import hljs from 'highlight.js';
 import css from 'highlight.js/lib/languages/css';
-// import Figure from '../../components/molecules/Figure.svelte';
+import Figure from '../components/molecules/Figure.svelte';
 
 hljs.registerLanguage('css', css);
 const renderer = new marked.Renderer();
 
-// let imagesData;
-
 renderer.paragraph = (input) => {
   const hasImage = input.startsWith('<figure>');
   return hasImage ? input : `<p>${input}</p>`;
+};
+
+renderer.image = (href, title, text) => {
+  return Figure.render({
+    figcaption: text,
+    imgHref: href,
+    alt: title,
+  }).html;
 };
 
 export async function get(req, res) {
