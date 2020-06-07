@@ -15,11 +15,12 @@
   export let uri;
   export let header;
   export let site;
-  export let richText = 'notset';
-  export let postDate = '2020-01-01';
+  export let content = 'notset';
   export let lastName = 'notset';
   export let firstName = 'notset';
-  export let subheading = 'notset';
+
+  const subtitle = header.subtitle;
+  const postDate = header.date;
 
   const {
     title,
@@ -98,7 +99,7 @@
       </Retain>
       <Retain size="narrow">
         <Text
-          text={subheading}
+          text={subtitle}
           modifier="intro"
         />
         <Text
@@ -112,7 +113,7 @@
   </Layer>
   <Layer collapseTop>
     <Retain size="narrow">
-        {@html richText}
+        {@html content}
     </Retain>
   </Layer>
 </article>

@@ -15,5 +15,6 @@
   export let data;
 </script>
 
-<ModularPageTemplate uri="/" {...data} />
-
+{#if data.template === 'modular'}
+  <ModularPageTemplate {...data} />
+{/if}

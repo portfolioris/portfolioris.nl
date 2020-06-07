@@ -1,5 +1,19 @@
 import fetch from 'node-fetch';
 import { getBooks, getMovies } from './getDataFromApi';
+import marked from 'marked';
+import hljs from 'highlight.js';
+import css from 'highlight.js/lib/languages/css';
+// import Figure from '../../components/molecules/Figure.svelte';
+
+hljs.registerLanguage('css', css);
+const renderer = new marked.Renderer();
+
+// let imagesData;
+
+renderer.paragraph = (input) => {
+  const hasImage = input.startsWith('<figure>');
+  return hasImage ? input : `<p>${input}</p>`;
+};
 
 export async function get(req, res) {
   let uri = req.params.rest.join('/');
@@ -34,6 +48,19 @@ export async function get(req, res) {
     }
   }
 
+  if (pageData.template === 'item') {
+    pageData.content = marked(
+      pageData.content,
+      {
+        renderer,
+        highlight: (code, language) => {
+          const validLanguage = hljs.getLanguage(language) ? language : 'css';
+          return `<div class="c-codeblock">${hljs.highlight(validLanguage, code).value}</div>`;
+        },
+      },
+    );
+  }
+
   res.writeHead(200, {
     'Content-Type': 'application/json',
   });
@@ -41,5 +68,6 @@ export async function get(req, res) {
   res.end(JSON.stringify({
     ...pageData,
     site: siteData,
+    uri,
   }));
 }
