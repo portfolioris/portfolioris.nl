@@ -16,37 +16,36 @@
   export let header;
   export let site;
   export let content = 'notset';
-  export let lastName = 'notset';
-  export let firstName = 'notset';
-
-  const subtitle = header.subtitle;
-  const postDate = header.date;
+  export let description = '';
 
   const {
     title,
-    metadata: {
-      description,
-    },
+    subtitle,
+    date,
+    author,
+    // metadata: {
+    //   description,
+    // },
   } = header;
 
   const twitterHandle = site.site.metadata.twitterHandle;
   const domain = site.site.metadata.domain;
   const siteName = site.site.title;
   const schema = [{ // todo: add breadcrumb levels for nested pages
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [{
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Blog",
-      "item": `${domain}/blog`
-    },{
-      "@type": "ListItem",
-      "position": 2,
-      "name": title,
-      "item": `${domain}/${uri}`
-    }]
-  },{
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    'itemListElement': [{
+      '@type': 'ListItem',
+      'position': 1,
+      'name': 'Blog',
+      'item': `${domain}/blog`,
+    }, {
+      '@type': 'ListItem',
+      'position': 2,
+      'name': title,
+      'item': `${domain}/${uri}`,
+    }],
+  }, {
     '@context': 'http://schema.org',
     '@type': 'WebSite',
     url: domain,
@@ -83,7 +82,6 @@
   <title>{title} • {siteName}</title>
   <meta name="description" content={description}>
   <meta name="twitter:site" content={twitterHandle}>
-
     {@html `<script type="application/ld+json">${JSON.stringify(schema)}</script>`}
 </svelte:head>
 
@@ -105,8 +103,8 @@
         <Text
           modifier="byline"
         >
-          Added by {firstName} {lastName},
-          <DateString date={postDate} />
+          Added by {author},
+          <DateString date={date} />
         </Text>
       </Retain>
     </header>

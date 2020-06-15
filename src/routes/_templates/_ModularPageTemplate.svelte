@@ -7,49 +7,9 @@
   export let blogs = [];
   export let movies = [];
   export let books = [];
-  // export let modules = [];
   export let children = [];
-  // export let title;
-  // export let description;
-  // export let globals;
-  export let uri;
-  export let level;
-  export let header;
-  export let site;
-
-  const {
-    title,
-    metadata: {
-      description,
-    },
-  } = header;
-
-  const twitterHandle = site.site.metadata.twitterHandle;
-  const domain = site.site.metadata.domain;
-  const siteName = site.site.title;
-  const schema = [{
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    'itemListElement': [{
-      '@type': 'ListItem',
-      'position': level,
-      'name': title,
-      'item': `${domain}/${uri !== '/' ? uri : ''}`,
-    }],
-  }, {
-    '@context': 'http://schema.org',
-    '@type': 'WebSite',
-    url: domain,
-    name: siteName,
-  }];
+  console.log(children);
 </script>
-
-<svelte:head>
-  <title>{title} • {siteName}</title>
-  <meta name="description" content={description}>
-  <meta name="twitter:site" content={twitterHandle}>
-  {@html `<script type="application/ld+json">${JSON.stringify(schema)}</script>`}
-</svelte:head>
 
 {#each children as module}
   {#if module.moduleTemplate  === 'modular/richtextblock'}

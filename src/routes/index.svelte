@@ -11,10 +11,8 @@
 </script>
 
 <script>
-  import ModularPageTemplate from './_templates/_ModularPageTemplate.svelte';
   export let data;
+  import Rest from './[...rest].svelte';
 </script>
 
-{#if data.template === 'modular'}
-  <ModularPageTemplate {...data} />
-{/if}
+<Rest data={data} />

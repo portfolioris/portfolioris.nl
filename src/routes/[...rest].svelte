@@ -11,10 +11,13 @@
 </script>
 
 <script>
+  import Meta from './_templates/_Meta.svelte';
   import ModularPageTemplate from './_templates/_ModularPageTemplate.svelte';
   import BlogTemplate from './_templates/_BlogTemplate.svelte';
   export let data;
 </script>
+
+<Meta {...data} />
 
 {#if data.template === 'modular'}
   <ModularPageTemplate {...data} />

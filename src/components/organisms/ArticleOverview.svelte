@@ -9,7 +9,8 @@
 
   export let heading;
   export let hideHeadingVisually = false;
-  export let viewAllBlogs = false;
+  export let viewAllBlogs = null;
+  export let viewAllBlogsLabel = null;
   export let latest;
 
   export let items = [];
@@ -42,13 +43,13 @@
           {/each}
       </Layout>
 
-        {#if viewAllBlogs.entry}
+        {#if viewAllBlogsLabel}
           <Layout>
             <Cell fit align="center">
               <p>
                 <Button
-                  href="{viewAllBlogs.entry.uri}"
-                  label={viewAllBlogs.customText}
+                  href="{viewAllBlogs}"
+                  label={viewAllBlogsLabel}
                 />
               </p>
             </Cell>
