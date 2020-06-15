@@ -8,7 +8,6 @@
   export let movies = [];
   export let books = [];
   export let children = [];
-  console.log(children);
 </script>
 
 {#each children as module}

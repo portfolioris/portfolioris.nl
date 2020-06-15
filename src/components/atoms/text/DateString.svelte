@@ -10,4 +10,4 @@
   const dateString = format.format(dateObj);
 </script>
 
-{dateString}
+<time datetime={date}>{dateString}</time>

@@ -48,7 +48,8 @@
     &:hover,
     &:active,
     &:focus,
-    &.is-active {
+    &.is-active,
+    &[aria-current=true] {
       background-color: $green;
       color: $white;
       text-decoration: none;
@@ -86,7 +87,7 @@
   href={href}
   type={type}
   class="c-button  {className}"
-  class:is-active="{isActive}"
+  aria-current={isActive ? 'true': null}
   class:c-button--transparent={modifier === 'transparent'}
   on:click={onClick}
 >

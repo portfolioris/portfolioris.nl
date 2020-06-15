@@ -76,6 +76,10 @@
       overflow: auto;
     }
   }
+
+  .blog-heading {
+    text-align: center;
+  }
 </style>
 
 <svelte:head>
@@ -89,11 +93,14 @@
   <Layer>
     <header>
       <Retain>
-        <Heading
-          level={1}
-          stylingLevel={0}
-          text={title}
-        />
+        <div class="blog-heading">
+          <Heading
+            level={1}
+            stylingLevel={0}
+            text={title}
+          />
+        </div>
+
       </Retain>
       <Retain size="narrow">
         <Text
