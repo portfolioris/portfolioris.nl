@@ -150,9 +150,9 @@
             <li class="c-body-wrap__nav-item">
               <Button
                 element="a"
-                isActive="{activePage === item.menuItem[0].uri}"
-                label="{item.title}"
-                href="{item.menuItem[0].uri === '__home__' ? '' : item.menuItem[0].uri}"
+                isActive="{activePage === item.link}"
+                label="{item.label}"
+                href="{item.link === '__home__' ? '' : item.link}"
                 onClick={closeMenu}
               />
             </li>

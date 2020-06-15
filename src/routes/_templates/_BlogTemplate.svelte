@@ -1,15 +1,3 @@
-<script context="module">
-  export async function preload({ params }) {
-    const res = await this.fetch(`blog/${params.slug}.json`);
-    const data = await res.json();
-    if (res.status === 200) {
-      return { data };
-    } else {
-      this.error(res.status, data.message);
-    }
-  }
-</script>
-
 <script>
   import Layer from '../../components/atoms/objects/Layer.svelte';
   import Retain from '../../components/atoms/objects/Retain.svelte';
@@ -23,45 +11,41 @@
     import ('lazysizes');
     import ('lazysizes/plugins/rias/ls.rias');
   });
-  export let data;
+
+  export let uri;
+  export let header;
+  export let site;
+  export let content = 'notset';
+  export let description = '';
 
   const {
-    entry: {
-      title,
-      description,
-      subheading,
-      uri,
-      author: {
-        firstName,
-        lastName,
-      },
-      postDate,
-      richText,
-    },
-    globals: {
-      settings: {
-        siteName,
-        twitterHandle,
-        domain,
-      },
-    },
-  } = data;
+    title,
+    subtitle,
+    date,
+    author,
+    // metadata: {
+    //   description,
+    // },
+  } = header;
 
+  const twitterHandle = site.site.metadata.twitterHandle;
+  const domain = site.site.metadata.domain;
+  const siteName = site.site.title;
   const schema = [{ // todo: add breadcrumb levels for nested pages
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [{
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Blog",
-      "item": `${domain}/blog`
-    },{
-      "@type": "ListItem",
-      "position": 2,
-      "name": title,
-      "item": `${domain}/${uri}`
-    }]
-  },{
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    'itemListElement': [{
+      '@type': 'ListItem',
+      'position': 1,
+      'name': 'Blog',
+      'item': `${domain}/blog`,
+    }, {
+      '@type': 'ListItem',
+      'position': 2,
+      'name': title,
+      'item': `${domain}/${uri}`,
+    }],
+  }, {
     '@context': 'http://schema.org',
     '@type': 'WebSite',
     url: domain,
@@ -98,8 +82,7 @@
   <title>{title} • {siteName}</title>
   <meta name="description" content={description}>
   <meta name="twitter:site" content={twitterHandle}>
-
-  {@html `<script type="application/ld+json">${JSON.stringify(schema)}</script>`}
+    {@html `<script type="application/ld+json">${JSON.stringify(schema)}</script>`}
 </svelte:head>
 
 <article>
@@ -107,28 +90,28 @@
     <header>
       <Retain>
         <Heading
-                level={1}
-                stylingLevel={0}
-                text={title}
+          level={1}
+          stylingLevel={0}
+          text={title}
         />
       </Retain>
       <Retain size="narrow">
         <Text
-                text={subheading}
-                modifier="intro"
+          text={subtitle}
+          modifier="intro"
         />
         <Text
-                modifier="byline"
+          modifier="byline"
         >
-          Added by {firstName} {lastName},
-          <DateString date={postDate * 1000} />
+          Added by {author},
+          <DateString date={date} />
         </Text>
       </Retain>
     </header>
   </Layer>
   <Layer collapseTop>
     <Retain size="narrow">
-        {@html richText}
+        {@html content}
     </Retain>
   </Layer>
 </article>

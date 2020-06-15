@@ -11,45 +11,9 @@
   }
 </script>
 
-<style global type="text/scss" lang="scss">
-  @import 'engine';
-
-
-
-
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    font-family: $font-family-secondary;
-    line-height: 0.9;
-    font-weight: bold;
-    margin-bottom: $supple-space-small;
-
-    a {
-      text-decoration: none;
-      color: $black;
-      transition: color $base-transition-duration-short linear;
-
-      #{$global-interaction-states} {
-        color: inherit;
-        text-decoration: underline;
-      }
-    }
-  }
-
-
-
+<style type="text/scss" lang="scss">
   .no-margin {
     margin-bottom: 0;
-  }
-
-  @include supple-mq(desk) {
-    h1 {
-      font-size: $alpha;
-    }
   }
 </style>
 

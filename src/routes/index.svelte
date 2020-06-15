@@ -1,11 +1,9 @@
 <script context="module">
   export async function preload({ params }) {
-    // console.log(params.rest);
-    // const res = await this.fetch(`${params.rest}.json`);
-    const res = await this.fetch(`__home__.json`);
+    const res = await this.fetch(`home.json`);
     const data = await res.json();
     if (res.status === 200) {
-      return { data};
+      return { data };
     } else {
       this.error(res.status, data.message);
     }
@@ -13,11 +11,8 @@
 </script>
 
 <script>
-  import ModularPageTemplate from './_ModularPageTemplate.svelte';
   export let data;
-
-  let notUsed = '';
+  import Rest from './[...rest].svelte';
 </script>
 
-<ModularPageTemplate {...data} />
-
+<Rest data={data} />

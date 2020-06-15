@@ -1,14 +1,14 @@
-import resolve from 'rollup-plugin-node-resolve';
-import replace from 'rollup-plugin-replace';
-import commonjs from 'rollup-plugin-commonjs';
+import resolve from '@rollup/plugin-node-resolve';
+import replace from '@rollup/plugin-replace';
+import commonjs from '@rollup/plugin-commonjs';
 import svelte from 'rollup-plugin-svelte';
-import babel from 'rollup-plugin-babel';
+import babel from '@rollup/plugin-babel';
 import { terser } from 'rollup-plugin-terser';
 import config from 'sapper/config/rollup';
 import sveltePreprocess from 'svelte-preprocess';
 import tildeImporter from 'node-sass-tilde-importer';
 import json from '@rollup/plugin-json';
-import stylelint from 'rollup-plugin-stylelint';
+// import stylelint from 'rollup-plugin-stylelint';
 import pkg from './package.json';
 
 const mode = process.env.NODE_ENV;
@@ -79,6 +79,7 @@ export default {
       }),
     ],
 
+    preserveEntrySignatures: false,
     onwarn,
   },
 
@@ -86,7 +87,7 @@ export default {
     input: config.server.input(),
     output: config.server.output(),
     plugins: [
-      stylelint(),
+      // stylelint(),
       replace({
         'process.browser': false,
         'process.env.NODE_ENV': JSON.stringify(mode),
@@ -106,6 +107,7 @@ export default {
       require('module').builtinModules || Object.keys(process.binding('natives')),
     ),
 
+    preserveEntrySignatures: 'strict',
     onwarn,
   },
 
@@ -123,6 +125,7 @@ export default {
       json(),
     ],
 
+    preserveEntrySignatures: false,
     onwarn,
   },
 };

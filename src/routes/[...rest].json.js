@@ -1,116 +1,79 @@
-import { gql } from 'apollo-boost';
-import { client } from '../apollo';
+import fetch from 'node-fetch';
 import { getBooks, getMovies } from './getDataFromApi';
+import marked from 'marked';
+import hljs from 'highlight.js';
+import css from 'highlight.js/lib/languages/css';
+import Figure from '../components/molecules/Figure.svelte';
 
-const PAGES = gql`
-  query ModularPage {
-    allPages: entries(section: modularPage) {
-      uri
-      title
-      level
-      ancestors {
-        title
-        level
-        uri
-      }
-      __typename
-      ... on ModularPage {
-        __typename
-        description
-        modules {
-          __typename
-          typename: __typename
-          ... on ModulesRichTextBlock {
-            __typename
-            richText
-            collapseTop
-            collapseBottom
-          }
-          ... on ModulesBlogOverview {
-            __typename
-            heading
-            hideHeadingVisually
-            latest
-            viewAllBlogs {
-              entry {
-                uri
-              }
-              customText
-            }
-          }
-          ... on ModulesMovies {
-            __typename
-            richText
-          }
-          ... on ModulesBooks {
-            __typename
-            richText
-          }
-        }
-      }
-    }
-    globals {
-      settings {
-        siteName
-        siteLanguage
-        twitterHandle
-        domain
-      }
-    }
-  }
-`;
+hljs.registerLanguage('css', css);
+const renderer = new marked.Renderer();
 
-const BLOGS = gql`
-  {
-    allBlogs: entries(section: [blog]) {
-      ... on Blog {
-        id
-        title
-        subheading
-        uri
-        postDate
-      }
-    }
-  }
-`;
+renderer.paragraph = (input) => {
+  const hasImage = input.startsWith('<figure>');
+  return hasImage ? input : `<p>${input}</p>`;
+};
 
-const pagesQuery = client.query({ query: PAGES });
-const blogsQuery = client.query({ query: BLOGS });
+renderer.image = (href, title, text) => {
+  return Figure.render({
+    figcaption: text,
+    imgHref: href,
+    alt: title,
+  }).html;
+};
 
 export async function get(req, res) {
-  const uri = req.params.rest.join('/');
-  const result = await pagesQuery;
-  const pageData = result.data.allPages.find((entry) => entry.uri === uri);
+  let uri = req.params.rest.join('/');
+  if (uri === 'home') { // defined in index.svelte
+    uri = '';
+  }
 
-  if (pageData) {
-    if (pageData.modules.some((module) => module.typename === 'ModulesBlogOverview')) {
-      const blogs = await blogsQuery;
-      pageData.blogs = blogs.data.allBlogs;
+  const siteQuery = await fetch(`${process.env.GRAV_API_URL}?data=site`);
+  const siteData = await siteQuery.json();
+
+  if (!siteData.pages[`/${uri}`]) {
+    res.writeHead(404, { 'Content-Type': 'application/json' });
+    res.end(JSON.stringify({ message: 'Not found in lookup' }));
+    return;
+  }
+
+  const pageQuery = await fetch(`${process.env.GRAV_API_URL}${uri}`);
+  const pageData = await pageQuery.json();
+
+  if (pageData.template === 'modular') {
+    if (pageData.children.some((module) => module.moduleTemplate === 'modular/blogoverview')) {
+      const blogsQuery = await fetch(`${process.env.GRAV_API_URL}blog?data=blogs`);
+      pageData.blogs = await blogsQuery.json();
     }
 
-    if (pageData.modules.some((module) => module.typename === 'ModulesMovies')) {
+    if (pageData.children.some((module) => module.moduleTemplate === 'modular/movies')) {
       pageData.movies = await getMovies();
     }
 
-    if (pageData.modules.some((module) => module.typename === 'ModulesBooks')) {
+    if (pageData.children.some((module) => module.moduleTemplate === 'modular/books')) {
       pageData.books = await getBooks();
     }
-
-    res.writeHead(200, {
-      'Content-Type': 'application/json',
-    });
-
-    res.end(JSON.stringify({
-      ...pageData,
-      globals: result.data.globals,
-    }));
-  } else {
-    res.writeHead(404, {
-      'Content-Type': 'application/json',
-    });
-
-    res.end(JSON.stringify({
-      message: 'Not found in lookup',
-    }));
   }
+
+  if (pageData.template === 'item') {
+    pageData.content = marked(
+      pageData.content,
+      {
+        renderer,
+        highlight: (code, language) => {
+          const validLanguage = hljs.getLanguage(language) ? language : 'css';
+          return `<div class="c-codeblock">${hljs.highlight(validLanguage, code).value}</div>`;
+        },
+      },
+    );
+  }
+
+  res.writeHead(200, {
+    'Content-Type': 'application/json',
+  });
+
+  res.end(JSON.stringify({
+    ...pageData,
+    site: siteData,
+    uri,
+  }));
 }

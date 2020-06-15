@@ -1,5 +1,4 @@
 <script>
-  import Theme from '../atoms/utilities/Theme.svelte';
   import Layer from '../atoms/objects/Layer.svelte';
   import Retain from '../atoms/objects/Retain.svelte';
   import Heading from '../atoms/text/Heading.svelte';
@@ -10,7 +9,8 @@
 
   export let heading;
   export let hideHeadingVisually = false;
-  export let viewAllBlogs = false;
+  export let viewAllBlogs = null;
+  export let viewAllBlogsLabel = null;
   export let latest;
 
   export let items = [];
@@ -35,21 +35,21 @@
             <Cell lap={[1, 2]} desk={[1, 3]}>
               <ArticleOverviewItem
                 title={item.title}
-                subheading={item.subheading}
+                subheading={item.subtitle}
                 uri="{item.uri}"
-                postDate={item.postDate * 1000}
+                postDate={item.date}
               />
             </Cell>
           {/each}
       </Layout>
 
-        {#if viewAllBlogs.entry}
+        {#if viewAllBlogsLabel}
           <Layout>
             <Cell fit align="center">
               <p>
                 <Button
-                  href="{viewAllBlogs.entry.uri}"
-                  label={viewAllBlogs.customText}
+                  href="{viewAllBlogs}"
+                  label={viewAllBlogsLabel}
                 />
               </p>
             </Cell>

@@ -4,17 +4,12 @@
   import Retain from '../atoms/objects/Retain.svelte';
   import Text from '../atoms/text/Text.svelte';
 
-  export let collapseTop = false;
-  export let collapseBottom = false;
   export let richText;
   export let items;
 </script>
 <section>
   <Theme color="black">
-    <Layer
-      collapseTop={collapseTop}
-      collapseBottom={collapseBottom}
-    >
+    <Layer>
       <Retain size="narrow">
         <Text text={richText} />
 
