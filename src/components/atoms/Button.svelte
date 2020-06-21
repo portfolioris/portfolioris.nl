@@ -37,10 +37,10 @@
     line-height: 0; /* [1] */
     font-weight: 500;
     text-decoration: none;
-    background-color: $green; // $c-button--background-color;
+    background-color: var(--green); // $green; // $c-button--background-color;
     color: $black; // $c-button--color;
     appearance: none;
-    transition-property: color, background-color;
+    // transition-property: color, background-color;
     transition-duration: $base-transition-duration-short;
     transition-timing-function: linear;
     cursor: pointer;
@@ -50,7 +50,7 @@
     &:focus,
     &.is-active,
     &[aria-current=true] {
-      background-color: $green;
+      background-color: var(--green); //$green;
       color: $white;
       text-decoration: none;
       outline: none;

@@ -9,12 +9,11 @@
   @import 'engine';
 
   :global(a) {
-    color: $green;
+    color: var(--green);
     font-weight: $font-weight-bold;
-    transition: color $base-transition-duration $base-timing-function;
 
     #{$global-interaction-states} {
-      color: $white;
+      color: var(--white);
     }
   }
 

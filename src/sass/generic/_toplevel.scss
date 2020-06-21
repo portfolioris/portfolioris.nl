@@ -3,14 +3,20 @@
     Describes toplevel styles such as HTML, body, etc.
     ========================================================================= */
 
-/*  Module
-    ========================================================================= */
-
 html {
   font-family: $font-family-primary;
   background-color: $black;
   color: $white;
   text-decoration-skip-ink: auto;
+  --green: #{$green};
+  --white: #{$white};
+}
+
+@media (color-gamut: p3) {
+  html {
+    --green: color(display-p3 0 1 0);
+    --white: color(display-p3 1 1 1);
+  }
 }
 
 body {
