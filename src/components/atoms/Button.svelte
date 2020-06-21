@@ -41,8 +41,8 @@
     color: $black; // $c-button--color;
     appearance: none;
     // transition-property: color, background-color;
-    transition-duration: $base-transition-duration-short;
-    transition-timing-function: linear;
+    // transition-duration: $base-transition-duration-short;
+    // transition-timing-function: linear;
     cursor: pointer;
 
     &:hover,
