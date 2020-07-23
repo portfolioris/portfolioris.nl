@@ -5,18 +5,18 @@
   import Text from '../../components/atoms/text/Text.svelte';
   import DateString from '../../components/atoms/text/DateString.svelte';
 
-  import { onMount } from 'svelte';
+  // import { onMount } from 'svelte';
 
-  onMount(() => {
-    import ('lazysizes');
-    import ('lazysizes/plugins/rias/ls.rias');
-  });
+  // onMount(() => {
+  //   import ('lazysizes');
+  //   import ('lazysizes/plugins/rias/ls.rias');
+  // });
 
-  export let uri;
+  // export let uri;
   export let header;
-  export let site;
+  // export let site;
   export let content = 'notset';
-  export let description = '';
+  // export let description = '';
 
   const {
     title,
@@ -28,29 +28,33 @@
     // },
   } = header;
 
-  const twitterHandle = site.site.metadata.twitterHandle;
-  const domain = site.site.metadata.domain;
-  const siteName = site.site.title;
-  const schema = [{ // todo: add breadcrumb levels for nested pages
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    'itemListElement': [{
-      '@type': 'ListItem',
-      'position': 1,
-      'name': 'Blog',
-      'item': `${domain}/blog`,
-    }, {
-      '@type': 'ListItem',
-      'position': 2,
-      'name': title,
-      'item': `${domain}/${uri}`,
-    }],
-  }, {
-    '@context': 'http://schema.org',
-    '@type': 'WebSite',
-    url: domain,
-    name: siteName,
-  }];
+  // const twitterHandle = site.site.metadata.twitterHandle;
+  // const domain = site.site.metadata.domain;
+  // const siteName = site.site.title;
+/*
+  const schema = [
+    { // todo: add breadcrumb levels for nested pages
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      'itemListElement': [{
+        '@type': 'ListItem',
+        'position': 1,
+        'name': 'Blog',
+        'item': `${domain}/blog`,
+      }, {
+        '@type': 'ListItem',
+        'position': 2,
+        'name': title,
+        'item': `${domain}/${uri}`,
+      }],
+    },
+    {
+      '@context': 'http://schema.org',
+      '@type': 'WebSite',
+      url: domain,
+      name: siteName,
+    }];
+*/
 </script>
 
 <style type="text/scss" lang="scss">
@@ -81,14 +85,14 @@
     text-align: center;
   }
 </style>
-
+<!--
 <svelte:head>
   <title>{title} • {siteName}</title>
   <meta name="description" content={description}>
   <meta name="twitter:site" content={twitterHandle}>
-    {@html `<script type="application/ld+json">${JSON.stringify(schema)}</script>`}
+  {@html `<script type="application/ld+json">${JSON.stringify(schema)}</script>`}
 </svelte:head>
-
+-->
 <article>
   <Layer>
     <header>

@@ -16,7 +16,7 @@
 <footer>
   <Layer size="medium">
     <Retain>
-      <p>© Portfolioris 2019</p>
+      <p>© Portfolioris 2020</p>
     </Retain>
   </Layer>
 </footer>
