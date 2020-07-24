@@ -33,7 +33,7 @@ const preprocess = sveltePreprocess({
   ],
 });
 
-export default {
+module.exports = {
   client: {
     input: config.client.input(),
     output: config.client.output(),

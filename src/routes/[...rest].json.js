@@ -1,8 +1,8 @@
 import fetch from 'node-fetch';
-import { getBooks, getMovies } from './getDataFromApi';
 import marked from 'marked';
 import hljs from 'highlight.js';
 import css from 'highlight.js/lib/languages/css';
+import { getBooks, getMovies } from './getDataFromApi';
 import Figure from '../components/molecules/Figure.svelte';
 
 hljs.registerLanguage('css', css);
@@ -13,13 +13,12 @@ renderer.paragraph = (input) => {
   return hasImage ? input : `<p>${input}</p>`;
 };
 
-renderer.image = (href, title, text) => {
-  return Figure.render({
+renderer.image = (href, title, text) => (
+  Figure.render({
     figcaption: text,
     imgHref: href,
     alt: title,
-  }).html;
-};
+  }).html);
 
 export async function get(req, res) {
   let uri = req.params.rest.join('/');
