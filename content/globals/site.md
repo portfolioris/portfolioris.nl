@@ -1,3 +1,4 @@
 ---
 siteName: Portfolioris
+lang: en
 ---
