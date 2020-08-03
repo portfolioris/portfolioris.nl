@@ -1,17 +1,84 @@
 backend:
   name: git-gateway
   branch: main # Branch to update
-media_folder: "images/uploads" # Media files will be stored in the repo under images/uploads
+  local_backend: true
+media_folder: 'content/uploads' # Media files will be stored in the repo under content/uploads
 collections:
+  - label: 'Global options'
+    name: globals
+    editor:
+      preview: false
+    files:
+      - label: 'Site options'
+        name: site
+        file: 'content/globals/site.md'
+        fields:
+          - { label: 'Site name', name: 'siteName', widget: 'string' }
+          - { label: 'Language', name: 'lang', widget: 'string', hint: 'Two-letter language code', pattern: ['.{2}', 'Not a 2-letter code'] }
+          - { label: 'Default author', name: 'author', widget: 'string' }
+          - { label: 'Default Twitter handle', name: 'twitterHandle', widget: 'string' }
+          - { label: 'Domain', name: 'domain', widget: 'string' }
+
+  - name: pages
+    label: Pages
+    label_singular: page
+    folder: 'content/pages'
+    create: true
+    nested: { depth: 100 }
+    meta: { path: { widget: string, label: 'uri', index_file: 'index' } }
+    fields:
+      - { label: Title, name: title, widget: string }
+      - { label: Description, name: description, widget: string }
+      - { label: 'Publish Date', name: date, widget: date }
+      - label: Modules
+        name: modules
+        widget: list
+        types:
+          - label: 'Rich text'
+            name: richText
+            widget: object
+            fields:
+              - label: 'Rich text'
+                name: richText
+                widget: markdown
+              - label: 'Collapse top'
+                name: collapseTop
+                widget: boolean
+                required: false
+              - label: 'Collapse bottom'
+                name: collapseBottom
+                widget: boolean
+                required: false
+          - label: 'Blog overview'
+            name: blogOverview
+            widget: object
+            fields:
+              - label: Heading
+                name: heading
+                widget: string
+              - label: 'Hide heading visually'
+                name: 'hideHeadingVisually'
+                widget: boolean
+                required: false
+              - label: 'View all blogs'
+                name: viewAllBlogs
+                widget: relation
+                collection: pages
+                valueField: '{{slug}}'
+                displayFields: [ title ]
+                searchFields: [ title ]
+                required: false
+
+
   - name: "blog" # Used in routes, e.g., /admin/collections/blog
     label: "Blog" # Used in the UI
-    folder: "_posts/blog" # The path to the folder where the documents are stored
+    folder: "content/blog" # The path to the folder where the documents are stored
     create: true # Allow users to create new documents in this collection
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+#    slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
     fields: # The fields for each document, usually in front matter
-      - {label: "Layout", name: "layout", widget: "hidden", default: "blog"}
       - {label: "Title", name: "title", widget: "string"}
-      - {label: "Publish Date", name: "date", widget: "datetime"}
-      - {label: "Featured Image", name: "thumbnail", widget: "image"}
-      - {label: "Rating (scale of 1-5)", name: "rating", widget: "number"}
-      - {label: "Body", name: "body", widget: "markdown"}
+      - {label: "Subtitle", name: "subtitle", widget: "string"}
+      - {label: "Description", name: "description", widget: "string"}
+      - {label: "Author", name: "author", widget: "string"}
+      - {label: "Publish date", name: "date", widget: "datetime"}
+      - {label: "Content", name: "content", widget: "markdown"}
