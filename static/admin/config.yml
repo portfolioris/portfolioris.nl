@@ -1,6 +1,7 @@
 backend:
   name: git-gateway
-  branch: main # Branch to update
+#  branch: main # Branch to update
+  branch: feature/source-from-netlifycms # Branch to update
   local_backend: true
 media_folder: 'content/uploads' # Media files will be stored in the repo under content/uploads
 collections:
