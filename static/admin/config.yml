@@ -61,6 +61,10 @@ collections:
                 name: 'hideHeadingVisually'
                 widget: boolean
                 required: false
+              - label: 'View all blogs label'
+                name: viewAllBlogsLabel
+                widget: string
+                required: false
               - label: 'View all blogs'
                 name: viewAllBlogs
                 widget: relation
@@ -68,6 +72,28 @@ collections:
                 valueField: '{{slug}}'
                 displayFields: [ title ]
                 searchFields: [ title ]
+                required: false
+          - label: Movies
+            name: movies
+            fields:
+              - label: 'Collapse top'
+                name: collapseTop
+                widget: boolean
+                required: false
+              - label: 'Collapse bottom'
+                name: collapseBottom
+                widget: boolean
+                required: false
+          - label: Books
+            name: books
+            fields:
+              - label: 'Collapse top'
+                name: collapseTop
+                widget: boolean
+                required: false
+              - label: 'Collapse bottom'
+                name: collapseBottom
+                widget: boolean
                 required: false
 
 

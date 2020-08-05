@@ -7,20 +7,20 @@
   export let blogs = [];
   export let movies = [];
   export let books = [];
-  export let children = [];
+  export let modules = [];
 </script>
 
-{#each children as module}
-  {#if module.moduleTemplate  === 'modular/richtextblock'}
-    <RichTextBlock {...module.header} />
+{#each modules as module}
+  {#if module.type  === 'richText'}
+    <RichTextBlock {...module} />
   {/if}
-  {#if module.moduleTemplate  === 'modular/blogoverview'}
-    <ArticleOverview {...module.header} items={blogs} />
+  {#if module.type  === 'blogOverview'}
+    <ArticleOverview {...module} items={blogs} />
   {/if}
-  {#if module.moduleTemplate  === 'modular/movies'}
-    <LatestMovies {...module.header} items={movies} />
+  {#if module.type  === 'movies'}
+    <LatestMovies {...module} items={movies} />
   {/if}
-  {#if module.moduleTemplate  === 'modular/books'}
-    <LatestBooks {...module.header} items={books} />
+  {#if module.type  === 'books'}
+    <LatestBooks {...module} items={books} />
   {/if}
 {/each}

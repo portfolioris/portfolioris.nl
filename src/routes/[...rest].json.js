@@ -1,4 +1,8 @@
 import fetch from 'node-fetch';
+import glob from 'glob';
+import fs from 'fs';
+import path from 'path';
+import fm from 'front-matter';
 import marked from 'marked';
 import hljs from 'highlight.js';
 import css from 'highlight.js/lib/languages/css';
@@ -22,33 +26,45 @@ renderer.image = (href, title, text) => (
 
 export async function get(req, res) {
   let uri = req.params.rest.join('/');
-  if (uri === 'home') { // defined in index.svelte
-    uri = '';
-  }
+  // if (uri === 'home') { // defined in index.svelte
+  //   uri = '';
+  // }
 
-  const siteQuery = await fetch(`${process.env.GRAV_API_URL}?data=site`);
-  const siteData = await siteQuery.json();
+  const siteFile = fs.readFileSync('content/globals/site.md');
+  const siteData = fm(siteFile.toString()).attributes;
 
-  if (!siteData.pages[`/${uri}`]) {
+  const pages = [];
+
+  const files = glob.sync('**/*.md', {
+    cwd: 'content/pages',
+  });
+
+  files.forEach((file) => {
+    const fileData = fs.readFileSync(`content/pages/${file}`);
+    const page = fm(fileData.toString()).attributes;
+    page.uri = path.dirname(file);
+    pages.push(page);
+  });
+
+  const pageData = pages.find((page) => page.uri === uri);
+
+  if (!pageData) {
     res.writeHead(404, { 'Content-Type': 'application/json' });
     res.end(JSON.stringify({ message: 'Not found in lookup' }));
     return;
   }
 
-  const pageQuery = await fetch(`${process.env.GRAV_API_URL}${uri}`);
-  const pageData = await pageQuery.json();
-
-  if (pageData.template === 'modular') {
-    if (pageData.children.some((module) => module.moduleTemplate === 'modular/blogoverview')) {
+  if (pageData.modules) {
+    if (pageData.modules.some((module) => module.moduleTemplate === 'modular/blogoverview')) {
       const blogsQuery = await fetch(`${process.env.GRAV_API_URL}blog?data=blogs`);
       pageData.blogs = await blogsQuery.json();
     }
 
-    if (pageData.children.some((module) => module.moduleTemplate === 'modular/movies')) {
+    if (pageData.modules.some((module) => module.type === 'movies')) {
       pageData.movies = await getMovies();
     }
 
-    if (pageData.children.some((module) => module.moduleTemplate === 'modular/books')) {
+    if (pageData.modules.some((module) => module.type === 'books')) {
       pageData.books = await getBooks();
     }
   }
