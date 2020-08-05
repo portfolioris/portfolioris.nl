@@ -12,4 +12,6 @@ modules:
 
 
       Here is an overview of the movies I've watched most recently. This is imported from the TMDb API. See all my ratings on [themoviedb.org/u/portfolioris/ratings](https://www.themoviedb.org/u/portfolioris/ratings).
+  - type: movies
+    collapseTop: true
 ---
