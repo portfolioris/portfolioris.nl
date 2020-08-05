@@ -25,8 +25,8 @@ collections:
     label_singular: page
     folder: 'content/pages'
     create: true
-    nested: { depth: 100 }
-    meta: { path: { widget: string, label: 'uri', index_file: 'index' } }
+#    nested: { depth: 100 }
+#    meta: { path: { widget: string, label: 'uri', index_file: 'index' } }
     fields:
       - { label: Title, name: title, widget: string }
       - { label: Description, name: description, widget: string }

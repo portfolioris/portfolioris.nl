@@ -15,7 +15,6 @@
   import ModularPageTemplate from './_templates/_ModularPageTemplate.svelte';
   import BlogTemplate from './_templates/_BlogTemplate.svelte';
   export let data;
-  console.log(data);
 </script>
 
 <Meta {...data} />
