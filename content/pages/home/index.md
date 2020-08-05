@@ -10,6 +10,7 @@ modules:
   - type: blogOverview
     heading: Latest blogs
     viewAllBlogs: blog/index
+    viewAllBlogsLabel: All blogs
   - type: richText
     richText: >-
       ## Hi,
