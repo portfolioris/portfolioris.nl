@@ -9,7 +9,7 @@ modules:
     collapseBottom: true
   - type: blogOverview
     heading: Latest blogs
-    viewAllBlogs: blog/index
+    viewAllBlogs: blog
     viewAllBlogsLabel: All blogs
   - type: richText
     richText: >-
