@@ -9,4 +9,6 @@ modules:
 
 
       Books I've read. I manage my reading list on [Goodreads](https://www.goodreads.com/). This data comes from it's API. If you have any good recommendations for books, drop me a note at joris [@] portfolioris.nl.
+  - type: books
+    collapseTop: true
 ---
