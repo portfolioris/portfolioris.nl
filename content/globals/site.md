@@ -4,5 +4,14 @@ lang: en
 author: Joris Hulsbosch
 twitterHandle: "@Portfolioris"
 domain: https://me.portfolioris.nl/
-primaryNav: []
+primaryNav:
+  - item:
+      label: Home
+      uri: home
+  - item:
+      label: Blog
+      uri: blog
+  - item:
+      label: About
+      uri: about
 ---
