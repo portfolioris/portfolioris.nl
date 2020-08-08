@@ -14,4 +14,10 @@ primaryNav:
   - item:
       label: About
       uri: about
+  - item:
+      label: Movies
+      uri: movies
+  - item:
+      label: Books
+      uri: books
 ---
