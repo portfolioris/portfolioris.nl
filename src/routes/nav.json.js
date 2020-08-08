@@ -1,29 +1,13 @@
-import fetch from 'node-fetch';
-/*
-import { gql } from 'apollo-boost';
-import { client } from '../apollo';
+import fs from 'fs';
+import fm from 'front-matter/index';
 
-const MAIN_NAV = gql`{
-  navItems: entries(section: mainNavigation) {
-    ... on MainNavigation {
-      title
-      menuItem {
-        uri
-      }
-    }
-  }
-}`;
-
-const pages = client.query({ query: MAIN_NAV });
-*/
-export async function get(req, res) {
-  const navQuery = await fetch(`${process.env.GRAV_API_URL}?data=site`);
-  const navData = await navQuery.json();
-  // const result = await pages;
+export function get(req, res) {
+  const siteFile = fs.readFileSync('content/globals/site.md');
+  const navData = fm(siteFile.toString()).attributes.primaryNav;
 
   res.writeHead(200, {
     'Content-Type': 'application/json',
   });
 
-  res.end(JSON.stringify(navData.theme.menu));
+  res.end(JSON.stringify(navData));
 }

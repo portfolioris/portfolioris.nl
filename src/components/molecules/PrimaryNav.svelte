@@ -14,10 +14,10 @@
         <Cell element="li" fit>
           <Button
             element="a"
-            isActive="{activePage === item.link}"
+            isActive="{activePage === item.uri}"
             modifier="transparent"
             label="{item.label}"
-            href="{item.link === '/home' ? '' : item.link}"
+            href="{item.uri === 'home' ? '/' : item.uri}"
           />
         </Cell>
       {/each}
