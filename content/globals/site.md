@@ -8,16 +8,26 @@ primaryNav:
   - item:
       label: Home
       uri: home
+    label: Home
+    uri: home
   - item:
       label: Blog
       uri: blog
+    label: Blog
+    uri: blog
   - item:
       label: About
       uri: about
+    label: About
+    uri: about
   - item:
       label: Movies
       uri: movies
+    label: Movies
+    uri: movies
   - item:
       label: Books
       uri: books
+    label: Books
+    uri: books
 ---
