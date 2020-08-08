@@ -18,6 +18,8 @@
   if (latest) {
     items = items.slice(0, 3);
   }
+
+  console.log(items);
 </script>
 <section>
   <Layer>

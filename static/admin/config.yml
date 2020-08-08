@@ -19,6 +19,21 @@ collections:
           - { label: 'Default author', name: 'author', widget: 'string' }
           - { label: 'Default Twitter handle', name: 'twitterHandle', widget: 'string' }
           - { label: 'Domain', name: 'domain', widget: 'string' }
+          - label: Primary navigation
+            name: primaryNav
+            widget: list
+            fields:
+              - label: Label
+                name: label
+                widget: string
+              - label: Page
+                name: uri
+                widget: relation
+                collection: pages
+                valueField: '{{slug}}'
+                displayFields: [ title ]
+                searchFields: [ title ]
+
 
   - name: pages
     label: Pages

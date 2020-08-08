@@ -1,9 +1,15 @@
+import glob from 'glob';
+import fs from 'fs';
+import fm from 'front-matter';
+import path from 'path';
+
 const fetch = require('node-fetch');
 const xml2js = require('xml2js');
 
-require('dotenv').config({
-  path: `.env.${process.env.NODE_ENV}`,
-});
+require('dotenv')
+  .config({
+    path: `.env.${process.env.NODE_ENV}`,
+  });
 
 const getMovies = (async () => {
   const response = await fetch(process.env.TMDB_API_URL, {
@@ -25,4 +31,21 @@ const getBooks = (async () => {
   return result.GoodreadsResponse.reviews.review;
 });
 
-export { getMovies, getBooks };
+const getPages = (directory) => {
+  const pages = [];
+
+  const files = glob.sync('*.md', {
+    cwd: directory,
+  });
+
+  files.forEach((file) => {
+    const fileData = fs.readFileSync(`${directory}/${file}`);
+    const page = fm(fileData.toString()).attributes;
+    page.uri = path.basename(file, '.md');
+    pages.push(page);
+  });
+
+  return pages;
+};
+
+export { getPages, getMovies, getBooks };

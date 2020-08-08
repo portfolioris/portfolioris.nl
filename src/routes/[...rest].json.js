@@ -1,12 +1,12 @@
-import fetch from 'node-fetch';
-import glob from 'glob';
+// import fetch from 'node-fetch';
+// import glob from 'glob';
 import fs from 'fs';
-import path from 'path';
+// import path from 'path';
 import fm from 'front-matter';
 import marked from 'marked';
 import hljs from 'highlight.js';
 import css from 'highlight.js/lib/languages/css';
-import { getBooks, getMovies } from './getDataFromApi';
+import { getBooks, getMovies, getPages } from './_getDataFromApi';
 import Figure from '../components/molecules/Figure.svelte';
 
 hljs.registerLanguage('css', css);
@@ -33,18 +33,7 @@ export async function get(req, res) {
   const siteFile = fs.readFileSync('content/globals/site.md');
   const siteData = fm(siteFile.toString()).attributes;
 
-  const pages = [];
-
-  const files = glob.sync('**/*.md', {
-    cwd: 'content/pages',
-  });
-
-  files.forEach((file) => {
-    const fileData = fs.readFileSync(`content/pages/${file}`);
-    const page = fm(fileData.toString()).attributes;
-    page.uri = path.dirname(file);
-    pages.push(page);
-  });
+  const pages = getPages('content/pages');
 
   const pageData = pages.find((page) => page.uri === uri);
 
@@ -55,9 +44,8 @@ export async function get(req, res) {
   }
 
   if (pageData.modules) {
-    if (pageData.modules.some((module) => module.moduleTemplate === 'modular/blogoverview')) {
-      const blogsQuery = await fetch(`${process.env.GRAV_API_URL}blog?data=blogs`);
-      pageData.blogs = await blogsQuery.json();
+    if (pageData.modules.some((module) => module.type === 'blogOverview')) {
+      pageData.blogs = getPages('content/blog');
     }
 
     if (pageData.modules.some((module) => module.type === 'movies')) {

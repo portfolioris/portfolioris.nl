@@ -5,31 +5,14 @@ author: Joris Hulsbosch
 twitterHandle: "@Portfolioris"
 domain: https://me.portfolioris.nl/
 primaryNav:
-  - item:
-      label: Home
-      uri: home
-    label: Home
+  - label: Home
     uri: home
-  - item:
-      label: Blog
-      uri: blog
-    label: Blog
+  - label: Blog
     uri: blog
-  - item:
-      label: About
-      uri: about
-    label: About
+  - label: About
     uri: about
-  - item:
-      label: Movies
-      uri: movies
-    label: Movies
+  - label: Movies
     uri: movies
-  - item:
-      label: Books
-      uri: books
-    label: Books
+  - label: Books
     uri: books
-  - label: New
-    uri: home
 ---
