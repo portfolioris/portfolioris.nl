@@ -30,4 +30,6 @@ primaryNav:
       uri: books
     label: Books
     uri: books
+  - label: New
+    uri: home
 ---
