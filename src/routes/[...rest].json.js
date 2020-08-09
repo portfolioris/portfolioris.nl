@@ -54,6 +54,10 @@ export async function get(req, res) {
   }
 
   if (pageData.template === 'blog') {
+    // get the body of the MD file, parse it
+    const pageFile = fs.readFileSync(`content/pages/${uri}.md`);
+    pageData.content = fm(pageFile.toString()).body;
+
     pageData.content = marked(
       pageData.content,
       {

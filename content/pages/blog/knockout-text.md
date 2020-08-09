@@ -4,9 +4,7 @@ subtitle: Effecten op tekst, zoals een verloop (gradient) of een afbeelding
   tonen in de letters
 author: Joris Hulsbosch
 date: 2018-12-13 15:19
-metadata:
-  description: Effecten op tekst, zoals een verloop (gradient) of een afbeelding
-    tonen in de letters
+template: blog
 description: Effecten op tekst, zoals een verloop (gradient) of een afbeelding
   tonen in de letters
 ---
