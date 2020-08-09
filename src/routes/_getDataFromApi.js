@@ -31,17 +31,17 @@ const getBooks = (async () => {
   return result.GoodreadsResponse.reviews.review;
 });
 
-const getPages = (directory) => {
+const getPages = (directory, uriPrefix = '') => {
   const pages = [];
 
-  const files = glob.sync('*.md', {
+  const files = glob.sync('**/*.md', {
     cwd: directory,
   });
 
   files.forEach((file) => {
     const fileData = fs.readFileSync(`${directory}/${file}`);
     const page = fm(fileData.toString()).attributes;
-    page.uri = path.basename(file, '.md');
+    page.uri = `${uriPrefix}${path.dirname(file) === '.' ? '' : `${path.dirname(file)}/`}${path.basename(file, '.md')}`;
     pages.push(page);
   });
 

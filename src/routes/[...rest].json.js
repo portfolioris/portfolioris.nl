@@ -25,16 +25,9 @@ renderer.image = (href, title, text) => (
   }).html);
 
 export async function get(req, res) {
-  let uri = req.params.rest.join('/');
-  // if (uri === 'home') { // defined in index.svelte
-  //   uri = '';
-  // }
-
-  const siteFile = fs.readFileSync('content/globals/site.md');
-  const siteData = fm(siteFile.toString()).attributes;
+  const uri = req.params.rest.join('/');
 
   const pages = getPages('content/pages');
-
   const pageData = pages.find((page) => page.uri === uri);
 
   if (!pageData) {
@@ -43,9 +36,12 @@ export async function get(req, res) {
     return;
   }
 
+  const siteFile = fs.readFileSync('content/globals/site.md');
+  const siteData = fm(siteFile.toString()).attributes;
+
   if (pageData.modules) {
     if (pageData.modules.some((module) => module.type === 'blogOverview')) {
-      pageData.blogs = getPages('content/blog');
+      pageData.blogs = getPages('content/pages/blog', 'blog/');
     }
 
     if (pageData.modules.some((module) => module.type === 'movies')) {
