@@ -53,7 +53,7 @@ export async function get(req, res) {
     }
   }
 
-  if (pageData.template === 'item') {
+  if (pageData.template === 'blog') {
     pageData.content = marked(
       pageData.content,
       {

@@ -5,32 +5,12 @@
   import Text from '../../components/atoms/text/Text.svelte';
   import DateString from '../../components/atoms/text/DateString.svelte';
 
-  // import { onMount } from 'svelte';
+  export let content;
+  export let title;
+  export let subtitle;
+  export let author;
+  export let date;
 
-  // onMount(() => {
-  //   import ('lazysizes');
-  //   import ('lazysizes/plugins/rias/ls.rias');
-  // });
-
-  // export let uri;
-  export let header;
-  // export let site;
-  export let content = 'notset';
-  // export let description = '';
-
-  const {
-    title,
-    subtitle,
-    date,
-    author,
-    // metadata: {
-    //   description,
-    // },
-  } = header;
-
-  // const twitterHandle = site.site.metadata.twitterHandle;
-  // const domain = site.site.metadata.domain;
-  // const siteName = site.site.title;
 /*
   const schema = [
     { // todo: add breadcrumb levels for nested pages

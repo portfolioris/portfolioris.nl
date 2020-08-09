@@ -5,6 +5,7 @@ description: Sinds jaren bestaan tekstvlakken in webpagina-layouts uit
   rechthoeken. CSS Shapes geven de mogelijkheid daar ook van af te wijken.
 author: Joris Hulsbosch
 date: 2018-10-29T19:34:00.000Z
+template: blog
 content: >
   Sinds jaren bestaan tekstvlakken in webpagina-layouts uit rechthoeken. CSS
   Shapes geven de mogelijkheid daar ook van af te wijken. Dorel — een klant van

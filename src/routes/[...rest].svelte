@@ -23,6 +23,6 @@
   <ModularPageTemplate {...data} />
 {/if}
 
-{#if data.template === 'item'}
+{#if data.template === 'blog'}
   <BlogTemplate {...data} />
 {/if}
