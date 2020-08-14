@@ -6,7 +6,7 @@ subtitle: Effecten op tekst, zoals een verloop (gradient) of een afbeelding
 description: Effecten op tekst, zoals een verloop (gradient) of een afbeelding
   tonen in de letters
 author: Joris Hulsbosch
-date: 2018-12-12T14:19:00.000Z
+date: 2018-12-13T14:19:00.000Z
 ---
 'Knockout text' is tekst waarbij het lijkt alsof je door uitgeknipte letters heen kijkt. Dit geeft de mogelijkheid om effecten op tekst toe te passen, zoals een verloop (gradient) of een afbeelding te tonen in de letters.
 
