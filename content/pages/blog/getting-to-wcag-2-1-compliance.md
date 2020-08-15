@@ -1,8 +1,8 @@
 ---
 template: blog
 title: Getting to WCAG 2.1 compliance
-subtitle: Doing the best I can to make websites the most accessible
-description: Doing the best I can to make websites the most accessible
+subtitle: The journey to make websites the most accessible
+description: The journey to make websites the most accessible
 author: Joris Hulsbosch
 date: 2020-06-12T13:30:42.762Z
 ---
