@@ -11,6 +11,7 @@ modules:
     heading: Latest blogs
     viewAllBlogs: blog
     viewAllBlogsLabel: All blogs
+    latest: 3
   - type: richText
     richText: >-
       ## Hi,
