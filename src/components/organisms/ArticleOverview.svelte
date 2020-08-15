@@ -16,10 +16,10 @@
   export let items = [];
 
   if (latest) {
-    items = items.slice(0, 3);
+    items = items.slice(0, latest);
   }
 
-  console.log(items);
+  // console.log(items);
 </script>
 <section>
   <Layer>

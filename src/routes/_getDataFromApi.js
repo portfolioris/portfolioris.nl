@@ -45,6 +45,9 @@ const getPages = (directory, uriPrefix = '') => {
     pages.push(page);
   });
 
+  // sort by date, descending
+  pages.sort((a, b) => b.date.getTime() - a.date.getTime());
+
   return pages;
 };
 

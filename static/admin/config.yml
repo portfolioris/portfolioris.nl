@@ -95,6 +95,11 @@ collections:
                 displayFields: [ title ]
                 searchFields: [ title ]
                 required: false
+              - label: Amount of items to show
+                name: latest
+                widget: number
+                valueType: int
+                required: false
           - label: Movies
             name: movies
             fields:
