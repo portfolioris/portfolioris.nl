@@ -4,7 +4,7 @@ title: The making of Lockdown
 subtitle: Recording a song in times of corona crisis
 description: Recording a song in times of corona crisis
 author: Joris Hulsbosch
-date: 2020-05-05T13:29:55.624Z
+date: 2020-05-11T13:29:55.624Z
 ---
 ![Who are we playing Lockdown](/blog/Who_are_we_-_Lockdown-8-1.jpg)
 
