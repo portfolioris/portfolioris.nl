@@ -1,8 +1,9 @@
-import fetch from 'node-fetch';
+import fs from 'fs';
+import fm from 'front-matter';
 import marked from 'marked';
 import hljs from 'highlight.js';
 import css from 'highlight.js/lib/languages/css';
-import { getBooks, getMovies } from './getDataFromApi';
+import { getBooks, getMovies, getPages } from './_getDataFromApi';
 import Figure from '../components/molecules/Figure.svelte';
 
 hljs.registerLanguage('css', css);
@@ -21,39 +22,39 @@ renderer.image = (href, title, text) => (
   }).html);
 
 export async function get(req, res) {
-  let uri = req.params.rest.join('/');
-  if (uri === 'home') { // defined in index.svelte
-    uri = '';
-  }
+  const uri = req.params.rest.join('/');
 
-  const siteQuery = await fetch(`${process.env.GRAV_API_URL}?data=site`);
-  const siteData = await siteQuery.json();
+  const pages = getPages('content/pages');
+  const pageData = pages.find((page) => page.uri === uri);
 
-  if (!siteData.pages[`/${uri}`]) {
+  if (!pageData) {
     res.writeHead(404, { 'Content-Type': 'application/json' });
     res.end(JSON.stringify({ message: 'Not found in lookup' }));
     return;
   }
 
-  const pageQuery = await fetch(`${process.env.GRAV_API_URL}${uri}`);
-  const pageData = await pageQuery.json();
+  const siteFile = fs.readFileSync('content/globals/site.md');
+  const siteData = fm(siteFile.toString()).attributes;
 
-  if (pageData.template === 'modular') {
-    if (pageData.children.some((module) => module.moduleTemplate === 'modular/blogoverview')) {
-      const blogsQuery = await fetch(`${process.env.GRAV_API_URL}blog?data=blogs`);
-      pageData.blogs = await blogsQuery.json();
+  if (pageData.modules) {
+    if (pageData.modules.some((module) => module.type === 'blogOverview')) {
+      pageData.blogs = getPages('content/pages/blog', 'blog/');
     }
 
-    if (pageData.children.some((module) => module.moduleTemplate === 'modular/movies')) {
+    if (pageData.modules.some((module) => module.type === 'movies')) {
       pageData.movies = await getMovies();
     }
 
-    if (pageData.children.some((module) => module.moduleTemplate === 'modular/books')) {
+    if (pageData.modules.some((module) => module.type === 'books')) {
       pageData.books = await getBooks();
     }
   }
 
-  if (pageData.template === 'item') {
+  if (pageData.template === 'blog') {
+    // get the body of the MD file, parse it
+    const pageFile = fs.readFileSync(`content/pages/${uri}.md`);
+    pageData.content = fm(pageFile.toString()).body;
+
     pageData.content = marked(
       pageData.content,
       {

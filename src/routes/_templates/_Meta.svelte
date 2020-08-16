@@ -1,13 +1,13 @@
 <script>
-  export let header;
   export let site;
   export let uri;
 
-  $: title = header.title;
-  $: description = header.metadata.description;
-  $: siteName = site.site.title;
-  $: twitterHandle = site.site.metadata.twitterHandle;
-  $: domain = site.site.metadata.domain;
+  export let title;
+  export let description;
+
+  $: siteName = site.siteName;
+  $: twitterHandle = site.twitterHandle;
+  $: domain = site.domain;
 
   $: schema = [{
     '@context': 'https://schema.org',

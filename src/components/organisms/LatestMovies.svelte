@@ -1,17 +1,15 @@
 <script>
   import Layer from '../atoms/objects/Layer.svelte';
   import Retain from '../atoms/objects/Retain.svelte';
-  import Text from '../atoms/text/Text.svelte';
   import DateString from '../atoms/text/DateString.svelte';
 
-  export let richText;
   export let items;
+  export let collapseTop;
+  export let collapseBottom;
 </script>
 <section>
-  <Layer>
+  <Layer collapseBottom={collapseBottom} collapseTop={collapseTop}>
     <Retain size="narrow">
-      <Text text={richText} />
-
       <table>
         <thead>
           <tr>

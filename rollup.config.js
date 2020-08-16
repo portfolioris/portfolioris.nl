@@ -15,8 +15,10 @@ const mode = process.env.NODE_ENV;
 const dev = mode === 'development';
 const legacy = !!process.env.SAPPER_LEGACY_BUILD;
 
-const onwarn = (warning, onwarn) => (warning.code === 'CIRCULAR_DEPENDENCY' && /[/\\]@sapper[/\\]/.test(warning.message)) || onwarn(warning);
-// const dedupe = importee => importee === 'svelte' || importee.startsWith('svelte/');
+const onwarn = (warning, onwarn) =>
+  (warning.code === 'MISSING_EXPORT' && /'preload'/.test(warning.message)) ||
+  (warning.code === 'CIRCULAR_DEPENDENCY' && /[/\\]@sapper[/\\]/.test(warning.message)) ||
+  onwarn(warning);
 
 require('dotenv').config({
   path: '.env',
@@ -33,7 +35,7 @@ const preprocess = sveltePreprocess({
   ],
 });
 
-module.exports = {
+export default {
   client: {
     input: config.client.input(),
     output: config.client.output(),
@@ -53,7 +55,6 @@ module.exports = {
       resolve({
         browser: true,
         dedupe: ['svelte'],
-        // dedupe,
       }),
       commonjs(),
 
@@ -95,6 +96,7 @@ module.exports = {
       svelte({
         preprocess,
         generate: 'ssr',
+        hydratable: true,
         dev,
       }),
       resolve({
@@ -103,10 +105,7 @@ module.exports = {
       commonjs(),
       json(),
     ],
-    external: Object.keys(pkg.dependencies).concat(
-      require('module').builtinModules || Object.keys(process.binding('natives')),
-    ),
-
+    external: Object.keys(pkg.dependencies).concat(require('module').builtinModules),
     preserveEntrySignatures: 'strict',
     onwarn,
   },

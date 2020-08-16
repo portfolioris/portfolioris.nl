@@ -25,6 +25,6 @@
   <meta name="twitter:card" content="summary">
 </svelte:head>
 
-<Navigation items="{navItems}" activePage="/{segment}">
+<Navigation items="{navItems}" activePage="{segment}">
   <slot></slot>
 </Navigation>

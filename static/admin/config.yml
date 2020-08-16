@@ -1,8 +1,16 @@
 backend:
   name: git-gateway
   branch: main # Branch to update
+#  branch: feature/source-from-netlifycms # Branch to update
   local_backend: true
 media_folder: 'content/uploads' # Media files will be stored in the repo under content/uploads
+
+media_library:
+  name: cloudinary
+  config:
+    cloud_name: portfolioris
+    api_key: 697687196319566
+
 collections:
   - label: 'Global options'
     name: globals
@@ -18,14 +26,29 @@ collections:
           - { label: 'Default author', name: 'author', widget: 'string' }
           - { label: 'Default Twitter handle', name: 'twitterHandle', widget: 'string' }
           - { label: 'Domain', name: 'domain', widget: 'string' }
+          - label: Primary navigation
+            name: primaryNav
+            widget: list
+            fields:
+              - label: Label
+                name: label
+                widget: string
+              - label: Page
+                name: uri
+                widget: relation
+                collection: pages
+                valueField: '{{slug}}'
+                displayFields: [ title ]
+                searchFields: [ title ]
+
 
   - name: pages
     label: Pages
     label_singular: page
     folder: 'content/pages'
     create: true
-    nested: { depth: 100 }
-    meta: { path: { widget: string, label: 'uri', index_file: 'index' } }
+#    nested: { depth: 100 }
+#    meta: { path: { widget: string, label: 'uri', index_file: 'index' } }
     fields:
       - { label: Title, name: title, widget: string }
       - { label: Description, name: description, widget: string }
@@ -60,6 +83,10 @@ collections:
                 name: 'hideHeadingVisually'
                 widget: boolean
                 required: false
+              - label: 'View all blogs label'
+                name: viewAllBlogsLabel
+                widget: string
+                required: false
               - label: 'View all blogs'
                 name: viewAllBlogs
                 widget: relation
@@ -68,17 +95,45 @@ collections:
                 displayFields: [ title ]
                 searchFields: [ title ]
                 required: false
+              - label: Amount of items to show
+                name: latest
+                widget: number
+                valueType: int
+                required: false
+          - label: Movies
+            name: movies
+            fields:
+              - label: 'Collapse top'
+                name: collapseTop
+                widget: boolean
+                required: false
+              - label: 'Collapse bottom'
+                name: collapseBottom
+                widget: boolean
+                required: false
+          - label: Books
+            name: books
+            fields:
+              - label: 'Collapse top'
+                name: collapseTop
+                widget: boolean
+                required: false
+              - label: 'Collapse bottom'
+                name: collapseBottom
+                widget: boolean
+                required: false
 
 
   - name: "blog" # Used in routes, e.g., /admin/collections/blog
     label: "Blog" # Used in the UI
-    folder: "content/blog" # The path to the folder where the documents are stored
+    folder: "content/pages/blog" # The path to the folder where the documents are stored
     create: true # Allow users to create new documents in this collection
 #    slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
     fields: # The fields for each document, usually in front matter
+      - {label: template, name: "template", widget: "hidden", default: blog}
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Subtitle", name: "subtitle", widget: "string"}
       - {label: "Description", name: "description", widget: "string"}
       - {label: "Author", name: "author", widget: "string"}
       - {label: "Publish date", name: "date", widget: "datetime"}
-      - {label: "Content", name: "content", widget: "markdown"}
+      - {label: "Content", name: "body", widget: "markdown"}

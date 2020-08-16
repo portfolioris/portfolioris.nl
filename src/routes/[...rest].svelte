@@ -19,10 +19,10 @@
 
 <Meta {...data} />
 
-{#if data.template === 'modular'}
+{#if data.modules}
   <ModularPageTemplate {...data} />
 {/if}
 
-{#if data.template === 'item'}
+{#if data.template === 'blog'}
   <BlogTemplate {...data} />
 {/if}
