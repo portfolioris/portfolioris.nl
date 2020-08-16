@@ -1,13 +1,10 @@
 <script>
-  // export let header;
   export let site;
   export let uri;
 
   export let title;
   export let description;
 
-  // $: title = header.title;
-  // $: description = header.metadata.description;
   $: siteName = site.siteName;
   $: twitterHandle = site.twitterHandle;
   $: domain = site.domain;

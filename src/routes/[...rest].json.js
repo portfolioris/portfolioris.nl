@@ -1,7 +1,4 @@
-// import fetch from 'node-fetch';
-// import glob from 'glob';
 import fs from 'fs';
-// import path from 'path';
 import fm from 'front-matter';
 import marked from 'marked';
 import hljs from 'highlight.js';
