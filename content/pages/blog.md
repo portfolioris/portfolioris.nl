@@ -1,7 +1,7 @@
 ---
 hiddenuri: meta
 title: Blog
-description: Desc
+description: An overview of all my blogs
 date: 2020-08-03T13:41:44.519Z
 modules:
   - type: richText
