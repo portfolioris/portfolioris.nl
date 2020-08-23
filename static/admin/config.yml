@@ -1,6 +1,6 @@
 backend:
   name: git-gateway
-  branch: main # Branch to update
+  branch: develop # Branch to update
 #  branch: feature/source-from-netlifycms # Branch to update
   local_backend: true
 media_folder: 'content/uploads' # Media files will be stored in the repo under content/uploads
@@ -41,6 +41,15 @@ collections:
                 displayFields: [ title ]
                 searchFields: [ title ]
 
+  - name: authors
+    label: Authors
+    label_singular: author
+    folder: content/authors
+    create: true
+    fields:
+      - { label: First name, name: firstName, widget: string }
+      - { label: Last name, name: lastName, widget: string }
+      - { label: Twitter handle, name: twitterHandle, widget: string }
 
   - name: pages
     label: Pages
@@ -134,6 +143,12 @@ collections:
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Subtitle", name: "subtitle", widget: "string"}
       - {label: "Description", name: "description", widget: "string"}
-      - {label: "Author", name: "author", widget: "string"}
+      - label: Author
+        name: author
+        widget: relation
+        collection: authors
+        valueField: '{{ firstName lastName }}'
+        displayFields: [ firstName, lastName ]
+        searchFields: [ firstName, lastName ]
       - {label: "Publish date", name: "date", widget: "datetime"}
       - {label: "Content", name: "body", widget: "markdown"}
