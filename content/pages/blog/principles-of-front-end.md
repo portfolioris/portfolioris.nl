@@ -3,7 +3,7 @@ template: blog
 title: Principles of front-end
 subtitle: My view on what's important on the job
 description: My view on what's important on the job
-author: Joris Hulsbosch
+author: joris_hulsbosch
 date: 2020-04-24T13:29:04.185Z
 ---
 I wrote the following article for some new colleagues at *We are you* (WAY), to explain how we work and why we work this way.

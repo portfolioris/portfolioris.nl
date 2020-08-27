@@ -94,7 +94,7 @@
         <Text
           modifier="byline"
         >
-          Added by {author},
+          Added by <a href="https://twitter.com/{author.twitterHandle}">{author.firstName} {author.lastName}</a>,
           <DateString date={date} />
         </Text>
       </Retain>

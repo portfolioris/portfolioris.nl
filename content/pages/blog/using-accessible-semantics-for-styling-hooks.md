@@ -4,7 +4,7 @@ title: Using accessible semantics for styling hooks
 subtitle: Using attribute selectors as a way of visually changing the state
 description: When adding more semantics to elements, I can use attribute
   selectors as a way of visually changing the state too.
-author: Joris Hulsbosch
+author: joris_hulsbosch
 date: 2020-03-17T14:27:56.586Z
 ---
 After learning more about accessibility (a11y) and semantics, I have adjusted my way of writing some of my CSS too. In general, when adding more semantics to elements, I can use attribute selectors as a way of visually changing the state too.

@@ -7,6 +7,7 @@ media_folder: 'content/uploads' # Media files will be stored in the repo under c
 
 media_library:
   name: cloudinary
+  output_filename_only: true
   config:
     cloud_name: portfolioris
     api_key: 697687196319566
@@ -45,6 +46,7 @@ collections:
     label: Authors
     label_singular: author
     folder: content/authors
+    slug: "{{firstName}}_{{lastName}}" # Filename template, e.g., YYYY-MM-DD-title.md
     create: true
     fields:
       - { label: First name, name: firstName, widget: string }
@@ -147,8 +149,8 @@ collections:
         name: author
         widget: relation
         collection: authors
-        valueField: '{{ firstName lastName }}'
-        displayFields: [ firstName, lastName ]
+        valueField: '{{slug}}'
+        displayFields: ['{{firstName}} {{lastName}}']
         searchFields: [ firstName, lastName ]
       - {label: "Publish date", name: "date", widget: "datetime"}
       - {label: "Content", name: "body", widget: "markdown"}

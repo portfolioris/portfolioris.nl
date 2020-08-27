@@ -1,7 +1,7 @@
 ---
 siteName: Portfolioris
 lang: en
-author: Joris Hulsbosch
+author: joris_hulsbosch
 twitterHandle: "@Portfolioris"
 domain: https://me.portfolioris.nl/
 primaryNav:

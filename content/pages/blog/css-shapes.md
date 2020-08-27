@@ -3,7 +3,7 @@ title: CSS Shapes
 subtitle: blokjes tekst hoeven niet altijd recht meer te zijn
 description: Sinds jaren bestaan tekstvlakken in webpagina-layouts uit
   rechthoeken. CSS Shapes geven de mogelijkheid daar ook van af te wijken.
-author: Joris Hulsbosch
+author: joris_hulsbosch
 date: 2018-10-29T19:34:00.000Z
 template: blog
 ---

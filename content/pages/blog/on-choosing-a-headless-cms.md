@@ -3,7 +3,7 @@ template: blog
 title: On choosing a headless CMS
 subtitle: WordPress? Grav? Contentful? NetlifyCMS? CraftCMS?
 description: WordPress? Grav? Contentful? NetlifyCMS? CraftCMS?
-author: Joris Hulsbosch
+author: joris_hulsbosch
 date: 2019-03-02T14:24:32.308Z
 ---
 ## Prerequisites 

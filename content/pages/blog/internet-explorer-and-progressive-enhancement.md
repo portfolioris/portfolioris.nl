@@ -3,7 +3,7 @@ template: blog
 title: Internet Explorer and Progressive Enhancement
 subtitle: Not all browsers are created equal
 description: Not all browsers are created equal
-author: Joris Hulsbosch
+author: joris_hulsbosch
 date: 2019-04-11T13:25:54.109Z
 ---
 Firefox, Chrome and Safari are modern browsers, that keep themselves up-to-date automatically. Microsoft’s Internet Explorer, however, is a strongly outdated browser (from 2013) and is never updated. New HTML tags or CSS features will never work. Microsoft has created the Edge browser, and recommends using this, because they are actively improving and updating it. They even recommend to [stop using Internet Explorer]( https://www.theverge.com/2019/2/8/18216767/microsoft-internet-explorer-warning-compatibility-solution).
