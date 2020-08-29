@@ -51,6 +51,12 @@ export async function get(req, res) {
   }
 
   if (pageData.template === 'blog') {
+    // get author info
+    if (fs.existsSync(`content/authors/${pageData.author}.md`)) {
+      const authorFile = fs.readFileSync(`content/authors/${pageData.author}.md`);
+      pageData.author = fm(authorFile.toString()).attributes;
+    }
+
     // get the body of the MD file, parse it
     const pageFile = fs.readFileSync(`content/pages/${uri}.md`);
     pageData.content = fm(pageFile.toString()).body;

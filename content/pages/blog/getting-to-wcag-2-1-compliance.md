@@ -3,7 +3,7 @@ template: blog
 title: Getting to WCAG 2.1 compliance
 subtitle: The journey to make websites the most accessible
 description: The journey to make websites the most accessible
-author: Joris Hulsbosch
+author: joris_hulsbosch
 date: 2020-06-12T13:30:42.762Z
 ---
 ## What?
