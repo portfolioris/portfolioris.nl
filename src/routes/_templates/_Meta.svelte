@@ -1,13 +1,15 @@
 <script>
   export let site;
   export let uri;
-
   export let title;
   export let description;
 
-  $: siteName = site.siteName;
-  $: twitterHandle = site.twitterHandle;
-  $: domain = site.domain;
+  const {
+    siteName,
+    twitterHandle,
+    domain,
+    lang,
+  } = site;
 
   $: schema = [{
     '@context': 'https://schema.org',
@@ -16,7 +18,7 @@
       '@type': 'ListItem',
       position: 1,
       name: title,
-      item: `${domain}/${uri !== '/' ? uri : ''}`,
+      item: `${domain}${uri !== '/' ? uri : ''}`,
     }],
   }, {
     '@context': 'http://schema.org',

@@ -126,14 +126,12 @@
   href="#main-nav"
   label="Jump to main navigation"
   class="c-body__skip-link"
-  onClick={openMenu}
 />
 
 <Button
   href="#main"
   label="Jump to content"
   class="c-body__skip-link"
-  onClick={closeMenu}
 />
 
 
