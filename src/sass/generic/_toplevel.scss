@@ -14,7 +14,8 @@ html {
 
 @media (color-gamut: p3) {
   html {
-    --green: color(display-p3 0 1 0);
+    --green: color(display-p3 0 1 0 / 1);
+    --transparent-green: color(display-p3 0 1 0 / 0);
     --white: color(display-p3 1 1 1);
   }
 }

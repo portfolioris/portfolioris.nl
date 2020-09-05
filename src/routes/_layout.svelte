@@ -11,6 +11,7 @@
 </script>
 
 <script>
+  import 'wicg-inert';
   import Navigation from '../components/organisms/Navigation.svelte';
 
   export let segment;

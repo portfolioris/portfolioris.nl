@@ -132,6 +132,7 @@
   <div
     class="c-body-wrap__main"
     class:is-open={menuIsOpen}
+    inert={menuIsOpen ? true : null}
   >
     <main id="main">
       <slot />
@@ -143,6 +144,7 @@
     class:is-loaded={isLoaded}
     class:is-open={menuIsOpen}
     id="navigation"
+    inert={menuIsOpen ? null : true}
   >
     <Retain>
       <ul class="c-body-wrap__nav-list">

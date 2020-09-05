@@ -17,13 +17,10 @@
 
 
 
-  /*  Module
-      Core module
+  /*  Block
       ========================================================================= */
 
   /**
-   * 1. set the lineheight to 0 because we want to negate the baseline space.
-   *      This allows us vertical align a lot of things perfectly into the center
    * 2. Calculates the space around the button minus the fixed border-width
    */
 
@@ -34,24 +31,21 @@
     border: none; //$c-button--border-width solid $c-button--background-color;
     border-radius: 0;
     font-family: $font-family-secondary;
-    line-height: 0; /* [1] */
+    line-height: 1;
     font-weight: 500;
     text-decoration: none;
     background-color: var(--green); // $green; // $c-button--background-color;
     color: $black; // $c-button--color;
     appearance: none;
-    // transition-property: color, background-color;
-    // transition-duration: $base-transition-duration-short;
-    // transition-timing-function: linear;
-    cursor: pointer;
+    transition: $base-transition-duration-short $base-timing-function;
+    transition-property: color;
 
     &:hover,
     &:active,
     &:focus,
-    &.is-active,
-    &[aria-current=true] {
-      background-color: var(--green); //$green;
-      color: $white;
+    &[aria-current='true'] {
+      background-color: var(--green);
+      color: $black;
       text-decoration: none;
       outline: none;
     }
@@ -68,20 +62,25 @@
   .c-button__inner {
     display: inline-flex;
     align-items: stretch;
-    line-height: $supple-line-height-ratio; /* [1] */
   }
 
   .c-button__label {
     display: flex;
     padding: $supple-space-small;
-    line-height: 1;
   }
 
+
+
+  /*  Modifier
+      ========================================================================= */
+
   .c-button--transparent {
-    background-color: transparent;
+    background-color: var(--transparent-green);
     color: $white;
   }
 </style>
+
+
 
 <a
   href={href}
