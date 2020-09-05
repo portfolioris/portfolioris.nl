@@ -80,7 +80,6 @@
         <div class="blog-heading">
           <Heading
             level={1}
-            stylingLevel={0}
             text={title}
           />
         </div>

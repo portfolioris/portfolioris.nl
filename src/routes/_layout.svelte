@@ -18,7 +18,7 @@
   export let navItems = [];
 </script>
 
-<style global lang="scss">
+<style global type="text/scss" lang="scss">
   @import 'leading';
 </style>
 
