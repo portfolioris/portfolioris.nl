@@ -4,6 +4,7 @@
   import Header from '../organisms/Header.svelte';
   import Footer from '../organisms/Footer.svelte';
   import Button from '../atoms/Button.svelte';
+  import { getKeyCode } from '../utilities';
 
   let isLoaded = false;
   let menuIsOpen = false;
@@ -14,95 +15,110 @@
     isLoaded = true;
   });
 
-  function closeMenu() {
-    menuIsOpen = false;
+  const handleEscape = (e) => {
+    const keyCode = getKeyCode(e);
+    if (keyCode === 'esc' || keyCode === 'escape') {
+      closeMenu();
+    }
+  };
+
+  function toggleMenu() {
+    if (menuIsOpen) {
+      closeMenu();
+    } else {
+      openMenu();
+    }
   }
 
-  function handleToggleMenu(e) {
-    e.preventDefault();
-    menuIsOpen = !menuIsOpen;
+  function openMenu() {
+    menuIsOpen = true;
+    document.addEventListener('keyup', handleEscape)
+  }
+
+  function closeMenu() {
+    menuIsOpen = false;
+    document.removeEventListener('keyup', handleEscape);
   }
 </script>
 
 <style lang="scss" type="text/scss">
-  @import 'engine';
+	@import 'engine';
 
-  /*  Page wrappers
+	/*  Page wrappers
       ========================================================================= */
 
-  main {
-    max-width: 1920px;
-    margin: auto;
-  }
+	main {
+		max-width: 1920px;
+		margin: auto;
+	}
 
-  :global(.c-body__skip-link) {
-    position: absolute;
-    z-index: 1;
-    transform: translateX(-100%);
-  }
+	:global(.c-body__skip-link) {
+		position: absolute;
+		z-index: 2;
+		transform: translateX(-100%);
 
-  :global(.c-body__skip-link:focus) {
-    transform: none;
-  }
+		&:focus {
+			transform: none;
+		}
+	}
 
-  .c-body-wrap {
-    overflow: hidden;
-  }
+	.c-body-wrap {
+		overflow: hidden;
+	}
 
-  .c-body-wrap__header {
-    position: relative;
-    z-index: 1;
-  }
+	.c-body-wrap__header {
+		position: relative;
+		z-index: 1;
+	}
 
-  .c-body-wrap__main {
-    transition: transform $base-transition-duration $base-timing-function;
-    position: relative;
-    z-index: 1;
+	.c-body-wrap__main {
+		transition: transform $base-transition-duration $base-timing-function;
+		position: relative;
+		z-index: 1;
 
-    &.is-open {
-      transform: translateX(calc(100% - #{$supple-space-base * 3 - $supple-space-tiny}));
-    }
-  }
+		&.is-open {
+			transform: translateX(calc(100% - #{$supple-space-base * 3 - $supple-space-tiny}));
+		}
+	}
 
-  .c-body-wrap__navigation {
-    left: 0;
-    top: 0;
-    right: $supple-space-large;
-    height: 100%;
-    overflow: auto;
-    -webkit-overflow-scrolling: touch;
-    padding-top: $supple-space-base * 3;
-    transition: transform $base-transition-duration $base-timing-function;
+	.c-body-wrap__navigation {
+		left: 0;
+		top: 0;
+		right: $supple-space-large;
+		height: 100%;
+		overflow: auto;
+		-webkit-overflow-scrolling: touch;
+		padding-top: $supple-space-base * 3;
+		transition: transform $base-transition-duration $base-timing-function;
 
-    &.is-loaded {
-      position: absolute;
-      transform: translateX(-50%);
-    }
+		&.is-loaded {
+			position: absolute;
+			transform: translateX(-50%);
+		}
 
-    &.is-open {
-      transform: none;
-    }
-  }
+		&.is-open {
+			transform: none;
+		}
+	}
 
-  .c-body-wrap__nav-list {
-    list-style: none;
-    margin-left: 0;
-  }
+	.c-body-wrap__nav-list {
+		list-style: none;
+		margin-left: 0;
+	}
 
-  .c-body-wrap__nav-item {
-    margin-bottom: $supple-space-tiny;
-  }
+	.c-body-wrap__nav-item {
+		margin-bottom: $supple-space-tiny;
+	}
 
 
-
-  /*  Responsive
+	/*  Responsive
       ========================================================================= */
 
-  @include supple-mq(desk) {
-    .c-body-wrap__navigation {
-      display: none;
-    }
-  }
+	@include supple-mq(desk) {
+		.c-body-wrap__navigation {
+			display: none;
+		}
+	}
 
 </style>
 
@@ -110,14 +126,15 @@
   href="#main-nav"
   label="Jump to main navigation"
   class="c-body__skip-link"
+  onClick={openMenu}
 />
 
 <Button
   href="#main"
   label="Jump to content"
   class="c-body__skip-link"
+  onClick={closeMenu}
 />
-
 
 
 <div class="c-body-wrap">
@@ -125,7 +142,7 @@
     <Header
       items={items}
       activePage={activePage}
-      handleToggleMenu={handleToggleMenu}
+      handleToggleMenu={toggleMenu}
       menuIsOpen={menuIsOpen}
     />
   </div>
@@ -148,17 +165,17 @@
   >
     <Retain>
       <ul class="c-body-wrap__nav-list">
-          {#each items as item}
-            <li class="c-body-wrap__nav-item">
-              <Button
-                element="a"
-                isActive="{activePage === item.uri}"
-                label="{item.label}"
-                href="{item.uri === 'home' ? '/' : item.uri}"
-                onClick={closeMenu}
-              />
-            </li>
-          {/each}
+        {#each items as item}
+          <li class="c-body-wrap__nav-item">
+            <Button
+              element="a"
+              isActive="{activePage === item.uri}"
+              label="{item.label}"
+              href="{item.uri === 'home' ? '/' : item.uri}"
+              onClick={() => menuIsOpen = false}
+            />
+          </li>
+        {/each}
       </ul>
     </Retain>
   </div>

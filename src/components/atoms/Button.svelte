@@ -56,9 +56,6 @@
   /*  Elements
       ========================================================================= */
 
-  /**
-   * 1. Reset that line-height again
-   */
   .c-button__inner {
     display: inline-flex;
     align-items: stretch;
