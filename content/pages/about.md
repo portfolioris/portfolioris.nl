@@ -8,7 +8,7 @@ modules:
       # Hi, I am Joris,
 
 
-      Front-end UI developer from Eindhoven, the Netherlands. I specialize in responsive Web design and design systems. I am a performance, Progressive Enhancement and accessibility advocate. I write clean, readable and scalable code to create beautiful online experiences for all users.
+      Front-end UI developer from Eindhoven, the Netherlands. I specialize in responsive Web design and styleguides. I am a performance, progressive enhancement and accessibility advocate. I write clean, readable and scalable code to create beautiful online experiences for all users.
 
 
       My current employer is [We are you](https://www.weareyou.com), a digital agency in the Netherlands, where I work with clients like Vesteda, Van Lanschot, Dunea, Vitens and Evides. Before, I worked at digital agency [Partout d.n.a.](https://www.partout.nl/), for clients like Koopmans, Dr. Oetker, Weleda and Longfonds.
@@ -22,26 +22,28 @@ modules:
 
       ## Experience
 
-      - Styleguides and design systems
 
-      - Responsive design
+      * Styleguides
 
-      - Accessible code
+      * Responsive design
 
-      - HTML, CSS and JavaScript
+      * Accessibility
 
-      - Pattern-Lab and Storybook
+      * HTML, CSS and JavaScript
 
-      - Gulp, Webpack
+      * Pattern-Lab and Storybook
 
-      - Agile, Scrum, Git
+      * Gulp, Webpack
+
+      * Agile, Scrum, Git
 
 
       ## I love
 
-      - The Web
 
-      - My wife, my kids and my friends
+      * The Web
 
-      - Taking care of the environment
+      * My wife, my kids and my friends
+
+      * Taking care of the environment
 ---
