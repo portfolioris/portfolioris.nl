@@ -23,15 +23,21 @@ renderer.image = (href, title, text) => (
 
 export async function get(req, res) {
   const uri = req.params.rest.join('/');
-
-  const pages = getPages('content/pages');
-  const pageData = pages.find((page) => page.uri === uri);
+  const pagesCollection = getPages('content/pages');
+  const pageData = pagesCollection.find((page) => page.uri === uri);
 
   if (!pageData) {
     res.writeHead(404, { 'Content-Type': 'application/json' });
     res.end(JSON.stringify({ message: 'Not found in lookup' }));
     return;
   }
+
+  const segments = [];
+
+  const pathData = req.params.rest.map((segment) => {
+    segments.push(segment);
+    return pagesCollection.find((page) => page.uri === segments.join('/'));
+  });
 
   const siteFile = fs.readFileSync('content/globals/site.md');
   const siteData = fm(siteFile.toString()).attributes;
@@ -80,6 +86,6 @@ export async function get(req, res) {
   res.end(JSON.stringify({
     ...pageData,
     site: siteData,
-    uri,
+    path: pathData,
   }));
 }

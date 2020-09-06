@@ -1,6 +1,6 @@
 <script>
   export let site;
-  export let uri;
+  export let path = [];
   export let title;
   export let description;
 
@@ -11,15 +11,21 @@
     lang,
   } = site;
 
+  $: itemListElements = path.map((segment, index) => {
+    return {
+      '@type': 'ListItem',
+      position: index + 1,
+      item: {
+        '@id': `${domain}${segment.uri !== 'home' ? segment.uri : ''}`,
+        name: segment.title,
+      }
+    }
+  });
+
   $: schema = [{
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
-    itemListElement: [{
-      '@type': 'ListItem',
-      position: 1,
-      name: title,
-      item: `${domain}${uri !== '/' ? uri : ''}`,
-    }],
+    itemListElement: itemListElements,
   }, {
     '@context': 'http://schema.org',
     '@type': 'WebSite',

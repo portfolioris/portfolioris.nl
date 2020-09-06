@@ -10,31 +10,6 @@
   export let subtitle;
   export let author;
   export let date;
-
-/*
-  const schema = [
-    { // todo: add breadcrumb levels for nested pages
-      '@context': 'https://schema.org',
-      '@type': 'BreadcrumbList',
-      'itemListElement': [{
-        '@type': 'ListItem',
-        'position': 1,
-        'name': 'Blog',
-        'item': `${domain}/blog`,
-      }, {
-        '@type': 'ListItem',
-        'position': 2,
-        'name': title,
-        'item': `${domain}/${uri}`,
-      }],
-    },
-    {
-      '@context': 'http://schema.org',
-      '@type': 'WebSite',
-      url: domain,
-      name: siteName,
-    }];
-*/
 </script>
 
 <style type="text/scss" lang="scss">
@@ -65,14 +40,7 @@
     text-align: center;
   }
 </style>
-<!--
-<svelte:head>
-  <title>{title} • {siteName}</title>
-  <meta name="description" content={description}>
-  <meta name="twitter:site" content={twitterHandle}>
-  {@html `<script type="application/ld+json">${JSON.stringify(schema)}</script>`}
-</svelte:head>
--->
+
 <article>
   <Layer>
     <header>
