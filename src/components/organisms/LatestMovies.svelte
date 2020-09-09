@@ -7,6 +7,39 @@
   export let collapseTop;
   export let collapseBottom;
 </script>
+
+<style type="text/scss" lang="scss">
+  @import 'engine';
+
+  th,
+  td {
+    text-align: left;
+    vertical-align: top;
+
+    &:not(:first-of-type) {
+      padding-left: $supple-space-tiny;
+    }
+
+    &:not(:last-of-type) {
+      padding-right: $supple-space-tiny;
+    }
+  }
+
+  .date-long {
+    display: none;
+    white-space: nowrap;
+  }
+
+  @include supple-mq(lap) {
+    .date-short {
+      display: none;
+    }
+
+    .date-long {
+      display: block;
+    }
+  }
+</style>
 <section>
   <Layer collapseBottom={collapseBottom} collapseTop={collapseTop}>
     <Retain size="narrow">
@@ -22,12 +55,16 @@
             {#each items as item}
               <tr>
                 <td>
-                  <a href="https://www.themoviedb.org/movie/{item.id}">{item.title}</a> (
-                  <DateString date={item.release_date} as="year" format="yyyy-MM-dd" />
-                  )
+                  <a href="https://www.themoviedb.org/movie/{item.id}">{item.title}</a>
+                  (<DateString date={item.release_date} as="year" format="yyyy-MM-dd" />)
                 </td>
                 <td>
-                  <DateString date={item.account_rating.created_at} format={null} />
+                  <span class="date-short">
+                    <DateString date={item.account_rating.created_at} as="short" />
+                  </span>
+                  <span class="date-long">
+                    <DateString date={item.account_rating.created_at} />
+                  </span>
                 </td>
                 <td>
                     {item.account_rating.value} <small>/ 10</small>

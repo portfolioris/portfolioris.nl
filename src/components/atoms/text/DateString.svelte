@@ -9,6 +9,10 @@
     options = { year: 'numeric' };
   }
 
+  if (as === 'short') {
+    options = { month: 'short', day: 'numeric' };
+  }
+
   const dateObj = new Date(date);
   const dateFormat = new Intl.DateTimeFormat('en', options);
   const dateString = dateFormat.format(dateObj);

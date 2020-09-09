@@ -69,7 +69,7 @@
   </Layer>
   <Layer collapseTop>
     <Retain size="narrow">
-        {@html content}
+      {@html content}
     </Retain>
   </Layer>
 </article>
