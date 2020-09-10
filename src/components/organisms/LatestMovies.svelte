@@ -9,7 +9,9 @@
 </script>
 
 <style type="text/scss" lang="scss">
-  @import 'engine';
+  @use 'sass/vars';
+  @use 'supple/lib/settings/defaults';
+  @use 'supple/lib/tools/mixins';
 
   th,
   td {
@@ -17,11 +19,11 @@
     vertical-align: top;
 
     &:not(:first-of-type) {
-      padding-left: $supple-space-tiny;
+      padding-left: defaults.$space-tiny;
     }
 
     &:not(:last-of-type) {
-      padding-right: $supple-space-tiny;
+      padding-right: defaults.$space-tiny;
     }
   }
 
@@ -30,7 +32,7 @@
     white-space: nowrap;
   }
 
-  @include supple-mq(lap) {
+  @include mixins.mq(lap) {
     .date-short {
       display: none;
     }

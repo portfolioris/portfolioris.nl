@@ -8,32 +8,35 @@
 </script>
 
 <style lang="scss" type="text/scss">
-  @import 'engine';
-  @import 'supple/lib/objects/layout';
-  @import 'supple/lib/utilities/fractions';
+  @use 'supple/lib/objects/layout';
+  @use 'supple/lib/utilities/colspan' with (
+    $in-breakpoint: (
+      from: lap desk
+    ),
+  );
 </style>
 
 {#if element === 'div'}
   <div
     class="o-layout__cell
-      {lap ? `u-fraction--${lap[0]}of${lap[1]}@from-lap` : ''}
-      {desk ? `u-fraction--${desk[0]}of${desk[1]}@from-desk` : ''}
+      {lap ? `u-colspan-${lap}@from-lap` : ''}
+      {desk ? `u-colspan-${desk}@from-desk` : ''}
     "
     class:o-layout__cell--fill={fill}
     class:o-layout__cell--fit={fit}
-    class:o-layout__cell--center={align === 'center'}
+    class:o-layout__cell--align-inline-center={align === 'center'}
   >
     <slot />
   </div>
 {:else if element === 'li'}
   <li
     class="o-layout__cell
-      {lap ? `u-fraction--${lap[0]}of${lap[1]}@from-lap` : ''}
-      {desk ? `u-fraction--${desk[0]}of${desk[1]}@from-desk` : ''}
+      {lap ? `u-colspan-${lap}@from-lap` : ''}
+      {desk ? `u-colspan-${desk}@from-desk` : ''}
      "
     class:o-layout__cell--fill={fill}
     class:o-layout__cell--fit={fit}
-    class:o-layout__cell--align-center={align === 'center'}
+    class:o-layout__cell--align-inline-center={align === 'center'}
   >
     <slot />
   </li>

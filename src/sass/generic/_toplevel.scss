@@ -3,15 +3,20 @@
     Describes toplevel styles such as HTML, body, etc.
     ========================================================================= */
 
+@use 'supple/lib/tools/mixins';
+@use 'sass/vars';
+@use 'supple/lib/settings/defaults';
+
 html {
-  font-family: $font-family-primary;
-  background-color: $black;
-  color: $white;
+  @include mixins.css-lock(font-size, defaults.$font-size, defaults.$font-size + 8px, desk, tv);
+  font-family: vars.$font-family-primary;
+  background-color: vars.$color-black;
+  color: vars.$color-white;
   text-decoration-skip-ink: auto;
 
-  --green: #{$green};
-  --transparent-green: transparentize($green, 1);
-  --white: #{$white};
+  --green: #{vars.$color-green};
+  --transparent-green: transparentize(vars.$color-green, 1);
+  --white: #{vars.$color-white};
 }
 
 @media (color-gamut: p3) {
@@ -20,16 +25,6 @@ html {
     --transparent-green: color(display-p3 0 1 0 / 0);
     --white: color(display-p3 1 1 1);
   }
-}
-
-body {
-  margin: 0;
-}
-
-hr {
-  border: 0;
-  height: 1px;
-  background: $gray-medium;
 }
 
 button svg {

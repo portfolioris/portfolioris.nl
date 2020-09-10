@@ -13,25 +13,26 @@
 </script>
 
 <style type="text/scss" lang="scss">
-  @import 'engine';
+  @use 'sass/vars';
+  @use 'supple/lib/settings/defaults';
 
   article {
     :global(figure) {
-      margin-bottom: $supple-space-base;
+      margin-bottom: defaults.$space-base;
     }
 
     :global(figcaption) {
-      font-weight: $font-weight-bold;
-      font-size: $milli;
+      font-weight: vars.$font-weight-bold;
+      font-size: vars.$milli;
       font-style: italic;
     }
 
     :global(.c-codeblock) {
-      background-color: $white;
-      padding: $supple-space-base;
-      margin-left: -$supple-space-base;
-      margin-right: -$supple-space-base;
-      color: $black;
+      background-color: vars.$color-white;
+      padding: defaults.$space-base;
+      margin-left: -1 * defaults.$space-base;
+      margin-right: defaults.$space-base;
+      color: vars.$color-black;
       overflow: auto;
     }
   }

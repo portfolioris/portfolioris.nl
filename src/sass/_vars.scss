@@ -1,54 +1,26 @@
 /*  =========================================================================
     vars
-    This file contains all global variables.
     ========================================================================= */
 
-/*  =========================================================================
-    $OVERRIDES
-    Any variables you find set in Blocss that you do not wish to keep, simply
-    redefine here. This means that if Blocss sets your
-    `supple-base-font-size` at 16px and you wish it to be 14px, simply
-    redeclare that variable in this file.
-    ========================================================================= */
-
-$supple-font-size: 16px;
-$supple-line-height: 26px;
-
-
-/*  Responsive
-    Define your breakpoints. The first value is the appendix that shall be used
-    for your classes (e.g. `.classname@lap`), the second value is the media
-    query that the breakpoint fires at.
-    ========================================================================= */
-
-$mq-breakpoints: (
-  lap: 580px,
-  desk: 980px,
-  wall: 1280px,
-  tv: 1920px,
+@use 'supple/lib/settings/defaults' with (
+  $font-size: 16px,
+  $line-height: 26px,
+  $breakpoints: (
+    lap: 580px,
+    desk: 980px,
+    wall: 1280px,
+    tv: 1920px,
+  ),
 );
-
-
-$supple-fractions: 2 3 4;
-$supple-breakpoint-has-fractions: (lap, desk);
-//$supple-fractions-name-fraction: 'x' !default;
-//$supple-fractions-delimiter: '\\/' !default;
-//$blocss-breakpoint-has-layout-fit: ("lap", "desk");
-//$blocss-breakpoint-has-layout-fill: ("lap", "desk");
-//$blocss-breakpoint-has-visually-hidden: ("palm", "max-lap", "lap", "desk");
-//$supple-breakpoint-has-hidden: (from: desk, until: desk);
 
 
 
 /*  =========================================================================
     $CUSTOM
-    Place any of your own variables that sit on top of Blocss here.
-    Please use the `!default` flag because variables defined here can be
-    overwritten by the project
     ========================================================================= */
 
-$font-family-primary: 'Open Sans', sans-serif !default;
-$font-family-secondary: 'Insignia', sans-serif !default;
+$font-family-primary: 'Open Sans', sans-serif;
+$font-family-secondary: 'Insignia', sans-serif;
 
 
 
@@ -56,34 +28,29 @@ $font-family-secondary: 'Insignia', sans-serif !default;
     ========================================================================= */
 
 // Brand
-//$green: #10ce1f;
-$green: #7dff00;
-//$green: color(display-p3 0 1 0 / 0.5);
-
-//$green: var(--green);
+$color-green: #7dff00;
 //$green: #3a8500; // AA on white bg
 
 
 // Grayscale
-//$black: #1a1918 !default;
-$black: #000000 !default;
-$white: #ffffff !default;
-$gray-light: #f1f1f1 !default;
-$gray-medium: #cccccc !default;
-$gray-dark: #767676 !default;
+$color-black: #000000;
+$color-white: #ffffff;
+$color-gray-light: #f1f1f1;
+$color-gray-medium: #cccccc;
+$color-gray-dark: #767676;
 
 
 
 /*  Sizes
     ========================================================================= */
 
-$alpha: 80px !default;
-$beta: 34px !default;
-$gamma: 28px !default;
-$delta: 24px !default;
-$epsilon: 20px !default;
-$foxtrot: 18px !default;
-$normalis: 16px !default;
+$alpha: 80px;
+$beta: 34px;
+$gamma: 28px;
+$delta: 24px;
+$epsilon: 20px;
+$foxtrot: 18px;
+$normalis: 16px;
 $milli: 14px;
 $micro: 12px;
 
@@ -99,21 +66,20 @@ $font-weight-bold: bold;
 /*  Animations
     ========================================================================= */
 
-$base-timing-function: cubic-bezier(0.55, 0, 0.1, 1) !default; // Google swift bezier
-$base-transition-duration: 600ms !default;
-$base-transition-duration-short: 300ms !default;
+$base-timing-function: cubic-bezier(0.55, 0, 0.1, 1);
+$base-transition-duration: 600ms;
+$base-transition-duration-short: 300ms;
 
 
 
 /*  Misc cosmetic
     ========================================================================= */
 
-$border-radius--primary: 5px !default;
+$border-radius--primary: 5px;
 
 
 
 /*  Global hover/active etc. states
     ========================================================================= */
 
-$global-interaction-states: '&:hover, &:active, &:focus' !default;
-
+$global-interaction-states: '&:hover, &:active, &:focus';
