@@ -43,7 +43,6 @@
 
 <style lang="scss" type="text/scss">
   @use 'sass/vars';
-  @use 'supple/lib/settings/defaults';
   @use 'supple/lib/tools/mixins';
 
   /*  Page wrappers
@@ -79,18 +78,18 @@
     z-index: 1;
 
     &.is-open {
-      transform: translateX(calc(100% - #{defaults.$space-base * 3 - defaults.$space-tiny}));
+      transform: translateX(calc(100% - #{vars.$space-base * 3 - vars.$space-tiny}));
     }
   }
 
   .c-body-wrap__navigation {
     left: 0;
     top: 0;
-    right: defaults.$space-large;
+    right: vars.$space-large;
     height: 100%;
     overflow: auto;
     -webkit-overflow-scrolling: touch;
-    padding-top: defaults.$space-base * 3;
+    padding-top: vars.$space-base * 3;
     transition: transform vars.$base-transition-duration vars.$base-timing-function;
 
     &.is-loaded {
@@ -109,7 +108,7 @@
   }
 
   .c-body-wrap__nav-item {
-    margin-bottom: defaults.$space-tiny;
+    margin-bottom: vars.$space-tiny;
   }
 
 

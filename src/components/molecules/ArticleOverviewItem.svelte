@@ -10,14 +10,12 @@
 
 <style type="text/scss" lang="scss">
   @use 'sass/vars';
-  @use 'supple/lib/settings/defaults';
 
   article {
     background-color: vars.$color-white;
     color: vars.$color-black;
-    padding: defaults.$space-base;
+    padding: vars.$space-base;
     position: relative;
-    margin-bottom: defaults.$space-base;
 
     :global(a::after) { // b/c there is no <a> here ....
       content: '';
@@ -30,7 +28,7 @@
     }
 
     * {
-      margin-bottom: defaults.$space-tiny;
+      margin-bottom: vars.$space-tiny;
     }
 
     > :last-child {

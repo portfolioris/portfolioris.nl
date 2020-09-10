@@ -5,10 +5,9 @@
 
 <style lang="scss" type="text/scss">
   @use 'sass/vars';
-  @use 'supple/lib/settings/defaults';
 
   .c-menu-toggle {
-    padding: defaults.$space-tiny;
+    padding: vars.$space-tiny;
     width: 40px;
     display: flex;
     flex-direction: column;

@@ -20,6 +20,24 @@
   }
 </script>
 
+<style type="text/scss" lang="scss">
+  @use 'sass/vars';
+
+  .auto-fit {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: vars.$space-base;
+
+    :global {
+      > * > * {
+        height: 100%;
+      }
+    }
+  }
+</style>
+
 <section>
   <Layer>
     <Retain>
@@ -31,18 +49,19 @@
       </div>
     </Retain>
     <Retain size="breakout">
-      <Layout gutter="base" hasEqualheight element="ul" margin="none">
-          {#each items as item}
-            <Cell lap={6} desk={4} element="li">
-              <ArticleOverviewItem
-                title={item.title}
-                subheading={item.subtitle}
-                uri="{item.uri}"
-                postDate={item.date}
-              />
-            </Cell>
-          {/each}
-      </Layout>
+      <ul class="auto-fit">
+        {#each items as item}
+          <li>
+            <ArticleOverviewItem
+              title={item.title}
+              subheading={item.subtitle}
+              uri="{item.uri}"
+              postDate={item.date}
+            />
+          </li>
+        {/each}
+      </ul>
+
 
         {#if viewAllBlogsLabel}
           <Layout>

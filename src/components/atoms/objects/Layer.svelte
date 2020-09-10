@@ -6,7 +6,6 @@
 
 <style type="text/scss" lang="scss">
   @use 'sass/vars';
-  @use 'supple/lib/settings/defaults';
   @use 'supple/lib/tools/mixins';
 
   /*  Module
@@ -28,23 +27,23 @@
       ========================================================================= */
 
   .o-layer--tiny {
-    padding: defaults.$space-tiny 0;
+    padding: vars.$space-tiny 0;
   }
 
   .o-layer--small {
-    padding: defaults.$space-small 0;
+    padding: vars.$space-small 0;
   }
 
   .o-layer--medium {
-    padding: defaults.$space-base 0 0;
+    padding: vars.$space-base 0 0;
   }
 
   .o-layer--large {
-    padding: defaults.$space-base 0 0;
+    padding: vars.$space-base 0 0;
   }
 
   .o-layer--huge {
-    padding: defaults.$space-base*2 0 defaults.$space-base 0;
+    padding: vars.$space-base*2 0 vars.$space-base 0;
   }
 
   .o-layer--flat {
@@ -59,11 +58,11 @@
 
   @include mixins.mq(desk) {
     .o-layer--large {
-      padding: defaults.$space-base*2 0 defaults.$space-base*1;
+      padding: vars.$space-base*2 0 vars.$space-base*1;
     }
 
     .o-layer--huge {
-      padding: defaults.$space-base*4 0 defaults.$space-base*3;
+      padding: vars.$space-base*4 0 vars.$space-base*3;
     }
   }
 

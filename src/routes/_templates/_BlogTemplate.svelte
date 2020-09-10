@@ -14,11 +14,10 @@
 
 <style type="text/scss" lang="scss">
   @use 'sass/vars';
-  @use 'supple/lib/settings/defaults';
 
   article {
     :global(figure) {
-      margin-bottom: defaults.$space-base;
+      margin-bottom: vars.$space-base;
     }
 
     :global(figcaption) {
@@ -29,9 +28,9 @@
 
     :global(.c-codeblock) {
       background-color: vars.$color-white;
-      padding: defaults.$space-base;
-      margin-left: -1 * defaults.$space-base;
-      margin-right: defaults.$space-base;
+      padding: vars.$space-base;
+      margin-left: -1 * vars.$space-base;
+      margin-right: vars.$space-base;
       color: vars.$color-black;
       overflow: auto;
     }

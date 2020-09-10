@@ -10,7 +10,6 @@
 
 <style type="text/scss" lang="scss">
   @use 'sass/vars';
-  @use 'supple/lib/settings/defaults';
   @use 'supple/lib/tools/mixins';
 
   th,
@@ -19,11 +18,11 @@
     vertical-align: top;
 
     &:not(:first-of-type) {
-      padding-left: defaults.$space-tiny;
+      padding-left: vars.$space-tiny;
     }
 
     &:not(:last-of-type) {
-      padding-right: defaults.$space-tiny;
+      padding-right: vars.$space-tiny;
     }
   }
 

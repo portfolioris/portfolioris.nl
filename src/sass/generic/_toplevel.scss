@@ -3,12 +3,11 @@
     Describes toplevel styles such as HTML, body, etc.
     ========================================================================= */
 
-@use 'supple/lib/tools/mixins';
 @use 'sass/vars';
-@use 'supple/lib/settings/defaults';
+@use 'supple/lib/tools/mixins';
 
 html {
-  @include mixins.css-lock(font-size, defaults.$font-size, defaults.$font-size + 8px, desk, tv);
+  @include mixins.css-lock(font-size, vars.$font-size, vars.$font-size + 8px, desk, tv);
   font-family: vars.$font-family-primary;
   background-color: vars.$color-black;
   color: vars.$color-white;

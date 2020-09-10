@@ -14,17 +14,16 @@
 
 <style lang="scss" type="text/scss">
   @use 'sass/vars';
-  @use 'supple/lib/settings/defaults';
   @use 'supple/lib/tools/mixins';
 
   .c-header {
     background-color: vars.$color-black;
-    padding: defaults.$space-tiny;
-    box-shadow: 0 0 defaults.$space-small transparentize(vars.$color-black, 0.5);
+    padding: vars.$space-tiny;
+    box-shadow: 0 0 vars.$space-small transparentize(vars.$color-black, 0.5);
   }
 
   .c-header__logo {
-    margin-right: defaults.$space-small;
+    margin-right: vars.$space-small;
     display: block;
 
     img {
@@ -36,7 +35,7 @@
 
     #{vars.$global-interaction-states} {
       img {
-        filter: drop-shadow(0 0 defaults.$space-tiny vars.$color-white);
+        filter: drop-shadow(0 0 vars.$space-tiny vars.$color-white);
       }
     }
   }

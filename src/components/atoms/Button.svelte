@@ -14,9 +14,6 @@
 
 <style lang="scss" type="text/scss">
   @use 'sass/vars';
-  @use 'supple/lib/settings/defaults';
-
-
 
   /*  Block
       ========================================================================= */
@@ -64,7 +61,7 @@
 
   .c-button__label {
     display: flex;
-    padding: defaults.$space-small;
+    padding: vars.$space-small;
   }
 
 

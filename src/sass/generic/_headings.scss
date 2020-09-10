@@ -3,7 +3,6 @@
     ========================================================================= */
 
 @use 'sass/vars';
-@use 'supple/lib/settings/defaults';
 @use 'supple/lib/tools/mixins';
 
 /*  Elements
@@ -18,7 +17,7 @@ h6 {
   font-family: vars.$font-family-secondary;
   line-height: 0.9;
   font-weight: bold;
-  margin-bottom: defaults.$space-small;
+  margin-bottom: vars.$space-small;
 
   a {
     text-decoration: none;

@@ -3,7 +3,7 @@
 </script>
 
 <style type="text/scss" lang="scss">
-  @use 'supple/lib/settings/defaults';
+  @use 'src/sass/vars';
   @use 'supple/lib/tools/mixins';
 
 
@@ -15,8 +15,8 @@
     margin-left: auto;
     margin-right: auto;
     max-width: 1920px;
-    padding-left: defaults.$space-small;
-    padding-right: defaults.$space-small;
+    padding-left: vars.$space-small;
+    padding-right: vars.$space-small;
   }
 
   .o-retain--narrow {
@@ -30,8 +30,8 @@
 
   @include mixins.mq(lap) {
     .o-retain {
-      padding-left: defaults.$space-base;
-      padding-right: defaults.$space-base;
+      padding-left: vars.$space-base;
+      padding-right: vars.$space-base;
     }
   }
 
@@ -42,8 +42,8 @@
     }
 
     .o-retain--breakout {
-      padding-left: calc(9% - #{defaults.$space-base});
-      padding-right: calc(9% - #{defaults.$space-base});
+      padding-left: calc(9% - #{vars.$space-base});
+      padding-right: calc(9% - #{vars.$space-base});
     }
   }
 
