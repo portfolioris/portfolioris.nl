@@ -3,22 +3,22 @@
 </script>
 
 <style type="text/scss" lang="scss">
-  @import 'engine';
+  @use 'sass/vars';
 
   .t-bg--black {
-    background-color: $black;
+    background-color: vars.$color-black;
   }
 
   .t-bg--white {
-    background-color: $white;
+    background-color: vars.$color-white;
   }
 
   .t-color--light {
-    color: $white;
+    color: vars.$color-white;
   }
 
   .t-color--dark {
-    color: $black;
+    color: vars.$color-black;
   }
 </style>
 

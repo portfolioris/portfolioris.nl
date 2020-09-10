@@ -2,6 +2,10 @@
     Generic.Headings
     ========================================================================= */
 
+@use 'sass/vars';
+@use 'supple/lib/settings/defaults';
+@use 'supple/lib/tools/mixins';
+
 /*  Elements
     ========================================================================= */
 
@@ -11,29 +15,29 @@ h3,
 h4,
 h5,
 h6 {
-	font-family: $font-family-secondary;
-	line-height: 0.9;
-	font-weight: bold;
-	margin-bottom: $supple-space-small;
+  font-family: vars.$font-family-secondary;
+  line-height: 0.9;
+  font-weight: bold;
+  margin-bottom: defaults.$space-small;
 
-	a {
-		text-decoration: none;
-		color: $black;
-		transition: color $base-transition-duration-short linear;
+  a {
+    text-decoration: none;
+    color: vars.$color-black;
+    transition: color vars.$base-transition-duration-short linear;
 
-		#{$global-interaction-states} {
-			color: inherit;
-			text-decoration: underline;
-		}
-	}
+    #{vars.$global-interaction-states} {
+      color: inherit;
+      text-decoration: underline;
+    }
+  }
 }
 
 
 /*  Responsive
 		========================================================================= */
 
-@include supple-mq(desk) {
-	h1 {
-		font-size: $alpha;
-	}
+@include mixins.mq(desk) {
+  h1 {
+    font-size: vars.$alpha;
+  }
 }

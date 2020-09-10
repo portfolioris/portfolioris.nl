@@ -32,7 +32,7 @@
 
   function openMenu() {
     menuIsOpen = true;
-    document.addEventListener('keyup', handleEscape)
+    document.addEventListener('keyup', handleEscape);
   }
 
   function closeMenu() {
@@ -42,83 +42,85 @@
 </script>
 
 <style lang="scss" type="text/scss">
-	@import 'engine';
+  @use 'sass/vars';
+  @use 'supple/lib/settings/defaults';
+  @use 'supple/lib/tools/mixins';
 
-	/*  Page wrappers
+  /*  Page wrappers
       ========================================================================= */
 
-	main {
-		max-width: 1920px;
-		margin: auto;
-	}
+  main {
+    max-width: 1920px;
+    margin: auto;
+  }
 
-	:global(.c-body__skip-link) {
-		position: absolute;
-		z-index: 2;
-		transform: translateX(-100%);
+  :global(.c-body__skip-link) {
+    position: absolute;
+    z-index: 2;
+    transform: translateX(-100%);
 
-		&:focus {
-			transform: none;
-		}
-	}
+    &:focus {
+      transform: none;
+    }
+  }
 
-	.c-body-wrap {
-		overflow: hidden;
-	}
+  .c-body-wrap {
+    overflow: hidden;
+  }
 
-	.c-body-wrap__header {
-		position: relative;
-		z-index: 1;
-	}
+  .c-body-wrap__header {
+    position: relative;
+    z-index: 1;
+  }
 
-	.c-body-wrap__main {
-		transition: transform $base-transition-duration $base-timing-function;
-		position: relative;
-		z-index: 1;
+  .c-body-wrap__main {
+    transition: transform vars.$base-transition-duration vars.$base-timing-function;
+    position: relative;
+    z-index: 1;
 
-		&.is-open {
-			transform: translateX(calc(100% - #{$supple-space-base * 3 - $supple-space-tiny}));
-		}
-	}
+    &.is-open {
+      transform: translateX(calc(100% - #{defaults.$space-base * 3 - defaults.$space-tiny}));
+    }
+  }
 
-	.c-body-wrap__navigation {
-		left: 0;
-		top: 0;
-		right: $supple-space-large;
-		height: 100%;
-		overflow: auto;
-		-webkit-overflow-scrolling: touch;
-		padding-top: $supple-space-base * 3;
-		transition: transform $base-transition-duration $base-timing-function;
+  .c-body-wrap__navigation {
+    left: 0;
+    top: 0;
+    right: defaults.$space-large;
+    height: 100%;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-top: defaults.$space-base * 3;
+    transition: transform vars.$base-transition-duration vars.$base-timing-function;
 
-		&.is-loaded {
-			position: absolute;
-			transform: translateX(-50%);
-		}
+    &.is-loaded {
+      position: absolute;
+      transform: translateX(-50%);
+    }
 
-		&.is-open {
-			transform: none;
-		}
-	}
+    &.is-open {
+      transform: none;
+    }
+  }
 
-	.c-body-wrap__nav-list {
-		list-style: none;
-		margin-left: 0;
-	}
+  .c-body-wrap__nav-list {
+    list-style: none;
+    margin-left: 0;
+  }
 
-	.c-body-wrap__nav-item {
-		margin-bottom: $supple-space-tiny;
-	}
+  .c-body-wrap__nav-item {
+    margin-bottom: defaults.$space-tiny;
+  }
 
 
-	/*  Responsive
+  /*  Responsive
       ========================================================================= */
 
-	@include supple-mq(desk) {
-		.c-body-wrap__navigation {
-			display: none;
-		}
-	}
+  @include mixins.mq(desk) {
+    .c-body-wrap__navigation {
+      display: none;
+    }
+  }
 
 </style>
 

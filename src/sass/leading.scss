@@ -1,16 +1,16 @@
-@import 'engine';
+@use 'vars';
 
 /* Generic */
 /* stylelint-disable-next-line at-rule-no-unknown, scss/at-rule-no-unknown */
-@import-normalize; /* [1] */
+//@import-normalize; /* [1] */
 
-@import '~supple/lib/generic/reset';
+@use 'supple/lib/generic/reset';
 
 /* Elements */
-@import 'generic/toplevel';
-@import 'generic/typography';
-@import 'generic/headings';
+@use 'generic/font-face';
+@use 'generic/toplevel';
+@use 'generic/headings';
 
-//@import '~highlight.js/scss/a11y-light.scss'; // generated in rte, so cannot be scoped
+@use 'highlight.js/scss/a11y-light.scss'; // generated in rte, so cannot be scoped
 
-@import '~supple/lib/utilities/visually-hidden';
+@use 'supple/lib/utilities/visually-hidden';

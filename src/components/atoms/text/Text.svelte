@@ -6,23 +6,24 @@
 </script>
 
 <style type="text/scss" lang="scss">
-  @import 'engine';
+  @use 'sass/vars';
+  @use 'supple/lib/tools/mixins';
 
   :global(a) {
     color: var(--green);
-    font-weight: $font-weight-bold;
+    font-weight: vars.$font-weight-bold;
 
-    #{$global-interaction-states} {
+    #{vars.$global-interaction-states} {
       color: var(--white);
     }
   }
 
   .intro {
-    font-weight: $font-weight-bold;
+    font-weight: vars.$font-weight-bold;
   }
 
   .byline {
-    @include supple-font-size($micro);
+    @include mixins.font-size(vars.$micro);
   }
 </style>
 

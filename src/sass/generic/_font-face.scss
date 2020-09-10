@@ -66,12 +66,3 @@
     url('/assets/fonts/Insignia/Insignia.woff2') format('woff2'),
     url('/assets/fonts/Insignia/Insignia.woff') format('woff');
 }
-
-
-
-/*  Responsive typography/scaling
-    ========================================================================= */
-
-:root {
-  @include supple-css-lock(font-size, $supple-font-size, $supple-font-size + 8px, desk, tv);
-}

@@ -5,11 +5,11 @@
 </script>
 
 <style type="text/scss" lang="scss">
-  @import 'engine';
+  @use 'sass/vars';
 
   footer {
-    background-color: $white;
-    color: $black;
+    background-color: vars.$color-white;
+    color: vars.$color-black;
   }
 </style>
 

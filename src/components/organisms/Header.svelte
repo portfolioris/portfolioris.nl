@@ -13,28 +13,30 @@
 </script>
 
 <style lang="scss" type="text/scss">
-  @import 'engine';
+  @use 'sass/vars';
+  @use 'supple/lib/settings/defaults';
+  @use 'supple/lib/tools/mixins';
 
   .c-header {
-    background-color: $black;
-    padding: $supple-space-tiny;
-    box-shadow: 0 0 $supple-space-small transparentize($black, 0.5);
+    background-color: vars.$color-black;
+    padding: defaults.$space-tiny;
+    box-shadow: 0 0 defaults.$space-small transparentize(vars.$color-black, 0.5);
   }
 
   .c-header__logo {
-    margin-right: $supple-space-small;
+    margin-right: defaults.$space-small;
     display: block;
 
     img {
       width: 52px;
       height: 52px;
       display: block;
-      transition: filter $base-transition-duration-short $base-timing-function;
+      transition: filter vars.$base-transition-duration-short vars.$base-timing-function;
     }
 
-    #{$global-interaction-states} {
+    #{vars.$global-interaction-states} {
       img {
-        filter: drop-shadow(0 0 $supple-space-tiny $white);
+        filter: drop-shadow(0 0 defaults.$space-tiny vars.$color-white);
       }
     }
   }
@@ -43,7 +45,7 @@
     display: none;
   }
 
-  @include supple-mq(desk) {
+  @include mixins.mq(desk) {
     .c-header__toggle-foldout {
       display: none;
     }

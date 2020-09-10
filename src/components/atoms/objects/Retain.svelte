@@ -3,7 +3,8 @@
 </script>
 
 <style type="text/scss" lang="scss">
-  @import 'engine';
+  @use 'supple/lib/settings/defaults';
+  @use 'supple/lib/tools/mixins';
 
 
 
@@ -14,8 +15,8 @@
     margin-left: auto;
     margin-right: auto;
     max-width: 1920px;
-    padding-left: $supple-space-small;
-    padding-right: $supple-space-small;
+    padding-left: defaults.$space-small;
+    padding-right: defaults.$space-small;
   }
 
   .o-retain--narrow {
@@ -27,22 +28,22 @@
   /*  Responsive
       ========================================================================= */
 
-  @include supple-mq(lap) {
+  @include mixins.mq(lap) {
     .o-retain {
-      padding-left: $supple-space-base;
-      padding-right: $supple-space-base;
+      padding-left: defaults.$space-base;
+      padding-right: defaults.$space-base;
     }
   }
 
-  @include supple-mq(desk) {
+  @include mixins.mq(desk) {
     .o-retain {
       padding-left: 9%;
       padding-right: 9%;
     }
 
     .o-retain--breakout {
-      padding-left: calc(9% - #{supple-value-to-rem($supple-space-base)});
-      padding-right: calc(9% - #{supple-value-to-rem($supple-space-base)});
+      padding-left: calc(9% - #{defaults.$space-base});
+      padding-right: calc(9% - #{defaults.$space-base});
     }
   }
 

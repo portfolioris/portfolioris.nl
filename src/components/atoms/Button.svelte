@@ -13,7 +13,8 @@
 </script>
 
 <style lang="scss" type="text/scss">
-  @import 'engine';
+  @use 'sass/vars';
+  @use 'supple/lib/settings/defaults';
 
 
 
@@ -30,14 +31,14 @@
     margin: 0;
     border: none; //$c-button--border-width solid $c-button--background-color;
     border-radius: 0;
-    font-family: $font-family-secondary;
+    font-family: vars.$font-family-secondary;
     line-height: 1;
     font-weight: 500;
     text-decoration: none;
     background-color: var(--green); // $green; // $c-button--background-color;
-    color: $black; // $c-button--color;
+    color: vars.$color-black; // $c-button--color;
     appearance: none;
-    transition: $base-transition-duration-short $base-timing-function;
+    transition: vars.$base-transition-duration-short vars.$base-timing-function;
     transition-property: color;
 
     &:hover,
@@ -45,7 +46,7 @@
     &:focus,
     &[aria-current='true'] {
       background-color: var(--green);
-      color: $black;
+      color: vars.$color-black;
       text-decoration: none;
       outline: none;
     }
@@ -63,7 +64,7 @@
 
   .c-button__label {
     display: flex;
-    padding: $supple-space-small;
+    padding: defaults.$space-small;
   }
 
 
@@ -73,7 +74,7 @@
 
   .c-button--transparent {
     background-color: var(--transparent-green);
-    color: $white;
+    color: vars.$color-white;
   }
 </style>
 

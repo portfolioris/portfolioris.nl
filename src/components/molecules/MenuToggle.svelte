@@ -4,19 +4,20 @@
 </script>
 
 <style lang="scss" type="text/scss">
-  @import 'engine';
+  @use 'sass/vars';
+  @use 'supple/lib/settings/defaults';
 
   .c-menu-toggle {
-    padding: $supple-space-tiny;
+    padding: defaults.$space-tiny;
     width: 40px;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-decoration: none;
-    color: $white;
+    color: vars.$color-white;
     line-height: 1;
     border-radius: 50%;
-    transition: $base-transition-duration $base-timing-function;
+    transition: vars.$base-transition-duration vars.$base-timing-function;
     transition-property: color, background-color;
 
     &.is-open {
@@ -36,13 +37,13 @@
     }
 
     &:focus-visible {
-      color: $black;
-      background-color: $white;
+      color: vars.$color-black;
+      background-color: vars.$color-white;
     }
 
     &:-moz-focusring {
-      color: $black;
-      background-color: $white;
+      color: vars.$color-black;
+      background-color: vars.$color-white;
     }
   }
 
@@ -53,12 +54,12 @@
   }
 
   .c-menu-toggle__dash {
-    transition: transform $base-transition-duration $base-timing-function;
+    transition: transform vars.$base-transition-duration vars.$base-timing-function;
     transform-origin: center;
   }
 
   .c-menu-toggle__label {
-    @include supple-font-size(10px, false);
+    font-size: 10px;
     display: block;
   }
 </style>

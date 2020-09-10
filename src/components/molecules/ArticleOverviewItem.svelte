@@ -9,14 +9,15 @@
 </script>
 
 <style type="text/scss" lang="scss">
-  @import 'engine';
+  @use 'sass/vars';
+  @use 'supple/lib/settings/defaults';
 
   article {
-    background-color: $white;
-    color: $black;
-    padding: $supple-space-base;
+    background-color: vars.$color-white;
+    color: vars.$color-black;
+    padding: defaults.$space-base;
     position: relative;
-    margin-bottom: $supple-space-base;
+    margin-bottom: defaults.$space-base;
 
     :global(a::after) { // b/c there is no <a> here ....
       content: '';
@@ -29,7 +30,7 @@
     }
 
     * {
-      margin-bottom: $supple-space-tiny;
+      margin-bottom: defaults.$space-tiny;
     }
 
     > :last-child {
@@ -38,11 +39,11 @@
   }
 
   .subheading {
-    font-weight: $font-weight-bold;
+    font-weight: vars.$font-weight-bold;
   }
 
   p {
-    font-size: $micro;
+    font-size: vars.$micro;
   }
 </style>
 

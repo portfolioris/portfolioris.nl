@@ -19,7 +19,7 @@
 </script>
 
 <style global type="text/scss" lang="scss">
-  @import 'leading';
+  @use 'sass/leading';
 </style>
 
 <svelte:head>

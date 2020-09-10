@@ -34,7 +34,7 @@
     <Retain size="breakout">
       <Layout gutter="base" hasEqualheight>
           {#each items as item}
-            <Cell lap={[1, 2]} desk={[1, 3]}>
+            <Cell lap={6} desk={4}>
               <ArticleOverviewItem
                 title={item.title}
                 subheading={item.subtitle}

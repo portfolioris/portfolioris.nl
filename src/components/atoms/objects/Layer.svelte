@@ -5,7 +5,9 @@
 </script>
 
 <style type="text/scss" lang="scss">
-  @import 'engine';
+  @use 'sass/vars';
+  @use 'supple/lib/settings/defaults';
+  @use 'supple/lib/tools/mixins';
 
   /*  Module
       ========================================================================= */
@@ -26,23 +28,23 @@
       ========================================================================= */
 
   .o-layer--tiny {
-    padding: $supple-space-tiny 0;
+    padding: defaults.$space-tiny 0;
   }
 
   .o-layer--small {
-    padding: $supple-space-small 0;
+    padding: defaults.$space-small 0;
   }
 
   .o-layer--medium {
-    padding: $supple-space-base 0 0;
+    padding: defaults.$space-base 0 0;
   }
 
   .o-layer--large {
-    padding: $supple-space-base 0 0;
+    padding: defaults.$space-base 0 0;
   }
 
   .o-layer--huge {
-    padding: $supple-space-base*2 0 $supple-space-base 0;
+    padding: defaults.$space-base*2 0 defaults.$space-base 0;
   }
 
   .o-layer--flat {
@@ -55,13 +57,13 @@
   /*  Responsive
       ========================================================================= */
 
-  @include supple-mq(desk) {
+  @include mixins.mq(desk) {
     .o-layer--large {
-      padding: $supple-space-base*2 0 $supple-space-base*1;
+      padding: defaults.$space-base*2 0 defaults.$space-base*1;
     }
 
     .o-layer--huge {
-      padding: $supple-space-base*4 0 $supple-space-base*3;
+      padding: defaults.$space-base*4 0 defaults.$space-base*3;
     }
   }
 

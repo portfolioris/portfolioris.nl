@@ -10,8 +10,7 @@
   /**
    * 1. Add :global to apply style cross-component
    */
-  @import 'engine';
-  @import 'supple/lib/objects/layout';
+  @use 'supple/lib/objects/layout';
 
   .o-layout--margin-none {
     margin-bottom: 0;
@@ -32,8 +31,8 @@
   <div
     class="o-layout"
     class:o-layout--align-middle={align === 'middle'}
-    class:o-layout--gutter-base={gutter === 'base'}
-    class:o-layout--gutter-small={gutter === 'small'}
+    class:o-layout--gap-base={gutter === 'base'}
+    class:o-layout--gap-small={gutter === 'small'}
     class:o-layout--margin-none={margin === 'none'}
     class:o-layout--equalheight={hasEqualheight}
   >
@@ -43,8 +42,8 @@
   <ul
     class="o-layout"
     class:o-layout--align-middle={align === 'middle'}
-    class:o-layout--gutter-base={gutter === 'base'}
-    class:o-layout--gutter-small={gutter === 'small'}
+    class:o-layout--gap-base={gutter === 'base'}
+    class:o-layout--gap-small={gutter === 'small'}
     class:o-layout--margin-none={margin === 'none'}
     class:o-layout--equalheight={hasEqualheight}
   >
