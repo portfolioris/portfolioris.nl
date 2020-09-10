@@ -18,9 +18,8 @@
   if (latest) {
     items = items.slice(0, latest);
   }
-
-  // console.log(items);
 </script>
+
 <section>
   <Layer>
     <Retain>
@@ -32,9 +31,9 @@
       </div>
     </Retain>
     <Retain size="breakout">
-      <Layout gutter="base" hasEqualheight>
+      <Layout gutter="base" hasEqualheight element="ul" margin="none">
           {#each items as item}
-            <Cell lap={6} desk={4}>
+            <Cell lap={6} desk={4} element="li">
               <ArticleOverviewItem
                 title={item.title}
                 subheading={item.subtitle}
