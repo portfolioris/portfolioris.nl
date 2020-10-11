@@ -167,7 +167,6 @@
         {#each items as item}
           <li class="c-body-wrap__nav-item">
             <Button
-              element="a"
               isActive="{activePage === item.uri}"
               label="{item.label}"
               href="{item.uri === 'home' ? '/' : item.uri}"

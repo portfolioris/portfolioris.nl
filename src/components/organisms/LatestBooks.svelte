@@ -8,7 +8,7 @@
 </script>
 <section>
   <Layer collapseTop={collapseTop} collapseBottom={collapseBottom}>
-    <Retain size="narrow">
+    <Retain size="lap">
       <table>
         <thead>
           <tr>

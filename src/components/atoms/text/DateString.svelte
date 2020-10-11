@@ -1,7 +1,6 @@
 <script>
-
   export let date;
-  export let as;
+  export let as = null;
 
   let options = { year: 'numeric', month: 'long', day: 'numeric' };
 

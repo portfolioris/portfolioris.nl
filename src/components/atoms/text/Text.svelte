@@ -2,8 +2,8 @@
   import marked from 'marked';
   import Flow from '../objects/Flow.svelte';
 
-  export let modifier;
-  export let markdown;
+  export let modifier = null;
+  export let markdown = null;
 </script>
 
 <style type="text/scss" lang="scss">

@@ -13,7 +13,6 @@
       {#each items as item}
         <Cell element="li" fit>
           <Button
-            element="a"
             isActive="{activePage === item.uri}"
             modifier="transparent"
             label="{item.label}"

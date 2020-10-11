@@ -18,11 +18,11 @@
     vertical-align: top;
 
     &:not(:first-of-type) {
-      padding-left: vars.$space-tiny;
+      padding-inline-start: vars.$space-tiny;
     }
 
     &:not(:last-of-type) {
-      padding-right: vars.$space-tiny;
+      padding-inline-end: vars.$space-tiny;
     }
   }
 
@@ -43,7 +43,7 @@
 </style>
 <section>
   <Layer collapseBottom={collapseBottom} collapseTop={collapseTop}>
-    <Retain size="narrow">
+    <Retain size="lap">
       <table>
         <thead>
           <tr>
@@ -57,7 +57,7 @@
               <tr>
                 <td>
                   <a href="https://www.themoviedb.org/movie/{item.id}">{item.title}</a>
-                  (<DateString date={item.release_date} as="year" format="yyyy-MM-dd" />)
+                  (<DateString date={item.release_date} as="year" />)
                 </td>
                 <td>
                   <span class="date-short">

@@ -1,4 +1,5 @@
 <script>
+  export let author = null;
   export let site;
   export let path = [];
   export let title;
@@ -36,6 +37,9 @@
 
 <svelte:head>
   <title>{title} • {siteName}</title>
+  {#if author}
+    <meta name="author" content={`${author.firstName} ${author.lastName}`}>
+    {/if}
   <meta name="description" content={description}>
   <meta name="twitter:site" content={twitterHandle}>
 </svelte:head>

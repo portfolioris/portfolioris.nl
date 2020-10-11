@@ -17,10 +17,6 @@
   @use 'src/sass/vars';
 
   article {
-    :global(figure) {
-      margin-bottom: vars.$space-base;
-    }
-
     :global(figcaption) {
       font-weight: vars.$font-weight-bold;
       font-size: vars.$milli;
@@ -30,8 +26,7 @@
     :global(.c-codeblock) {
       background-color: vars.$color-white;
       padding: vars.$space-base;
-      margin-left: -1 * vars.$space-base;
-      margin-right: vars.$space-base;
+      margin-inline: -1 * vars.$space-base;
       color: vars.$color-black;
       overflow: auto;
     }
@@ -46,12 +41,12 @@
   <Layer>
     <header>
       <Flow space="tiny">
-        <Retain>
+        <Retain size="wall">
           <div class="blog-heading">
             <Heading level={1} text={title} />
           </div>
         </Retain>
-        <Retain size="narrow">
+        <Retain size="lap">
           <Flow space="tiny">
             <Text modifier="intro">{subtitle}</Text>
             <Text modifier="byline">
@@ -63,7 +58,7 @@
     </header>
   </Layer>
   <Layer collapseTop>
-    <Retain size="narrow">
+    <Retain size="lap">
       <Text>{@html content}</Text>
     </Retain>
   </Layer>

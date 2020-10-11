@@ -13,7 +13,7 @@
     collapseTop={collapseTop}
     collapseBottom={collapseBottom}
   >
-    <Retain size="narrow">
+    <Retain size="lap">
       <Text markdown={richText} />
     </Retain>
   </Layer>

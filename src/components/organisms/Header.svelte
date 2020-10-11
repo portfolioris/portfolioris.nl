@@ -18,8 +18,7 @@
 
   .c-header {
     background-color: vars.$color-black;
-    padding: vars.$space-tiny;
-    padding-block-end: 0;
+    padding-block-start: vars.$space-tiny;
     box-shadow: 0 0 vars.$space-small transparentize(vars.$color-black, 0.5);
   }
 
@@ -57,7 +56,7 @@
 </style>
 
 <header id="main-nav">
-  <Retain size="full">
+  <Retain size="wall" noPadding>
     <div class="c-header">
       <Layout align="middle">
         <Cell fit>

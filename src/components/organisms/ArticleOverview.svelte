@@ -42,7 +42,7 @@
 <section>
   <Layer>
     <Flow>
-      <Retain>
+      <Retain size="wall">
         <div class:u-visually-hidden={hideHeadingVisually}>
           <Heading
             text={heading}
@@ -51,7 +51,7 @@
         </div>
       </Retain>
 
-      <Retain size="breakout">
+      <Retain size="wall" isBreakout>
         <ul class="auto-fit">
           {#each items as item}
             <li>

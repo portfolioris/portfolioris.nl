@@ -15,7 +15,7 @@
 
 <footer>
   <Layer size="medium">
-    <Retain>
+    <Retain size="wall">
       <p>© Portfolioris 2020</p>
     </Retain>
   </Layer>

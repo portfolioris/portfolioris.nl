@@ -1,5 +1,5 @@
 <script>
-  export let space;
+  export let space = null;
 </script>
 
 <style type="text/scss" lang="scss">
