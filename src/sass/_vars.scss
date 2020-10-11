@@ -2,8 +2,7 @@
     vars
     ========================================================================= */
 
-@forward 'supple/lib/settings/defaults/index' with (
-  $font-size: 16px,
+@forward 'node_modules/@supple-kit/supple-css/settings/defaults' with (
   $line-height: 26px,
   $breakpoints: (
     lap: 580px,
@@ -12,6 +11,12 @@
     tv: 1920px,
   ),
 );
+
+@use 'node_modules/@supple-kit/supple-css/tools/space';
+$space-base: space.get('base');
+$space-tiny: space.get('tiny');
+$space-large: space.get('large');
+$space-small: space.get('small');
 
 
 

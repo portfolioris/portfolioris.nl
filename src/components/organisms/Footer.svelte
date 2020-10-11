@@ -5,7 +5,7 @@
 </script>
 
 <style type="text/scss" lang="scss">
-  @use 'sass/vars';
+  @use 'src/sass/vars';
 
   footer {
     background-color: vars.$color-white;

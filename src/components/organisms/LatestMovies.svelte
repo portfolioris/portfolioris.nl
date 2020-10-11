@@ -9,8 +9,8 @@
 </script>
 
 <style type="text/scss" lang="scss">
-  @use 'sass/vars';
-  @use 'supple/lib/tools/mixins';
+  @use 'src/sass/vars';
+  @use 'node_modules/@supple-kit/supple-css/tools/responsive';
 
   th,
   td {
@@ -31,7 +31,7 @@
     white-space: nowrap;
   }
 
-  @include mixins.mq(lap) {
+  @include responsive.mq(lap) {
     .date-short {
       display: none;
     }

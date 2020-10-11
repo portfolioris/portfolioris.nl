@@ -10,7 +10,7 @@
   /**
    * 1. Add :global to apply style cross-component
    */
-  @use 'supple/lib/objects/layout';
+  @use 'node_modules/@supple-kit/supple-css/objects/layout';
 
   .o-layout--margin-none {
     margin-bottom: 0;

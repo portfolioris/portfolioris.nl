@@ -5,50 +5,37 @@
 </script>
 
 <style type="text/scss" lang="scss">
-  @use 'sass/vars';
-  @use 'supple/lib/tools/mixins';
+  @use 'src/sass/vars';
+  @use 'node_modules/@supple-kit/supple-css/tools/responsive';
 
   /*  Module
       ========================================================================= */
 
   .o-layer {
-    position: relative;
-
-    &::after {
-      content: '';
-      display: table;
-      clear: both;
-    }
+    //
   }
 
   /*  Sizes
-      Padding on the bottom lacks the standard margin height elements have so
-      it will fill up just right
       ========================================================================= */
 
   .o-layer--tiny {
-    padding: vars.$space-tiny 0;
+    padding-block: vars.$space-tiny;
   }
 
   .o-layer--small {
-    padding: vars.$space-small 0;
+    padding-block: vars.$space-small;
   }
 
   .o-layer--medium {
-    padding: vars.$space-base 0 0;
+    padding-block: vars.$space-base;
   }
 
   .o-layer--large {
-    padding: vars.$space-base 0 0;
+    padding-block: vars.$space-base;
   }
 
   .o-layer--huge {
-    padding: vars.$space-base*2 0 vars.$space-base 0;
-  }
-
-  .o-layer--flat {
-    padding-top: 0;
-    padding-bottom: 0;
+    padding-block: vars.$space-base*2;
   }
 
 
@@ -56,13 +43,13 @@
   /*  Responsive
       ========================================================================= */
 
-  @include mixins.mq(desk) {
+  @include responsive.mq(desk) {
     .o-layer--large {
-      padding: vars.$space-base*2 0 vars.$space-base*1;
+      padding-block: vars.$space-base*2;
     }
 
     .o-layer--huge {
-      padding: vars.$space-base*4 0 vars.$space-base*3;
+      padding-block: vars.$space-base*4;
     }
   }
 
@@ -82,13 +69,11 @@
 
 <div
   class="o-layer"
-  class:o-layer--flat={size === 'flat'}
   class:o-layer--tiny={size === 'tiny'}
   class:o-layer--small={size === 'small'}
   class:o-layer--medium={size === 'medium'}
   class:o-layer--large={size === 'large'}
   class:o-layer--huge={size === 'huge'}
-  class:o-layer--fullscreen={size === 'fullscreen'}
   class:o-layer--collapse-top={collapseTop}
   class:o-layer--collapse-bottom={collapseBottom}
 >

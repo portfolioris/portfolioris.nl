@@ -13,12 +13,13 @@
 </script>
 
 <style lang="scss" type="text/scss">
-  @use 'sass/vars';
-  @use 'supple/lib/tools/mixins';
+  @use 'src/sass/vars';
+  @use 'node_modules/@supple-kit/supple-css/tools/responsive';
 
   .c-header {
     background-color: vars.$color-black;
     padding: vars.$space-tiny;
+    padding-block-end: 0;
     box-shadow: 0 0 vars.$space-small transparentize(vars.$color-black, 0.5);
   }
 
@@ -44,7 +45,7 @@
     display: none;
   }
 
-  @include mixins.mq(desk) {
+  @include responsive.mq(desk) {
     .c-header__toggle-foldout {
       display: none;
     }
@@ -56,30 +57,28 @@
 </style>
 
 <header id="main-nav">
-  <Layer size="flat">
-    <Retain size="full">
-      <div class="c-header">
-        <Layout align="middle">
-          <Cell fit>
-            <a href="/" class="c-header__logo">
-              <img src="/assets/img/logo--portfolioris-small.svg" alt="Portfolioris" />
-            </a>
-          </Cell>
-          <Cell fit align="center">
-            <div class="c-header__primary-nav">
-              <PrimaryNav items={items} activePage={activePage} />
-            </div>
-          </Cell>
-          <Cell fit>
-            <div class="c-header__toggle-foldout">
-              <MenuToggle
-                      handleToggleMenu={handleToggleMenu}
-                      menuIsOpen={menuIsOpen}
-              />
-            </div>
-          </Cell>
-        </Layout>
-      </div>
-    </Retain>
-  </Layer>
+  <Retain size="full">
+    <div class="c-header">
+      <Layout align="middle">
+        <Cell fit>
+          <a href="/" class="c-header__logo">
+            <img src="/assets/img/logo--portfolioris-small.svg" alt="Portfolioris" />
+          </a>
+        </Cell>
+        <Cell fit align="center">
+          <div class="c-header__primary-nav">
+            <PrimaryNav items={items} activePage={activePage} />
+          </div>
+        </Cell>
+        <Cell fit>
+          <div class="c-header__toggle-foldout">
+            <MenuToggle
+              handleToggleMenu={handleToggleMenu}
+              menuIsOpen={menuIsOpen}
+            />
+          </div>
+        </Cell>
+      </Layout>
+    </div>
+  </Retain>
 </header>

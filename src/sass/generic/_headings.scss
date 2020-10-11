@@ -2,8 +2,8 @@
     Generic.Headings
     ========================================================================= */
 
-@use 'sass/vars';
-@use 'supple/lib/tools/mixins';
+@use 'src/sass/vars';
+@use 'node_modules/@supple-kit/supple-css/tools/responsive';
 
 /*  Elements
     ========================================================================= */
@@ -17,7 +17,6 @@ h6 {
   font-family: vars.$font-family-secondary;
   line-height: 0.9;
   font-weight: bold;
-  margin-bottom: vars.$space-small;
 
   a {
     text-decoration: none;
@@ -29,13 +28,18 @@ h6 {
       text-decoration: underline;
     }
   }
+
+  * + & {
+    --flow-gap: #{vars.$space-large};
+  }
 }
+
 
 
 /*  Responsive
 		========================================================================= */
 
-@include mixins.mq(desk) {
+@include responsive.mq(desk) {
   h1 {
     font-size: vars.$alpha;
   }

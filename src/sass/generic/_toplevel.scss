@@ -3,11 +3,11 @@
     Describes toplevel styles such as HTML, body, etc.
     ========================================================================= */
 
-@use 'sass/vars';
-@use 'supple/lib/tools/mixins';
+@use 'src/sass/vars';
+@use 'node_modules/@supple-kit/supple-css/tools/responsive';
 
 html {
-  @include mixins.css-lock(font-size, vars.$font-size, vars.$font-size + 8px, desk, tv);
+  font-size: responsive.clamp(vars.$font-size, vars.$font-size + 8px, desk, tv);
   font-family: vars.$font-family-primary;
   background-color: vars.$color-black;
   color: vars.$color-white;

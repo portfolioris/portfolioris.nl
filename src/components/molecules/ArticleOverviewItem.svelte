@@ -1,6 +1,7 @@
 <script>
   import Heading from '../atoms/text/Heading.svelte';
   import DateString from '../atoms/text/DateString.svelte';
+  import Flow from '../atoms/objects/Flow.svelte';
 
   export let title;
   export let uri;
@@ -9,7 +10,7 @@
 </script>
 
 <style type="text/scss" lang="scss">
-  @use 'sass/vars';
+  @use 'src/sass/vars';
 
   article {
     background-color: vars.$color-white;
@@ -26,14 +27,6 @@
       bottom: 0;
       left: 0;
     }
-
-    * {
-      margin-bottom: vars.$space-tiny;
-    }
-
-    > :last-child {
-      margin-bottom: 0;
-    }
   }
 
   .subheading {
@@ -46,17 +39,19 @@
 </style>
 
 <article>
-  <Heading
-    text={title}
-    level={3}
-    href={uri}
-  />
-  {#if subheading}
-    <p class="subheading">
-      {subheading}
+  <Flow space="tiny">
+    <Heading
+      text={title}
+      level={3}
+      href={uri}
+    />
+    {#if subheading}
+      <p class="subheading">
+        {subheading}
+      </p>
+    {/if}
+    <p>
+      <DateString date={postDate} />
     </p>
-  {/if}
-  <p>
-    <DateString date={postDate} />
-  </p>
+  </Flow>
 </article>

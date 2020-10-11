@@ -1,13 +1,14 @@
 <script>
   import marked from 'marked';
+  import Flow from '../objects/Flow.svelte';
 
-  export let text;
   export let modifier;
+  export let markdown;
 </script>
 
 <style type="text/scss" lang="scss">
-  @use 'sass/vars';
-  @use 'supple/lib/tools/mixins';
+  @use 'src/sass/vars';
+  @use 'node_modules/@supple-kit/supple-css/tools/typography';
 
   :global(a) {
     color: var(--green);
@@ -23,7 +24,7 @@
   }
 
   .byline {
-    @include mixins.font-size(vars.$micro);
+    @include typography.font-size(vars.$micro);
   }
 </style>
 
@@ -31,9 +32,11 @@
   class:intro={modifier === 'intro'}
   class:byline={modifier === 'byline'}
 >
-    {#if text}
-        {@html marked(text)}
-    {:else}
-      <p><slot /></p>
-    {/if}
+    <Flow>
+      {#if markdown}
+        {@html marked(markdown)}
+      {:else}
+        <slot />
+      {/if}
+    </Flow>
 </div>

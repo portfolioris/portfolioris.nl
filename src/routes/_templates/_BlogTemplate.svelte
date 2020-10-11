@@ -4,6 +4,7 @@
   import Heading from '../../components/atoms/text/Heading.svelte';
   import Text from '../../components/atoms/text/Text.svelte';
   import DateString from '../../components/atoms/text/DateString.svelte';
+  import Flow from '../../components/atoms/objects/Flow.svelte';
 
   export let content;
   export let title;
@@ -13,7 +14,7 @@
 </script>
 
 <style type="text/scss" lang="scss">
-  @use 'sass/vars';
+  @use 'src/sass/vars';
 
   article {
     :global(figure) {
@@ -44,32 +45,26 @@
 <article>
   <Layer>
     <header>
-      <Retain>
-        <div class="blog-heading">
-          <Heading
-            level={1}
-            text={title}
-          />
-        </div>
-
-      </Retain>
-      <Retain size="narrow">
-        <Text
-          text={subtitle}
-          modifier="intro"
-        />
-        <Text
-          modifier="byline"
-        >
-          Added by <a href="https://twitter.com/{author.twitterHandle}">{author.firstName} {author.lastName}</a>,
-          <DateString date={date} />
-        </Text>
-      </Retain>
+      <Flow space="tiny">
+        <Retain>
+          <div class="blog-heading">
+            <Heading level={1} text={title} />
+          </div>
+        </Retain>
+        <Retain size="narrow">
+          <Flow space="tiny">
+            <Text modifier="intro">{subtitle}</Text>
+            <Text modifier="byline">
+              Added by <a href="https://twitter.com/{author.twitterHandle}">{author.firstName} {author.lastName}</a>, <DateString date={date} />
+            </Text>
+          </Flow>
+        </Retain>
+      </Flow>
     </header>
   </Layer>
   <Layer collapseTop>
     <Retain size="narrow">
-      {@html content}
+      <Text>{@html content}</Text>
     </Retain>
   </Layer>
 </article>

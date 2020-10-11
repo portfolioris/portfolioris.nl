@@ -42,8 +42,8 @@
 </script>
 
 <style lang="scss" type="text/scss">
-  @use 'sass/vars';
-  @use 'supple/lib/tools/mixins';
+  @use 'src/sass/vars';
+  @use 'node_modules/@supple-kit/supple-css/tools/responsive';
 
   /*  Page wrappers
       ========================================================================= */
@@ -115,7 +115,7 @@
   /*  Responsive
       ========================================================================= */
 
-  @include mixins.mq(desk) {
+  @include responsive.mq(desk) {
     .c-body-wrap__navigation {
       display: none;
     }

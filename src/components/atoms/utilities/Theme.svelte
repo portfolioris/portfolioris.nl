@@ -3,7 +3,7 @@
 </script>
 
 <style type="text/scss" lang="scss">
-  @use 'sass/vars';
+  @use 'src/sass/vars';
 
   .t-bg--black {
     background-color: vars.$color-black;

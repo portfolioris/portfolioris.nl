@@ -6,6 +6,7 @@
   import Button from '../atoms/Button.svelte';
   import Layout from '../atoms/objects/Layout.svelte';
   import Cell from '../atoms/objects/Cell.svelte';
+  import Flow from '../atoms/objects/Flow.svelte';
 
   export let heading;
   export let hideHeadingVisually = false;
@@ -21,7 +22,7 @@
 </script>
 
 <style type="text/scss" lang="scss">
-  @use 'sass/vars';
+  @use 'src/sass/vars';
 
   .auto-fit {
     list-style: none;
@@ -40,41 +41,44 @@
 
 <section>
   <Layer>
-    <Retain>
-      <div class:u-visually-hidden={hideHeadingVisually}>
-        <Heading
-          text={heading}
-          level={2}
-        />
-      </div>
-    </Retain>
-    <Retain size="breakout">
-      <ul class="auto-fit">
-        {#each items as item}
-          <li>
-            <ArticleOverviewItem
-              title={item.title}
-              subheading={item.subtitle}
-              uri="{item.uri}"
-              postDate={item.date}
-            />
-          </li>
-        {/each}
-      </ul>
+    <Flow>
+      <Retain>
+        <div class:u-visually-hidden={hideHeadingVisually}>
+          <Heading
+            text={heading}
+            level={2}
+          />
+        </div>
+      </Retain>
 
+      <Retain size="breakout">
+        <ul class="auto-fit">
+          {#each items as item}
+            <li>
+              <ArticleOverviewItem
+                title={item.title}
+                subheading={item.subtitle}
+                uri="{item.uri}"
+                postDate={item.date}
+              />
+            </li>
+          {/each}
+        </ul>
+      </Retain>
 
-        {#if viewAllBlogsLabel}
-          <Layout>
-            <Cell fit align="center">
-              <p>
-                <Button
-                  href="{viewAllBlogs}"
-                  label={viewAllBlogsLabel}
-                />
-              </p>
-            </Cell>
-          </Layout>
-        {/if}
-    </Retain>
+      {#if viewAllBlogsLabel}
+        <Layout>
+          <Cell fit align="center">
+            <p>
+              <Button
+                href="{viewAllBlogs}"
+                label={viewAllBlogsLabel}
+              />
+            </p>
+          </Cell>
+        </Layout>
+      {/if}
+    </Flow>
+
   </Layer>
 </section>

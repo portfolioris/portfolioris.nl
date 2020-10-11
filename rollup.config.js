@@ -24,9 +24,7 @@ require('dotenv').config({
 });
 
 const preprocess = sveltePreprocess({
-  scss: {
-    includePaths: ['src', 'node_modules'],
-  },
+  scss: {},
   postcss: true,
   preserve: [
     'ld+json',
@@ -62,7 +60,7 @@ export default {
         exclude: ['node_modules/@babel/**'],
         presets: [
           ['@babel/preset-env', {
-            targets: '> 0.25%, not dead',
+            // targets: '> 0.25%, not dead',
           }],
         ],
         plugins: [

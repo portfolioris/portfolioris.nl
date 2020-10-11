@@ -1,16 +1,16 @@
-@use 'vars';
+@use 'src/sass/vars';
 
 /* Generic */
 /* stylelint-disable-next-line at-rule-no-unknown, scss/at-rule-no-unknown */
 //@import-normalize; /* [1] */
 
-@use 'supple/lib/generic/reset';
+@use 'node_modules/@supple-kit/supple-css/generic/reset';
 
 /* Elements */
 @use 'generic/font-face';
 @use 'generic/toplevel';
 @use 'generic/headings';
 
-@use 'highlight.js/scss/a11y-light.scss'; // generated in rte, so cannot be scoped
+@use 'node_modules/highlight.js/scss/a11y-light.scss'; // generated in rte, so cannot be scoped
 
-@use 'supple/lib/utilities/visually-hidden';
+@use 'node_modules/@supple-kit/supple-css/utilities/visually-hidden';

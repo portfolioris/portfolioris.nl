@@ -4,7 +4,7 @@
 </script>
 
 <style lang="scss" type="text/scss">
-  @use 'sass/vars';
+  @use 'src/sass/vars';
 
   .c-menu-toggle {
     padding: vars.$space-tiny;

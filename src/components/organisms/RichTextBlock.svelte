@@ -14,7 +14,7 @@
     collapseBottom={collapseBottom}
   >
     <Retain size="narrow">
-      <Text text={richText} />
+      <Text markdown={richText} />
     </Retain>
   </Layer>
 </section>

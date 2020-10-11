@@ -8,8 +8,8 @@
 </script>
 
 <style lang="scss" type="text/scss">
-  @use 'supple/lib/objects/layout';
-  @use 'supple/lib/utilities/colspan' with (
+  @use 'node_modules/@supple-kit/supple-css/objects/layout';
+  @use 'node_modules/@supple-kit/supple-css/utilities/colspan' with (
     $in-breakpoint: (
       from: lap desk
     ),
