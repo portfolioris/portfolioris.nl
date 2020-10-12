@@ -19,11 +19,12 @@
   .c-header {
     background-color: vars.$color-black;
     padding-block-start: vars.$space-tiny;
+    padding-inline-start: vars.$space-tiny;
+    padding-inline-end: vars.$space-tiny;
     box-shadow: 0 0 vars.$space-small transparentize(vars.$color-black, 0.5);
   }
 
   .c-header__logo {
-    margin-right: vars.$space-small;
     display: block;
 
     img {
@@ -45,6 +46,11 @@
   }
 
   @include responsive.mq(desk) {
+    .c-header {
+      padding-inline-start: 0;
+      padding-inline-end: 0;
+    }
+
     .c-header__toggle-foldout {
       display: none;
     }

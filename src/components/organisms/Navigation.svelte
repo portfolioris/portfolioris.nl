@@ -83,10 +83,8 @@
   }
 
   .c-body-wrap__navigation {
-    left: 0;
-    top: 0;
-    right: vars.$space-large;
-    height: 100%;
+    inset-inline: 0 vars.$space-large;
+    inset-block: 0;
     overflow: auto;
     -webkit-overflow-scrolling: touch;
     padding-top: vars.$space-base * 3;
@@ -104,7 +102,7 @@
 
   .c-body-wrap__nav-list {
     list-style: none;
-    margin-left: 0;
+    padding-inline-start: 0;
   }
 
   .c-body-wrap__nav-item {

@@ -14,7 +14,7 @@
 
   th,
   td {
-    text-align: left;
+    text-align: start;
     vertical-align: top;
 
     &:not(:first-of-type) {

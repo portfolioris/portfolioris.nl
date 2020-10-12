@@ -19,23 +19,28 @@
       ========================================================================= */
 
   .o-layer--tiny {
-    padding-block: vars.$space-tiny;
+    padding-block-start: vars.$space-tiny;
+    padding-block-end: vars.$space-tiny;
   }
 
   .o-layer--small {
-    padding-block: vars.$space-small;
+    padding-block-start: vars.$space-small;
+    padding-block-end: vars.$space-small;
   }
 
   .o-layer--medium {
-    padding-block: vars.$space-base;
+    padding-block-start: vars.$space-base;
+    padding-block-end: vars.$space-base;
   }
 
   .o-layer--large {
-    padding-block: vars.$space-base;
+    padding-block-start: vars.$space-base;
+    padding-block-end: vars.$space-base;
   }
 
   .o-layer--huge {
-    padding-block: vars.$space-base*2;
+    padding-block-start: vars.$space-base*2;
+    padding-block-end: vars.$space-base*2;
   }
 
 
@@ -45,11 +50,13 @@
 
   @include responsive.mq(desk) {
     .o-layer--large {
-      padding-block: vars.$space-base*2;
+      padding-block-start: vars.$space-base*2;
+      padding-block-end: vars.$space-base*2;
     }
 
     .o-layer--huge {
-      padding-block: vars.$space-base*4;
+      padding-block-start: vars.$space-base*4;
+      padding-block-end: vars.$space-base*4;
     }
   }
 
@@ -59,11 +66,11 @@
       ========================================================================= */
 
   .o-layer--collapse-top {
-    padding-top: 0;
+    padding-block-start: 0;
   }
 
   .o-layer--collapse-bottom {
-    padding-bottom: 0;
+    padding-block-end: 0;
   }
 </style>
 

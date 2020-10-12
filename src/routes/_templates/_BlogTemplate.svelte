@@ -26,7 +26,8 @@
     :global(.c-codeblock) {
       background-color: vars.$color-white;
       padding: vars.$space-base;
-      margin-inline: -1 * vars.$space-base;
+      margin-inline-start: -1 * vars.$space-base;
+      margin-inline-end: -1 * vars.$space-base;
       color: vars.$color-black;
       overflow: auto;
     }
