@@ -13,11 +13,11 @@
 );
 
 @use 'node_modules/@supple-kit/supple-css/tools/space';
+
 $space-base: space.get('base');
 $space-tiny: space.get('tiny');
 $space-large: space.get('large');
 $space-small: space.get('small');
-
 
 
 /*  =========================================================================
@@ -26,7 +26,6 @@ $space-small: space.get('small');
 
 $font-family-primary: 'Open Sans', sans-serif;
 $font-family-secondary: 'Insignia', sans-serif;
-
 
 
 /*  Colors
@@ -45,7 +44,6 @@ $color-gray-medium: #cccccc;
 $color-gray-dark: #767676;
 
 
-
 /*  Sizes
     ========================================================================= */
 
@@ -60,12 +58,10 @@ $milli: 14px;
 $micro: 12px;
 
 
-
 /*  Font-weights
     ========================================================================= */
 
 $font-weight-bold: bold;
-
 
 
 /*  Animations
@@ -76,12 +72,10 @@ $base-transition-duration: 600ms;
 $base-transition-duration-short: 300ms;
 
 
-
 /*  Misc cosmetic
     ========================================================================= */
 
 $border-radius--primary: 5px;
-
 
 
 /*  Global hover/active etc. states

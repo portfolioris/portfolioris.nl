@@ -7,7 +7,8 @@ import { terser } from 'rollup-plugin-terser';
 import config from 'sapper/config/rollup';
 import sveltePreprocess from 'svelte-preprocess';
 import json from '@rollup/plugin-json';
-// import stylelint from 'rollup-plugin-stylelint';
+import { eslint } from 'rollup-plugin-eslint';
+import stylelint from 'rollup-plugin-stylelint';
 import pkg from './package.json';
 
 const mode = process.env.NODE_ENV;
@@ -36,6 +37,8 @@ export default {
     input: config.client.input(),
     output: config.client.output(),
     plugins: [
+      // eslint(),
+      // stylelint(),
       json(),
       replace({
         'process.browser': true,

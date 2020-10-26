@@ -3,8 +3,8 @@
   import Layout from '../atoms/objects/Layout.svelte';
   import Cell from '../atoms/objects/Cell.svelte';
 
-  export let items;
-  export let activePage;
+  export let items = [];
+  export let activePage = null;
 </script>
 
 <nav aria-labelledby="nav-primary">

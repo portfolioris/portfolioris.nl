@@ -4,9 +4,8 @@
     const data = await res.json();
     if (res.status === 200) {
       return { data };
-    } else {
-      this.error(res.status, data.message);
     }
+    return this.error(res.status, data.message);
   }
 </script>
 
@@ -14,6 +13,7 @@
   import Meta from './_templates/_Meta.svelte';
   import ModularPageTemplate from './_templates/_ModularPageTemplate.svelte';
   import BlogTemplate from './_templates/_BlogTemplate.svelte';
+
   export let data;
 </script>
 

@@ -1,6 +1,6 @@
 <script>
-  export let href = undefined;
-  export let type = undefined;
+  export let href = null;
+  export let type = null;
   export let label;
   export let icon = null;
   export let hideLabel = false;
@@ -81,7 +81,7 @@
   href={href}
   type={type}
   class="c-button  {className}"
-  aria-current={isActive ? 'true': null}
+  aria-current={isActive ? 'true' : null}
   class:c-button--transparent={modifier === 'transparent'}
   on:click={onClick}
 >

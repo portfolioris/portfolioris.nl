@@ -9,19 +9,16 @@
     siteName,
     twitterHandle,
     domain,
-    lang,
   } = site;
 
-  $: itemListElements = path.map((segment, index) => {
-    return {
-      '@type': 'ListItem',
-      position: index + 1,
-      item: {
-        '@id': `${domain}${segment.uri !== 'home' ? segment.uri : ''}`,
-        name: segment.title,
-      }
-    }
-  });
+  $: itemListElements = path.map((segment, index) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    item: {
+      '@id': `${domain}${segment.uri !== 'home' ? segment.uri : ''}`,
+      name: segment.title,
+    },
+  }));
 
   $: schema = [{
     '@context': 'https://schema.org',
@@ -39,7 +36,7 @@
   <title>{title} • {siteName}</title>
   {#if author}
     <meta name="author" content={`${author.firstName} ${author.lastName}`}>
-    {/if}
+  {/if}
   <meta name="description" content={description}>
   <meta name="twitter:site" content={twitterHandle}>
 </svelte:head>

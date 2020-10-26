@@ -1,5 +1,4 @@
 <script>
-  import Layer from '../atoms/objects/Layer.svelte';
   import Retain from '../atoms/objects/Retain.svelte';
   import PrimaryNav from '../molecules/PrimaryNav.svelte';
   import MenuToggle from '../molecules/MenuToggle.svelte';

@@ -11,16 +11,16 @@
 </script>
 
 {#each modules as module}
-  {#if module.type  === 'richText'}
+  {#if module.type === 'richText'}
     <RichTextBlock {...module} />
   {/if}
-  {#if module.type  === 'blogOverview'}
+  {#if module.type === 'blogOverview'}
     <ArticleOverview {...module} items={blogs} />
   {/if}
-  {#if module.type  === 'movies'}
+  {#if module.type === 'movies'}
     <LatestMovies {...module} items={movies} />
   {/if}
-  {#if module.type  === 'books'}
+  {#if module.type === 'books'}
     <LatestBooks {...module} items={books} />
   {/if}
 {/each}

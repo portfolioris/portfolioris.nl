@@ -4,9 +4,8 @@
     const navItems = await res.json();
     if (res.status === 200) {
       return { navItems };
-    } else {
-      this.error(res.status, data.message);
     }
+    return this.error(res.status, navItems.message);
   }
 </script>
 

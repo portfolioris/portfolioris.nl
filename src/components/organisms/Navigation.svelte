@@ -1,8 +1,10 @@
 <script>
+  // not listing svelte as devdep results in a build error
+  // eslint-disable-next-line import/no-extraneous-dependencies
   import { onMount } from 'svelte';
   import Retain from '../atoms/objects/Retain.svelte';
-  import Header from '../organisms/Header.svelte';
-  import Footer from '../organisms/Footer.svelte';
+  import Header from './Header.svelte';
+  import Footer from './Footer.svelte';
   import Button from '../atoms/Button.svelte';
   import { getKeyCode } from '../utilities';
 
@@ -15,7 +17,19 @@
     isLoaded = true;
   });
 
-  const handleEscape = (e) => {
+  let handleEscape;
+
+  const openMenu = () => {
+    menuIsOpen = true;
+    document.addEventListener('keyup', handleEscape);
+  };
+
+  const closeMenu = () => {
+    menuIsOpen = false;
+    document.removeEventListener('keyup', handleEscape);
+  };
+
+  handleEscape = (e) => {
     const keyCode = getKeyCode(e);
     if (keyCode === 'esc' || keyCode === 'escape') {
       closeMenu();
@@ -28,16 +42,6 @@
     } else {
       openMenu();
     }
-  }
-
-  function openMenu() {
-    menuIsOpen = true;
-    document.addEventListener('keyup', handleEscape);
-  }
-
-  function closeMenu() {
-    menuIsOpen = false;
-    document.removeEventListener('keyup', handleEscape);
   }
 </script>
 
@@ -168,7 +172,7 @@
               isActive="{activePage === item.uri}"
               label="{item.label}"
               href="{item.uri === 'home' ? '/' : item.uri}"
-              onClick={() => menuIsOpen = false}
+              onClick={() => { menuIsOpen = false; }}
             />
           </li>
         {/each}
