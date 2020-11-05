@@ -18,25 +18,25 @@
 
 {#if element === 'div'}
   <div
-    class="o-layout__cell
+    class="
       {lap ? `u-colspan-${lap}@from-lap` : ''}
       {desk ? `u-colspan-${desk}@from-desk` : ''}
     "
-    class:o-layout__cell--fill={fill}
-    class:o-layout__cell--fit={fit}
-    class:o-layout__cell--align-inline-center={align === 'center'}
+    class:o-layout__fill={fill}
+    class:o-layout__fit={fit}
+    class:o-layout__align-inline-center={align === 'center'}
   >
     <slot />
   </div>
 {:else if element === 'li'}
   <li
-    class="o-layout__cell
+    class="
       {lap ? `u-colspan-${lap}@from-lap` : ''}
       {desk ? `u-colspan-${desk}@from-desk` : ''}
-     "
-    class:o-layout__cell--fill={fill}
-    class:o-layout__cell--fit={fit}
-    class:o-layout__cell--align-inline-center={align === 'center'}
+    "
+    class:o-layout__fill={fill}
+    class:o-layout__fit={fit}
+    class:o-layout__align-inline-center={align === 'center'}
   >
     <slot />
   </li>

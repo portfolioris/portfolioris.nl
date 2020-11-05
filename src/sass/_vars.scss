@@ -3,6 +3,7 @@
     ========================================================================= */
 
 @forward 'node_modules/@supple-kit/supple-css/settings/defaults' with (
+  $css-modules: true,
   $line-height: 26px,
   $breakpoints: (
     lap: 580px,
