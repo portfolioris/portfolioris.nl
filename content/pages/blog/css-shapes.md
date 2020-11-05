@@ -1,11 +1,11 @@
 ---
+template: blog
 title: CSS Shapes
 subtitle: blokjes tekst hoeven niet altijd recht meer te zijn
 description: Sinds jaren bestaan tekstvlakken in webpagina-layouts uit
   rechthoeken. CSS Shapes geven de mogelijkheid daar ook van af te wijken.
 author: joris_hulsbosch
 date: 2018-10-29T19:34:00.000Z
-template: blog
 ---
 
 Sinds jaren bestaan tekstvlakken in webpagina-layouts uit rechthoeken. CSS
@@ -92,4 +92,4 @@ Met wat smokkelen met negatieve marges is het uiteindelijk gelukt.
 
 ## Browser-support
 
-CSS Shapes wordt niet ondersteund in IE en Edge. In de webstatistieken van deze klant heb ik opgezocht hoe groot het gebruik van deze browsers is op hun website. Het blijkt dat meer dan 90% van de bezoekers een browser gebruikt die dit ondersteund. En de rest? Geen paniek: in Edge en IE staat de tekst gewoon recht onder elkaar, dus zij hebben niet het gevoel dat de site stuk is.
+CSS Shapes wordt niet ondersteund in IE en Edge. In de webstatistieken van deze klant heb ik opgezocht hoe groot het gebruik van deze browsers is op hun website. Het blijkt dat meer dan 90% van de bezoekers een browser gebruikt die dit ondersteunt. En de rest? Geen paniek: in Edge en IE staat de tekst gewoon recht onder elkaar, dus zij hebben niet het gevoel dat de site stuk is.
