@@ -7,6 +7,7 @@
   import Layout from '../atoms/objects/Layout.svelte';
   import Cell from '../atoms/objects/Cell.svelte';
   import Flow from '../atoms/objects/Flow.svelte';
+  import Mesh from '../atoms/objects/Mesh.svelte';
 
   export let heading;
   export let hideHeadingVisually = false;
@@ -21,24 +22,6 @@
   }
 </script>
 
-<style type="text/scss" lang="scss">
-  @use 'src/sass/vars';
-
-  .auto-fit {
-    list-style: none;
-    padding: 0;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: vars.$space-base;
-
-    :global {
-      > * > * {
-        height: 100%;
-      }
-    }
-  }
-</style>
-
 <section>
   <Layer>
     <Flow>
@@ -52,7 +35,7 @@
       </Retain>
 
       <Retain size="wall" isBreakout>
-        <ul class="auto-fit">
+        <Mesh element="ul" gap="base" size="320">
           {#each items as item}
             <li>
               <ArticleOverviewItem
@@ -63,7 +46,7 @@
               />
             </li>
           {/each}
-        </ul>
+        </Mesh>
       </Retain>
 
       {#if viewAllBlogsLabel}

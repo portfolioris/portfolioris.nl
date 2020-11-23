@@ -35,8 +35,8 @@
     background-color: var(--green); // $green; // $c-button--background-color;
     color: vars.$color-black; // $c-button--color;
     appearance: none;
-    transition: vars.$base-transition-duration-short vars.$base-timing-function;
-    transition-property: color;
+    //transition: vars.$base-transition-duration-short vars.$base-timing-function;
+    //transition-property: color;
 
     &:hover,
     &:active,

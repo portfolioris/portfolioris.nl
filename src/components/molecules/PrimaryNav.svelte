@@ -8,7 +8,7 @@
 
 <nav aria-labelledby="nav-primary">
   <div class="u-visually-hidden" id="nav-primary">Primary</div>
-  <Layout element="ul" gap="small" fit>
+  <Layout element="ul" gap="small" fit alignInline="center">
       {#each items as item}
         <li>
           <Button

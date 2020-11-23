@@ -11,6 +11,7 @@
 
 <style type="text/scss" lang="scss">
   @use 'src/sass/vars';
+  @use 'node_modules/@supple-kit/supple-css/tools/typography';
 
   article {
     background-color: vars.$color-white;
@@ -31,7 +32,7 @@
   }
 
   p {
-    font-size: vars.$micro;
+    @include typography.font-size(vars.$micro);
   }
 </style>
 
