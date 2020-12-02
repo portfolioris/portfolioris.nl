@@ -14,11 +14,20 @@
       from: lap desk
     ),
   );
+
+  /**
+     * Element: cell
+     * Only use cell wrapper element when everything else fails 😅
+     */
+  .o-layout__cell {
+    margin-inline-start: 0;
+    padding-inline-start: var(--layout-gap);
+  }
 </style>
 
 {#if element === 'div'}
   <div
-    class="
+    class="o-layout__cell
       {lap ? `u-colspan-${lap}@from-lap` : ''}
       {desk ? `u-colspan-${desk}@from-desk` : ''}
     "
@@ -30,7 +39,7 @@
   </div>
 {:else if element === 'li'}
   <li
-    class="
+    class="o-layout__cell
       {lap ? `u-colspan-${lap}@from-lap` : ''}
       {desk ? `u-colspan-${desk}@from-desk` : ''}
     "

@@ -9,9 +9,9 @@ module.exports = {
     },
     // 'postcss-normalize': {},
     // 'postcss-object-fit-images': {},
-    // 'postcss-pxtorem': {
-    //   propList: ['*'],
-    //   minPixelValue: 4,
-    // },
+    'postcss-pxtorem': {
+      propList: ['*'],
+      minPixelValue: 4,
+    },
   },
 };

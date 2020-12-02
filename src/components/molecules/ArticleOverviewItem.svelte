@@ -14,6 +14,7 @@
   @use 'node_modules/@supple-kit/supple-css/tools/typography';
 
   article {
+    height: 100%;
     background-color: vars.$color-white;
     color: vars.$color-black;
     padding: vars.$space-base;
