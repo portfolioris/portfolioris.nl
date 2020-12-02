@@ -55,7 +55,8 @@
     }
 
     .c-header__primary-nav {
-      display: block;
+      display: flex;
+      justify-content: center;
     }
   }
 </style>
@@ -63,25 +64,24 @@
 <header id="main-nav">
   <Retain size="wall" noPadding>
     <div class="c-header">
-      <Layout align="middle">
+      <Layout alignInline="middle" _fit gap="base">
         <Cell fit>
           <a href="/" class="c-header__logo">
             <img src="/assets/img/logo--portfolioris-small.svg" alt="Portfolioris" />
           </a>
         </Cell>
-        <Cell fit align="center">
+
+        <Cell fill align="center">
           <div class="c-header__primary-nav">
             <PrimaryNav items={items} activePage={activePage} />
           </div>
         </Cell>
-        <Cell fit>
-          <div class="c-header__toggle-foldout">
-            <MenuToggle
-              handleToggleMenu={handleToggleMenu}
-              menuIsOpen={menuIsOpen}
-            />
-          </div>
-        </Cell>
+        <div class="c-header__toggle-foldout">
+          <MenuToggle
+            handleToggleMenu={handleToggleMenu}
+            menuIsOpen={menuIsOpen}
+          />
+        </div>
       </Layout>
     </div>
   </Retain>

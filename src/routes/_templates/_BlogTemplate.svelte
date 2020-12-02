@@ -15,11 +15,12 @@
 
 <style type="text/scss" lang="scss">
   @use 'src/sass/vars';
+  @use 'node_modules/@supple-kit/supple-css/tools/typography';
 
   article {
     :global(figcaption) {
       font-weight: vars.$font-weight-bold;
-      font-size: vars.$milli;
+      @include typography.font-size(vars.$milli);
       font-style: italic;
     }
 

@@ -5,6 +5,7 @@
 
 <style lang="scss" type="text/scss">
   @use 'src/sass/vars';
+  @use 'node_modules/@supple-kit/supple-css/tools/typography';
 
   .c-menu-toggle {
     padding: vars.$space-tiny;
@@ -58,7 +59,7 @@
   }
 
   .c-menu-toggle__label {
-    font-size: 10px;
+    @include typography.font-size(10px, false);
     display: block;
   }
 </style>

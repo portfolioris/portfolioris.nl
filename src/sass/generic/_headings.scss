@@ -4,6 +4,7 @@
 
 @use 'src/sass/vars';
 @use 'node_modules/@supple-kit/supple-css/tools/responsive';
+@use 'node_modules/@supple-kit/supple-css/tools/typography';
 
 /*  Elements
     ========================================================================= */
@@ -41,6 +42,6 @@ h6 {
 
 @include responsive.mq(desk) {
   h1 {
-    font-size: vars.$alpha;
+    @include typography.font-size(vars.$alpha);
   }
 }

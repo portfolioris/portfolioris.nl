@@ -14,15 +14,15 @@ html {
   text-decoration-skip-ink: auto;
 
   --green: #{vars.$color-green};
-  --transparent-green: transparentize(vars.$color-green, 1);
+  --transparent-green: #{transparentize(vars.$color-green, 1)};
   --white: #{vars.$color-white};
 }
 
 @media (color-gamut: p3) {
   html {
-    --green: color(display-p3 0 1 0 / 1);
-    --transparent-green: color(display-p3 0 1 0 / 0);
-    --white: color(display-p3 1 1 1);
+    //--green: color(display-p3 0 1 0 / 1);
+    //--transparent-green: color(display-p3 0 1 0 / 0);
+    //--white: color(display-p3 1 1 1);
   }
 }
 
