@@ -5,7 +5,6 @@
   import ArticleOverviewItem from '../molecules/ArticleOverviewItem.svelte';
   import Button from '../atoms/Button.svelte';
   import Layout from '../atoms/objects/Layout.svelte';
-  import Cell from '../atoms/objects/Cell.svelte';
   import Flow from '../atoms/objects/Flow.svelte';
   import Mesh from '../atoms/objects/Mesh.svelte';
 
@@ -50,15 +49,13 @@
       </Retain>
 
       {#if viewAllBlogsLabel}
-        <Layout>
-          <Cell fit align="center">
-            <p>
-              <Button
-                href="{viewAllBlogs}"
-                label={viewAllBlogsLabel}
-              />
-            </p>
-          </Cell>
+        <Layout alignInline="center" fit>
+          <p>
+            <Button
+              href="{viewAllBlogs}"
+              label={viewAllBlogsLabel}
+            />
+          </p>
         </Layout>
       {/if}
     </Flow>
