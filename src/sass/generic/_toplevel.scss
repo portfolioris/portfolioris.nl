@@ -7,7 +7,7 @@
 @use 'node_modules/@supple-kit/supple-css/tools/responsive';
 
 html {
-  font-size: responsive.clamp(vars.$font-size, vars.$font-size + 8px, desk, tv);
+  //font-size: responsive.clamp(vars.$font-size, vars.$font-size + 8px, desk, tv);
   font-family: vars.$font-family-primary;
   background-color: vars.$color-black;
   color: vars.$color-white;

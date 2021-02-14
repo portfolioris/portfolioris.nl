@@ -8,7 +8,7 @@
 
   while (size <= 1500) {
     paths.push(`https://res.cloudinary.com/portfolioris/image/upload/q_auto,f_auto,c_scale,w_${size}/${cloudinaryUrl} ${size}w`);
-    size = size + 100;
+    size += 100;
   }
 
   const srcset = paths.join(',');

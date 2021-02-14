@@ -20,9 +20,10 @@ const onwarn = (warning, onwarn) =>
   (warning.code === 'CIRCULAR_DEPENDENCY' && /[/\\]@sapper[/\\]/.test(warning.message)) ||
   onwarn(warning);
 
-require('dotenv').config({
-  path: '.env',
-});
+require('dotenv')
+  .config({
+    path: '.env',
+  });
 
 const preprocess = sveltePreprocess({
   scss: {},
@@ -45,10 +46,11 @@ export default {
         'process.env.NODE_ENV': JSON.stringify(mode),
       }),
       svelte({
+        compilerOptions: {
+          dev,
+          hydratable: true,
+        },
         preprocess,
-        dev,
-        hydratable: true,
-        emitCss: true,
       }),
       resolve({
         browser: true,
@@ -86,16 +88,20 @@ export default {
     input: config.server.input(),
     output: config.server.output(),
     plugins: [
+      eslint(),
       // stylelint(),
       replace({
         'process.browser': false,
         'process.env.NODE_ENV': JSON.stringify(mode),
       }),
       svelte({
+        compilerOptions: {
+          dev,
+          generate: 'ssr',
+          hydratable: true,
+        },
+        emitCss: false,
         preprocess,
-        generate: 'ssr',
-        hydratable: true,
-        dev,
       }),
       resolve({
         dedupe: ['svelte'],
@@ -103,7 +109,8 @@ export default {
       commonjs(),
       json(),
     ],
-    external: Object.keys(pkg.dependencies).concat(require('module').builtinModules),
+    external: Object.keys(pkg.dependencies)
+      .concat(require('module').builtinModules),
     preserveEntrySignatures: 'strict',
     onwarn,
   },
