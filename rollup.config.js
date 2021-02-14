@@ -89,7 +89,7 @@ export default {
     output: config.server.output(),
     plugins: [
       eslint(),
-      // stylelint(),
+      stylelint(),
       replace({
         'process.browser': false,
         'process.env.NODE_ENV': JSON.stringify(mode),
