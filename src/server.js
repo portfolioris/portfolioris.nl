@@ -1,6 +1,7 @@
 import sirv from 'sirv';
 import polka from 'polka';
 import compression from 'compression';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import * as sapper from '@sapper/server';
 
 const { PORT, NODE_ENV } = process.env;
@@ -13,5 +14,6 @@ polka() // You can also use Express
     sapper.middleware(),
   )
   .listen(PORT, (err) => {
+    // eslint-disable-next-line no-console
     if (err) console.log('error', err);
   });
