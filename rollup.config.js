@@ -91,6 +91,7 @@ export default {
       eslint(),
       stylelint(),
       replace({
+        preventAssignment: true,
         'process.browser': false,
         'process.env.NODE_ENV': JSON.stringify(mode),
       }),
