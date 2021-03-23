@@ -3,10 +3,11 @@
     Describes toplevel styles such as HTML, body, etc.
     ========================================================================= */
 
+@use 'node_modules/@supple-kit/supple-css/tools/responsive';
 @use 'src/sass/vars';
 
 html {
-  font-size: clamp(#{vars.$font-size}, 2vw, #{vars.$font-size + 8px});
+  font-size: responsive.lock(vars.$font-size, vars.$font-size + 4px, desk, tv);
   font-family: vars.$font-family-primary;
   background-color: vars.$color-black;
   color: vars.$color-white;

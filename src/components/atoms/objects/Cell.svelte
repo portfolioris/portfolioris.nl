@@ -10,8 +10,9 @@
 <style lang="scss" type="text/scss">
   @use 'node_modules/@supple-kit/supple-css/objects/layout';
   @use 'node_modules/@supple-kit/supple-css/utilities/colspan' with (
-    $in-breakpoint: (
-      from: lap desk
+    $in-query: (
+      lap,
+      desk,
     ),
   );
 
