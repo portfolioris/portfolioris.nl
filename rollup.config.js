@@ -42,8 +42,11 @@ export default {
       // stylelint(),
       json(),
       replace({
-        'process.browser': true,
-        'process.env.NODE_ENV': JSON.stringify(mode),
+        preventAssignment: true,
+        values: {
+          'process.browser': true,
+          'process.env.NODE_ENV': JSON.stringify(mode),
+        },
       }),
       svelte({
         compilerOptions: {
@@ -92,8 +95,10 @@ export default {
       stylelint(),
       replace({
         preventAssignment: true,
-        'process.browser': false,
-        'process.env.NODE_ENV': JSON.stringify(mode),
+        values: {
+          'process.browser': false,
+          'process.env.NODE_ENV': JSON.stringify(mode),
+        },
       }),
       svelte({
         compilerOptions: {
@@ -122,8 +127,11 @@ export default {
     plugins: [
       resolve(),
       replace({
-        'process.browser': true,
-        'process.env.NODE_ENV': JSON.stringify(mode),
+        preventAssignment: true,
+        values: {
+          'process.browser': true,
+          'process.env.NODE_ENV': JSON.stringify(mode),
+        },
       }),
       commonjs(),
       !dev && terser(),
