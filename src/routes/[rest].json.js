@@ -3,7 +3,7 @@ import fm from 'front-matter';
 import marked from 'marked';
 import hljs from 'highlight.js';
 import css from 'highlight.js/lib/languages/css';
-import { getBooks, getMovies, getPages } from './_getDataFromApi';
+import { getBooks, getMovies, getPages } from './$getDataFromApi';
 import Figure from '../components/molecules/Figure.svelte';
 
 hljs.registerLanguage('css', css);
@@ -22,19 +22,27 @@ renderer.image = (href, title, text) => (
   }).html);
 
 export async function get(req, res) {
-  const uri = req.params.rest.join('/');
+  const uri = req.params.rest.replace('|', '/');
+  // const uri = req.params.rest.join('/');
   const pagesCollection = getPages('content/pages');
   const pageData = pagesCollection.find((page) => page.uri === uri);
 
   if (!pageData) {
-    res.writeHead(404, { 'Content-Type': 'application/json' });
-    res.end(JSON.stringify({ message: 'Not found in lookup' }));
-    return;
+    // res.writeHead(404, { 'Content-Type': 'application/json' });
+    // res.end(JSON.stringify({ message: 'Not found in lookup' }));
+    // return;
+    return {
+      body: {
+        foo: 'not found',
+        ...req,
+      }
+    };
   }
 
   const segments = [];
+  const pieces = uri.split('/');
 
-  const pathData = req.params.rest.map((segment) => {
+  const pathData = pieces.map((segment) => {
     segments.push(segment);
     return pagesCollection.find((page) => page.uri === segments.join('/'));
   });
@@ -79,13 +87,21 @@ export async function get(req, res) {
     );
   }
 
-  res.writeHead(200, {
-    'Content-Type': 'application/json',
-  });
+  return {
+    body: {
+      ...pageData,
+      site: siteData,
+      path: pathData,
+    },
+  };
 
-  res.end(JSON.stringify({
-    ...pageData,
-    site: siteData,
-    path: pathData,
-  }));
+  // res.writeHead(200, {
+  //   'Content-Type': 'application/json',
+  // });
+
+  // res.end(JSON.stringify({
+  //   ...pageData,
+  //   site: siteData,
+  //   path: pathData,
+  // }));
 }

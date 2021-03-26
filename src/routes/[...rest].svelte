@@ -1,18 +1,25 @@
 <script context="module">
-  export async function preload({ params }) {
-    const res = await this.fetch(`${params.rest.join('/')}.json`);
+  export async function load({
+    page,
+    fetch,
+  }) {
+    const res = await fetch(`/${page.params.rest.replace('/', '|')}.json`);
     const data = await res.json();
-    if (res.status === 200) {
-      return { data };
+
+    if (res.ok) {
+      return {
+        props: {
+          data,
+        },
+      };
     }
-    return this.error(res.status, data.message);
   }
 </script>
 
 <script>
-  import Meta from './_templates/_Meta.svelte';
-  import ModularPageTemplate from './_templates/_ModularPageTemplate.svelte';
-  import BlogTemplate from './_templates/_BlogTemplate.svelte';
+  import Meta from './_templates/$Meta.svelte';
+  import ModularPageTemplate from './_templates/$ModularPageTemplate.svelte';
+  import BlogTemplate from './_templates/$BlogTemplate.svelte';
 
   export let data;
 </script>

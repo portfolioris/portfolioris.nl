@@ -2,14 +2,8 @@ import glob from 'glob';
 import fs from 'fs';
 import fm from 'front-matter';
 import path from 'path';
-
-const fetch = require('node-fetch');
-const xml2js = require('xml2js');
-
-require('dotenv')
-  .config({
-    path: `.env.${process.env.NODE_ENV}`,
-  });
+import fetch from 'node-fetch';
+import xml2js from 'xml2js';
 
 const getMovies = (async () => {
   const response = await fetch(process.env.TMDB_API_URL, {
@@ -23,6 +17,8 @@ const getMovies = (async () => {
 });
 
 const getBooks = (async () => {
+  console.log(process.env);
+  console.log(process.env.GOODREADS_URL);
   const response = await fetch(process.env.GOODREADS_URL);
 
   const xml = await response.text();

@@ -1,11 +1,15 @@
 <script context="module">
-  export async function preload() {
-    const res = await this.fetch('nav.json');
+  export async function load({ fetch }) {
+    const res = await fetch('nav.json');
     const navItems = await res.json();
-    if (res.status === 200) {
-      return { navItems };
+
+    if (res.ok) {
+      return {
+        props: {
+          navItems,
+        },
+      };
     }
-    return this.error(res.status, navItems.message);
   }
 </script>
 
@@ -18,7 +22,7 @@
 </script>
 
 <style global type="text/scss" lang="scss">
-  @use 'src/sass/leading';
+    @use 'src/sass/leading';
 </style>
 
 <svelte:head>
