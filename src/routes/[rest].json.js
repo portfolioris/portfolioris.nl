@@ -23,19 +23,15 @@ renderer.image = (href, title, text) => (
 
 export async function get(req, res) {
   const uri = req.params.rest.replace('|', '/');
-  // const uri = req.params.rest.join('/');
   const pagesCollection = getPages('content/pages');
   const pageData = pagesCollection.find((page) => page.uri === uri);
 
   if (!pageData) {
-    // res.writeHead(404, { 'Content-Type': 'application/json' });
-    // res.end(JSON.stringify({ message: 'Not found in lookup' }));
-    // return;
     return {
       body: {
         foo: 'not found',
         ...req,
-      }
+      },
     };
   }
 
@@ -81,7 +77,7 @@ export async function get(req, res) {
         renderer,
         highlight: (code, language) => {
           const validLanguage = hljs.getLanguage(language) ? language : 'css';
-          return `<div class="c-codeblock">${hljs.highlight(validLanguage, code).value}</div>`;
+          return `<div class="c-codeblock">${hljs.highlight(code, { language: validLanguage }).value}</div>`;
         },
       },
     );

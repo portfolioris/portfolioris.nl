@@ -1,12 +1,13 @@
 <script context="module">
-  export async function load({ fetch }) {
-    const res = await fetch('nav.json');
+  export async function load({ page, fetch }) {
+    const res = await fetch('/nav.json');
     const navItems = await res.json();
 
     if (res.ok) {
       return {
         props: {
           navItems,
+          segment: page.params.rest || null,
         },
       };
     }
