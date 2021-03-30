@@ -42,8 +42,8 @@ export async function get(req) {
     return pagesCollection.find((page) => page.uri === segments.join('/'));
   });
 
-  const siteFile = fs.readFileSync('content/globals/site.md');
-  const siteData = fm(siteFile.toString()).attributes;
+  // const siteFile = fs.readFileSync('content/globals/site.md');
+  // const siteData = fm(siteFile.toString()).attributes;
 
   if (pageData.modules) {
     if (pageData.modules.some((module) => module.type === 'blogOverview')) {
