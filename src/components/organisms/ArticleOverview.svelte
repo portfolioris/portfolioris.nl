@@ -49,14 +49,16 @@
       </Retain>
 
       {#if viewAllBlogsLabel}
-        <Layout alignInline="center" fit>
-          <p>
-            <Button
-              href="{viewAllBlogs}"
-              label={viewAllBlogsLabel}
-            />
-          </p>
-        </Layout>
+        <Retain size="wall">
+          <Layout alignInline="center" fit>
+            <p>
+              <Button
+                href="{viewAllBlogs}"
+                label={viewAllBlogsLabel}
+              />
+            </p>
+          </Layout>
+        </Retain>
       {/if}
     </Flow>
 

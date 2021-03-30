@@ -7,10 +7,4 @@ export function get(req, res) {
   return {
     body: navData,
   };
-
-  // res.writeHead(200, {
-  //   'Content-Type': 'application/json',
-  // });
-  //
-  // res.end(JSON.stringify(navData));
 }

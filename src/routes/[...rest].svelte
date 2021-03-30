@@ -6,13 +6,18 @@
     const res = await fetch(`/${page.params.rest.replace('/', '|')}.json`);
     const data = await res.json();
 
-    if (res.ok) {
+    if (data.error) {
       return {
-        props: {
-          data,
-        },
+        status: data.error,
+        error: new Error('kannievinde'),
       };
     }
+
+    return {
+      props: {
+        data,
+      },
+    };
   }
 </script>
 
