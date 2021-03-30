@@ -21,7 +21,7 @@ renderer.image = (href, title, text) => (
     alt: title,
   }).html);
 
-export async function get(req, res) {
+export async function get(req) {
   const uri = req.params.rest.replace('|', '/');
   const pagesCollection = getPages('content/pages');
   const pageData = pagesCollection.find((page) => page.uri === uri);
@@ -29,8 +29,7 @@ export async function get(req, res) {
   if (!pageData) {
     return {
       body: {
-        foo: 'not found',
-        ...req,
+        error: '404',
       },
     };
   }

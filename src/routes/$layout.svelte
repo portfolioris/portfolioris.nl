@@ -1,24 +1,22 @@
 <script context="module">
-  export async function load({ page, fetch }) {
+  export async function load({ fetch }) {
     const res = await fetch('/nav.json');
     const navItems = await res.json();
 
-    if (res.ok) {
-      return {
-        props: {
-          navItems,
-          segment: page.params.rest || null,
-        },
-      };
-    }
+    return {
+      props: {
+        navItems,
+      },
+    };
   }
 </script>
-
 <script>
   import 'wicg-inert';
   import Navigation from '../components/organisms/Navigation.svelte';
+  import { page } from '$app/stores';
 
-  export let segment;
+  $: segment = $page.path.split('/')[1];
+
   export let navItems = [];
 </script>
 
