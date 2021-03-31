@@ -89,14 +89,4 @@ export async function get(req) {
       path: pathData,
     },
   };
-
-  // res.writeHead(200, {
-  //   'Content-Type': 'application/json',
-  // });
-
-  // res.end(JSON.stringify({
-  //   ...pageData,
-  //   site: siteData,
-  //   path: pathData,
-  // }));
 }

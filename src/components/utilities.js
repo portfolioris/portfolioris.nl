@@ -12,6 +12,4 @@ const getKeyCode = (e) => {
   return code.toLowerCase();
 };
 
-// exports.getKeyCode = getKeyCode;
-// module.exports = { getKeyCode };
 export { getKeyCode };
