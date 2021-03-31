@@ -10,16 +10,9 @@
 	<link rel="icon" href="/assets/manifest/icons/icon-48x48.png">
 	<meta name="theme-color" content="#7dff00">
 
-	%sapper.base%
-
-  <!-- Sapper generates a <style> tag containing critical CSS
-       for the current page. CSS for the rest of the app is
-       lazily loaded when it precaches secondary pages -->
-  %sapper.styles%
-
   <!-- This contains the contents of the <svelte:head> component, if
        the current page has one -->
-  %sapper.head%
+  %svelte.head%
 
 	<!-- Matomo -->
 	<script type="text/javascript">
@@ -28,24 +21,20 @@
 		_paq.push(['trackPageView']);
 		_paq.push(['enableLinkTracking']);
 		(function() {
-			var u="//portfolioris.nl/analytics/";
+			var u="https://portfolioris.nl/analytics/";
 			_paq.push(['setTrackerUrl', u+'matomo.php']);
 			_paq.push(['setSiteId', '1']);
 			var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
 			g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
 		})();
 	</script>
-	<noscript><p><img src="//portfolioris.nl/analytics/matomo.php?idsite=1&amp;rec=1" style="border:0;" alt="" /></p></noscript>
+	<noscript><p><img src="https://portfolioris.nl/analytics/matomo.php?idsite=1&amp;rec=1" style="border:0;" alt="" /></p></noscript>
 	<!-- End Matomo Code -->
 </head>
 <body>
 <!-- The application will be rendered inside this element,
      because `src/client.js` references it -->
-<div id="sapper">%sapper.html%</div>
+<div id="svelte">%svelte.body%</div>
 
-<!-- Sapper creates a <script> tag containing `src/client.js`
-     and anything else it needs to hydrate the app and
-     initialise the router -->
-%sapper.scripts%
 </body>
 </html>

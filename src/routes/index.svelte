@@ -1,11 +1,12 @@
 <script context="module">
-  export async function preload() {
-    const res = await this.fetch('home.json');
+  export async function load({ fetch }) {
+    const res = await fetch('home.json');
     const data = await res.json();
-    if (res.status === 200) {
-      return { data };
-    }
-    return this.error(res.status, data.message);
+    return {
+      props: {
+        data,
+      },
+    };
   }
 </script>
 
