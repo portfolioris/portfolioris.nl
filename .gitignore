@@ -1,8 +1,3 @@
-.DS_Store
 /node_modules/
-/src/node_modules/@sapper/
-/__sapper__/
+/.svelte/
 .env
-.env.*
-.graphqlconfig
-graphql.schema.json
