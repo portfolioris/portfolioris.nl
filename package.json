@@ -8,7 +8,7 @@
     "export": "svelte-kit build"
   },
   "dependencies": {
-    "@supple-kit/supple-css": "^5.0.0",
+    "@supple-kit/supple-css": "^5.0.1",
     "wicg-inert": "^3.1.1"
   },
   "devDependencies": {
@@ -26,7 +26,7 @@
     "highlight.js": "^10.7.1",
     "marked": "^2.0.1",
     "node-fetch": "^2.6.1",
-    "postcss": "^8.2.8",
+    "postcss": "^8.2.9",
     "postcss-dir-pseudo-class": "^5.0.0",
     "postcss-load-config": "^3.0.0",
     "postcss-logical": "^4.0.2",
@@ -36,7 +36,7 @@
     "stylelint-config-supple": "^3.0.3",
     "svelte": "^3.36.0",
     "svelte-preprocess": "^4.7.0",
-    "vite": "^2.1.4",
+    "vite": "^2.1.5",
     "xml2js": "^0.4.23"
   }
 }
