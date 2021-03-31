@@ -2,11 +2,10 @@
   "name": "portfolioris-blog-svelte",
   "description": "TODO",
   "version": "0.0.1",
-  "type": "commonjs",
+  "type": "module",
   "scripts": {
     "dev": "svelte-kit dev",
-    "build": "svelte-kit build",
-    "start": "svelte-kit start"
+    "export": "svelte-kit build"
   },
   "dependencies": {
     "@supple-kit/supple-css": "^5.0.0",
