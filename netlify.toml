@@ -1,8 +1,8 @@
 [build]
-    publish = "__sapper__/export/"
-    command = "npm run export"
+publish = "build/"
+command = "npm run export"
 
 [[headers]]
-    for = "/*"
-    [headers.values]
-        Content-Security-Policy = "default-src 'self'"
+for = "/*"
+[headers.values]
+Content-Security-Policy = "default-src 'self'"

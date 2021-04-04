@@ -80,6 +80,7 @@
     transition: transform vars.$base-transition-duration vars.$base-timing-function;
     position: relative;
     z-index: 1;
+    background-color: vars.$color-black;
 
     &.is-open {
       transform: translateX(calc(100% - #{vars.$space-base * 3 - vars.$space-tiny}));
@@ -165,7 +166,7 @@
             <Button
               isActive="{activePage === item.uri}"
               label="{item.label}"
-              href="{item.uri === 'home' ? '/' : item.uri}"
+              href="/{item.uri === 'home' ? '' : item.uri}"
               onClick={() => { menuIsOpen = false; }}
             />
           </li>

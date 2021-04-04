@@ -1,9 +1,9 @@
 module.exports = {
   plugins: {
-    'postcss-dir-pseudo-class': {},
-    'postcss-logical': {
-      preserve: true,
-    },
+    // 'postcss-dir-pseudo-class': {},
+    // 'postcss-logical': {
+    //   preserve: true,
+    // },
     autoprefixer: {
       // grid: true,
     },

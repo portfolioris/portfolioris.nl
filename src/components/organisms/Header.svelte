@@ -64,12 +64,10 @@
 <header id="main-nav">
   <Retain size="wall" noPadding>
     <div class="c-header">
-      <Layout alignInline="middle" _fit gap="base">
-        <Cell fit>
-          <a href="/" class="c-header__logo">
-            <img src="/assets/img/logo--portfolioris-small.svg" alt="Portfolioris" />
-          </a>
-        </Cell>
+      <Layout alignInline="middle" fit gap="base">
+        <a href="/" class="c-header__logo">
+          <img src="/assets/img/logo--portfolioris-small.svg" alt="Portfolioris" />
+        </a>
 
         <Cell fill align="center">
           <div class="c-header__primary-nav">

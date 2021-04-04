@@ -7,7 +7,6 @@ description: Sinds jaren bestaan tekstvlakken in webpagina-layouts uit
 author: joris_hulsbosch
 date: 2018-10-29T19:34:00.000Z
 ---
-
 Sinds jaren bestaan tekstvlakken in webpagina-layouts uit rechthoeken. CSS
 Shapes geven de mogelijkheid daar ook van af te wijken. Dorel — een klant van
 Colours — kwam met de vraag het volgende ontwerp te realiseren.
@@ -16,21 +15,21 @@ Colours — kwam met de vraag het volgende ontwerp te realiseren.
 
 Daarbij hadden ze de volgende wensen:
 
-- De tekst is aanpasbaar per regel;
-- Er kunnen 3, 4, 5 of 6 regels tekst worden geplaatst;
-- De tekstgrootte is per regel instelbaar;
-- Per regel kan worden ingesteld of de text regular of bold moet zijn;
-- De tekst is verticaal gecentreerd;
-- De tekst loopt diagonaal langs de visual;
-- De regelafstand moet altijd ‘kloppen’;
-- De visual moet gecentreerd in zijn vlak staan.
+* De tekst is aanpasbaar per regel;
+* Er kunnen 3, 4, 5 of 6 regels tekst worden geplaatst;
+* De tekstgrootte is per regel instelbaar;
+* Per regel kan worden ingesteld of de text regular of bold moet zijn;
+* De tekst is verticaal gecentreerd;
+* De tekst loopt diagonaal langs de visual;
+* De regelafstand moet altijd ‘kloppen’;
+* De visual moet gecentreerd in zijn vlak staan.
 
 En daarbij komen natuurlijk onze Colours Front-end Regels®:
 
-- Geen layouts maken met JavaScript. [Waarom](https://kryogenix.org/code/browser/everyonehasjs.html)?
-- Fluid: Het component moet ‘meegroeien’ met de hoeveelheid content die er in geplaatst wordt;
-- Responsive: het moet er goed uit zien, ongeacht welke schermgrootte;
-- Robuust: de functionaliteit moet werken in alle browsers, ook als deze bepaalde techniek (nog) niet ondersteunt of wanneer er erg veel content geplaatst wordt. Denk bijvoorbeeld aan erg lange woorden in het Frans of Duits.
+* Geen layouts maken met JavaScript. [Waarom](https://kryogenix.org/code/browser/everyonehasjs.html)?
+* Fluid: Het component moet ‘meegroeien’ met de hoeveelheid content die er in geplaatst wordt;
+* Responsive: het moet er goed uit zien, ongeacht welke schermgrootte;
+* Robuust: de functionaliteit moet werken in alle browsers, ook als deze bepaalde techniek (nog) niet ondersteunt of wanneer er erg veel content geplaatst wordt. Denk bijvoorbeeld aan erg lange woorden in het Frans of Duits.
 
 ## De start-layout
 
@@ -44,10 +43,10 @@ Om de diagonale uitsnede te maken wil ik een driehoek over de afbeelding plaatse
 
 ```css
 .shape {
-width: 0;
-height: 0;
-border-bottom: 100% solid white; /* Dit kan dus niet… */
-border-right: 100px solid transparent;
+  width: 0;
+  height: 0;
+  border-bottom: 100% solid white; /* Dit kan dus niet… */
+  border-right: 100px solid transparent;
 }
 ```
 
@@ -59,10 +58,10 @@ De beste manier om dit cross-browser werkend te krijgen is de SVG te transformer
 
 ```css
 .shape {
-height: 100%;
-width: 150px;
-background-image: url("data:image/svg+xml;base64,PHN2ZyB3etcetera…");
-background-size: 100% 100%;
+  height: 100%;
+  width: 150px;
+  background-image: url("data:image/svg+xml;base64,PHN2ZyB3etcetera…");
+  background-size: 100% 100%;
 }
 ```
 
@@ -78,9 +77,9 @@ Het enige nadeel is dat het element moet floaten, en dat de tekst ernaast een in
 
 ```css
 .shape {
-position: relative;
-top: 50%;
-transform: translateY(-50%);
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
 }
 ```
 
