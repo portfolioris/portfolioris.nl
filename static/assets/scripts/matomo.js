@@ -15,4 +15,3 @@ _paq.push(['enableLinkTracking']);
   g.src = u + 'matomo.js';
   s.parentNode.insertBefore(g, s);
 })();
-
