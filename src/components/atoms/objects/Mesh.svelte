@@ -9,8 +9,8 @@
   @use 'node_modules/@supple-kit/supple-css/tools/_internal/functions';
   @use 'node_modules/@supple-kit/supple-css/objects/mesh';
 
-  .o-mesh {
-    --min-inline-size: calc((var(--size) / #{functions.strip-units(vars.$font-size)}) * 1rem);
+  .o-mesh--320 {
+    --min-inline-size: calc((320 / #{functions.strip-units(vars.$font-size)}) * 1rem);
   }
 </style>
 
@@ -18,7 +18,7 @@
   <div
     class="o-mesh  o-mesh--flow"
     class:o-mesh--gap-base={gap === 'base'}
-    style={`--min-inline-size: ${size}`}
+    class:o-mesh--320={parseFloat(size) === 320}
   >
     <slot />
   </div>
@@ -28,7 +28,7 @@
   <ul
     class="o-mesh  o-mesh--flow"
     class:o-mesh--gap-base={gap === 'base'}
-    style="--size: {size};"
+    class:o-mesh--320={parseFloat(size) === 320}
   >
     <slot />
   </ul>

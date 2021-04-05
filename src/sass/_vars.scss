@@ -11,6 +11,10 @@
     wall: 1280px,
     tv: 1920px,
   ),
+  $queries: (
+    lap: lap,
+    desk: desk,
+  )
 );
 
 @use 'node_modules/@supple-kit/supple-css/tools/space';
