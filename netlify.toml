@@ -1,7 +1,7 @@
 [build]
     publish = "build/"
     command = "npm run export"
-[[headers]]
-    for = "/*"
-    [headers.values]
-        Content-Security-Policy = "default-src 'self';"
+#[[headers]]
+#    for = "/*"
+#    [headers.values]
+#        Content-Security-Policy = "default-src 'self';"
