@@ -8,4 +8,4 @@
         X-Frame-Options = "SAMEORIGIN"
         X-Content-Type-Options = "nosniff"
         Referrer-Policy = "no-referrer"
-        Permissions-Policy = ""
+        Permissions-Policy = "geolocation=(self)"
