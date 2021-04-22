@@ -1,6 +1,7 @@
 [build]
     publish = "build/"
     command = "npm run export"
+
 [[headers]]
     for = "/*"
     [headers.values]
@@ -9,3 +10,8 @@
         X-Content-Type-Options = "nosniff"
         Referrer-Policy = "no-referrer"
         Permissions-Policy = "geolocation=(self)"
+
+[[redirects]]
+    from = "https://me.portfolioris.nl/*"
+    to = "https://www.portfolioris.nl/:splat"
+    status = 301
