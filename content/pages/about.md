@@ -17,7 +17,7 @@ modules:
       I have a background in arts, graphic design, audiovisual design, animation, marketing, communication. I studied audiovisual design at St. Joost Academy in Breda, Communication and Design at SintLucas in Boxtel, and Interactive Media at Hogeschool van Amsterdam.
 
 
-      Follow me on Twitter: [@Portfolioris](https://twitter.com/Portfolioris) or find me on [LinkedIn](https://www.linkedin.com/in/joris-hulsbosch-3ab1595/).
+      Follow me on Twitter: [@Portfolioris](https://twitter.com/Portfolioris), find me on [LinkedIn](https://www.linkedin.com/in/joris-hulsbosch-3ab1595/), or find me on [GitHub](https://github.com/portfolioris).
 
 
       ## Experience
