@@ -15,3 +15,4 @@
     from = "https://me.portfolioris.nl/*"
     to = "https://www.portfolioris.nl/:splat"
     status = 301
+    force = true
