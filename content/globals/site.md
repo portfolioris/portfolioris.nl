@@ -3,7 +3,7 @@ siteName: Portfolioris
 lang: en
 author: joris_hulsbosch
 twitterHandle: "@Portfolioris"
-domain: https://me.portfolioris.nl/
+domain: https://www.portfolioris.nl/
 primaryNav:
   - label: Home
     uri: home
