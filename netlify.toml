@@ -16,3 +16,9 @@
     to = "https://www.portfolioris.nl/:splat"
     status = 301
     force = true
+
+[[redirects]]
+    from = "https://portfolioris-nl.netlify.app/*"
+    to = "https://www.portfolioris.nl/:splat"
+    status = 301
+    force = true
