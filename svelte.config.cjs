@@ -23,5 +23,6 @@ module.exports = {
         noExternal: Object.keys(pkg.dependencies || {}),
       },
     },
+    router: false,
   },
 };
