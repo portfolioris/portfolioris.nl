@@ -1,8 +1,8 @@
 import fs from 'fs';
 import fm from 'front-matter';
 import marked from 'marked';
-import hljs from 'highlight.js/lib/core.js';
-import css from 'highlight.js/lib/languages/css.js';
+import hljs from 'highlight.js/lib/core';
+import css from 'highlight.js/lib/languages/css';
 import { getBooks, getMovies, getPages } from './$getDataFromApi';
 import Figure from '../components/molecules/Figure.svelte';
 

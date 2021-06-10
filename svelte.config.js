@@ -1,9 +1,9 @@
-const sveltePreprocess = require('svelte-preprocess');
-const adapter = require('@sveltejs/adapter-static');
-const pkg = require('./package.json');
+import sveltePreprocess from 'svelte-preprocess';
+import adapter from '@sveltejs/adapter-static';
+// import pkg from './package.json';
 
 /** @type {import('@sveltejs/kit').Config} */
-module.exports = {
+const config = {
   // Consult https://github.com/sveltejs/svelte-preprocess
   // for more information about preprocessors
   preprocess: sveltePreprocess({
@@ -18,11 +18,13 @@ module.exports = {
     // hydrate the <div id="svelte"> element in src/app.html
     target: '#svelte',
 
-    vite: {
-      ssr: {
-        noExternal: Object.keys(pkg.dependencies || {}),
-      },
-    },
+    // vite: {
+    //   ssr: {
+    //     noExternal: Object.keys(pkg.dependencies || {}),
+    //   },
+    // },
     router: false,
   },
 };
+
+export default config;
