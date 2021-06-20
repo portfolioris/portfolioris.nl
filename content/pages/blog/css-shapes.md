@@ -1,5 +1,6 @@
 ---
 template: blog
+lang: nl
 title: CSS Shapes
 subtitle: blokjes tekst hoeven niet altijd recht meer te zijn
 description: Sinds jaren bestaan tekstvlakken in webpagina-layouts uit
