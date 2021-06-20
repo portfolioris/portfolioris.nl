@@ -1,5 +1,6 @@
 ---
 template: blog
+lang: nl
 title: Knockout text
 subtitle: Effecten op tekst, zoals een verloop (gradient) of een afbeelding
   tonen in de letters
