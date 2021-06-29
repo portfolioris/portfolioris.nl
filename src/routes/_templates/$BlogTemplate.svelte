@@ -11,6 +11,7 @@
   export let subtitle;
   export let author;
   export let date;
+  export let lang;
 </script>
 
 <style type="text/scss" lang="scss">
@@ -39,7 +40,7 @@
   }
 </style>
 
-<article>
+<article lang="{lang}">
   <Layer>
     <header>
       <Flow space="tiny">

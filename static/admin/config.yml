@@ -38,9 +38,9 @@ collections:
                 name: uri
                 widget: relation
                 collection: pages
-                valueField: '{{slug}}'
-                displayFields: [ title ]
-                searchFields: [ title ]
+                value_field: '{{slug}}'
+                display_fields: [ title ]
+                search_fields: [ title ]
 
   - name: authors
     label: Authors
@@ -102,14 +102,14 @@ collections:
                 name: viewAllBlogs
                 widget: relation
                 collection: pages
-                valueField: '{{slug}}'
-                displayFields: [ title ]
-                searchFields: [ title ]
+                value_field: '{{slug}}'
+                display_fields: [ title ]
+                search_fields: [ title ]
                 required: false
               - label: Amount of items to show
                 name: latest
                 widget: number
-                valueType: int
+                value_type: int
                 required: false
           - label: Movies
             name: movies
@@ -142,6 +142,7 @@ collections:
 #    slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
     fields: # The fields for each document, usually in front matter
       - {label: template, name: "template", widget: "hidden", default: blog}
+      - { label: "Language", name: "lang", widget: "string", default: "en" }
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Subtitle", name: "subtitle", widget: "string"}
       - {label: "Description", name: "description", widget: "string"}
@@ -149,8 +150,8 @@ collections:
         name: author
         widget: relation
         collection: authors
-        valueField: '{{slug}}'
-        displayFields: ['{{firstName}} {{lastName}}']
-        searchFields: [ firstName, lastName ]
+        value_field: '{{slug}}'
+        display_fields: ['{{firstName}} {{lastName}}']
+        search_fields: [ firstName, lastName ]
       - {label: "Publish date", name: "date", widget: "datetime"}
       - {label: "Content", name: "body", widget: "markdown"}
