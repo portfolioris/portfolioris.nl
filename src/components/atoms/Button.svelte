@@ -71,7 +71,7 @@
 
   .c-button--transparent {
     background-color: var(--transparent-green);
-    color: vars.$color-white;
+    color: var(--color-foreground);
   }
 </style>
 

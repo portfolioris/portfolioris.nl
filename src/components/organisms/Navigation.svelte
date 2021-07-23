@@ -72,6 +72,7 @@
   }
 
   .c-body-wrap__header {
+    background-color: var(--color-background);
     position: relative;
     z-index: 1;
   }
@@ -80,7 +81,7 @@
     transition: transform vars.$base-transition-duration vars.$base-timing-function;
     position: relative;
     z-index: 1;
-    background-color: vars.$color-black;
+    background-color: var(--color-background);
 
     &.is-open {
       transform: translateX(calc(100% - #{vars.$space-base * 3 - vars.$space-tiny}));
@@ -88,6 +89,7 @@
   }
 
   .c-body-wrap__navigation {
+    background-color: var(--color-foreground);
     inset-inline: 0 vars.$space-large;
     inset-block: 0;
     overflow: auto;

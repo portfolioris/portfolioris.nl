@@ -15,8 +15,8 @@
 
   article {
     height: 100%;
-    background-color: vars.$color-white;
-    color: vars.$color-black;
+    background-color: var(--color-foreground);
+    color: var(--color-background);
     padding: vars.$space-base;
     position: relative;
 
