@@ -14,7 +14,7 @@
     flex-direction: column;
     align-items: center;
     text-decoration: none;
-    color: vars.$color-white;
+    color: var(--color-foreground);
     line-height: 1;
     border-radius: 50%;
     transition: vars.$base-transition-duration vars.$base-timing-function;

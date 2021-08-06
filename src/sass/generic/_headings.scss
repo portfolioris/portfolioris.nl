@@ -21,7 +21,7 @@ h6 {
 
   a {
     text-decoration: none;
-    color: vars.$color-black;
+    color: inherit;
     transition: color vars.$base-transition-duration-short linear;
 
     #{vars.$global-interaction-states} {

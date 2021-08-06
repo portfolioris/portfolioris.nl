@@ -6,11 +6,22 @@
 @use 'node_modules/@supple-kit/supple-css/tools/responsive';
 @use 'src/sass/vars';
 
+:root {
+  --color-background: #{vars.$color-black};
+  --color-foreground: #{vars.$color-white};
+  color-scheme: light dark; /* both supported */
+
+  @media (prefers-color-scheme: light) {
+    --color-background: #{vars.$color-white};
+    --color-foreground: #{vars.$color-black};
+  }
+}
+
 html {
   font-size: responsive.lock(vars.$font-size, vars.$font-size + 4px, desk, tv);
   font-family: vars.$font-family-primary;
-  background-color: vars.$color-black;
-  color: vars.$color-white;
+  background-color: var(--color-background);
+  color: var(--color-foreground);
   text-decoration-skip-ink: auto;
 
   --green: #{vars.$color-green};
