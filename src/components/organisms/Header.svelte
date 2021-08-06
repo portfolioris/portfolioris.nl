@@ -16,11 +16,9 @@
   @use 'node_modules/@supple-kit/supple-css/tools/responsive';
 
   .c-header {
-    //background-color: vars.$color-black;
     padding-block-start: vars.$space-tiny;
     padding-inline-start: vars.$space-tiny;
     padding-inline-end: vars.$space-tiny;
-    //box-shadow: 0 0 vars.$space-small transparentize(vars.$color-black, 0.5);
   }
 
   .c-header__logo {
