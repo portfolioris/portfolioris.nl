@@ -26,7 +26,8 @@
     display: inline-block;
     vertical-align: middle;
     margin: 0;
-    border: none; //$c-button--border-width solid $c-button--background-color;
+    border: none;
+    box-shadow: 0 0 0 1px vars.$color-black;
     border-radius: 0;
     font-family: vars.$font-family-secondary;
     line-height: 1;
@@ -35,12 +36,10 @@
     background-color: var(--green); // $green; // $c-button--background-color;
     color: vars.$color-black; // $c-button--color;
     appearance: none;
-    //transition: vars.$base-transition-duration-short vars.$base-timing-function;
-    //transition-property: color;
+    transition: vars.$base-transition-duration-short vars.$base-timing-function;
+    transition-property: background-color, box-shadow;
 
-    &:hover,
-    &:active,
-    &:focus,
+    #{vars.$global-interaction-states},
     &[aria-current='true'] {
       background-color: var(--green);
       color: vars.$color-black;
@@ -70,8 +69,14 @@
       ========================================================================= */
 
   .c-button--transparent {
+    box-shadow: none;
     background-color: var(--transparent-green);
     color: var(--color-foreground);
+
+    #{vars.$global-interaction-states},
+    &[aria-current='true'] {
+      box-shadow: 0 0 0 1px vars.$color-black;
+    }
   }
 </style>
 

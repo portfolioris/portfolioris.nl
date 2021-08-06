@@ -15,7 +15,11 @@
     font-weight: vars.$font-weight-bold;
 
     #{vars.$global-interaction-states} {
-      color: var(--white);
+      color: var(--color-foreground);
+    }
+
+    @media (prefers-color-scheme: light) {
+      color: vars.$color-black;
     }
   }
 
@@ -32,11 +36,11 @@
   class:intro={modifier === 'intro'}
   class:byline={modifier === 'byline'}
 >
-    <Flow>
-      {#if markdown}
-        {@html marked(markdown)}
-      {:else}
-        <slot />
-      {/if}
-    </Flow>
+  <Flow>
+    {#if markdown}
+      {@html marked(markdown)}
+    {:else}
+      <slot />
+    {/if}
+  </Flow>
 </div>

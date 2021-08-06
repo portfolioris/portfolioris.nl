@@ -15,10 +15,23 @@
 
   article {
     height: 100%;
-    background-color: var(--color-foreground);
-    color: var(--color-background);
+    background-color: vars.$color-white;
+    color: vars.$color-black;
     padding: vars.$space-base;
     position: relative;
+    transition: vars.$base-transition-duration;
+    transition-property: background-color, border-color;
+
+    @media (prefers-color-scheme: light) {
+      border: 1px solid transparent;
+      background-color: vars.$color-gray-light;
+
+      #{vars.$global-interaction-states},
+      &:focus-within {
+        border-color: vars.$color-black;
+        background-color: vars.$color-white;
+      }
+    }
 
     :global(a::after) { // b/c there is no <a> here ....
       content: '';
