@@ -74,7 +74,7 @@
   .c-body-wrap__header {
     background-color: var(--color-background);
     position: relative;
-    z-index: 1;
+    z-index: 2;
   }
 
   .c-body-wrap__main {
