@@ -1,17 +1,11 @@
+const pxtorem = require('postcss-pxtorem');
+
 module.exports = {
-  plugins: {
-    // 'postcss-dir-pseudo-class': {},
-    // 'postcss-logical': {
-    //   preserve: true,
-    // },
-    autoprefixer: {
-      // grid: true,
-    },
-    // 'postcss-normalize': {},
-    // 'postcss-object-fit-images': {},
-    'postcss-pxtorem': {
+  plugins: [
+    require('postcss-preset-env'),
+    pxtorem({
       propList: ['*'],
       minPixelValue: 4,
-    },
-  },
+    }),
+  ],
 };
