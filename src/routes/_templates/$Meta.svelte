@@ -40,5 +40,5 @@
   <meta name="description" content={description}>
   <meta name="twitter:site" content={twitterHandle}>
 
-  {@html `<script type="application/ld+json">${JSON.stringify(schema)}</script>`}
+  {@html '<script type="application/ld+json">' + JSON.stringify(schema) + '</script>'}
 </svelte:head>
