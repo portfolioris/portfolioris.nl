@@ -89,7 +89,6 @@
   }
 
   .c-body-wrap__navigation {
-    background-color: var(--color-foreground);
     inset-inline: 0 vars.$space-large;
     inset-block: 0;
     overflow: auto;

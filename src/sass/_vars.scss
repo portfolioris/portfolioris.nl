@@ -6,6 +6,7 @@
   $css-modules: true,
   $line-height: 26px,
   $breakpoints: (
+    palm: 375px,
     lap: 580px,
     desk: 980px,
     wall: 1280px,
@@ -52,12 +53,11 @@ $color-gray-dark: #767676;
 /*  Sizes
     ========================================================================= */
 
-$alpha: 80px;
-$beta: 34px;
-$gamma: 28px;
-$delta: 24px;
-$epsilon: 20px;
-$foxtrot: 18px;
+$alpha: 40px;
+$beta: 32px;
+$gamma: 24px;
+$delta: 20px;
+$epsilon: 18px;
 $normalis: 16px;
 $milli: 14px;
 $micro: 12px;

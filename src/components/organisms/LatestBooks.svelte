@@ -20,7 +20,7 @@
             {#each items as item}
               <tr>
                 <td>
-                  <a href="{item.book.link}">{item.book.title_without_series}</a>
+                  <a href="{item.book.link}">{item.book.title_without_series}</a> {#if item.book.publication_year}({item.book.publication_year}){/if}
                 </td>
                 <td>
                     {item.book.authors.author.name}

@@ -40,8 +40,32 @@ h6 {
 /*  Responsive
 		========================================================================= */
 
-@include responsive.mq(desk) {
-  h1 {
-    @include typography.font-size(vars.$alpha);
-  }
+/**
+  Sizes (small screen)
+  Heading elements are sized hierically, but you override the visual size
+  with a class. So to keep the semantic value of an <h1>, but make it
+  look smaller, you use <h1 class="h2">
+ */
+h1 {
+  font-size: responsive.lock(vars.$alpha, 80px, palm, desk);
+}
+
+h2 {
+  font-size: responsive.lock(vars.$beta, 40px, palm, desk);
+}
+
+h3 {
+  font-size: responsive.lock(vars.$gamma, 28px, palm, desk);
+}
+
+h4 {
+  font-size: responsive.lock(vars.$delta, 24px, palm, desk);
+}
+
+h5 {
+  font-size: responsive.lock(vars.$epsilon, 20px, palm, desk);
+}
+
+h6 {
+  font-size: vars.$normalis;
 }

@@ -34,7 +34,7 @@
       </Retain>
 
       <Retain size="wall" isBreakout>
-        <Mesh element="ul" gap="base" size="320">
+        <Mesh element="ul" gap="base" size=272>
           {#each items as item}
             <li>
               <ArticleOverviewItem

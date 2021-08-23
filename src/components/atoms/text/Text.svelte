@@ -7,8 +7,27 @@
 </script>
 
 <style type="text/scss" lang="scss">
+  @use 'sass:math';
   @use 'src/sass/vars';
   @use 'node_modules/@supple-kit/supple-css/tools/typography';
+
+  :global {
+    th {
+      @include typography.font-size(vars.$epsilon);
+      text-align: start;
+    }
+
+    td {
+      padding-block: math.div(vars.$space-tiny, 2);
+      vertical-align: top;
+      max-inline-size: 40ch;
+    }
+
+    th + th,
+    td + td {
+      padding-inline-start: vars.$space-small;
+    }
+  }
 
   :global(a) {
     color: var(--green);
