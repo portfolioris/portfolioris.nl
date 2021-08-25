@@ -9,7 +9,7 @@
     if (data.error) {
       return {
         status: data.error,
-        error: new Error('kannievinde'),
+        error: new Error('not found'),
       };
     }
 

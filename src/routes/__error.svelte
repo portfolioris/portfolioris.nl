@@ -1,32 +1,47 @@
 <script context="module">
-  export function load({
+  export async function load({
+    fetch,
     error,
     status,
   }) {
+    const res = await fetch('/home.json');
+    const data = await res.json();
+
     return {
       props: {
-        title: `${status}: ${error.message}`,
+        data,
+        error,
+        status,
       },
     };
   }
 </script>
 
 <script>
-  export let title;
+  import Meta from './_templates/$Meta.svelte';
+  import Layer from '../components/atoms/objects/Layer.svelte';
+  import Retain from '../components/atoms/objects/Retain.svelte';
+
   export let status;
   export let error;
+  export let data;
 
   const dev = process.env.NODE_ENV === 'development';
 </script>
 
+<Meta {...data} />
+
 <svelte:head>
-  <title>{status}</title>
+  <title>{status}: {error.message} • {data.site.siteName}</title>
 </svelte:head>
 
-<h1>{title}</h1>
+<Layer size="large">
+  <Retain size="lap">
+    <h1>{status}: {error.message}</h1>
+  </Retain>
+</Layer>
 
-<!--<p>{error.message}</p>-->
 
-<!--{#if dev && error.stack}-->
-<!--  <pre>{error.stack}</pre>-->
-<!--{/if}-->
+{#if dev && error.stack}
+  <pre>{error.stack}</pre>
+{/if}
