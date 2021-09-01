@@ -12,7 +12,7 @@
 </script>
 
 <style lang="scss" type="text/scss">
-  @use 'src/sass/vars';
+  @use 'src/sass/generic/utilities';
   @use 'node_modules/@supple-kit/supple-css/tools/responsive';
 
   .c-header {
@@ -30,7 +30,7 @@
       transition: filter var(--base-transition-duration-short) var(--base-timing-function);
     }
 
-    #{vars.$global-interaction-states} {
+    #{utilities.$global-interaction-states} {
       img {
         filter: drop-shadow(0 0 var(--space-tiny) var(--color-white));
       }

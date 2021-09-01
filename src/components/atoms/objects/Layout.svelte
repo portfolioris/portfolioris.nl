@@ -9,6 +9,7 @@
 </script>
 
 <style lang="scss" type="text/scss">
+  @use 'src/sass/vars';
   @use 'node_modules/@supple-kit/supple-css/objects/layout' with (
     $gaps: ('small', 'base', 'huge')
   );

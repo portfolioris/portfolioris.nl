@@ -10,7 +10,7 @@
 </script>
 
 <style type="text/scss" lang="scss">
-  @use 'src/sass/vars';
+  @use 'src/sass/generic/utilities';
   @use 'node_modules/@supple-kit/supple-css/tools/typography';
 
   article {
@@ -26,7 +26,7 @@
       border: 1px solid transparent;
       background-color: var(--color-gray-light);
 
-      #{vars.$global-interaction-states},
+      #{utilities.$global-interaction-states},
       &:focus-within {
         border-color: var(--color-black);
         background-color: var(--color-white);

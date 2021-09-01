@@ -1,8 +1,21 @@
 {
   "name": "portfolioris-blog-svelte",
-  "description": "TODO",
-  "version": "0.0.1",
+  "description": "Personal blog of Joris Hulsbosch, built with SvelteKit, managed with NetlifyCMS",
+  "version": "1.1.0",
   "type": "module",
+  "author": {
+    "name": "Joris Hulsbosch",
+    "url": "https://www.portfolioris.nl",
+    "email": "joris@portfolioris.nl"
+  },
+  "homepage": "https://www.portfolioris.nl",
+  "repository": {
+    "url": "https://github.com/portfolioris/portfolioris.nl.git",
+    "type": "git"
+  },
+  "browserslist": [
+    "defaults"
+  ],
   "scripts": {
     "dev": "svelte-kit dev",
     "export": "svelte-kit build"
@@ -26,7 +39,6 @@
     "node-fetch": "^2.6.1",
     "postcss": "^8.3.6",
     "postcss-preset-env": "^6.7.0",
-    "postcss-pxtorem": "^6.0.0",
     "sass": "^1.38.2",
     "stylelint": "^13.13.1",
     "stylelint-config-supple": "^3.0.3",

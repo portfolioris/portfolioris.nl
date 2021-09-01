@@ -5,7 +5,7 @@
 </script>
 
 <style type="text/scss" lang="scss">
-  @use 'src/sass/vars';
+  @use 'src/sass/generic/utilities';
 
   footer {
     background-color: var(--color-white);
@@ -13,7 +13,7 @@
   }
 
   a {
-    #{vars.$global-interaction-states} {
+    #{utilities.$global-interaction-states} {
       color: var(--black);
     }
   }

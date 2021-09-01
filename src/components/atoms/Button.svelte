@@ -13,7 +13,7 @@
 </script>
 
 <style lang="scss" type="text/scss">
-  @use 'src/sass/vars';
+  @use 'src/sass/generic/utilities';
 
   /*  Block
       ========================================================================= */
@@ -33,13 +33,13 @@
     line-height: 1;
     font-weight: 500;
     text-decoration: none;
-    background-color: var(--color-green); // $green; // $c-button--background-color;
-    color: var(--color-black); // $c-button--color;
+    background-color: var(--color-green);
+    color: var(--color-black);
     appearance: none;
     transition: var(--base-transition-duration-short) var(--base-timing-function);
     transition-property: background-color, box-shadow;
 
-    #{vars.$global-interaction-states},
+    #{utilities.$global-interaction-states},
     &[aria-current='true'] {
       background-color: var(--color-green);
       color: var(--color-black);
@@ -73,7 +73,7 @@
     background-color: var(--transparent-green);
     color: var(--color-foreground);
 
-    #{vars.$global-interaction-states},
+    #{utilities.$global-interaction-states},
     &[aria-current='true'] {
       box-shadow: 0 0 0 1px var(--color-black);
     }

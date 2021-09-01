@@ -2,7 +2,7 @@
     Generic.Headings
     ========================================================================= */
 
-@use 'src/sass/vars';
+@use 'src/sass/generic/utilities';
 @use 'node_modules/@supple-kit/supple-css/tools/responsive';
 @use 'node_modules/@supple-kit/supple-css/tools/typography';
 
@@ -24,7 +24,7 @@ h6 {
     color: inherit;
     transition: color var(--base-transition-duration-short) linear;
 
-    #{vars.$global-interaction-states} {
+    #{utilities.$global-interaction-states} {
       color: inherit;
       text-decoration: underline;
     }

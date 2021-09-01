@@ -2,14 +2,13 @@
   import marked from 'marked';
   import Flow from '../objects/Flow.svelte';
 
-  export let modifier = null;
+  export let modifier = '';
   export let markdown = null;
 </script>
 
 <style type="text/scss" lang="scss">
-  @use 'sass:math';
-  @use 'src/sass/vars';
   @use 'node_modules/@supple-kit/supple-css/tools/typography';
+  @use 'src/sass/generic/utilities';
 
   :global {
     th {
@@ -33,7 +32,7 @@
     color: var(--color-green);
     font-weight: var(--font-weight-bold);
 
-    #{vars.$global-interaction-states} {
+    #{utilities.$global-interaction-states} {
       color: var(--color-foreground);
     }
 
