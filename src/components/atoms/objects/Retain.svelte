@@ -1,11 +1,10 @@
 <script>
   export let isBreakout = false;
   export let noPadding = false;
-  export let size;
+  export let size = '';
 </script>
 
 <style type="text/scss" lang="scss">
-  @use 'src/sass/vars';
   @use 'node_modules/@supple-kit/supple-css/objects/retain';
   @use 'node_modules/@supple-kit/supple-css/tools/responsive';
 
@@ -21,8 +20,8 @@
     }
 
     .o-retain--breakout {
-      padding-inline-start: calc(9% - #{vars.$space-base});
-      padding-inline-end: calc(9% - #{vars.$space-base});
+      padding-inline-start: calc(9% - var(--space-base));
+      padding-inline-end: calc(9% - var(--space-base));
     }
   }
 </style>

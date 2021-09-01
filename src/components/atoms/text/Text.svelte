@@ -13,41 +13,41 @@
 
   :global {
     th {
-      @include typography.font-size(vars.$epsilon);
+      @include typography.font-size(18px);
       text-align: start;
     }
 
     td {
-      padding-block: math.div(vars.$space-tiny, 2);
+      padding-block: calc(var(--space-tiny) / 2);
       vertical-align: top;
       max-inline-size: 40ch;
     }
 
     th + th,
     td + td {
-      padding-inline-start: vars.$space-small;
+      padding-inline-start: var(--space-small);
     }
   }
 
   :global(a) {
-    color: var(--green);
-    font-weight: vars.$font-weight-bold;
+    color: var(--color-green);
+    font-weight: var(--font-weight-bold);
 
     #{vars.$global-interaction-states} {
       color: var(--color-foreground);
     }
 
     @media (prefers-color-scheme: light) {
-      color: vars.$color-black;
+      color: var(--color-black);
     }
   }
 
   .intro {
-    font-weight: vars.$font-weight-bold;
+    font-weight: var(--font-weight-bold);
   }
 
   .byline {
-    @include typography.font-size(vars.$micro);
+    @include typography.font-size(14px);
   }
 </style>
 

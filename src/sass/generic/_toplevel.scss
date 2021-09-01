@@ -4,41 +4,51 @@
     ========================================================================= */
 
 @use 'node_modules/@supple-kit/supple-css/tools/responsive';
+@use 'node_modules/@supple-kit/supple-css/tools/space';
 @use 'src/sass/vars';
 
-:root {
-  --color-background: #{vars.$color-black};
-  --color-foreground: #{vars.$color-white};
-  color-scheme: light dark; /* both supported */
+html {
+  // colors
+  --green: 125, 255, 0;
+  --color-green: rgba(var(--green), 1);
+  --transparent-green: rgba(var(--green), 0);
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-gray-light: #f1f1f1;
+  --color-background: var(--color-black);
+  --color-foreground: var(--color-white);
+  // fonts
+  --font-family-primary: 'Open Sans', sans-serif;
+  --font-family-secondary: 'Insignia', sans-serif;
+  --font-weight-bold: bold;
+  // animations
+  --base-timing-function: cubic-bezier(0.55, 0, 0.1, 1);
+  --base-transition-duration: 600ms;
+  --base-transition-duration-short: 300ms;
+  // spacing
+  --space-tiny: #{space.get('tiny')};
+  --space-small: #{space.get('small')};
+  --space-base: #{space.get('base')};
+  --space-large: #{space.get('large')};
+  --space-huge: #{space.get('huge')};
 
   @media (prefers-color-scheme: light) {
-    --color-background: #{vars.$color-white};
-    --color-foreground: #{vars.$color-black};
+    --color-background: var(--color-white);
+    --color-foreground: #{var(--color-black)};
   }
-}
-
-html {
+  color-scheme: light dark; /* both supported */
   font-size: responsive.lock(vars.$font-size, vars.$font-size + 4px, desk, tv);
-  font-family: vars.$font-family-primary;
+  font-family: var(--font-family-primary);
   background-color: var(--color-background);
   color: var(--color-foreground);
   text-decoration-skip-ink: auto;
-
-  --green: #{vars.$color-green};
-  --transparent-green: #{transparentize(vars.$color-green, 1)};
-  --white: #{vars.$color-white};
 }
 
 @media (color-gamut: p3) {
   html {
-    //--green: color(display-p3 0 1 0 / 1);
-    //--transparent-green: color(display-p3 0 1 0 / 0);
-    //--white: color(display-p3 1 1 1);
+    --color-green: color(display-p3 0.5 1 0 / 1);
+    --transparent-green: color(display-p3 0.5 1 0 / 0);
   }
-}
-
-button svg {
-  pointer-events: none;
 }
 
 figure {

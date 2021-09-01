@@ -46,7 +46,6 @@
 </script>
 
 <style lang="scss" type="text/scss">
-  @use 'src/sass/vars';
   @use 'node_modules/@supple-kit/supple-css/tools/responsive';
 
   /*  Page wrappers
@@ -78,23 +77,24 @@
   }
 
   .c-body-wrap__main {
-    transition: transform vars.$base-transition-duration vars.$base-timing-function;
+    transition: transform var(--base-transition-duration) var(--base-timing-function);
     position: relative;
     z-index: 1;
     background-color: var(--color-background);
 
     &.is-open {
-      transform: translateX(calc(100% - #{vars.$space-base * 3 - vars.$space-tiny}));
+      // 100% - base*3 - tiny, this is correct
+      transform: translateX(calc(100% - calc(calc(var(--space-base) * 3) - var(--space-tiny))));
     }
   }
 
   .c-body-wrap__navigation {
-    inset-inline: 0 vars.$space-large;
+    inset-inline: 0 var(--space-large);
     inset-block: 0;
     overflow: auto;
     -webkit-overflow-scrolling: touch;
-    padding-top: vars.$space-base * 3;
-    transition: transform vars.$base-transition-duration vars.$base-timing-function;
+    padding-block-start: calc(var(--space-base) * 3);
+    transition: transform var(--base-transition-duration) var(--base-timing-function);
 
     &.is-loaded {
       position: absolute;
@@ -112,7 +112,7 @@
   }
 
   .c-body-wrap__nav-item {
-    margin-bottom: vars.$space-tiny;
+    margin-bottom: var(--space-tiny);
   }
 
 

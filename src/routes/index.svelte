@@ -1,4 +1,5 @@
 <script context="module">
+  // this file is just a shortcut to let `[...rest].svelte` pickup the root url
   export async function load({ fetch }) {
     const res = await fetch('home.json');
     const data = await res.json();
