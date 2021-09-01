@@ -1,7 +1,7 @@
 <script>
   export let level = 5;
   export let text;
-  export let href;
+  export let href = null;
 </script>
 
 {#if level === 1}

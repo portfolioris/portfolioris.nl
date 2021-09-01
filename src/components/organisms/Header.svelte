@@ -16,9 +16,8 @@
   @use 'node_modules/@supple-kit/supple-css/tools/responsive';
 
   .c-header {
-    padding-block-start: vars.$space-tiny;
-    padding-inline-start: vars.$space-tiny;
-    padding-inline-end: vars.$space-tiny;
+    padding-block-start: var(--space-tiny);
+    padding-inline: var(--space-tiny);
   }
 
   .c-header__logo {
@@ -28,12 +27,12 @@
       width: 52px;
       height: 52px;
       display: block;
-      transition: filter vars.$base-transition-duration-short vars.$base-timing-function;
+      transition: filter var(--base-transition-duration-short) var(--base-timing-function);
     }
 
     #{vars.$global-interaction-states} {
       img {
-        filter: drop-shadow(0 0 vars.$space-tiny vars.$color-white);
+        filter: drop-shadow(0 0 var(--space-tiny) var(--color-white));
       }
     }
   }

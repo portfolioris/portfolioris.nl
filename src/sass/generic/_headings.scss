@@ -15,14 +15,14 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: vars.$font-family-secondary;
+  font-family: var(--font-family-secondary);
   line-height: 0.9;
   font-weight: bold;
 
   a {
     text-decoration: none;
     color: inherit;
-    transition: color vars.$base-transition-duration-short linear;
+    transition: color var(--base-transition-duration-short) linear;
 
     #{vars.$global-interaction-states} {
       color: inherit;
@@ -31,7 +31,8 @@ h6 {
   }
 
   * + & {
-    --flow-gap: #{vars.$space-large};
+    //--flow-gap: #{vars.$space-large};
+    --flow-gap: var(--space-large);
   }
 }
 
@@ -47,25 +48,25 @@ h6 {
   look smaller, you use <h1 class="h2">
  */
 h1 {
-  font-size: responsive.lock(vars.$alpha, 80px, palm, desk);
+  font-size: responsive.lock(40px, 80px, palm, desk);
 }
 
 h2 {
-  font-size: responsive.lock(vars.$beta, 40px, palm, desk);
+  font-size: responsive.lock(32px, 40px, palm, desk);
 }
 
 h3 {
-  font-size: responsive.lock(vars.$gamma, 28px, palm, desk);
+  font-size: responsive.lock(24px, 28px, palm, desk);
 }
 
 h4 {
-  font-size: responsive.lock(vars.$delta, 24px, palm, desk);
+  font-size: responsive.lock(20px, 24px, palm, desk);
 }
 
 h5 {
-  font-size: responsive.lock(vars.$epsilon, 20px, palm, desk);
+  font-size: responsive.lock(18px, 20px, palm, desk);
 }
 
 h6 {
-  font-size: vars.$normalis;
+  font-size: 16px;
 }

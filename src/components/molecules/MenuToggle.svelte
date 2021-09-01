@@ -4,11 +4,10 @@
 </script>
 
 <style lang="scss" type="text/scss">
-  @use 'src/sass/vars';
   @use 'node_modules/@supple-kit/supple-css/tools/typography';
 
   .c-menu-toggle {
-    padding: vars.$space-tiny;
+    padding: var(--space-tiny);
     width: 40px;
     display: flex;
     flex-direction: column;
@@ -17,7 +16,7 @@
     color: var(--color-foreground);
     line-height: 1;
     border-radius: 50%;
-    transition: vars.$base-transition-duration vars.$base-timing-function;
+    transition: var(--base-transition-duration) var(--base-timing-function);
     transition-property: color, background-color;
 
     &.is-open {
@@ -37,13 +36,13 @@
     }
 
     &:focus-visible {
-      color: vars.$color-black;
-      background-color: vars.$color-white;
+      color: var(--color-black);
+      background-color: var(--color-white);
     }
 
     &:-moz-focusring {
-      color: vars.$color-black;
-      background-color: vars.$color-white;
+      color: var(--color-black);
+      background-color: var(--color-white);
     }
   }
 
@@ -54,7 +53,7 @@
   }
 
   .c-menu-toggle__dash {
-    transition: transform vars.$base-transition-duration vars.$base-timing-function;
+    transition: transform var(--base-transition-duration) var(--base-timing-function);
     transform-origin: center;
   }
 

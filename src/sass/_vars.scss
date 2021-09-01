@@ -18,70 +18,11 @@
   )
 );
 
-@use 'node_modules/@supple-kit/supple-css/tools/space';
-
-$space-base: space.get('base');
-$space-tiny: space.get('tiny');
-$space-large: space.get('large');
-$space-small: space.get('small');
 
 
 /*  =========================================================================
     $CUSTOM
     ========================================================================= */
-
-$font-family-primary: 'Open Sans', sans-serif;
-$font-family-secondary: 'Insignia', sans-serif;
-
-
-/*  Colors
-    ========================================================================= */
-
-// Brand
-$color-green: #7dff00;
-//$green: #3a8500; // AA on white bg
-
-
-// Grayscale
-$color-black: #000000;
-$color-white: #ffffff;
-$color-gray-light: #f1f1f1;
-$color-gray-medium: #cccccc;
-$color-gray-dark: #767676;
-
-
-/*  Sizes
-    ========================================================================= */
-
-$alpha: 40px;
-$beta: 32px;
-$gamma: 24px;
-$delta: 20px;
-$epsilon: 18px;
-$normalis: 16px;
-$milli: 14px;
-$micro: 12px;
-
-
-/*  Font-weights
-    ========================================================================= */
-
-$font-weight-bold: bold;
-
-
-/*  Animations
-    ========================================================================= */
-
-$base-timing-function: cubic-bezier(0.55, 0, 0.1, 1);
-$base-transition-duration: 600ms;
-$base-transition-duration-short: 300ms;
-
-
-/*  Misc cosmetic
-    ========================================================================= */
-
-$border-radius--primary: 5px;
-
 
 /*  Global hover/active etc. states
     ========================================================================= */

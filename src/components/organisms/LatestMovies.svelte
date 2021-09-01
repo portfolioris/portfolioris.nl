@@ -9,7 +9,6 @@
 </script>
 
 <style type="text/scss" lang="scss">
-  @use 'src/sass/vars';
   @use 'node_modules/@supple-kit/supple-css/tools/responsive';
 
   th,
@@ -18,11 +17,11 @@
     vertical-align: top;
 
     &:not(:first-of-type) {
-      padding-inline-start: vars.$space-tiny;
+      padding-inline-start: var(--space-tiny);
     }
 
     &:not(:last-of-type) {
-      padding-inline-end: vars.$space-tiny;
+      padding-inline-end: var(--space-tiny);
     }
   }
 

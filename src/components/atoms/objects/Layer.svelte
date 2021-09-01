@@ -5,7 +5,6 @@
 </script>
 
 <style type="text/scss" lang="scss">
-  @use 'src/sass/vars';
   @use 'node_modules/@supple-kit/supple-css/tools/responsive';
 
   /*  Module
@@ -15,32 +14,29 @@
     //
   }
 
+
+
   /*  Sizes
       ========================================================================= */
 
   .o-layer--tiny {
-    padding-block-start: vars.$space-tiny;
-    padding-block-end: vars.$space-tiny;
+    padding-block: var(--space-tiny);
   }
 
   .o-layer--small {
-    padding-block-start: vars.$space-small;
-    padding-block-end: vars.$space-small;
+    padding-block: var(--space-small);
   }
 
   .o-layer--medium {
-    padding-block-start: vars.$space-base;
-    padding-block-end: vars.$space-base;
+    padding-block: var(--space-base);
   }
 
   .o-layer--large {
-    padding-block-start: vars.$space-base;
-    padding-block-end: vars.$space-base;
+    padding-block: var(--space-base);
   }
 
   .o-layer--huge {
-    padding-block-start: vars.$space-base*2;
-    padding-block-end: vars.$space-base*2;
+    padding-block: var(--space-large);
   }
 
 
@@ -50,13 +46,11 @@
 
   @include responsive.mq(desk) {
     .o-layer--large {
-      padding-block-start: vars.$space-base*2;
-      padding-block-end: vars.$space-base*2;
+      padding-block: var(--space-large);
     }
 
     .o-layer--huge {
-      padding-block-start: vars.$space-base*4;
-      padding-block-end: vars.$space-base*4;
+      padding-block: var(--space-huge);
     }
   }
 

@@ -15,22 +15,20 @@
 </script>
 
 <style type="text/scss" lang="scss">
-  @use 'src/sass/vars';
   @use 'node_modules/@supple-kit/supple-css/tools/typography';
 
   article {
     :global(figcaption) {
-      font-weight: vars.$font-weight-bold;
-      @include typography.font-size(vars.$milli);
+      font-weight: var(--font-weight-bold);
+      @include typography.font-size(14px);
       font-style: italic;
     }
 
     :global(.c-codeblock) {
-      background-color: vars.$color-white;
-      padding: vars.$space-base;
-      margin-inline-start: -1 * vars.$space-base;
-      margin-inline-end: -1 * vars.$space-base;
-      color: vars.$color-black;
+      background-color: var(--color-white);
+      padding: var(--space-base);
+      margin-inline: calc(var(--space-base) * -1);
+      color: var(--color-black);
       overflow: auto;
     }
   }

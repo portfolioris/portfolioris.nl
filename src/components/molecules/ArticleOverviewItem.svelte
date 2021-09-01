@@ -15,21 +15,21 @@
 
   article {
     height: 100%;
-    background-color: vars.$color-white;
-    color: vars.$color-black;
-    padding: vars.$space-base;
+    background-color: var(--color-white);
+    color: var(--color-black);
+    padding: var(--space-base);
     position: relative;
-    transition: vars.$base-transition-duration;
+    transition: var(--base-transition-duration);
     transition-property: background-color, border-color;
 
     @media (prefers-color-scheme: light) {
       border: 1px solid transparent;
-      background-color: vars.$color-gray-light;
+      background-color: var(--color-gray-light);
 
       #{vars.$global-interaction-states},
       &:focus-within {
-        border-color: vars.$color-black;
-        background-color: vars.$color-white;
+        border-color: var(--color-black);
+        background-color: var(--color-white);
       }
     }
 
@@ -42,11 +42,11 @@
   }
 
   .subheading {
-    font-weight: vars.$font-weight-bold;
+    font-weight: var(--font-weight-bold);
   }
 
   p {
-    @include typography.font-size(vars.$micro);
+    @include typography.font-size(14px);
   }
 </style>
 

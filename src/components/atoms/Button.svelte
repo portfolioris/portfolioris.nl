@@ -27,22 +27,22 @@
     vertical-align: middle;
     margin: 0;
     border: none;
-    box-shadow: 0 0 0 1px vars.$color-black;
+    box-shadow: 0 0 0 1px var(--color-black);
     border-radius: 0;
-    font-family: vars.$font-family-secondary;
+    font-family: var(--font-family-secondary);
     line-height: 1;
     font-weight: 500;
     text-decoration: none;
-    background-color: var(--green); // $green; // $c-button--background-color;
-    color: vars.$color-black; // $c-button--color;
+    background-color: var(--color-green); // $green; // $c-button--background-color;
+    color: var(--color-black); // $c-button--color;
     appearance: none;
-    transition: vars.$base-transition-duration-short vars.$base-timing-function;
+    transition: var(--base-transition-duration-short) var(--base-timing-function);
     transition-property: background-color, box-shadow;
 
     #{vars.$global-interaction-states},
     &[aria-current='true'] {
-      background-color: var(--green);
-      color: vars.$color-black;
+      background-color: var(--color-green);
+      color: var(--color-black);
       text-decoration: none;
       outline: none;
     }
@@ -60,7 +60,7 @@
 
   .c-button__label {
     display: flex;
-    padding: vars.$space-small;
+    padding: var(--space-small);
   }
 
 
@@ -75,7 +75,7 @@
 
     #{vars.$global-interaction-states},
     &[aria-current='true'] {
-      box-shadow: 0 0 0 1px vars.$color-black;
+      box-shadow: 0 0 0 1px var(--color-black);
     }
   }
 </style>

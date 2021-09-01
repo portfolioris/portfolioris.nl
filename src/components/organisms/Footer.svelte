@@ -8,14 +8,14 @@
   @use 'src/sass/vars';
 
   footer {
-    background-color: vars.$color-white;
-    color: vars.$color-black;
+    background-color: var(--color-white);
+    color: var(--color-black);
   }
 
   a {
-      #{vars.$global-interaction-states} {
-          color: var(--black);
-      }
+    #{vars.$global-interaction-states} {
+      color: var(--black);
+    }
   }
 </style>
 
