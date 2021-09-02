@@ -47,7 +47,7 @@ body {
   font-size: responsive.lock(vars.$font-size, vars.$font-size + 4px, desk, tv);
 }
 
-@media (color-gamut: p3) {
+@supports (color: color(display-p3 1 1 1)) {
   html {
     --color-green: color(display-p3 0.5 1 0 / 1);
     --transparent-green: color(display-p3 0.5 1 0 / 0);
