@@ -21,6 +21,10 @@
   }
 </script>
 
+<style lang="scss">
+  @use 'node_modules/@supple-kit/supple-css/utilities/visually-hidden';
+</style>
+
 <section>
   <Layer>
     <Flow>

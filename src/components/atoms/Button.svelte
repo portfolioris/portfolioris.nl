@@ -14,13 +14,10 @@
 
 <style lang="scss" type="text/scss">
   @use 'src/sass/generic/utilities';
+  @use 'node_modules/@supple-kit/supple-css/utilities/visually-hidden';
 
   /*  Block
       ========================================================================= */
-
-  /**
-   * 2. Calculates the space around the button minus the fixed border-width
-   */
 
   .c-button {
     display: inline-block;
