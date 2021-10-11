@@ -1,5 +1,6 @@
 ---
 template: blog
+lang: en
 title: Passwords and security
 subtitle: How safe is your stuff?
 description: I upped the security of my own data. Here is how I did it, and how
@@ -15,7 +16,7 @@ First of all, there are some rules about passwords, which you probably already k
 * Make it difficult or impossible for others to guess;
 * Don’t use words in the dictionary, names, or any other very common phrase;
 * Do not use the same password for every online service you use;
-etc.
+  etc.
 
 So how do you remember 20 different difficult passwords? You don’t.
 
@@ -27,7 +28,7 @@ I let software remember my passwords. I researched some applications by a couple
 * Passwords should not be saved in a cloud storage service;
 * Cross platform accessible (on my computers, and on my iPhone).
 
-I decided to use KeePass[*](#note) for Windows. On MacOS, I have KeePassX, and on iPhone MiniKeePass. It all works with the same password file, let’s say passwords.kdbx. This file contains a password database, and is encrypted with one main password. So, I need to remember only a single password. I have chosen a very strong one: no words, but uppercase and lowercase letters, numbers and some punctuation marks.
+I decided to use KeePass[\*](#note) for Windows. On MacOS, I have KeePassX, and on iPhone MiniKeePass. It all works with the same password file, let’s say passwords.kdbx. This file contains a password database, and is encrypted with one main password. So, I need to remember only a single password. I have chosen a very strong one: no words, but uppercase and lowercase letters, numbers and some punctuation marks.
 
 KeePass let’s you create records of your (online) accounts. There are fields for username, passwords, an URL and some extra remarks. Using this is pretty easy: you double-click a record, the password is saved to your clipboard for 15 seconds, and you paste it in the password field in a website or application.
 
@@ -47,11 +48,11 @@ So to use this on all my computers and devices, I need to transfer and sync the 
 
 This all seems like a lot of work, and it has some other downsides too. But I got over that, so you can too.
 
-What about computers where I don’t have access to my password database? I can’t open my Gmail or Facebook[*](#note) there. But do I really want that? I take good care of my own devices, so I’m pretty sure they are safe. But are other computers safe? The one of your co-worker, the one in an Internet cafe? Someone else’s phone? You don’t know, so, just don’t open your stuff there. In practice, I’ve never even had the need to.
+What about computers where I don’t have access to my password database? I can’t open my Gmail or Facebook[\*](#note) there. But do I really want that? I take good care of my own devices, so I’m pretty sure they are safe. But are other computers safe? The one of your co-worker, the one in an Internet cafe? Someone else’s phone? You don’t know, so, just don’t open your stuff there. In practice, I’ve never even had the need to.
 
 One single password seems unsafe too. Yes, it grants access to all my online accounts. So, keep it very safe. You can set KeePass to lock itself after a couple of minutes of inactivity, and you should. Also, make sure no-one looks at your keystrokes when you type your main password. Keep this in mind, and you’ll be fine.
 
-# In a corporation
+## In a corporation
 
 So how would we manage accounts that are shared with your co-workers? You probably have a lot of sensitive information stored in all kinds of places: FTP, databases, CMSes, and also paid subscriptions to Adobe IDs, etc.
 
