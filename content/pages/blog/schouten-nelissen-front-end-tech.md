@@ -1,11 +1,14 @@
 ---
 template: blog
+lang: en
 title: Schouten & Nelissen front-end tech
 subtitle: Modern methodologies and features for a fast user experience
 description: Modern methodologies and features for a fast user experience
 author: joris_hulsbosch
 date: 2020-10-08T13:42:59.695Z
 ---
+Update September 22nd 2021: I've held a presentation about this in the front-end guild meeting at *We are you*. You can [view the slides of this presentation on Notist](https://noti.st/portfolioris/pyYftI/schouten-nelissen-front-end-methodes-technieken).
+
 Recently, me and my team at *We are you* launched the new website for *Schouten & Nelissen*. I am proud of the result and we get a lot of good remarks about the new site. I also hear people say that it’s really fast. While the back-end developers focused on the server’s response times, I’ve put a lot of effort in the front-end stack and methods, which contributes greatly to the overall speed.
 
 ## Components and a styleguide
