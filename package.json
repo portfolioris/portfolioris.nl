@@ -18,33 +18,34 @@
   ],
   "scripts": {
     "dev": "svelte-kit dev",
-    "build": "svelte-kit build"
+    "build": "svelte-kit build",
+    "preview": "svelte-kit preview"
   },
   "dependencies": {
-    "@supple-kit/supple-css": "^5.0.2",
-    "marked": "^3.0.7",
+    "@supple-kit/supple-css": "^5.1.0",
+    "marked": "^3.0.8",
     "wicg-inert": "^3.1.1"
   },
   "devDependencies": {
-    "@sveltejs/adapter-static": "^1.0.0-next.20",
-    "@sveltejs/kit": "^1.0.0-next.180",
+    "@sveltejs/adapter-static": "^1.0.0-next.21",
+    "@sveltejs/kit": "^1.0.0-next.192",
     "dotenv": "^10.0.0",
     "eslint": "^7.32.0",
     "eslint-config-airbnb-base": "^14.2.1",
-    "eslint-plugin-import": "^2.24.2",
+    "eslint-plugin-import": "^2.25.2",
     "eslint-plugin-svelte3": "^3.2.1",
     "front-matter": "^4.0.2",
     "glob": "^7.2.0",
-    "highlight.js": "^11.2.0",
-    "node-fetch": "^2.6.5",
-    "postcss": "^8.3.9",
+    "highlight.js": "^11.3.1",
+    "node-fetch": "^2.6.6",
+    "postcss": "^8.3.11",
     "postcss-preset-env": "^6.7.0",
-    "sass": "^1.42.1",
+    "sass": "^1.43.4",
     "stylelint": "^13.13.1",
     "stylelint-config-supple": "^3.0.3",
-    "svelte": "^3.43.1",
+    "svelte": "^3.44.1",
     "svelte-preprocess": "^4.9.8",
-    "vite": "^2.6.5",
+    "vite": "^2.6.13",
     "xml2js": "^0.4.23"
   }
 }
