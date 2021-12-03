@@ -18,11 +18,11 @@ Emil wrote the lyrics and the initial chord structure. He recorded his voice, wi
 
 ## The rhythm guitar
 
-![My Ibanez RG electric guitar](blog/DSCN6938.jpg)
+![My Ibanez RG electric guitar](/blog/DSCN6938.jpg)
 
 I received the chords in a PDF file, and I was able to record the rhythm guitar part. I was playing an Ibanez RG series electric guitar, which recently had had a full maintenance job. The signal goes to a Boss GT-10 effects processor. From there, an output signal goes to a Line 6 Spider III 30W amp. The GT-10 also has a USB interface to my MacBook. This way, I can record the sound directly using the free GarageBand software on MacOS.
 
-![My Boss GT-10 effects panel](blog/DSCN6937.jpg)
+![My Boss GT-10 effects panel](/blog/DSCN6937.jpg)
 
 I could pull the vocals and drum audio files into GarageBand, turn on a click track, and play along with that. I recorded it in parts, which I could repeat until I was satisfied with it. Then I exported my track as an audio file, which I sent to the other band members.
 
@@ -58,4 +58,4 @@ On May the 5th of 2020 we all travelled to Koog aan de Zaan to shoot the video. 
 
 All band members are really happy with the result. Lockdown gives us the confidence we can write songs ourselves. We can create and professionally release a single with non-professional recording equipment. Of course, we are thinking of writing new songs. This tastes like more!
 
-![The band members of who are we keeping their distance](blog/Who_are_we_-_Lockdown-_buiten.jpg)
+![The band members of who are we keeping their distance](/blog/Who_are_we_-_Lockdown-_buiten.jpg)
