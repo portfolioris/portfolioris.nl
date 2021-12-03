@@ -13,6 +13,7 @@ const API_ROOT = process.env.VITE_MEDIA_URL;
 async function handler(event) {
 // exports.handler = async function (event) {
   const prefix = '/img/'; // need to be stripped of the path
+  // const prefix = '/.netlify/builders/img/'; // need to be stripped of the path
   /*
   const pieces = event.path.split('::');
   let qs = '?quality=30&mode=crop';
