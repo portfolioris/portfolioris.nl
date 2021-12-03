@@ -6,9 +6,10 @@ const API_ROOT = process.env.VITE_MEDIA_URL;
 /**
  request (query params don't work)
  http://localhost:8888/img/q_auto,f_auto,c_scale,w_1500/blog/start-layout.png
-*/
+ */
 
 async function handler(event) {
+// exports.handler = async function (event) {
   const prefix = '/img/'; // need to be stripped of the path
   /*
   const pieces = event.path.split('::');
@@ -32,7 +33,8 @@ async function handler(event) {
     const res = await req.arrayBuffer();
     return {
       statusCode: 200,
-      body: Buffer.from(res).toString('base64'),
+      body: Buffer.from(res)
+        .toString('base64'),
       isBase64Encoded: true,
       headers: {
         'Content-Type': req.headers.get('Content-Type'),
@@ -46,6 +48,6 @@ async function handler(event) {
       body: `error: ${e}`,
     };
   }
-}
+};
 
 exports.handler = builder(handler);

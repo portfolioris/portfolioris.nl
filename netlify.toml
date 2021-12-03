@@ -8,7 +8,7 @@
 [[headers]]
     for = "/*"
     [headers.values]
-        Content-Security-Policy = "default-src 'self' *.portfolioris.nl;   img-src 'self';     style-src 'self' 'unsafe-inline';     script-src 'self' 'unsafe-inline' 'unsafe-eval' *.portfolioris.nl  unpkg.com;"
+#        Content-Security-Policy = "default-src 'self' *.portfolioris.nl;   img-src 'self';     style-src 'self' 'unsafe-inline';     script-src 'self' 'unsafe-inline' 'unsafe-eval' *.portfolioris.nl  unpkg.com;"
         X-Frame-Options = "SAMEORIGIN"
         X-Content-Type-Options = "nosniff"
         Referrer-Policy = "no-referrer"
@@ -29,5 +29,11 @@
 [[redirects]]
     from = "/img/*"
     to = "/.netlify/builders/img"
+#    to = "/.netlify/functions/img"
+    status = 200
+
+[[redirects]]
+    from = "/image/*"
+    to = "/image"
     status = 200
 
