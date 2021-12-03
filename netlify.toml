@@ -32,11 +32,4 @@
 [[redirects]]
     from = "/img/*"
     to = "/.netlify/builders/img"
-#    to = "/.netlify/functions/img"
     status = 200
-
-[[redirects]]
-    from = "/image/*"
-    to = "/image"
-    status = 200
-
