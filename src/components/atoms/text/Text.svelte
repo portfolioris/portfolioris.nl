@@ -1,5 +1,5 @@
 <script>
-  import marked from 'marked';
+  import { marked } from 'marked';
   import Flow from '../objects/Flow.svelte';
 
   export let modifier = '';

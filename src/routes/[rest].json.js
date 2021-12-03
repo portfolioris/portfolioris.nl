@@ -1,9 +1,9 @@
 import fs from 'fs';
 import fm from 'front-matter';
-import marked from 'marked';
+import { marked } from 'marked';
 import hljs from 'highlight.js/lib/core';
 import css from 'highlight.js/lib/languages/css';
-import { getBooks, getMovies, getPages } from './$getDataFromApi';
+import { getPages, getMovies, getBooks } from '../utils/getDataFromApi';
 import Figure from '../components/molecules/Figure.svelte';
 
 hljs.registerLanguage('css', css);
