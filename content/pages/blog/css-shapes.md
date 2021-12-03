@@ -12,7 +12,7 @@ Sinds jaren bestaan tekstvlakken in webpagina-layouts uit rechthoeken. CSS
 Shapes geven de mogelijkheid daar ook van af te wijken. Dorel — een klant van
 Colours — kwam met de vraag het volgende ontwerp te realiseren.
 
-![Quinny mockup component](/blog/ZappXWebsiteMockups.png "Quinny mockup component")
+![Quinny mockup component](blog/ZappXWebsiteMockups.png "Quinny mockup component")
 
 Daarbij hadden ze de volgende wensen:
 
@@ -36,7 +36,7 @@ En daarbij komen natuurlijk onze Colours Front-end Regels®:
 
 Ik begin met twee kolommen, 33% /  67% verdeling, en wat tekstuitlijning. Om te testen plaats ik er expres erg verschillende font-groottes in, om te checken of de regelafstand zo blijft kloppen.
 
-![De start-layout](/blog/start-layout.png)
+![De start-layout](blog/start-layout.png)
 
 ## De diagonale uitsnede
 
@@ -66,13 +66,13 @@ De beste manier om dit cross-browser werkend te krijgen is de SVG te transformer
 }
 ```
 
-![Een driehoek gemaakt van een svg](/blog/pasted-image-15.png "Een driehoek gemaakt van een svg")
+![Een driehoek gemaakt van een svg](blog/pasted-image-15.png "Een driehoek gemaakt van een svg")
 
 ## Text diagonaal uitlijnen
 
 Nu zou ik met CSS iedere tekstregel een stukje kunnen opschuiven, maar dat maakt het onmogelijk om de regelafstanden en diagonale uitlijning altijd te laten kloppen met verschillende tekstgroottes. Een tijdje geleden stuitte ik op de [mogelijkheid voor CSS shapes](https://alistapart.com/article/css-shapes-101). Hiermee kun je tekst rondom ‘vormen’ heen laten lopen. Dit heb ik toegepast op een pseudo-element.
 
-![Het pseudo-element. Zie de ‘shape-outside’ property: een polygoon die een driehoek beschrijft.](/blog/pasted-image-17.png "Het pseudo-element. Zie de ‘shape-outside’ property: een polygoon die een driehoek beschrijft.")
+![Het pseudo-element. Zie de ‘shape-outside’ property: een polygoon die een driehoek beschrijft.](blog/pasted-image-17.png "Het pseudo-element. Zie de ‘shape-outside’ property: een polygoon die een driehoek beschrijft.")
 
 Het enige nadeel is dat het element moet floaten, en dat de tekst ernaast een inline element moet zijn. Dat heeft als gevolg dat ik geen Flexbox kan gebruiken om de CTA onderaan te plaatsen en de tekst over de rest van de ruimte verticaal te centreren. Verticaal centreren op de ‘oude’ manier kan het gelukkig nog steeds:
 
@@ -88,7 +88,7 @@ Het enige nadeel is dat het element moet floaten, en dat de tekst ernaast een in
 
 Met wat smokkelen met negatieve marges is het uiteindelijk gelukt.
 
-![Het eindresultaat](/blog/pasted-image-19.png "Het eindresultaat")
+![Het eindresultaat](blog/pasted-image-19.png "Het eindresultaat")
 
 ## Browser-support
 

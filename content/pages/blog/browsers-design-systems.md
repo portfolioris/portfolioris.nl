@@ -12,7 +12,7 @@ I gave an internal presentation at We are you called Browsers & Design Systems. 
 
 I started by showing this picture and asked if anyone knew who this man is.
 
-![Tim Berners-Lee and the first browser (source: home.cern)](/blog/TBL.jpg)
+![Tim Berners-Lee and the first browser (source: home.cern)](blog/TBL.jpg)
 
 This is Sir Tim Berners-Lee. it’s the man who invented the World Wide Web: HTML, and the first browser.
 
@@ -24,17 +24,17 @@ You can view [a modern webpage in the first browser](https://worldwideweb.cern.c
 
 ### Controlling the Web
 
-![This is not the only way we use the Web anymore (source: atomicdesign.bradfrost.com)](/blog/this-is-the-web-1.png)
+![This is not the only way we use the Web anymore (source: atomicdesign.bradfrost.com)](blog/this-is-the-web-1.png)
 
 We browsed these webpages with a mouse and a keyboard, because this was the only way you could. We viewed them on desktop computers. But computers, screens and the Web improved, and an unlimited amount of different screen sizes appeared. There are mobile devices with touch screens and high resolution, and wall-sized screens, and everything in between. The way we browsed the Internet changed drastically.
 
-![This is how we use the web today (source: atomicdesign.bradfrost.com)](/blog/this-is-the-web-2.png)
+![This is how we use the web today (source: atomicdesign.bradfrost.com)](blog/this-is-the-web-2.png)
 
 ### The future of the Web
 
 In the future, even more devices will exist where we can browse the Web on. TVs with remotes, game controllers or maybe even virtual reality devices. The future of the Web is unknown, and we don’t know what devices will exist in 2, 5 or 10 years. There definitely will be more devices we use the Web on, with different screens and new ways to control them.
 
-![This is how we will be using the web (source: atomicdesign.bradfrost.com)](/blog/this-is-the-web-3.png)
+![This is how we will be using the web (source: atomicdesign.bradfrost.com)](blog/this-is-the-web-3.png)
 
 ### People
 
@@ -54,11 +54,11 @@ By creating cohesive, consistent experiences, our users will understand the user
 
 Also, we can show other parties what the system looks like and how it works.
 
-![You want to prevent this (source: atomicdesign.bradfrost.com)](/blog/pnc-buttons.png)
+![You want to prevent this (source: atomicdesign.bradfrost.com)](blog/pnc-buttons.png)
 
 And do this:
 
-![Consistent button variations](/blog/button-variations.png)
+![Consistent button variations](blog/button-variations.png)
 
 For example, we provided access to the Design System to the 3rd party that built the [meter reading application for Dunea](https://dunea.pti.nl/web/). They knew immediately what it should look like and how it should work.
 
@@ -84,6 +84,6 @@ Design Systems make your site more future proof. It will be easy to make adjustm
 
 To do this well, we need each other. Too often, the waterfall method is applied to projects, where the ux designer and visual designer to all the work before developers start.
 
-![All disciplines should be working together (source: atomicdesign.bradfrost.com)](/blog/waterfall-2.png)
+![All disciplines should be working together (source: atomicdesign.bradfrost.com)](blog/waterfall-2.png)
 
 We should create living Design Systems. Something that belongs to us all. We need to work together from the beginning to the end. This way, we can create better things, in less amount of time.
