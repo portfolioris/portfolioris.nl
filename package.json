@@ -18,6 +18,7 @@
   ],
   "scripts": {
     "dev": "svelte-kit dev",
+    "net": "netlify dev",
     "build": "svelte-kit build",
     "preview": "svelte-kit preview"
   },
@@ -27,6 +28,7 @@
     "wicg-inert": "^3.1.1"
   },
   "devDependencies": {
+    "@netlify/functions": "^0.10.0",
     "@supple-kit/stylelint-config-supple": "^4.0.0",
     "@sveltejs/adapter-static": "^1.0.0-next.21",
     "@sveltejs/kit": "^1.0.0-next.192",
