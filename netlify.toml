@@ -27,3 +27,4 @@
 from = "/img/*"
 to = "/.netlify/builders/img"
 status = 200
+
