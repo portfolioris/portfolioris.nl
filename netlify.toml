@@ -27,7 +27,7 @@
     force = true
 
 [[redirects]]
-from = "/img/*"
-to = "/.netlify/builders/img"
-status = 200
+    from = "/img/*"
+    to = "/.netlify/builders/img"
+    status = 200
 
