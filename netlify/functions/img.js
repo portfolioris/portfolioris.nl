@@ -1,5 +1,7 @@
-const { builder } = require('@netlify/functions');
-const fetch = require('node-fetch').default;
+// const { builder } = require('@netlify/functions');
+// const fetch = require('node-fetch').default;
+import { builder } from '@netlify/functions';
+import fetch from 'node-fetch';
 
 const API_ROOT = process.env.VITE_MEDIA_URL;
 
