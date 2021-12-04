@@ -7,6 +7,6 @@
 </script>
 
 <figure>
-  <Img alt={alt} cloudinaryUrl={imgHref} />
+  <Img alt={alt} url={imgHref} />
   <figcaption>{figcaption}</figcaption>
 </figure>

@@ -11,6 +11,7 @@
   }
 </script>
 <script>
+  import 'lazysizes';
   import 'wicg-inert';
   import Navigation from '../components/organisms/Navigation.svelte';
   import { page } from '$app/stores';
