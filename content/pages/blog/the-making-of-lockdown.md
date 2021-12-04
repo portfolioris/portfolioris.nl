@@ -6,7 +6,7 @@ description: Recording a song in times of corona crisis
 author: joris_hulsbosch
 date: 2020-05-11T13:29:55.624Z
 ---
-![Who are we playing Lockdown](/blog/Who_are_we_-_Lockdown-8-1.jpg)
+![Who are we playing Lockdown](blog/Who_are_we_-_Lockdown-8-1.jpg)
 
 For about half a year, I am in a cover band called *Who are we.* The band consists of 6 colleagues from *We are you*, my current employer. Before the corona crisis, we practiced once a month at the office. We performed for an audience only once: for all *We are you* colleagues from the Rotterdam office at the Christmas party. Since the lockdown of March 2020, we didn’t see each other anymore, let alone play together.
 

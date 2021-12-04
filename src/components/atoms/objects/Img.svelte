@@ -1,22 +1,29 @@
 <script>
-  export let cloudinaryUrl;
-  export let alt;
+  export let url = '';
+  export let alt = '';
   export let lazyload = true;
 
-  let size = 300;
-  const paths = [];
+  const avifs = [];
+  const webps = [];
 
-  while (size <= 1500) {
-    paths.push(`https://res.cloudinary.com/portfolioris/image/upload/q_auto,f_auto,c_scale,w_${size}/${cloudinaryUrl} ${size}w`);
-    size += 100;
+  for (let size = 300; size <= 1500; size += 300) {
+    avifs.push(`/img/q_auto,f_avif,c_scale,w_${size}/${url} ${size}w`);
+    webps.push(`/img/q_auto,f_webp,c_scale,w_${size}/${url} ${size}w`);
   }
-
-  const srcset = paths.join(',');
 </script>
 
-<img
-  src={`https://res.cloudinary.com/portfolioris/image/upload/q_auto,f_auto,c_scale,w_60/${cloudinaryUrl}`}
-  srcset={`${srcset}`}
-  alt={alt}
-  loading={lazyload ? 'lazy' : null}
-/>
+<picture>
+  <source
+    data-srcset="{lazyload ? `${avifs.join(',')}` : null}"
+    type="image/avif"
+  >
+  <source
+    data-srcset="{lazyload ? `${webps.join(',')}` : null}"
+    type="image/webp"
+  >
+  <img
+    class="lazyload"
+    sizes="auto"
+    {alt}
+  >
+</picture>

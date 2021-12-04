@@ -25,7 +25,7 @@ I think the WCAG document is hard to read. It doesn’t describe how to write HT
 
 I like to think of accessible websites in the following way: everything you put on a page should have meaning. For example: just because some text is bigger than a paragraph, it doesn’t mean it’s a heading. It might, for people with good vision. They are conditioned to derive this visual hierarchy from what they see. But for lots of users, it doesn’t. That’s why you make it a heading – in other words an `<h1>` element. Boom. Everyone understands what you mean now. The heading describes the content below it. It also comes with a bonus side-effect: your browser already makes it a little bigger than a regular paragraph.
 
-![A heading looks like a heading by default, without any css](/blog/Pasted_Graphic.png)
+![A heading looks like a heading by default, without any css](blog/Pasted_Graphic.png)
 
 It gets harder for more complex interfaces though. It takes a fair amount of knowledge of HTML to explain the content on the page. Navigation, lists, links, landmarks, main content, secondary content. You need to explain the state of interactive things, like menu’s, buttons, expanding panels, forms and modals.
 
