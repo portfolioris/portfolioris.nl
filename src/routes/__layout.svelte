@@ -22,7 +22,7 @@
   export let navItems = [];
 </script>
 
-<style global type="text/scss" lang="scss">
+<style global lang="scss">
     @use 'src/sass/leading';
 </style>
 

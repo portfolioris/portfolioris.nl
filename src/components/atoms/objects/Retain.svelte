@@ -4,7 +4,7 @@
   export let size = '';
 </script>
 
-<style type="text/scss" lang="scss">
+<style lang="scss">
   @use 'node_modules/@supple-kit/supple-css/objects/retain';
   @use 'node_modules/@supple-kit/supple-css/tools/responsive';
 

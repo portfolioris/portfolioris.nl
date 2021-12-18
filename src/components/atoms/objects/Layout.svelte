@@ -1,14 +1,14 @@
 <script>
   export let element = 'div';
-  export let alignInline = null;
-  export let gap = null;
+  export let alignInline = '';
+  export let gap = '';
   export let fit = false;
   export let fill = false;
   export let hasEqualheight = false;
   export let noWrap = false;
 </script>
 
-<style lang="scss" type="text/scss">
+<style lang="scss">
   @use 'src/sass/vars';
   @use 'node_modules/@supple-kit/supple-css/objects/layout' with (
     $gaps: ('small', 'base', 'huge')

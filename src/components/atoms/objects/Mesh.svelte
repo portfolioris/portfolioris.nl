@@ -4,7 +4,7 @@
   export let size = null;
 </script>
 
-<style type="text/scss" lang="scss">
+<style lang="scss">
   @use 'src/sass/vars';
   @use 'node_modules/@supple-kit/supple-css/tools/_internal/functions';
   @use 'node_modules/@supple-kit/supple-css/objects/mesh';

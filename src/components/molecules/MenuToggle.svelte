@@ -3,7 +3,7 @@
   export let menuIsOpen;
 </script>
 
-<style lang="scss" type="text/scss">
+<style lang="scss">
   @use 'node_modules/@supple-kit/supple-css/tools/typography';
 
   .c-menu-toggle {

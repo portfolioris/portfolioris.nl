@@ -14,7 +14,7 @@
   export let lang;
 </script>
 
-<style type="text/scss" lang="scss">
+<style lang="scss">
   @use 'node_modules/@supple-kit/supple-css/tools/typography';
 
   article {

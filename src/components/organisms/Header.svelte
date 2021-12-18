@@ -11,7 +11,7 @@
   export let activePage;
 </script>
 
-<style lang="scss" type="text/scss">
+<style lang="scss">
   @use 'src/sass/generic/utilities';
   @use 'node_modules/@supple-kit/supple-css/tools/responsive';
 

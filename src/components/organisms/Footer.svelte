@@ -4,7 +4,7 @@
   import Layout from '../atoms/objects/Layout.svelte';
 </script>
 
-<style type="text/scss" lang="scss">
+<style lang="scss">
   @use 'src/sass/generic/utilities';
 
   footer {

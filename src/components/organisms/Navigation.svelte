@@ -45,7 +45,7 @@
   }
 </script>
 
-<style lang="scss" type="text/scss">
+<style lang="scss">
   @use 'node_modules/@supple-kit/supple-css/tools/responsive';
 
   /*  Page wrappers

@@ -9,7 +9,7 @@
   export let postDate;
 </script>
 
-<style type="text/scss" lang="scss">
+<style lang="scss">
   @use 'src/sass/generic/utilities';
   @use 'node_modules/@supple-kit/supple-css/tools/typography';
 

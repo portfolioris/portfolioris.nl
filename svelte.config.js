@@ -18,11 +18,27 @@ const config = {
     // hydrate the <div id="svelte"> element in src/app.html
     target: '#app',
 
-    // vite: {
+    vite: {
+      css: {
+        postcss: {
+          plugins: [
+            {
+              postcssPlugin: 'internal:charset-removal',
+              AtRule: {
+                charset: (atRule) => {
+                  if (atRule.name === 'charset') {
+                    atRule.remove();
+                  }
+                }
+              }
+            }
+          ],
+        },
+      },
     //   ssr: {
     //     noExternal: Object.keys(pkg.dependencies || {}),
     //   },
-    // },
+    },
     router: false,
   },
 };
