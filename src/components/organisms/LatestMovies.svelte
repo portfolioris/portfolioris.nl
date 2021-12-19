@@ -52,25 +52,25 @@
           </tr>
         </thead>
         <tbody>
-            {#each items as item}
-              <tr>
-                <td>
-                  <a href="https://www.themoviedb.org/movie/{item.id}">{item.title}</a>
-                  (<DateString date={item.release_date} as="year" />)
-                </td>
-                <td>
-                  <span class="date-short">
-                    <DateString date={item.account_rating.created_at} as="short" />
-                  </span>
-                  <span class="date-long">
-                    <DateString date={item.account_rating.created_at} />
-                  </span>
-                </td>
-                <td>
-                    {item.account_rating.value} <small>/ 10</small>
-                </td>
-              </tr>
-            {/each}
+          {#each items as item}
+            <tr>
+              <td>
+                <a href="https://www.imdb.com/{item.href}">{item.title}</a>
+                {item.year}
+              </td>
+              <td>
+                <span class="date-short">
+                  <DateString date={item.watchDate} as="short" />
+                </span>
+                <span class="date-long">
+                  <DateString date={item.watchDate} />
+                </span>
+              </td>
+              <td>
+                {item.rating} <small>/ 10</small>
+              </td>
+            </tr>
+          {/each}
         </tbody>
       </table>
     </Retain>

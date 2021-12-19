@@ -3,6 +3,7 @@ import fs from 'fs';
 import fm from 'front-matter';
 import path from 'path';
 import xml2js from 'xml2js';
+import { parse } from 'node-html-parser';
 
 export const getPages = (directory, uriPrefix = '') => {
   const pages = [];
@@ -25,14 +26,20 @@ export const getPages = (directory, uriPrefix = '') => {
 };
 
 export async function getMovies() {
-  const response = await fetch(import.meta.env.VITE_TMDB_API_URL, {
-    headers: {
-      Authorization: import.meta.env.VITE_TMDB_API_TOKEN,
-    },
+  const response = await fetch(import.meta.env.VITE_IMDB_URL);
+  const result = await response.text();
+  const html = parse(result);
+  const $items = html.querySelectorAll('#ratings-container .lister-item');
+  return [...$items].map(($item) => {
+    return {
+      title: $item.querySelector('.lister-item-header a').innerText,
+      year: $item.querySelector('.lister-item-year').innerText,
+      href: $item.querySelector('.lister-item-header a')
+        .getAttribute('href'),
+      watchDate: $item.querySelectorAll('.text-muted')[2].innerText.substring(8),
+      rating: $item.querySelectorAll('.ipl-rating-star__rating')[1].innerText,
+    }
   });
-
-  const result = await response.json();
-  return result.results;
 }
 
 export async function getBooks() {
