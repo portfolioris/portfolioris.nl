@@ -8,10 +8,10 @@ modules:
       # Recently watched movies
 
 
-      I love watching movies. I rate and log every movie I watch. Recently I've started using [The Movie Database (TMDb)](https://www.themoviedb.org/) to log my ratings.
+      I love watching movies. I rate and log every movie I watch. I'm using [The Internet Movie Database (IMDb)](https://www.imdb.com/) to log my ratings.
 
 
-      Here is an overview of the movies I've watched most recently. This is imported from the TMDb API. See all my ratings on [themoviedb.org/u/portfolioris/ratings](https://www.themoviedb.org/u/portfolioris/ratings).
+      Here is an overview of the movies I've watched most recently. See all my ratings on [imdb.com/user/ur4879551/ratings](https://www.imdb.com/user/ur4879551/ratings).
   - type: movies
     collapseTop: true
 ---
