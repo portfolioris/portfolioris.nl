@@ -3,7 +3,8 @@
     page,
     fetch,
   }) {
-    const res = await fetch(`/${page.params.rest.replace('/', '|')}.json`);
+    const path = page.params.rest || 'home';
+    const res = await fetch(`/${encodeURIComponent(path)}.json`);
     const data = await res.json();
 
     if (data.error) {

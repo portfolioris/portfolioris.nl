@@ -22,7 +22,7 @@ renderer.image = (href, title, text) => (
   }).html);
 
 export async function get(req) {
-  const uri = req.params.rest.replace('|', '/');
+  const uri = decodeURIComponent(req.params.rest);
   const pagesCollection = getPages('content/pages');
   const pageData = pagesCollection.find((page) => page.uri === uri);
 
