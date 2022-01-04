@@ -21,8 +21,8 @@
   // export let url;
   console.log($page);
   // let segment = '';
-  // $: segment = $page.url.pathname.split('/')[1];
-  $: segment = $page.path.split('/')[1];
+  $: segment = $page.url.pathname.split('/')[1];
+  // $: segment = $page.path.split('/')[1];
 </script>
 
 <style global lang="scss">
