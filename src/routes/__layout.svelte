@@ -14,10 +14,12 @@
 <script>
   import 'lazysizes';
   import 'wicg-inert';
+  // import { page } from '$app/stores';
   import Navigation from '../components/organisms/Navigation.svelte';
 
   export let navItems = [];
   export let url;
+  // console.log(page);
   $: segment = url.pathname.split('/')[1];
 </script>
 
