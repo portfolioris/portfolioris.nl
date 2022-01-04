@@ -6,7 +6,6 @@
     return {
       props: {
         navItems,
-        // url,
       },
     };
   }
@@ -18,11 +17,7 @@
   import Navigation from '../components/organisms/Navigation.svelte';
 
   export let navItems = [];
-  // export let url;
-  console.log($page);
-  // let segment = '';
   $: segment = $page.url.pathname.split('/')[1];
-  // $: segment = $page.path.split('/')[1];
 </script>
 
 <style global lang="scss">
