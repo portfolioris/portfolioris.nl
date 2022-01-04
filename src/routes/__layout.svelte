@@ -1,11 +1,12 @@
 <script context="module">
-  export async function load({ fetch }) {
+  export async function load({ fetch, url }) {
     const res = await fetch('/nav.json');
     const navItems = await res.json();
 
     return {
       props: {
         navItems,
+        url,
       },
     };
   }
@@ -14,13 +15,10 @@
   import 'lazysizes';
   import 'wicg-inert';
   import Navigation from '../components/organisms/Navigation.svelte';
-  import { page } from '$app/stores';
-
-  console.log($page.url);
-
-  const segment = $page.url.pathname.split('/')[1];
 
   export let navItems = [];
+  export let url;
+  $: segment = url.pathname.split('/')[1];
 </script>
 
 <style global lang="scss">
