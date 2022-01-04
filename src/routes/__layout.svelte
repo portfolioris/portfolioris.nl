@@ -16,6 +16,8 @@
   import Navigation from '../components/organisms/Navigation.svelte';
   import { page } from '$app/stores';
 
+  console.log($page.url);
+
   const segment = $page.url.pathname.split('/')[1];
 
   export let navItems = [];
