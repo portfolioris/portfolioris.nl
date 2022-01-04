@@ -17,7 +17,7 @@
   import { page } from '$app/stores';
 
   // eslint-disable-next-line prefer-destructuring
-  $: segment = $page.path.split('/')[1];
+  $: segment = $page.url.pathname.split('/')[1];
 
   export let navItems = [];
 </script>

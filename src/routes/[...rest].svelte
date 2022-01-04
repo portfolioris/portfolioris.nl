@@ -1,9 +1,9 @@
 <script context="module">
   export async function load({
-    page,
+    params,
     fetch,
   }) {
-    const path = page.params.rest || 'home';
+    const path = params.rest || 'home';
     const res = await fetch(`/${encodeURIComponent(path)}.json`);
     const data = await res.json();
 
