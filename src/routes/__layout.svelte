@@ -13,24 +13,16 @@
 <script>
   import 'lazysizes';
   import 'wicg-inert';
-  import Navigation from '../components/organisms/Navigation.svelte';
   import { page } from '$app/stores';
-
-  // eslint-disable-next-line prefer-destructuring
-  $: segment = $page.path.split('/')[1];
+  import Navigation from '../components/organisms/Navigation.svelte';
 
   export let navItems = [];
+  $: segment = $page.url.pathname.split('/')[1];
 </script>
 
 <style global lang="scss">
     @use 'src/sass/leading';
 </style>
-
-<!--
-<svelte:head>
-  <meta name="twitter:card" content="summary">
-</svelte:head>
--->
 
 <Navigation items="{navItems}" activePage="{segment}">
   <slot></slot>
