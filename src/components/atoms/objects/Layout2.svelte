@@ -4,7 +4,7 @@
 
 <style lang="scss">
   @use 'src/sass/vars';
-  @use 'supple-ui-svelte/o-layout' with (
+  @use '@supple-kit/supple-css/objects/layout' with (
     $gaps: ('tiny', 'small', 'base')
   );
 

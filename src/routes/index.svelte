@@ -14,6 +14,7 @@
 <script>
   import Rest from './[...rest].svelte';
   import Layout from '../components/atoms/objects/Layout2.svelte';
+  import Cell from '../components/atoms/objects/Cell2.svelte';
 
   export let data;
 </script>
@@ -22,6 +23,9 @@
 <br />
 
 <Layout fit gap="small" nowrap role="list">
+  <Cell fill role="listitem">
+    Fill me
+  </Cell>
   <li>
     Cell 1 Cell 1 Cell 1 Cell 1 Cell 1 Cell 1
   </li>
