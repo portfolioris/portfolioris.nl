@@ -1,52 +1,46 @@
 <script>
   export let element = 'div';
-  export let align = null;
-  export let gutter = null;
-  export let margin = null;
+  export let alignInline = '';
+  export let gap = '';
+  export let fit = false;
+  export let fill = false;
   export let hasEqualheight = false;
+  export let noWrap = false;
 </script>
 
-<style lang="scss" type="text/scss">
-  /**
-   * 1. Add :global to apply style cross-component
-   */
-  @import 'engine';
-  @import 'supple/lib/objects/layout';
+<style lang="scss">
+  @use 'src/sass/vars';
+  @use 'node_modules/@supple-kit/supple-css/objects/layout' with (
+    $gaps: ('small', 'base', 'huge')
+  );
 
-  .o-layout--margin-none {
-    margin-bottom: 0;
-  }
-
-  .o-layout--equalheight {
-    > :global(.o-layout__cell) {
-      display: flex;
-
-      > :global(*) {
-        width: 100%; /* [1] */
-      }
-    }
+  .o-layout--nowrap {
+    flex-wrap: nowrap;
   }
 </style>
 
 {#if element === 'div'}
   <div
     class="o-layout"
-    class:o-layout--align-middle={align === 'middle'}
-    class:o-layout--gutter-base={gutter === 'base'}
-    class:o-layout--gutter-small={gutter === 'small'}
-    class:o-layout--margin-none={margin === 'none'}
-    class:o-layout--equalheight={hasEqualheight}
+    class:o-layout--fit={fit}
+    class:o-layout--fill={fill}
+    class:o-layout--align-inline-center={alignInline === 'center'}
+    class:o-layout--gap-base={gap === 'base'}
+    class:o-layout--gap-small={gap === 'small'}
+    class:o-layout--stretch={hasEqualheight}
+    class:o-layout--nowrap={noWrap}
   >
     <slot />
   </div>
 {:else if element === 'ul'}
   <ul
     class="o-layout"
-    class:o-layout--align-middle={align === 'middle'}
-    class:o-layout--gutter-base={gutter === 'base'}
-    class:o-layout--gutter-small={gutter === 'small'}
-    class:o-layout--margin-none={margin === 'none'}
-    class:o-layout--equalheight={hasEqualheight}
+    class:o-layout--fit={fit}
+    class:o-layout--align-inline-center={alignInline === 'center'}
+    class:o-layout--gap-base={gap === 'base'}
+    class:o-layout--gap-small={gap === 'small'}
+    class:o-layout--stretch={hasEqualheight}
+    class:o-layout--nowrap={noWrap}
   >
     <slot />
   </ul>

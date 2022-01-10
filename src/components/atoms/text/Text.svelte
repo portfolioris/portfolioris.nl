@@ -1,29 +1,52 @@
 <script>
-  import marked from 'marked';
+  import { marked } from 'marked';
+  import Flow from '../objects/Flow.svelte';
 
-  export let text;
-  export let modifier;
+  export let modifier = '';
+  export let markdown = null;
 </script>
 
-<style type="text/scss" lang="scss">
-  @import 'engine';
+<style lang="scss">
+  @use 'node_modules/@supple-kit/supple-css/tools/typography';
+  @use 'src/sass/generic/utilities';
+
+  :global {
+    th {
+      @include typography.font-size(18px);
+      text-align: start;
+    }
+
+    td {
+      padding-block: calc(var(--space-tiny) / 2);
+      vertical-align: top;
+      max-inline-size: 40ch;
+    }
+
+    th + th,
+    td + td {
+      padding-inline-start: var(--space-small);
+    }
+  }
 
   :global(a) {
-    color: $green;
-    font-weight: $font-weight-bold;
-    transition: color $base-transition-duration $base-timing-function;
+    color: var(--color-green);
+    font-weight: var(--font-weight-bold);
 
-    #{$global-interaction-states} {
-      color: $color-white;
+    #{utilities.$global-interaction-states} {
+      color: var(--color-foreground);
+    }
+
+    @media (prefers-color-scheme: light) {
+      color: var(--color-black);
     }
   }
 
   .intro {
-    font-weight: $font-weight-bold;
+    font-weight: var(--font-weight-bold);
   }
 
   .byline {
-    @include supple-font-size($micro);
+    @include typography.font-size(14px);
   }
 </style>
 
@@ -31,9 +54,11 @@
   class:intro={modifier === 'intro'}
   class:byline={modifier === 'byline'}
 >
-    {#if text}
-        {@html marked(text)}
+  <Flow>
+    {#if markdown}
+      {@html marked(markdown)}
     {:else}
-      <p><slot /></p>
+      <slot />
     {/if}
+  </Flow>
 </div>

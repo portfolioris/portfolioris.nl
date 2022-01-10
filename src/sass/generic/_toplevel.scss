@@ -3,30 +3,61 @@
     Describes toplevel styles such as HTML, body, etc.
     ========================================================================= */
 
-/*  Module
-    ========================================================================= */
+@use 'src/sass/vars';
+@use 'node_modules/@supple-kit/supple-css/tools/responsive';
+@use 'node_modules/@supple-kit/supple-css/tools/space';
 
 html {
-  font-family: $font-family-primary;
-  background-color: $color-black;
-  color: $color-white;
+  // colors
+  --green: 125, 255, 0;
+  --color-green: rgba(var(--green), 1);
+  --transparent-green: rgba(var(--green), 0);
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-gray-light: #f1f1f1;
+  --color-background: var(--color-black);
+  --color-foreground: var(--color-white);
+  // fonts
+  --font-family-primary: 'Open Sans', sans-serif;
+  --font-family-secondary: 'Insignia', sans-serif;
+  --font-weight-bold: bold;
+  // animations
+  --base-timing-function: cubic-bezier(0.55, 0, 0.1, 1);
+  --base-transition-duration: 600ms;
+  --base-transition-duration-short: 300ms;
+  // spacing
+  --space-tiny: #{space.get('tiny')};
+  --space-small: #{space.get('small')};
+  --space-base: #{space.get('base')};
+  --space-large: #{space.get('large')};
+  --space-huge: #{space.get('huge')};
+
+  @media (prefers-color-scheme: light) {
+    --color-background: var(--color-white);
+    --color-foreground: #{var(--color-black)};
+  }
+  color-scheme: light dark; /* both supported */
+  font-family: var(--font-family-primary);
+  background-color: var(--color-background);
+  color: var(--color-foreground);
   text-decoration-skip-ink: auto;
 }
 
 body {
-  margin: 0;
+  font-size: responsive.lock(vars.$font-size, vars.$font-size + 4px, desk, tv);
 }
 
-hr {
-  border: 0;
-  height: 1px;
-  background: $color-white;
-}
-
-button svg {
-  pointer-events: none;
+@supports (color: color(display-p3 1 1 1)) {
+  html {
+    --color-green: color(display-p3 0.5 1 0 / 1);
+    --transparent-green: color(display-p3 0.5 1 0 / 0);
+  }
 }
 
 figure {
   margin: 0;
+}
+
+img {
+  width: 100%;
 }

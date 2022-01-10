@@ -1,42 +1,33 @@
 <script>
   import Layer from '../atoms/objects/Layer.svelte';
   import Retain from '../atoms/objects/Retain.svelte';
-  import Text from '../atoms/text/Text.svelte';
+  import Layout from '../atoms/objects/Layout.svelte';
 </script>
 
-<style type="text/scss" lang="scss">
-  @import 'engine';
+<style lang="scss">
+  @use 'src/sass/generic/utilities';
 
   footer {
-    background-color: $color-white;
-    color: $color-black;
+    background-color: var(--color-white);
+    color: var(--color-black);
+  }
+
+  a {
+    #{utilities.$global-interaction-states} {
+      color: var(--black);
+    }
   }
 </style>
 
 <footer>
   <Layer size="medium">
-    <Retain>
-      <div class="u-milli">
-        <div class="o-layout  o-layout--gutter-small">
-          <div class="o-layout__cell  o-layout__cell--fit  u-module">
-            <p>© Portfolioris 2019</p>
-          </div>
-            <!--
-            <div class="o-layout__cell  o-layout__cell--fit">
-              <ul class="o-layout  o-layout--gutter-small  u-mb-flatten">
-                {items.map(item => (
-                <li
-                  // key={item.ID}
-                  class="o-layout__cell  o-layout__cell--fit"
-                >
-                  <a href="#_">Link?</a>
-                </li>
-                ))}
-              </ul>
-            </div>
-            -->
-        </div>
-      </div>
+    <Retain size="wall">
+      <Layout fit gap="base">
+        <p>© Portfolioris 2021</p>
+        <p><a href="https://twitter.com/Portfolioris" rel="me">Find me on Twitter</a></p>
+        <p><a href="https://github.com/portfolioris" rel="me">Find me on GitHub</a></p>
+        <p><a href="/rss.xml" rel="alternate">RSS</a></p>
+      </Layout>
     </Retain>
   </Layer>
 </footer>

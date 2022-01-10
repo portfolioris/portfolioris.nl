@@ -1,7 +1,7 @@
 <script>
   export let element;
-  export let href = undefined;
-  export let type = undefined;
+  export let href = null;
+  export let type = null;
   export let label;
   export let icon = null;
   export let hideLabel = false;
@@ -13,44 +13,34 @@
   export { className as class };
 </script>
 
-<style lang="scss" type="text/scss">
-  @import 'engine';
+<style lang="scss">
+  @use 'src/sass/generic/utilities';
+  @use 'node_modules/@supple-kit/supple-css/utilities/visually-hidden';
 
-
-  /*  Module
-      Core module
+  /*  Block
       ========================================================================= */
-
-  /**
-   * 1. set the lineheight to 0 because we want to negate the baseline space.
-   *      This allows us vertical align a lot of things perfectly into the center
-   * 2. Calculates the space around the button minus the fixed border-width
-   */
 
   .c-button {
     display: inline-block;
     vertical-align: middle;
     margin: 0;
-    border: none; //$c-button--border-width solid $c-button--background-color;
+    border: none;
+    box-shadow: 0 0 0 1px var(--color-black);
     border-radius: 0;
-    font-family: $font-family-secondary;
-    line-height: 0; /* [1] */
+    font-family: var(--font-family-secondary);
+    line-height: 1;
     font-weight: 500;
     text-decoration: none;
-    background-color: $green; // $c-button--background-color;
-    color: $color-black; // $c-button--color;
+    background-color: var(--color-green);
+    color: var(--color-black);
     appearance: none;
-    transition-property: color, background-color;
-    transition-duration: $base-transition-duration-short;
-    transition-timing-function: linear;
-    cursor: pointer;
+    transition: var(--base-transition-duration-short) var(--base-timing-function);
+    transition-property: background-color, box-shadow;
 
-    &:hover,
-    &:active,
-    &:focus,
-    &.is-active {
-      background-color: $green;
-      color: $color-white;
+    #{utilities.$global-interaction-states},
+    &[aria-current='true'] {
+      background-color: var(--color-green);
+      color: var(--color-black);
       text-decoration: none;
       outline: none;
     }
@@ -60,26 +50,34 @@
   /*  Elements
       ========================================================================= */
 
-  /**
-   * 1. Reset that line-height again
-   */
   .c-button__inner {
     display: inline-flex;
     align-items: stretch;
-    line-height: $supple-line-height-ratio; /* [1] */
   }
 
   .c-button__label {
     display: flex;
-    padding: $supple-space-small;
-    line-height: 1;
+    padding: var(--space-small);
   }
 
+
+
+  /*  Modifier
+      ========================================================================= */
+
   .c-button--transparent {
-    background-color: transparent;
-    color: $color-white;
+    box-shadow: none;
+    background-color: var(--transparent-green);
+    color: var(--color-foreground);
+
+    #{utilities.$global-interaction-states},
+    &[aria-current='true'] {
+      box-shadow: 0 0 0 1px var(--color-black);
+    }
   }
 </style>
+
+
 
 {#if element === 'button'}
   <button
@@ -105,7 +103,7 @@
     href={href}
     type={type}
     class="c-button  {className}"
-    class:is-active="{isActive}"
+    aria-current={isActive ? 'true' : null}
     class:c-button--transparent={modifier === 'transparent'}
     on:click={onClick}
   >

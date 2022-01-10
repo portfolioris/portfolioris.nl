@@ -1,10 +1,12 @@
 <script>
   import Img from '../atoms/objects/Img.svelte';
-  export let imgObj;
+
+  export let imgHref;
   export let figcaption;
+  export let alt;
 </script>
 
 <figure>
-  <Img image={imgObj} />
+  <Img alt={alt} url={imgHref} />
   <figcaption>{figcaption}</figcaption>
 </figure>

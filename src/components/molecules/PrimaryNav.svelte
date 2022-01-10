@@ -3,21 +3,24 @@
   import Layout from '../atoms/objects/Layout.svelte';
   import Cell from '../atoms/objects/Cell.svelte';
 
-  export let items;
-  export let activePage;
+  export let items = [];
+  export let activePage = null;
 </script>
+
+<style lang="scss">
+  @use 'node_modules/@supple-kit/supple-css/utilities/visually-hidden';
+</style>
 
 <nav aria-labelledby="nav-primary">
   <div class="u-visually-hidden" id="nav-primary">Primary</div>
-  <Layout element="ul" gutter="small" margin="none">
+  <Layout element="ul" gap="small" fit alignInline="center">
       {#each items as item}
-        <Cell element="li" fit>
+        <Cell element="li">
           <Button
-            element="a"
-            isActive="{activePage === item.menuItem[0].uri}"
+            isActive="{activePage === item.uri}"
             modifier="transparent"
-            label="{item.title}"
-            href="{item.menuItem[0].uri === '__home__' ? '' : item.menuItem[0].uri}"
+            label="{item.label}"
+            href="/{item.uri === 'home' ? '' : item.uri}"
           />
         </Cell>
       {/each}

@@ -1,18 +1,29 @@
 <script>
-  export let image;
+  export let url = '';
+  export let alt = '';
   export let lazyload = true;
+
+  const avifs = [];
+  const webps = [];
+
+  for (let size = 300; size <= 1500; size += 300) {
+    avifs.push(`/img/q_auto,f_avif,c_scale,w_${size}/${url} ${size}w`);
+    webps.push(`/img/q_auto,f_webp,c_scale,w_${size}/${url} ${size}w`);
+  }
 </script>
 
 <picture>
   <source
-    data-srcset={`https://res.cloudinary.com/portfolioris/image/upload/q_auto,f_auto,c_scale,w_{width}/${image.folder.path}${image.filename}`}
-    srcset={!lazyload ? `https://res.cloudinary.com/portfolioris/image/upload/q_auto,f_auto,c_scale,w_{width}/${image.folder.path}${image.filename}` : null}
-  />
+    data-srcset="{lazyload ? `${avifs.join(',')}` : null}"
+    type="image/avif"
+  >
+  <source
+    data-srcset="{lazyload ? `${webps.join(',')}` : null}"
+    type="image/webp"
+  >
   <img
-    data-sizes="auto"
     class="lazyload"
-    data-src={lazyload ? image.src : null}
-    src={!lazyload ? `https://res.cloudinary.com/portfolioris/image/upload/q_auto,f_auto,c_scale,w_{width}/${image.folder.path}${image.filename}` : 'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=='}
-    alt={image.title}
-  />
+    sizes="auto"
+    {alt}
+  >
 </picture>

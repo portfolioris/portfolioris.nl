@@ -1,0 +1,75 @@
+/*  =========================================================================
+    Generic.Headings
+    ========================================================================= */
+
+@use 'src/sass/generic/utilities';
+@use 'node_modules/@supple-kit/supple-css/tools/responsive';
+@use 'node_modules/@supple-kit/supple-css/tools/typography';
+
+/*  Elements
+    ========================================================================= */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-family-secondary);
+  line-height: 1;
+  font-weight: bold;
+  //background-image: linear-gradient(to bottom, var(--color-foreground) 0, #808080 50%, var(--color-foreground) 100%);
+  //color: transparent;
+  //background-clip: text;
+
+  a {
+    text-decoration: none;
+    color: inherit;
+    transition: color var(--base-transition-duration-short) linear;
+
+    #{utilities.$global-interaction-states} {
+      color: inherit;
+      text-decoration: underline;
+    }
+  }
+
+  * + & {
+    //--flow-gap: #{vars.$space-large};
+    --flow-gap: var(--space-large);
+  }
+}
+
+
+
+/*  Responsive
+		========================================================================= */
+
+/**
+  Sizes (small screen)
+  Heading elements are sized hierically, but you override the visual size
+  with a class. So to keep the semantic value of an <h1>, but make it
+  look smaller, you use <h1 class="h2">
+ */
+h1 {
+  font-size: responsive.lock(40px, 80px, palm, desk);
+}
+
+h2 {
+  font-size: responsive.lock(32px, 40px, palm, desk);
+}
+
+h3 {
+  font-size: responsive.lock(24px, 28px, palm, desk);
+}
+
+h4 {
+  font-size: responsive.lock(20px, 24px, palm, desk);
+}
+
+h5 {
+  font-size: responsive.lock(18px, 20px, palm, desk);
+}
+
+h6 {
+  font-size: 16px;
+}

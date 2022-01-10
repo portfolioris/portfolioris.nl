@@ -3,20 +3,20 @@
   export let menuIsOpen;
 </script>
 
-<style lang="scss" type="text/scss">
-  @import 'engine';
+<style lang="scss">
+  @use 'node_modules/@supple-kit/supple-css/tools/typography';
 
   .c-menu-toggle {
-    padding: $supple-space-tiny;
+    padding: var(--space-tiny);
     width: 40px;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-decoration: none;
-    color: $color-white;
+    color: var(--color-foreground);
     line-height: 1;
     border-radius: 50%;
-    transition: $base-transition-duration $base-timing-function;
+    transition: var(--base-transition-duration) var(--base-timing-function);
     transition-property: color, background-color;
 
     &.is-open {
@@ -36,13 +36,13 @@
     }
 
     &:focus-visible {
-      color: $color-black;
-      background-color: $color-white;
+      color: var(--color-black);
+      background-color: var(--color-white);
     }
 
     &:-moz-focusring {
-      color: $color-black;
-      background-color: $color-white;
+      color: var(--color-black);
+      background-color: var(--color-white);
     }
   }
 
@@ -53,12 +53,12 @@
   }
 
   .c-menu-toggle__dash {
-    transition: transform $base-transition-duration $base-timing-function;
+    transition: transform var(--base-transition-duration) var(--base-timing-function);
     transform-origin: center;
   }
 
   .c-menu-toggle__label {
-    @include supple-font-size(10px, false);
+    @include typography.font-size(10px, false);
     display: block;
   }
 </style>

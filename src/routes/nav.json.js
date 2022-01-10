@@ -1,25 +1,10 @@
-import { gql } from 'apollo-boost';
-import { client } from '../apollo';
+import fs from 'fs';
+import fm from 'front-matter';
 
-const MAIN_NAV = gql`{
-  navItems: entries(section: mainNavigation) {
-    ... on MainNavigation {
-      title
-      menuItem {
-        uri
-      }
-    }
-  }
-}`;
-
-const pages = client.query({ query: MAIN_NAV });
-
-export async function get(req, res) {
-  const result = await pages;
-
-  res.writeHead(200, {
-    'Content-Type': 'application/json',
-  });
-
-  res.end(JSON.stringify(result.data));
+export function get(req, res) {
+  const siteFile = fs.readFileSync('content/globals/site.md');
+  const navData = fm(siteFile.toString()).attributes.primaryNav;
+  return {
+    body: navData,
+  };
 }

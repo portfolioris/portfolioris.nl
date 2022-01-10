@@ -1,62 +1,38 @@
 <script>
-  export let size = null;
+  export let isBreakout = false;
+  export let noPadding = false;
+  export let size = '';
 </script>
 
-<style type="text/scss" lang="scss">
-  @import 'engine';
+<style lang="scss">
+  @use 'node_modules/@supple-kit/supple-css/objects/retain';
+  @use 'node_modules/@supple-kit/supple-css/tools/responsive';
 
 
 
   /*  Module
       ========================================================================= */
 
-  .o-retain {
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 1920px;
-    padding-left: $supple-space-small;
-    padding-right: $supple-space-small;
-  }
-
-  .o-retain--narrow {
-    max-width: 48em;
-  }
-
-
-
-  /*  Responsive
-      ========================================================================= */
-
-  @include supple-mq(lap) {
-    .o-retain {
-      padding-left: $supple-space-base;
-      padding-right: $supple-space-base;
-    }
-  }
-
-  @include supple-mq(desk) {
-    .o-retain {
-      padding-left: 9%;
-      padding-right: 9%;
+  @include responsive.mq(desk) {
+    .o-retain--wall {
+      padding-inline-start: 9%;
+      padding-inline-end: 9%;
     }
 
     .o-retain--breakout {
-      padding-left: calc(9% - #{supple-value-to-rem($supple-space-base)});
-      padding-right: calc(9% - #{supple-value-to-rem($supple-space-base)});
+      padding-inline-start: calc(9% - var(--space-base));
+      padding-inline-end: calc(9% - var(--space-base));
     }
-  }
-
-  .o-retain--full {
-    padding-left: 0;
-    padding-right: 0;
   }
 </style>
 
 <div
   class="o-retain"
-  class:o-retain--full={size === 'full'}
-  class:o-retain--narrow={size === 'narrow'}
-  class:o-retain--breakout={size === 'breakout'}
+  class:o-retain--lap={size === 'lap'}
+  class:o-retain--desk={size === 'desk'}
+  class:o-retain--wall={size === 'wall'}
+  class:o-retain--breakout={isBreakout}
+  class:o-retain--no-padding={noPadding}
 >
-  <slot></slot>
+  <slot />
 </div>

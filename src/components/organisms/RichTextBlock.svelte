@@ -1,5 +1,4 @@
 <script>
-  import Theme from '../atoms/utilities/Theme.svelte';
   import Layer from '../atoms/objects/Layer.svelte';
   import Retain from '../atoms/objects/Retain.svelte';
   import Text from '../atoms/text/Text.svelte';
@@ -10,14 +9,12 @@
 </script>
 
 <section>
-  <Theme color="black">
-    <Layer
-      collapseTop={collapseTop}
-      collapseBottom={collapseBottom}
-    >
-      <Retain size="narrow">
-        <Text text={richText} />
-      </Retain>
-    </Layer>
-  </Theme>
+  <Layer
+    collapseTop={collapseTop}
+    collapseBottom={collapseBottom}
+  >
+    <Retain size="lap">
+      <Text markdown={richText} />
+    </Retain>
+  </Layer>
 </section>

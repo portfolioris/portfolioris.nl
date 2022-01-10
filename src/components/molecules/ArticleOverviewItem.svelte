@@ -1,6 +1,7 @@
 <script>
   import Heading from '../atoms/text/Heading.svelte';
   import DateString from '../atoms/text/DateString.svelte';
+  import Flow from '../atoms/objects/Flow.svelte';
 
   export let title;
   export let uri;
@@ -8,56 +9,61 @@
   export let postDate;
 </script>
 
-<style type="text/scss" lang="scss">
-  @import 'engine';
+<style lang="scss">
+  @use 'src/sass/generic/utilities';
+  @use 'node_modules/@supple-kit/supple-css/tools/typography';
 
   article {
-    background-color: $color-white;
-    color: $color-black;
-    padding: $supple-space-base;
+    height: 100%;
+    background-color: var(--color-white);
+    color: var(--color-black);
+    padding: var(--space-base);
     position: relative;
-    margin-bottom: $supple-space-base;
+    transition: var(--base-transition-duration);
+    transition-property: background-color, border-color;
+
+    @media (prefers-color-scheme: light) {
+      border: 1px solid transparent;
+      background-color: var(--color-gray-light);
+
+      #{utilities.$global-interaction-states},
+      &:focus-within {
+        border-color: var(--color-black);
+        background-color: var(--color-white);
+      }
+    }
 
     :global(a::after) { // b/c there is no <a> here ....
       content: '';
       position: absolute;
       z-index: 2;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-    }
-
-    * {
-      margin-bottom: $supple-space-tiny;
-    }
-
-    > :last-child {
-      margin-bottom: 0;
+      inset: 0;
     }
   }
 
   .subheading {
-    font-weight: $font-weight-bold;
+    font-weight: var(--font-weight-bold);
   }
 
   p {
-    font-size: $micro;
+    @include typography.font-size(14px);
   }
 </style>
 
 <article>
-  <Heading
-    text={title}
-    level={3}
-    href={uri}
-  />
-  {#if subheading}
-    <p class="subheading">
-      {subheading}
+  <Flow space="tiny">
+    <Heading
+      text={title}
+      level={3}
+      href={uri}
+    />
+    {#if subheading}
+      <p class="subheading">
+        {subheading}
+      </p>
+    {/if}
+    <p>
+      <DateString date={postDate} />
     </p>
-  {/if}
-  <p>
-    <DateString date={postDate} />
-  </p>
+  </Flow>
 </article>

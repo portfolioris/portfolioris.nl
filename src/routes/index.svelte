@@ -1,23 +1,20 @@
 <script context="module">
-  export async function preload({ params }) {
-    // console.log(params.rest);
-    // const res = await this.fetch(`${params.rest}.json`);
-    const res = await this.fetch(`__home__.json`);
+  // this file is just a shortcut to let `[...rest].svelte` pickup the root url
+  export async function load({ fetch }) {
+    const res = await fetch('home.json');
     const data = await res.json();
-    if (res.status === 200) {
-      return { data};
-    } else {
-      this.error(res.status, data.message);
-    }
+    return {
+      props: {
+        data,
+      },
+    };
   }
 </script>
 
 <script>
-  import ModularPageTemplate from './_ModularPageTemplate.svelte';
-  export let data;
+  import Rest from './[...rest].svelte';
 
-  let notUsed = '';
+  export let data;
 </script>
 
-<ModularPageTemplate {...data} />
-
+<Rest data={data} />

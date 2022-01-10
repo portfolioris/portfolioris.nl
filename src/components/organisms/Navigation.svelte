@@ -1,9 +1,12 @@
 <script>
+  // not listing svelte as devdep results in a build error
+  // eslint-disable-next-line import/no-extraneous-dependencies
   import { onMount } from 'svelte';
   import Retain from '../atoms/objects/Retain.svelte';
-  import Header from '../organisms/Header.svelte';
-  import Footer from '../organisms/Footer.svelte';
+  import Header from './Header.svelte';
+  import Footer from './Footer.svelte';
   import Button from '../atoms/Button.svelte';
+  import { getKeyCode } from '../utilities';
 
   let isLoaded = false;
   let menuIsOpen = false;
@@ -14,18 +17,36 @@
     isLoaded = true;
   });
 
-  function closeMenu() {
-    menuIsOpen = false;
-  }
+  let handleEscape;
 
-  function handleToggleMenu(e) {
-    e.preventDefault();
-    menuIsOpen = !menuIsOpen;
+  const openMenu = () => {
+    menuIsOpen = true;
+    document.addEventListener('keyup', handleEscape);
+  };
+
+  const closeMenu = () => {
+    menuIsOpen = false;
+    document.removeEventListener('keyup', handleEscape);
+  };
+
+  handleEscape = (e) => {
+    const keyCode = getKeyCode(e);
+    if (keyCode === 'esc' || keyCode === 'escape') {
+      closeMenu();
+    }
+  };
+
+  function toggleMenu() {
+    if (menuIsOpen) {
+      closeMenu();
+    } else {
+      openMenu();
+    }
   }
 </script>
 
-<style lang="scss" type="text/scss">
-  @import 'engine';
+<style lang="scss">
+  @use 'node_modules/@supple-kit/supple-css/tools/responsive';
 
   /*  Page wrappers
       ========================================================================= */
@@ -37,12 +58,12 @@
 
   :global(.c-body__skip-link) {
     position: absolute;
-    z-index: 1;
+    z-index: 2;
     transform: translateX(-100%);
-  }
 
-  :global(.c-body__skip-link:focus) {
-    transform: none;
+    &:focus {
+      transform: none;
+    }
   }
 
   .c-body-wrap {
@@ -50,29 +71,30 @@
   }
 
   .c-body-wrap__header {
+    background-color: var(--color-background);
     position: relative;
-    z-index: 1;
+    z-index: 2;
   }
 
   .c-body-wrap__main {
-    transition: transform $base-transition-duration $base-timing-function;
+    transition: transform var(--base-transition-duration) var(--base-timing-function);
     position: relative;
     z-index: 1;
+    background-color: var(--color-background);
 
     &.is-open {
-      transform: translateX(calc(100% - #{$supple-space-base * 3 - $supple-space-tiny}));
+      // 100% - base*3 - tiny, this is correct
+      transform: translateX(calc(100% - calc(calc(var(--space-base) * 3) - var(--space-tiny))));
     }
   }
 
   .c-body-wrap__navigation {
-    left: 0;
-    top: 0;
-    right: $supple-space-large;
-    height: 100%;
+    inset-inline: 0 var(--space-large);
+    inset-block: 0;
     overflow: auto;
     -webkit-overflow-scrolling: touch;
-    padding-top: $supple-space-base * 3;
-    transition: transform $base-transition-duration $base-timing-function;
+    padding-block-start: calc(var(--space-base) * 3);
+    transition: transform var(--base-transition-duration) var(--base-timing-function);
 
     &.is-loaded {
       position: absolute;
@@ -86,19 +108,18 @@
 
   .c-body-wrap__nav-list {
     list-style: none;
-    margin-left: 0;
+    padding-inline-start: 0;
   }
 
   .c-body-wrap__nav-item {
-    margin-bottom: $supple-space-tiny;
+    margin-bottom: var(--space-tiny);
   }
-
 
 
   /*  Responsive
       ========================================================================= */
 
-  @include supple-mq(desk) {
+  @include responsive.mq(desk) {
     .c-body-wrap__navigation {
       display: none;
     }
@@ -107,17 +128,10 @@
 </style>
 
 <Button
-  href="#main-nav"
-  label="Jump to main navigation"
-  class="c-body__skip-link"
-/>
-
-<Button
   href="#main"
   label="Jump to content"
   class="c-body__skip-link"
 />
-
 
 
 <div class="c-body-wrap">
@@ -125,13 +139,14 @@
     <Header
       items={items}
       activePage={activePage}
-      handleToggleMenu={handleToggleMenu}
+      handleToggleMenu={toggleMenu}
       menuIsOpen={menuIsOpen}
     />
   </div>
   <div
     class="c-body-wrap__main"
     class:is-open={menuIsOpen}
+    inert={menuIsOpen ? true : null}
   >
     <main id="main">
       <slot />
@@ -143,20 +158,20 @@
     class:is-loaded={isLoaded}
     class:is-open={menuIsOpen}
     id="navigation"
+    inert={menuIsOpen ? null : true}
   >
     <Retain>
       <ul class="c-body-wrap__nav-list">
-          {#each items as item}
-            <li class="c-body-wrap__nav-item">
-              <Button
-                element="a"
-                isActive="{activePage === item.menuItem[0].uri}"
-                label="{item.title}"
-                href="{item.menuItem[0].uri === '__home__' ? '' : item.menuItem[0].uri}"
-                onClick={closeMenu}
-              />
-            </li>
-          {/each}
+        {#each items as item}
+          <li class="c-body-wrap__nav-item">
+            <Button
+              isActive="{activePage === item.uri}"
+              label="{item.label}"
+              href="/{item.uri === 'home' ? '' : item.uri}"
+              onClick={() => { menuIsOpen = false; }}
+            />
+          </li>
+        {/each}
       </ul>
     </Retain>
   </div>

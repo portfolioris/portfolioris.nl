@@ -1,116 +1,19 @@
 /*  =========================================================================
     vars
-    This file contains all global variables.
     ========================================================================= */
 
-/*  =========================================================================
-    $OVERRIDES
-    Any variables you find set in Blocss that you do not wish to keep, simply
-    redefine here. This means that if Blocss sets your
-    `supple-base-font-size` at 16px and you wish it to be 14px, simply
-    redeclare that variable in this file.
-    ========================================================================= */
-
-$supple-font-size: 16px;
-$supple-line-height: 26px;
-
-
-/*  Responsive
-    Define your breakpoints. The first value is the appendix that shall be used
-    for your classes (e.g. `.classname@lap`), the second value is the media
-    query that the breakpoint fires at.
-    ========================================================================= */
-
-$mq-breakpoints: (
-  lap: 580px,
-  desk: 980px,
-  wall: 1280px,
-  tv: 1920px,
+@forward 'node_modules/@supple-kit/supple-css/settings/defaults' with (
+  $css-modules: true,
+  $line-height: 26px,
+  $breakpoints: (
+    palm: 375px,
+    lap: 580px,
+    desk: 980px,
+    wall: 1280px,
+    tv: 1920px,
+  ),
+  $queries: (
+    lap: lap,
+    desk: desk,
+  )
 );
-
-
-$supple-fractions: 2 3 4;
-$supple-breakpoint-has-fractions: (lap, desk);
-//$supple-fractions-name-fraction: 'x' !default;
-//$supple-fractions-delimiter: '\\/' !default;
-//$blocss-breakpoint-has-layout-fit: ("lap", "desk");
-//$blocss-breakpoint-has-layout-fill: ("lap", "desk");
-//$blocss-breakpoint-has-visually-hidden: ("palm", "max-lap", "lap", "desk");
-//$supple-breakpoint-has-hidden: (from: desk, until: desk);
-
-
-
-/*  =========================================================================
-    $CUSTOM
-    Place any of your own variables that sit on top of Blocss here.
-    Please use the `!default` flag because variables defined here can be
-    overwritten by the project
-    ========================================================================= */
-
-$font-family-primary: 'Open Sans', sans-serif !default;
-$font-family-secondary: 'Insignia', sans-serif !default;
-
-
-
-/*  Colors
-    ========================================================================= */
-
-// Brand
-//$green: #10ce1f;
-$green: #7dff00;
-//$green: color(display-p3 0 1 0 / 0.5);
-
-//$green: var(--green);
-//$green: #3a8500; // AA on white bg
-
-
-// Grayscale
-$color-black: #000000 !default;
-$color-white: #ffffff !default;
-$color-error: #ff8080 !default;
-
-
-
-/*  Sizes
-    ========================================================================= */
-
-$alpha: 80px !default;
-$beta: 34px !default;
-$gamma: 28px !default;
-$delta: 24px !default;
-$epsilon: 20px !default;
-$foxtrot: 18px !default;
-$normalis: 16px !default;
-$milli: 14px;
-$micro: 12px;
-
-
-
-/*  Font-weights
-    ========================================================================= */
-
-$font-weight-bold: bold;
-
-
-
-/*  Animations
-    ========================================================================= */
-
-$base-timing-function: cubic-bezier(0.55, 0, 0.1, 1) !default; // Google swift bezier
-$base-transition-duration: 600ms !default;
-$base-transition-duration-short: 300ms !default;
-
-
-
-/*  Misc cosmetic
-    ========================================================================= */
-
-$border-radius--primary: 5px !default;
-
-
-
-/*  Global hover/active etc. states
-    ========================================================================= */
-
-$global-interaction-states: '&:hover, &:active, &:focus' !default;
-

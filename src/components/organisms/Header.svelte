@@ -1,5 +1,4 @@
 <script>
-  import Layer from '../atoms/objects/Layer.svelte';
   import Retain from '../atoms/objects/Retain.svelte';
   import PrimaryNav from '../molecules/PrimaryNav.svelte';
   import MenuToggle from '../molecules/MenuToggle.svelte';
@@ -12,29 +11,28 @@
   export let activePage;
 </script>
 
-<style lang="scss" type="text/scss">
-  @import 'engine';
+<style lang="scss">
+  @use 'src/sass/generic/utilities';
+  @use 'node_modules/@supple-kit/supple-css/tools/responsive';
 
   .c-header {
-    background-color: $color-black;
-    padding: $supple-space-tiny;
-    box-shadow: 0 0 $supple-space-small transparentize($color-black, 0.5);
+    padding-block-start: var(--space-tiny);
+    padding-inline: var(--space-tiny);
   }
 
   .c-header__logo {
-    margin-right: $supple-space-small;
     display: block;
 
     img {
       width: 52px;
       height: 52px;
       display: block;
-      transition: filter $base-transition-duration-short $base-timing-function;
+      transition: filter var(--base-transition-duration-short) var(--base-timing-function);
     }
 
-    #{$global-interaction-states} {
+    #{utilities.$global-interaction-states} {
       img {
-        filter: drop-shadow(0 0 $supple-space-tiny $color-white);
+        filter: drop-shadow(0 0 var(--space-tiny) var(--color-white));
       }
     }
   }
@@ -43,42 +41,43 @@
     display: none;
   }
 
-  @include supple-mq(desk) {
+  @include responsive.mq(desk) {
+    .c-header {
+      padding-inline-start: 0;
+      padding-inline-end: 0;
+    }
+
     .c-header__toggle-foldout {
       display: none;
     }
 
     .c-header__primary-nav {
-      display: block;
+      display: flex;
+      justify-content: center;
     }
   }
 </style>
 
 <header id="main-nav">
-  <Layer size="flat">
-    <Retain size="full">
-      <div class="c-header">
-        <Layout align="middle">
-          <Cell fit>
-            <a href="/" class="c-header__logo">
-              <img src="/assets/img/logo--portfolioris-small.svg" alt="Portfolioris" />
-            </a>
-          </Cell>
-          <Cell fit align="center">
-            <div class="c-header__primary-nav">
-              <PrimaryNav items={items} activePage={activePage} />
-            </div>
-          </Cell>
-          <Cell fit>
-            <div class="c-header__toggle-foldout">
-              <MenuToggle
-                      handleToggleMenu={handleToggleMenu}
-                      menuIsOpen={menuIsOpen}
-              />
-            </div>
-          </Cell>
-        </Layout>
-      </div>
-    </Retain>
-  </Layer>
+  <Retain size="wall" noPadding>
+    <div class="c-header">
+      <Layout alignInline="middle" fit gap="base">
+        <a href="/" class="c-header__logo">
+          <img src="/assets/img/logo--portfolioris-small.svg" alt="Portfolioris" />
+        </a>
+
+        <Cell fill align="center">
+          <div class="c-header__primary-nav">
+            <PrimaryNav items={items} activePage={activePage} />
+          </div>
+        </Cell>
+        <div class="c-header__toggle-foldout">
+          <MenuToggle
+            handleToggleMenu={handleToggleMenu}
+            menuIsOpen={menuIsOpen}
+          />
+        </div>
+      </Layout>
+    </div>
+  </Retain>
 </header>

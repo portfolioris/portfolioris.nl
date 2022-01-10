@@ -1,60 +1,70 @@
 <script>
-  import Theme from '../atoms/utilities/Theme.svelte';
   import Layer from '../atoms/objects/Layer.svelte';
   import Retain from '../atoms/objects/Retain.svelte';
   import Heading from '../atoms/text/Heading.svelte';
   import ArticleOverviewItem from '../molecules/ArticleOverviewItem.svelte';
   import Button from '../atoms/Button.svelte';
   import Layout from '../atoms/objects/Layout.svelte';
-  import Cell from '../atoms/objects/Cell.svelte';
+  import Flow from '../atoms/objects/Flow.svelte';
+  import Mesh from '../atoms/objects/Mesh.svelte';
 
   export let heading;
   export let hideHeadingVisually = false;
-  export let viewAllBlogs = false;
+  export let viewAllBlogs = null;
+  export let viewAllBlogsLabel = null;
   export let latest;
 
   export let items = [];
 
   if (latest) {
-    items = items.slice(0, 3);
+    items = items.slice(0, latest);
   }
 </script>
+
+<style lang="scss">
+  @use 'node_modules/@supple-kit/supple-css/utilities/visually-hidden';
+</style>
+
 <section>
   <Layer>
-    <Retain>
-      <div class:u-visually-hidden={hideHeadingVisually}>
-        <Heading
-          text={heading}
-          level={2}
-        />
-      </div>
-    </Retain>
-    <Retain size="breakout">
-      <Layout gutter="base" hasEqualheight>
+    <Flow>
+      <Retain size="wall">
+        <div class:u-visually-hidden={hideHeadingVisually}>
+          <Heading
+            text={heading}
+            level={2}
+          />
+        </div>
+      </Retain>
+
+      <Retain size="wall" isBreakout>
+        <Mesh element="ul" gap="base" size=272>
           {#each items as item}
-            <Cell lap={[1, 2]} desk={[1, 3]}>
+            <li>
               <ArticleOverviewItem
                 title={item.title}
-                subheading={item.subheading}
+                subheading={item.subtitle}
                 uri="{item.uri}"
-                postDate={item.postDate * 1000}
+                postDate={item.date}
               />
-            </Cell>
+            </li>
           {/each}
-      </Layout>
+        </Mesh>
+      </Retain>
 
-        {#if viewAllBlogs.entry}
-          <Layout>
-            <Cell fit align="center">
-              <p>
-                <Button
-                  href="{viewAllBlogs.entry.uri}"
-                  label={viewAllBlogs.customText}
-                />
-              </p>
-            </Cell>
+      {#if viewAllBlogsLabel}
+        <Retain size="wall">
+          <Layout alignInline="center" fit>
+            <p>
+              <Button
+                href="{viewAllBlogs}"
+                label={viewAllBlogsLabel}
+              />
+            </p>
           </Layout>
-        {/if}
-    </Retain>
+        </Retain>
+      {/if}
+    </Flow>
+
   </Layer>
 </section>

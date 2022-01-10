@@ -1,13 +1,21 @@
 <script>
   export let date;
-  export let as;
-  const dateObj = new Date(date);
+  export let as = null;
+
   let options = { year: 'numeric', month: 'long', day: 'numeric' };
+
   if (as === 'year') {
     options = { year: 'numeric' };
   }
-  const format = new Intl.DateTimeFormat('en', options);
-  const dateString = format.format(dateObj);
+
+  if (as === 'short') {
+    options = { month: 'short', day: 'numeric' };
+  }
+
+  const dateObj = new Date(date);
+  const dateFormat = new Intl.DateTimeFormat('en', options);
+  const dateString = dateFormat.format(dateObj);
 </script>
 
-{dateString}
+<time datetime={date}>{dateString}</time>
+

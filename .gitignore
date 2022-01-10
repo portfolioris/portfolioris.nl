@@ -1,8 +1,5 @@
-.DS_Store
+/.netlify/
 /node_modules/
-/src/node_modules/@sapper/
-/__sapper__/
+/.svelte-kit/
+/build/
 .env
-.env.*
-.graphqlconfig
-graphql.schema.json

@@ -1,18 +1,41 @@
 <script context="module">
-  export async function preload({ params }) {
-    const res = await this.fetch(`${params.rest}.json`);
+  export async function load({
+    params,
+    fetch,
+  }) {
+    const path = params.rest || 'home';
+    const res = await fetch(`/${encodeURIComponent(path)}.json`);
     const data = await res.json();
-    if (res.status === 200) {
-      return { data };
-    } else {
-      this.error(res.status, data.message);
+
+    if (data.error) {
+      return {
+        status: data.error,
+        error: new Error('not found'),
+      };
     }
+
+    return {
+      props: {
+        data,
+      },
+    };
   }
 </script>
 
 <script>
-  import ModularPageTemplate from './_ModularPageTemplate.svelte';
+  import Meta from './_templates/$Meta.svelte';
+  import ModularPageTemplate from './_templates/$ModularPageTemplate.svelte';
+  import BlogTemplate from './_templates/$BlogTemplate.svelte';
+
   export let data;
 </script>
 
-<ModularPageTemplate {...data} />
+<Meta {...data} />
+
+{#if data.modules}
+  <ModularPageTemplate {...data} />
+{/if}
+
+{#if data.template === 'blog'}
+  <BlogTemplate {...data} />
+{/if}
