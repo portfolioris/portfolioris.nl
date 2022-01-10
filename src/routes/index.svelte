@@ -22,8 +22,8 @@
 <hr />
 <br />
 
-<Layout fit gap="small" nowrap role="list">
-  <Cell fill role="listitem">
+<Layout class="o-layout  o-layout--fit  o-layout--gap-small  o-layout--nowrap" role="list">
+  <Cell role="listitem" class="o-layout__fill">
     Fill me
   </Cell>
   <li>

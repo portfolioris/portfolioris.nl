@@ -19,6 +19,9 @@ const config = {
     target: '#app',
 
     vite: {
+      server: {
+        host: true,
+      },
       css: {
         postcss: {
           plugins: [
