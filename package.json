@@ -25,7 +25,7 @@
   "dependencies": {
     "@supple-kit/supple-css": "^5.1.0",
     "lazysizes": "^5.3.2",
-    "marked": "^4.0.3",
+    "marked": "^4.0.10",
     "wicg-inert": "^3.1.1"
   },
   "devDependencies": {
