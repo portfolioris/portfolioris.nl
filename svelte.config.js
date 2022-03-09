@@ -16,7 +16,7 @@ const config = {
     adapter: adapter(),
 
     // hydrate the <div id="svelte"> element in src/app.html
-    target: '#app',
+    // target: '#app',
 
     vite: {
       css: {
@@ -29,17 +29,19 @@ const config = {
                   if (atRule.name === 'charset') {
                     atRule.remove();
                   }
-                }
-              }
-            }
+                },
+              },
+            },
           ],
         },
       },
-    //   ssr: {
-    //     noExternal: Object.keys(pkg.dependencies || {}),
-    //   },
+      //   ssr: {
+      //     noExternal: Object.keys(pkg.dependencies || {}),
+      //   },
     },
-    router: false,
+    // browser: {
+    //   router: false,
+    // },
   },
 };
 
