@@ -1,14 +1,22 @@
 <script>
+  import { onMount } from 'svelte';
   import Retain from '../atoms/objects/Retain.svelte';
   import PrimaryNav from '../molecules/PrimaryNav.svelte';
   import MenuToggle from '../molecules/MenuToggle.svelte';
   import Layout from '../atoms/objects/Layout.svelte';
-  import Cell from '../atoms/objects/Cell.svelte';
+  import Cell from '../atoms/objects/Cell.svelte';    import { prefersDark } from '../../utils/stores.js';
+
+  import { prefersDark } from '../../utils/stores';
 
   export let menuIsOpen = false;
   export let handleToggleMenu;
   export let items;
   export let activePage;
+
+  const toggleDarkLight = () => {
+    console.log('toggle');
+    prefersDark.update(value => value = !value);
+  };
 </script>
 
 <style lang="scss">
@@ -71,12 +79,16 @@
             <PrimaryNav items={items} activePage={activePage} />
           </div>
         </Cell>
-        <div class="c-header__toggle-foldout">
-          <MenuToggle
-            handleToggleMenu={handleToggleMenu}
-            menuIsOpen={menuIsOpen}
-          />
+        <div>
+          <button type="button" on:click={toggleDarkLight}>Toggle dark/light mode</button>
+          <div class="c-header__toggle-foldout">
+            <MenuToggle
+              handleToggleMenu={handleToggleMenu}
+              menuIsOpen={menuIsOpen}
+            />
+          </div>
         </div>
+
       </Layout>
     </div>
   </Retain>
