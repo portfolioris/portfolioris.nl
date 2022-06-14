@@ -43,10 +43,15 @@ export async function getMovies() {
 }
 
 export async function getBooks() {
-  const response = await fetch(import.meta.env.VITE_GOODREADS_URL);
+  let xml;
 
-  const xml = await response.text();
-  const parser = new xml2js.Parser({ explicitArray: false });
-  const result = await parser.parseStringPromise(xml);
-  return result.GoodreadsResponse.reviews.review;
+  try {
+    const response = await fetch(import.meta.env.VITE_GOODREADS_URL);
+    xml = await response.text();
+    const parser = new xml2js.Parser({ explicitArray: false });
+    const result = await parser.parseStringPromise(xml);
+    return result.GoodreadsResponse.reviews.review;
+  } catch (e) {
+    //
+  }
 }

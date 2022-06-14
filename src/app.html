@@ -12,7 +12,7 @@
 	<meta name="color-scheme" content="dark light">
   <!-- This contains the contents of the <svelte:head> component, if
        the current page has one -->
-  %svelte.head%
+  %sveltekit.head%
 
 	<!-- Webmentions -->
 	<link rel="webmention" href="https://webmention.io/www.portfolioris.nl/webmention">
@@ -28,7 +28,7 @@
 <body>
 <!-- The application will be rendered inside this element,
      because `src/client.js` references it -->
-<div id="svelte">%svelte.body%</div>
+<div id="svelte">%sveltekit.body%</div>
 
 </body>
 </html>
