@@ -23,7 +23,7 @@
   <Layer size="medium">
     <Retain size="wall">
       <Layout fit gap="base">
-        <p>© Portfolioris 2021</p>
+        <p>© Portfolioris 2022</p>
         <p><a href="https://twitter.com/Portfolioris" rel="me">Find me on Twitter</a></p>
         <p><a href="https://github.com/portfolioris" rel="me">Find me on GitHub</a></p>
         <p><a href="/rss.xml" rel="alternate">RSS</a></p>
