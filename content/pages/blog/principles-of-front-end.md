@@ -1,5 +1,6 @@
 ---
 template: blog
+lang: en
 title: Principles of front-end
 subtitle: My view on what's important on the job
 description: My view on what's important on the job
@@ -18,17 +19,17 @@ It’s not an option anymore to deliberately create inaccessible webpages and co
 
 Regularly audit pages and components using:
 
--	Axe
--	Firefox’s auditing tools
--	Wave
--	Voiceover of MacOS
+- Axe
+- Firefox’s auditing tools
+- Wave
+- Voiceover of MacOS
 
 These tools can report many of the following, but not all:
 
--	Well-structured HTML, correct usage of tags and attributes.
--	Correct heading structures.
--	Links for links to pages, buttons for in-page interactions.
--	Aria attributes when needed.
+- Well-structured HTML, correct usage of tags and attributes.
+- Correct heading structures.
+- Links for links to pages, buttons for in-page interactions.
+- Aria attributes when needed.
 
 ### Progressive enhancement
 
@@ -159,5 +160,5 @@ For icons and other vector based graphics we have a setup (in the legacy stack) 
 
 ## Research to do
 
--	Usage of WYSIWYG Markdown in Umbraco
--	Offline support with Service Workers
+- Usage of WYSIWYG Markdown in Umbraco
+- Offline support with Service Workers
