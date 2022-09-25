@@ -17,10 +17,10 @@
     "defaults"
   ],
   "scripts": {
-    "dev": "svelte-kit dev",
+    "dev": "vite dev",
     "net": "netlify dev",
-    "build": "svelte-kit build",
-    "preview": "svelte-kit preview"
+    "build": "vite build",
+    "preview": "vite preview"
   },
   "dependencies": {
     "@supple-kit/supple-css": "^5.1.0",
@@ -48,7 +48,7 @@
     "stylelint": "^14.0.1",
     "svelte": "^3.44.1",
     "svelte-preprocess": "^4.9.8",
-    "vite": "^2.6.13",
+    "vite": "^3.1.0",
     "xml2js": "^0.4.23"
   }
 }

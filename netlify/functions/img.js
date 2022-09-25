@@ -8,7 +8,7 @@ const API_ROOT = process.env.VITE_MEDIA_URL;
  http://localhost:8888/img/q_auto,f_auto,c_scale,w_1500/blog/start-layout.png
  */
 
-async function handler(event) {
+async function imgHandler(event) {
   const prefix = '/img/'; // need to be stripped of the path
   const url = `${API_ROOT}${event.path.substring(prefix.length)}`;
   try {
@@ -35,6 +35,9 @@ async function handler(event) {
       body: `error: ${e}`,
     };
   }
-};
+}
 
-exports.handler = builder(handler);
+const handler = builder(imgHandler);
+export { handler };
+
+// exports.handler = builder(handler);

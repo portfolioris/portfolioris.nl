@@ -1,5 +1,5 @@
-[dev]
-    framework = "svelte-kit"
+#[dev]
+#    framework = "svelte-kit"
 
 [build]
     publish = "build/"
