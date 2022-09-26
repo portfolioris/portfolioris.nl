@@ -12,6 +12,6 @@
   @use 'src/sass/leading';
 </style>
 
-<Navigation items="{data.navItems}" activePage="{segment}">
+<Navigation items="{data.siteData.primaryNav}" activePage="{segment}">
   <slot></slot>
 </Navigation>
