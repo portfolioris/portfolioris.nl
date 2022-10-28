@@ -24,9 +24,21 @@
     <Retain size="wall">
       <Layout fit gap="base">
         <p>© Portfolioris 2022</p>
-        <p><a href="https://twitter.com/Portfolioris" rel="me">Find me on Twitter</a></p>
-        <p><a href="https://github.com/portfolioris" rel="me">Find me on GitHub</a></p>
-        <p><a href="/rss.xml" rel="alternate">RSS</a></p>
+        <p>Me in other places:</p>
+        <Layout element="ul" fit gap="small">
+          <li>
+            <a href="https://twitter.com/Portfolioris" rel="me">Twitter</a>
+          </li>
+          <li>
+            <a href="https://github.com/portfolioris" rel="me">GitHub</a>
+          </li>
+          <li>
+            <a href="https://mastodon.nl/@Portfolioris">Mastodon</a>
+          </li>
+          <li>
+            <a href="/rss.xml" rel="alternate">RSS</a>
+          </li>
+        </Layout>
       </Layout>
     </Retain>
   </Layer>
