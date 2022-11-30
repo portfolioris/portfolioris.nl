@@ -33,7 +33,7 @@
             <a href="https://github.com/portfolioris" rel="me">GitHub</a>
           </li>
           <li>
-            <a href="https://mastodon.nl/@Portfolioris">Mastodon</a>
+            <a href="https://mastodon.nl/@Portfolioris" rel="me">Mastodon</a>
           </li>
           <li>
             <a href="/rss.xml" rel="alternate">RSS</a>
