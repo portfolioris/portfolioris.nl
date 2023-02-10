@@ -14,7 +14,7 @@ const config = {
       directives: {
         'script-src': ['self', '*.portfolioris.nl'],
       },
-      // mode: 'auto',
+      mode: 'hash',
     },
     // By default, `npm run build` will create a standard Node app.
     // You can create optimized builds for different platforms by
