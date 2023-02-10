@@ -31,7 +31,7 @@
   "devDependencies": {
     "@netlify/functions": "^1.0.0",
     "@supple-kit/stylelint-config-supple": "^4.0.0",
-    "@sveltejs/adapter-static": "^1.0.0-next.21",
+    "@sveltejs/adapter-static": "^2.0.1",
     "@sveltejs/kit": "^1.0.0-next.192",
     "eslint": "^8.2.0",
     "eslint-config-airbnb-base": "^15.0.0",
@@ -41,13 +41,11 @@
     "glob": "^8.0.3",
     "highlight.js": "^11.3.1",
     "node-fetch": "^3.1.0",
-    "node-html-parser": "^5.1.0",
-    "postcss": "^8.3.11",
-    "postcss-preset-env": "^7.0.1",
+    "node-html-parser": "^6.1.4",
     "sass": "^1.43.4",
-    "stylelint": "^14.0.1",
+    "stylelint": "^15.0.0",
     "svelte": "^3.44.1",
-    "svelte-preprocess": "^4.9.8",
+    "svelte-preprocess": "^5.0.1",
     "vite": "^4.0.4",
     "xml2js": "^0.4.23"
   }
