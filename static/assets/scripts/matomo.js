@@ -4,7 +4,7 @@ _paq.push(['setCookieDomain', '*.portfolioris.nl']);
 _paq.push(['trackPageView']);
 _paq.push(['enableLinkTracking']);
 (function () {
-  var u = 'https://analytics.portfolioris.nl/';
+  var u = 'https://matomo.portfolioris.nl/';
   _paq.push(['setTrackerUrl', u + 'matomo.php']);
   _paq.push(['setSiteId', '1']);
   var d = document,
