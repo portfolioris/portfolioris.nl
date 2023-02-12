@@ -7,6 +7,7 @@ description: Some subjects about good semantics and HTML structure. Before
 author: joris_hulsbosch
 date: 2020-11-10T14:40:43.008Z
 ---
+
 In this post I will touch on some subjects about good semantics and HTML structure. Before adding CSS and interaction via JS to a webpage.
 
 ## Text, text, text
@@ -27,9 +28,9 @@ A list is not always some lines of text with bullets of hyphens before it. Also,
 
 Any enumeration of things is a list. That includes mostly horizontal lists too:
 
--	Menu items
--	An overview of articles
--	Breadcrumbs. This is an ordered list, so use an `<ol>` element.
+- Menu items
+- An overview of articles
+- Breadcrumbs. This is an ordered list, so use an `<ol>` element.
 
 ## Buttons and links
 
@@ -37,8 +38,8 @@ Links and buttons are great. They have a bunch of accessibility features by defa
 
 There are only 2 main rules for links and buttons:
 
--	A link leads to another webpage, or another section of the same page.
--	A button submits a form or triggers an in-page interaction.
+- A link leads to another webpage, or another section of the same page.
+- A button submits a form or triggers an in-page interaction.
 
 An in-depth overview of the differences can be found in this article: https://css-tricks.com/a-complete-guide-to-links-and-buttons/
 

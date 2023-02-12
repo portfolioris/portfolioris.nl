@@ -15,12 +15,12 @@ renderer.paragraph = (input) => {
   return hasImage ? input : `<p>${input}</p>`;
 };
 
-renderer.image = (href, title, text) => (
+renderer.image = (href, title, text) =>
   Figure.render({
     figcaption: text,
     imgHref: href,
     alt: title,
-  }).html);
+  }).html;
 
 /** @type {import('./$types').PageServerLoad} */
 export async function pageData(params) {
@@ -60,7 +60,9 @@ export async function pageData(params) {
   if (pageData.template === 'blog') {
     // get author info
     if (fs.existsSync(`content/authors/${pageData.author}.md`)) {
-      const authorFile = fs.readFileSync(`content/authors/${pageData.author}.md`);
+      const authorFile = fs.readFileSync(
+        `content/authors/${pageData.author}.md`
+      );
       pageData.author = fm(authorFile.toString()).attributes;
     }
 
@@ -68,16 +70,15 @@ export async function pageData(params) {
     const pageFile = fs.readFileSync(`content/pages/${uri}.md`);
     pageData.content = fm(pageFile.toString()).body;
 
-    pageData.content = marked(
-      pageData.content,
-      {
-        renderer,
-        highlight: (code, language) => {
-          const validLanguage = hljs.getLanguage(language) ? language : 'css';
-          return `<div class="c-codeblock">${hljs.highlight(code, { language: validLanguage }).value}</div>`;
-        },
+    pageData.content = marked(pageData.content, {
+      renderer,
+      highlight: (code, language) => {
+        const validLanguage = hljs.getLanguage(language) ? language : 'css';
+        return `<div class="c-codeblock">${
+          hljs.highlight(code, { language: validLanguage }).value
+        }</div>`;
       },
-    );
+    });
   }
 
   return {

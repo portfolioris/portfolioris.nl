@@ -4,9 +4,7 @@ module.exports = {
     sourceType: 'module',
   },
   extends: ['airbnb-base'],
-  plugins: [
-    'svelte3',
-  ],
+  plugins: ['svelte3'],
   overrides: [
     {
       files: '**/*.svelte',

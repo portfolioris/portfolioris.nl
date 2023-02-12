@@ -17,9 +17,11 @@ export async function GET() {
         <title>${siteData.siteName}</title>
         <link>${siteData.domain}</link>
         <description>A blog about HTML, CSS, accessibility and other stuff.</description>
-        ${articles.map((article) => `
+        ${articles
+          .map(
+            (article) => `
           <item>
-            <title><![CDATA[${(article.title)}]]></title>
+            <title><![CDATA[${article.title}]]></title>
             <description>${article.subtitle}</description>
             <link>${siteData.domain}${article.uri}</link>
             <pubDate>${new Date(article.date)}</pubDate>
@@ -30,13 +32,15 @@ export async function GET() {
               </a>
             </content:encoded>
           </item>
-        `).join('')}
+        `
+          )
+          .join('')}
       </channel>
       </rss>`.trim(),
     {
       headers: {
         'Content-Type': 'application/xml',
       },
-    },
+    }
   );
 }

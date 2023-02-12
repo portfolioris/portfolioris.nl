@@ -1,7 +1,7 @@
 backend:
   name: git-gateway
   branch: main # Branch to update
-#  branch: feature/source-from-netlifycms # Branch to update
+  #  branch: feature/source-from-netlifycms # Branch to update
   local_backend: true
 media_folder: 'content/uploads' # Media files will be stored in the repo under content/uploads
 
@@ -23,9 +23,19 @@ collections:
         file: 'content/globals/site.md'
         fields:
           - { label: 'Site name', name: 'siteName', widget: 'string' }
-          - { label: 'Language', name: 'lang', widget: 'string', hint: 'Two-letter language code', pattern: ['.{2}', 'Not a 2-letter code'] }
+          - {
+              label: 'Language',
+              name: 'lang',
+              widget: 'string',
+              hint: 'Two-letter language code',
+              pattern: ['.{2}', 'Not a 2-letter code'],
+            }
           - { label: 'Default author', name: 'author', widget: 'string' }
-          - { label: 'Default Twitter handle', name: 'twitterHandle', widget: 'string' }
+          - {
+              label: 'Default Twitter handle',
+              name: 'twitterHandle',
+              widget: 'string',
+            }
           - { label: 'Domain', name: 'domain', widget: 'string' }
           - label: Primary navigation
             name: primaryNav
@@ -39,14 +49,14 @@ collections:
                 widget: relation
                 collection: pages
                 value_field: '{{slug}}'
-                display_fields: [ title ]
-                search_fields: [ title ]
+                display_fields: [title]
+                search_fields: [title]
 
   - name: authors
     label: Authors
     label_singular: author
     folder: content/authors
-    slug: "{{firstName}}_{{lastName}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    slug: '{{firstName}}_{{lastName}}' # Filename template, e.g., YYYY-MM-DD-title.md
     create: true
     fields:
       - { label: First name, name: firstName, widget: string }
@@ -58,8 +68,8 @@ collections:
     label_singular: page
     folder: 'content/pages'
     create: true
-#    nested: { depth: 100 }
-#    meta: { path: { widget: string, label: 'uri', index_file: 'index' } }
+    #    nested: { depth: 100 }
+    #    meta: { path: { widget: string, label: 'uri', index_file: 'index' } }
     fields:
       - { label: Title, name: title, widget: string }
       - { label: Description, name: description, widget: string }
@@ -103,8 +113,8 @@ collections:
                 widget: relation
                 collection: pages
                 value_field: '{{slug}}'
-                display_fields: [ title ]
-                search_fields: [ title ]
+                display_fields: [title]
+                search_fields: [title]
                 required: false
               - label: Amount of items to show
                 name: latest
@@ -134,24 +144,23 @@ collections:
                 widget: boolean
                 required: false
 
-
-  - name: "blog" # Used in routes, e.g., /admin/collections/blog
-    label: "Blog" # Used in the UI
-    folder: "content/pages/blog" # The path to the folder where the documents are stored
+  - name: 'blog' # Used in routes, e.g., /admin/collections/blog
+    label: 'Blog' # Used in the UI
+    folder: 'content/pages/blog' # The path to the folder where the documents are stored
     create: true # Allow users to create new documents in this collection
-#    slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    #    slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
     fields: # The fields for each document, usually in front matter
-      - {label: template, name: "template", widget: "hidden", default: blog}
-      - { label: "Language", name: "lang", widget: "string", default: "en" }
-      - {label: "Title", name: "title", widget: "string"}
-      - {label: "Subtitle", name: "subtitle", widget: "string"}
-      - {label: "Description", name: "description", widget: "string"}
+      - { label: template, name: 'template', widget: 'hidden', default: blog }
+      - { label: 'Language', name: 'lang', widget: 'string', default: 'en' }
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'Subtitle', name: 'subtitle', widget: 'string' }
+      - { label: 'Description', name: 'description', widget: 'string' }
       - label: Author
         name: author
         widget: relation
         collection: authors
         value_field: '{{slug}}'
         display_fields: ['{{firstName}} {{lastName}}']
-        search_fields: [ firstName, lastName ]
-      - {label: "Publish date", name: "date", widget: "datetime"}
-      - {label: "Content", name: "body", widget: "markdown"}
+        search_fields: [firstName, lastName]
+      - { label: 'Publish date', name: 'date', widget: 'datetime' }
+      - { label: 'Content', name: 'body', widget: 'markdown' }
