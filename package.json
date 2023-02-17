@@ -20,7 +20,8 @@
     "dev": "vite dev",
     "net": "netlify dev",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "cms": "npx http-server cms"
   },
   "dependencies": {
     "@supple-kit/supple-css": "^5.1.0",
