@@ -1,0 +1,34 @@
+---
+import Main from "../layouts/Main.astro";
+import ModularPageTemplate from "../routes/_templates/$ModularPageTemplate.svelte";
+import BlogPageTemplate from "../routes/_templates/$BlogTemplate.svelte";
+import fs from "fs";
+import fm from "front-matter";
+import { pageData } from "../routes/[...rest]/pageData";
+
+export async function getStaticPaths() {
+  const pages = await Astro.glob("../../content/pages/**/*.md");
+
+  return pages.map((page) => {
+    // strip starting slash
+    let path = page.url.slice(1);
+    if (path === "home") {
+      path = undefined;
+    }
+
+    return {
+      params: {
+        path,
+      },
+      props: page,
+    };
+  });
+}
+
+const data = await pageData(Astro.props.url.slice(1));
+---
+
+<Main {...data}>
+  {data.modules && <ModularPageTemplate {...data} />}
+  {data.template === "blog" && <BlogPageTemplate {...data} />}
+</Main>

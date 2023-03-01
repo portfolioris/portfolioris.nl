@@ -1,9 +1,9 @@
 [dev]
-    framework = "svelte-kit"
+    framework = "astro"
 
 [build]
-    publish = "build/"
-    command = "npm run build"
+    publish = "dist/"
+    command = "npm run astrobuild"
 
 [functions]
     node_bundler = "esbuild"
