@@ -2,8 +2,6 @@
 import Main from "../layouts/Main.astro";
 import ModularPageTemplate from "../routes/_templates/$ModularPageTemplate.svelte";
 import BlogPageTemplate from "../routes/_templates/$BlogTemplate.svelte";
-import fs from "fs";
-import fm from "front-matter";
 import { pageData } from "../routes/[...rest]/pageData";
 
 export async function getStaticPaths() {

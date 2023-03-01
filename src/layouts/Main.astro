@@ -1,7 +1,30 @@
 ---
 import Navigation from "../components/organisms/Navigation.svelte";
-const { title, site, description, author } = Astro.props;
+const { title, site, description, author, path } = Astro.props;
 const segment = Astro.url.pathname.split("/")[1];
+
+const itemListElements = path.map((segment, index) => ({
+  "@type": "ListItem",
+  position: index + 1,
+  item: {
+    "@id": `${site.domain}${segment.uri}`,
+    name: segment.title,
+  },
+}));
+
+const schema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: itemListElements,
+  },
+  {
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    url: site.domain,
+    name: site.siteName,
+  },
+];
 ---
 
 <!DOCTYPE html>
@@ -41,6 +64,9 @@ const segment = Astro.url.pathname.split("/")[1];
       rel="pingback"
       href="https://webmention.io/www.portfolioris.nl/xmlrpc"
     />
+
+    <script type="application/ld+json" set:html={JSON.stringify(schema)}
+    ></script>
 
     <!-- Matomo -->
     <script src="/assets/scripts/matomo.js" async></script>
