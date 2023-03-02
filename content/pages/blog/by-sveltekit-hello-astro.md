@@ -1,7 +1,7 @@
 ---
 template: blog
 lang: en
-title: By SvelteKit, hello Astro
+title: Bye SvelteKit, hello Astro
 subtitle: Choosing a more appropriate framework for a website
 description: Choosing a more appropriate framework for a website
 author: joris_hulsbosch
