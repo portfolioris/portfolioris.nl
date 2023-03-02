@@ -23,12 +23,9 @@
   <Layer size="medium">
     <Retain size="wall">
       <Layout fit gap="base">
-        <p>© Portfolioris 2022</p>
+        <p>© Portfolioris 2023</p>
         <p>Me in other places:</p>
         <Layout element="ul" fit gap="small">
-          <li>
-            <a href="https://twitter.com/Portfolioris" rel="me">Twitter</a>
-          </li>
           <li>
             <a href="https://github.com/portfolioris" rel="me">GitHub</a>
           </li>

@@ -1,0 +1,102 @@
+---
+import Navigation from "../components/organisms/Navigation.svelte";
+const { title, site, description, author, path } = Astro.props;
+const segment = Astro.url.pathname.split("/")[1];
+
+const itemListElements = path.map((segment, index) => ({
+  "@type": "ListItem",
+  position: index + 1,
+  item: {
+    "@id": `${site.domain}${segment.uri}`,
+    name: segment.title,
+  },
+}));
+
+const schema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: itemListElements,
+  },
+  {
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    url: site.domain,
+    name: site.siteName,
+  },
+];
+---
+
+<!DOCTYPE html>
+<html lang={site.lang} dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>{title} • {site.siteName}</title>
+    <meta name="description" content={description} />
+
+    {
+      author && (
+        <meta
+          name="author"
+          content={`${author.firstName} ${author.lastName}`}
+        />
+      )
+    }
+
+    <meta name="viewport" content="width=device-width" />
+
+    <link rel="manifest" href="/assets/manifest/manifest.json" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/assets/manifest/icons/icon-512x512.png"
+    />
+    <link rel="icon" href="/assets/manifest/icons/icon-48x48.png" />
+    <meta name="theme-color" content="#7dff00" />
+    <meta name="color-scheme" content="dark light" />
+
+    <!-- Webmentions -->
+    <link
+      rel="webmention"
+      href="https://webmention.io/www.portfolioris.nl/webmention"
+    />
+    <link
+      rel="pingback"
+      href="https://webmention.io/www.portfolioris.nl/xmlrpc"
+    />
+
+    <script type="application/ld+json" set:html={JSON.stringify(schema)}
+    ></script>
+
+    <!-- Matomo -->
+    <script src="/assets/scripts/matomo.js" async></script>
+    <noscript
+      ><img
+        src="https://matomo.portfolioris.nl/matomo.php?idsite=1&rec=1"
+        style="border:0;"
+        alt=""
+      /></noscript
+    >
+    <!-- End Matomo Code -->
+
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title="RSS"
+      href="/rss.xml"
+    />
+
+    <style is:global lang="scss">
+      @use "src/sass/leading";
+    </style>
+
+    <script>
+      import "lazysizes";
+    </script>
+  </head>
+  <body>
+    <Navigation client:load items={site.primaryNav} activePage={segment}>
+      <slot />
+    </Navigation>
+  </body>
+</html>
