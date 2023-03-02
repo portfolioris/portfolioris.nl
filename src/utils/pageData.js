@@ -10,7 +10,7 @@ hljs.registerLanguage("css", css);
 const renderer = new marked.Renderer();
 
 renderer.paragraph = (input) => {
-  const hasImage = input.startsWith("<figure>");
+  const hasImage = input.startsWith("<figure");
   return hasImage ? input : `<p>${input}</p>`;
 };
 
@@ -21,15 +21,6 @@ renderer.image = (href, title, text) =>
     alt: title,
   }).html;
 
-/** @type {import('./$types').PageServerLoad} */
-// export async function pageData(params) {
-//   const uri = decodeURIComponent(params.rest || 'home');
-//   const pagesCollection = getPages('content/pages');
-//   const pageData = pagesCollection.find((page) => page.uri === uri);
-//
-//   if (!pageData) {
-//     throw error(404, 'Not found');
-//   }
 export async function pageData(uri) {
   const pagesCollection = getPages("content/pages");
   const pageData = pagesCollection.find((page) => page.uri === uri);

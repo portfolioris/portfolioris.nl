@@ -1,10 +1,10 @@
 <script>
-  import Layer from '../../components/atoms/objects/Layer.svelte';
-  import Retain from '../../components/atoms/objects/Retain.svelte';
-  import Heading from '../../components/atoms/text/Heading.svelte';
-  import Text from '../../components/atoms/text/Text.svelte';
-  import DateString from '../../components/atoms/text/DateString.svelte';
-  import Flow from '../../components/atoms/objects/Flow.svelte';
+  import Layer from '../components/atoms/objects/Layer.svelte';
+  import Retain from '../components/atoms/objects/Retain.svelte';
+  import Heading from '../components/atoms/text/Heading.svelte';
+  import Text from '../components/atoms/text/Text.svelte';
+  import DateString from '../components/atoms/text/DateString.svelte';
+  import Flow from '../components/atoms/objects/Flow.svelte';
 
   export let content;
   export let title;

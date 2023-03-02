@@ -26,7 +26,6 @@
   "dependencies": {
     "@astrojs/svelte": "^2.0.2",
     "@supple-kit/supple-css": "^5.1.0",
-    "lazysizes": "^5.3.2",
     "marked": "^4.0.3",
     "wicg-inert": "^3.1.1"
   },

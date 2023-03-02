@@ -12,18 +12,23 @@
   }
 </script>
 
+<style>
+  img {
+      inline-size: 100%;
+  }
+</style>
+
 <picture>
   <source
-    data-srcset="{lazyload ? `${avifs.join(',')}` : null}"
+    srcset="{lazyload ? `${avifs.join(',')}` : null}"
     type="image/avif"
   >
   <source
-    data-srcset="{lazyload ? `${webps.join(',')}` : null}"
+    srcset="{lazyload ? `${webps.join(',')}` : null}"
     type="image/webp"
   >
   <img
-    class="lazyload"
-    sizes="auto"
+    loading="lazy"
     {alt}
   >
 </picture>
