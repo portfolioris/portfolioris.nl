@@ -6,7 +6,7 @@
   import Header from './Header.svelte';
   import Footer from './Footer.svelte';
   import Button from '../atoms/Button.svelte';
-  import { getKeyCode } from '../utilities';
+  import { getKeyCode } from '../../utils/utilities';
 
   let isLoaded = false;
   let menuIsOpen = false;

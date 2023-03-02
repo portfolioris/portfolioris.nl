@@ -17,12 +17,10 @@
     "defaults"
   ],
   "scripts": {
-    "astrodev": "astro dev",
-    "astrobuild": "astro build",
-    "dev": "vite dev",
+    "dev": "astro dev",
+    "build": "astro build",
     "net": "netlify dev",
-    "build": "vite build",
-    "preview": "vite preview",
+    "preview": "astro preview",
     "cms": "npx http-server cms"
   },
   "dependencies": {
@@ -36,7 +34,6 @@
     "@astrojs/rss": "^2.1.1",
     "@netlify/functions": "^1.0.0",
     "@supple-kit/stylelint-config-supple": "^4.0.0",
-    "@sveltejs/adapter-static": "^2.0.1",
     "astro": "^2.0.14",
     "eslint": "^8.2.0",
     "eslint-config-airbnb-base": "^15.0.0",

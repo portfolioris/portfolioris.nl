@@ -1,11 +1,10 @@
-import { error } from "@sveltejs/kit";
-import { getBooks, getMovies, getPages } from "../../utils/getDataFromApi.js";
+import { getBooks, getMovies, getPages } from "./getDataFromApi.js";
 import fs from "fs";
 import fm from "front-matter";
 import { marked } from "marked";
 import hljs from "highlight.js/lib/core";
 import css from "highlight.js/lib/languages/css";
-import Figure from "../../components/molecules/Figure.svelte";
+import Figure from "../components/molecules/Figure.svelte";
 
 hljs.registerLanguage("css", css);
 const renderer = new marked.Renderer();

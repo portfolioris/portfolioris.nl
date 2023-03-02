@@ -51,7 +51,7 @@
           <Flow space="tiny">
             <Text modifier="intro">{subtitle}</Text>
             <Text modifier="byline">
-              Added by <a href="https://twitter.com/{author.twitterHandle}">{author.firstName} {author.lastName}</a>, <DateString date={date} />
+              Added by <a href="https://mastodon.nl/{author.twitterHandle}">{author.firstName} {author.lastName}</a>, <DateString date={date} />
             </Text>
           </Flow>
         </Retain>

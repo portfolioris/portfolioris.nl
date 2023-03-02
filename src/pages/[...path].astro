@@ -2,7 +2,7 @@
 import Main from "../layouts/Main.astro";
 import ModularPageTemplate from "../routes/_templates/$ModularPageTemplate.svelte";
 import BlogPageTemplate from "../routes/_templates/$BlogTemplate.svelte";
-import { pageData } from "../routes/[...rest]/pageData";
+import { pageData } from "../utils/pageData.js";
 
 export async function getStaticPaths() {
   const pages = await Astro.glob("../../content/pages/**/*.md");
