@@ -1,6 +1,9 @@
 ---
 import Navigation from "../components/organisms/Navigation.svelte";
-const { title, site, description, author, path } = Astro.props;
+import * as siteData from "/src/content/globals/site.md";
+const site = siteData.frontmatter;
+const { title, description, author, path = [] } = Astro.props;
+// const { title, description, author } = Astro.props;
 const segment = Astro.url.pathname.split("/")[1];
 
 const itemListElements = path.map((segment, index) => ({

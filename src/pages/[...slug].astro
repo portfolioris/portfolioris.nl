@@ -1,0 +1,32 @@
+---
+import { getCollection, getEntryBySlug } from "astro:content";
+import Main from "../layouts/Main.astro";
+import ModularPageTemplate from "../_pages/_ModularPageTemplate.astro";
+import BlogPageTemplate from "../_pages/_Blog.astro";
+
+// 1. Generate a new path for every collection entry
+export async function getStaticPaths() {
+  // const blogEntries = await getCollection('blog');
+  const allPages = await getCollection("pages");
+
+  return allPages.map((entry) => ({
+    // return undefined if the slug is 'home'
+    params: { slug: entry.slug === "home" ? undefined : entry.slug },
+    props: entry,
+  }));
+}
+
+const { Content } = await Astro.props.render();
+const { data } = Astro.props;
+---
+
+<Main {...data}>
+  {data.modules && <ModularPageTemplate {...data} />}
+  {
+    data.template === "blog" && (
+      <BlogPageTemplate {...data}>
+        <Content />
+      </BlogPageTemplate>
+    )
+  }
+</Main>

@@ -3,7 +3,7 @@
   import Retain from '../atoms/objects/Retain.svelte';
   import DateString from '../atoms/text/DateString.svelte';
 
-  export let items;
+  export let items = [];
   export let collapseTop;
   export let collapseBottom;
 </script>

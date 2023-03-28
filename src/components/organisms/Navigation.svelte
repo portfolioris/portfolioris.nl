@@ -1,21 +1,13 @@
 <script>
-  // not listing svelte as devdep results in a build error
-  // eslint-disable-next-line import/no-extraneous-dependencies
-  import { onMount } from 'svelte';
   import Retain from '../atoms/objects/Retain.svelte';
   import Header from './Header.svelte';
   import Footer from './Footer.svelte';
   import Button from '../atoms/Button.svelte';
   import { getKeyCode } from '../../utils/utilities';
 
-  let isLoaded = false;
   let menuIsOpen = false;
   export let activePage;
   export let items = [];
-
-  onMount(() => {
-    isLoaded = true;
-  });
 
   let handleEscape;
 
@@ -51,11 +43,6 @@
   /*  Page wrappers
       ========================================================================= */
 
-  main {
-    max-width: 1920px;
-    margin: auto;
-  }
-
   :global(.c-body__skip-link) {
     position: absolute;
     z-index: 2;
@@ -83,7 +70,6 @@
     background-color: var(--color-background);
 
     &.is-open {
-      // 100% - base*3 - tiny, this is correct
       translate: calc(100% - var(--space-base) * 3 - var(--space-tiny));
     }
   }
@@ -121,7 +107,6 @@
       display: none;
     }
   }
-
 </style>
 
 <Button

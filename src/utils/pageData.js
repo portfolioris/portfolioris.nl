@@ -22,15 +22,17 @@ renderer.image = (href, title, text) =>
   }).html;
 
 export async function pageData(uri) {
-  const pagesCollection = getPages("content/pages");
-  const pageData = pagesCollection.find((page) => page.uri === uri);
+  // console.log(uri);
+  const pageData = {};
+  // const pagesCollection = getPages("content/pages");
+  // const pageData = pagesCollection.find((page) => page.uri === uri);
   const segments = [];
   const pieces = uri.split("/");
 
-  const pathData = pieces.map((segment) => {
-    segments.push(segment);
-    return pagesCollection.find((page) => page.uri === segments.join("/"));
-  });
+  // const pathData = pieces.map((segment) => {
+  //   segments.push(segment);
+  //   return pagesCollection.find((page) => page.uri === segments.join("/"));
+  // });
 
   const siteFile = fs.readFileSync("content/globals/site.md");
   const siteData = fm(siteFile.toString()).attributes;
@@ -76,6 +78,7 @@ export async function pageData(uri) {
   return {
     ...pageData,
     site: siteData,
-    path: pathData,
+    path: [],
+    // path: pathData,
   };
 }

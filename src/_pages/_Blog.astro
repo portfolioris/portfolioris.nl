@@ -1,0 +1,10 @@
+---
+import { getEntryBySlug } from "astro:content";
+import BlogTemplate from "../_pages/_BlogTemplate.svelte";
+const { content } = Astro.props;
+const author = await getEntryBySlug("authors", Astro.props.author);
+---
+
+<BlogTemplate {...Astro.props} content={content} author={author.data}>
+  <slot />
+</BlogTemplate>

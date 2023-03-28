@@ -2,7 +2,7 @@
   import Layer from '../atoms/objects/Layer.svelte';
   import Retain from '../atoms/objects/Retain.svelte';
 
-  export let items;
+  export let items = [];
   export let collapseTop;
   export let collapseBottom;
 </script>

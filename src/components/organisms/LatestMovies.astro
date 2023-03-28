@@ -1,0 +1,7 @@
+---
+import LatestMovies from "./LatestMovies.svelte";
+import { getMovies } from "../../utils/getDataFromApi";
+const movies = await getMovies();
+---
+
+<LatestMovies items={movies} />

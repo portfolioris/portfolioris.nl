@@ -7,7 +7,6 @@
 </script>
 
 <style global lang="scss">
-  @use 'node_modules/highlight.js/scss/a11y-light.scss'; // generated in rte, so cannot be scoped
   @use 'node_modules/@supple-kit/supple-css/tools/typography';
   @use 'src/sass/generic/utilities';
   @use 'src/sass/generic/headings';

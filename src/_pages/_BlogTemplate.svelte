@@ -24,7 +24,7 @@
       font-style: italic;
     }
 
-    :global(.c-codeblock) {
+    :global(.astro-code) {
       background-color: var(--color-white);
       padding: var(--space-base);
       margin-inline: calc(var(--space-base) * -1);
@@ -60,7 +60,9 @@
   </Layer>
   <Layer collapseTop>
     <Retain size="lap">
-      <Text>{@html content}</Text>
+      <Text>
+        <slot />
+      </Text>
     </Retain>
   </Layer>
 </article>

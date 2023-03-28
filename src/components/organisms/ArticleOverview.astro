@@ -1,0 +1,19 @@
+---
+import ArticleOverview from "./ArticleOverview.svelte";
+import { getCollection } from "astro:content";
+
+const blogItems = await getCollection("pages", (page) => {
+  return page.slug.startsWith("blog/");
+});
+
+const items = blogItems.map((item) => {
+  return {
+    ...item.data,
+    uri: item.slug,
+  };
+});
+
+items.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+---
+
+<ArticleOverview {...Astro.props} items={items} />

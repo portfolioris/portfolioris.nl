@@ -1,0 +1,18 @@
+---
+import RichTextBlock from "../components/organisms/RichTextBlock.svelte";
+import ArticleOverview from "../components/organisms/ArticleOverview.astro";
+import LatestMovies from "../components/organisms/LatestMovies.astro";
+import LatestBooks from "../components/organisms/LatestBooks.astro";
+const { modules } = Astro.props;
+---
+
+{
+  modules.map((module) => (
+    <>
+      {module.type === "richText" && <RichTextBlock {...module} />}
+      {module.type === "blogOverview" && <ArticleOverview {...module} />}
+      {module.type === "movies" && <LatestMovies {...module} />}
+      {module.type === "books" && <LatestBooks {...module} />}
+    </>
+  ))
+}

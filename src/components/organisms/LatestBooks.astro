@@ -1,0 +1,7 @@
+---
+import LatestBooks from "./LatestBooks.svelte";
+import { getBooks } from "../../utils/getDataFromApi";
+const books = await getBooks();
+---
+
+<LatestBooks items={books} />
