@@ -144,7 +144,7 @@ collections:
                 widget: boolean
                 required: false
 
-  - name: 'blog' # Used in routes, e.g., /admin/collections/blog
+  - name: 'blog' # Used in routes, e.g., /cms/collections/blog
     label: 'Blog' # Used in the UI
     folder: 'content/pages/blog' # The path to the folder where the documents are stored
     create: true # Allow users to create new documents in this collection

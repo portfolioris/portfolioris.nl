@@ -63,8 +63,9 @@
   }
 </style>
 
-<a
-  href="#navigation"
+<button
+  type="button"
+  aria-expanded="{menuIsOpen}"
   class="c-menu-toggle"
   class:is-open={menuIsOpen}
   on:click={handleToggleMenu}
@@ -82,4 +83,4 @@
   <span class="c-menu-toggle__label">
     menu
   </span>
-</a>
+</button>

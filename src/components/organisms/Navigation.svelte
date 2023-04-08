@@ -6,7 +6,7 @@
   import Header from './Header.svelte';
   import Footer from './Footer.svelte';
   import Button from '../atoms/Button.svelte';
-  import { getKeyCode } from '../utilities';
+  import { getKeyCode } from '../../utils/utilities';
 
   let isLoaded = false;
   let menuIsOpen = false;
@@ -77,14 +77,14 @@
   }
 
   .c-body-wrap__main {
-    transition: transform var(--base-transition-duration) var(--base-timing-function);
+    transition: translate var(--base-transition-duration) var(--base-timing-function);
     position: relative;
     z-index: 1;
     background-color: var(--color-background);
 
     &.is-open {
       // 100% - base*3 - tiny, this is correct
-      transform: translateX(calc(100% - calc(calc(var(--space-base) * 3) - var(--space-tiny))));
+      translate: calc(100% - var(--space-base) * 3 - var(--space-tiny));
     }
   }
 
@@ -95,11 +95,8 @@
     -webkit-overflow-scrolling: touch;
     padding-block-start: calc(var(--space-base) * 3);
     transition: transform var(--base-transition-duration) var(--base-timing-function);
-
-    &.is-loaded {
-      position: absolute;
-      transform: translateX(-50%);
-    }
+    position: absolute;
+    transform: translateX(-50%);
 
     &.is-open {
       transform: none;
@@ -155,7 +152,6 @@
   </div>
   <div
     class="c-body-wrap__navigation"
-    class:is-loaded={isLoaded}
     class:is-open={menuIsOpen}
     id="navigation"
     inert={menuIsOpen ? null : true}

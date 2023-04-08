@@ -1,17 +1,16 @@
-import { error } from '@sveltejs/kit';
-import { getBooks, getMovies, getPages } from '../../utils/getDataFromApi.js';
-import fs from 'fs';
-import fm from 'front-matter';
-import { marked } from 'marked';
-import hljs from 'highlight.js/lib/core';
-import css from 'highlight.js/lib/languages/css';
-import Figure from '../../components/molecules/Figure.svelte';
+import { getBooks, getMovies, getPages } from "./getDataFromApi.js";
+import fs from "fs";
+import fm from "front-matter";
+import { marked } from "marked";
+import hljs from "highlight.js/lib/core";
+import css from "highlight.js/lib/languages/css";
+import Figure from "../components/molecules/Figure.svelte";
 
-hljs.registerLanguage('css', css);
+hljs.registerLanguage("css", css);
 const renderer = new marked.Renderer();
 
 renderer.paragraph = (input) => {
-  const hasImage = input.startsWith('<figure>');
+  const hasImage = input.startsWith("<figure");
   return hasImage ? input : `<p>${input}</p>`;
 };
 
@@ -22,42 +21,35 @@ renderer.image = (href, title, text) =>
     alt: title,
   }).html;
 
-/** @type {import('./$types').PageServerLoad} */
-export async function pageData(params) {
-  const uri = decodeURIComponent(params.rest || 'home');
-  const pagesCollection = getPages('content/pages');
+export async function pageData(uri) {
+  const pagesCollection = getPages("content/pages");
   const pageData = pagesCollection.find((page) => page.uri === uri);
-
-  if (!pageData) {
-    throw error(404, 'Not found');
-  }
-
   const segments = [];
-  const pieces = uri.split('/');
+  const pieces = uri.split("/");
 
   const pathData = pieces.map((segment) => {
     segments.push(segment);
-    return pagesCollection.find((page) => page.uri === segments.join('/'));
+    return pagesCollection.find((page) => page.uri === segments.join("/"));
   });
 
-  const siteFile = fs.readFileSync('content/globals/site.md');
+  const siteFile = fs.readFileSync("content/globals/site.md");
   const siteData = fm(siteFile.toString()).attributes;
 
   if (pageData.modules) {
-    if (pageData.modules.some((module) => module.type === 'blogOverview')) {
-      pageData.blogs = getPages('content/pages/blog', 'blog/');
+    if (pageData.modules.some((module) => module.type === "blogOverview")) {
+      pageData.blogs = getPages("content/pages/blog", "blog/");
     }
 
-    if (pageData.modules.some((module) => module.type === 'movies')) {
+    if (pageData.modules.some((module) => module.type === "movies")) {
       pageData.movies = await getMovies();
     }
 
-    if (pageData.modules.some((module) => module.type === 'books')) {
+    if (pageData.modules.some((module) => module.type === "books")) {
       pageData.books = await getBooks();
     }
   }
 
-  if (pageData.template === 'blog') {
+  if (pageData.template === "blog") {
     // get author info
     if (fs.existsSync(`content/authors/${pageData.author}.md`)) {
       const authorFile = fs.readFileSync(
@@ -73,7 +65,7 @@ export async function pageData(params) {
     pageData.content = marked(pageData.content, {
       renderer,
       highlight: (code, language) => {
-        const validLanguage = hljs.getLanguage(language) ? language : 'css';
+        const validLanguage = hljs.getLanguage(language) ? language : "css";
         return `<div class="c-codeblock">${
           hljs.highlight(code, { language: validLanguage }).value
         }</div>`;

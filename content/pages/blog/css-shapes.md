@@ -9,9 +9,7 @@ author: joris_hulsbosch
 date: 2018-10-29T19:34:00.000Z
 ---
 
-Sinds jaren bestaan tekstvlakken in webpagina-layouts uit rechthoeken. CSS
-Shapes geven de mogelijkheid daar ook van af te wijken. Dorel — een klant van
-Colours — kwam met de vraag het volgende ontwerp te realiseren.
+Sinds jaren bestaan tekstvlakken in webpagina-layouts uit rechthoeken. CSS Shapes geven de mogelijkheid daar ook van af te wijken. Dorel — een klant van Colours — kwam met de vraag het volgende ontwerp te realiseren.
 
 ![Quinny mockup component](blog/ZappXWebsiteMockups.png 'Quinny mockup component')
 
