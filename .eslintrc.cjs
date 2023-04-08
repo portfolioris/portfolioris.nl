@@ -3,10 +3,8 @@ module.exports = {
     ecmaVersion: 7,
     sourceType: 'module',
   },
-  extends: ['airbnb-base'],
-  plugins: [
-    'svelte3',
-  ],
+  extends: ['airbnb-base', "prettier"],
+  plugins: ['svelte3'],
   overrides: [
     {
       files: '**/*.svelte',

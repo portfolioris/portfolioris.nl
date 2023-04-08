@@ -2,7 +2,7 @@
 siteName: Portfolioris
 lang: en
 author: joris_hulsbosch
-twitterHandle: "@Portfolioris"
+twitterHandle: '@Portfolioris'
 domain: https://www.portfolioris.nl/
 primaryNav:
   - label: Home

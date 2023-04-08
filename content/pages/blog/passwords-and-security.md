@@ -8,14 +8,15 @@ description: I upped the security of my own data. Here is how I did it, and how
 author: joris_hulsbosch
 date: 2015-09-17T13:51:41.807Z
 ---
+
 A while ago, there was a big fuss about the security of iCloud and other cloud hosting services. A lot of private data (from some celebrities, I’m sure you remember the pictures) was leaked onto the Internet. Not that I have those kind of pictures, let alone saved to some cloud storage, but out of curiosity, I decided to up the security of my own data. Here is how I did it, and how you can do it too.
 
 First of all, there are some rules about passwords, which you probably already know, but never really taken into account:
 
-* Remember you password, don’t write it down;
-* Make it difficult or impossible for others to guess;
-* Don’t use words in the dictionary, names, or any other very common phrase;
-* Do not use the same password for every online service you use;
+- Remember you password, don’t write it down;
+- Make it difficult or impossible for others to guess;
+- Don’t use words in the dictionary, names, or any other very common phrase;
+- Do not use the same password for every online service you use;
   etc.
 
 So how do you remember 20 different difficult passwords? You don’t.
@@ -24,9 +25,9 @@ So how do you remember 20 different difficult passwords? You don’t.
 
 I let software remember my passwords. I researched some applications by a couple of requirements:
 
-* Be very safe by itself (strong encryption);
-* Passwords should not be saved in a cloud storage service;
-* Cross platform accessible (on my computers, and on my iPhone).
+- Be very safe by itself (strong encryption);
+- Passwords should not be saved in a cloud storage service;
+- Cross platform accessible (on my computers, and on my iPhone).
 
 I decided to use KeePass[\*](#note) for Windows. On MacOS, I have KeePassX, and on iPhone MiniKeePass. It all works with the same password file, let’s say passwords.kdbx. This file contains a password database, and is encrypted with one main password. So, I need to remember only a single password. I have chosen a very strong one: no words, but uppercase and lowercase letters, numbers and some punctuation marks.
 
@@ -36,7 +37,7 @@ KeePass let’s you create records of your (online) accounts. There are fields f
 
 What I really like about KeePass, is that it has a password generator. You can choose what kind of characters it may use. If you select all options, it generates a password like this:
 
-Y%K*mw`KDPu<W5d7hdq(
+Y%K\*mw`KDPu<W5d7hdq(
 
 I certainly can’t remember this, you? But I don’t need to. I even never actually see the password: I just copy-paste them. So no one who looks at my screen, or looks at the keystrokes I make, or a keylogger can ever see my password too.
 

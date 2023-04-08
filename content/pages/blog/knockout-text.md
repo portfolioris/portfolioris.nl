@@ -9,6 +9,7 @@ description: Effecten op tekst, zoals een verloop (gradient) of een afbeelding
 author: joris_hulsbosch
 date: 2018-12-13T14:19:00.000Z
 ---
+
 'Knockout text' is tekst waarbij het lijkt alsof je door uitgeknipte letters heen kijkt. Dit geeft de mogelijkheid om effecten op tekst toe te passen, zoals een verloop (gradient) of een afbeelding te tonen in de letters.
 
 ![Knockout-tekst](blog/text-met-gradient.png)
@@ -25,12 +26,17 @@ Om de tekst leesbaar te houden, kun je de hele CSS-declaratie in een `@supports`
 
 ```css
 @supports (background-clip: text) {
-    .u-text--gradient {
-        display: inline-block;
-        background-image: linear-gradient(to right, #0055a0 0, #009de0 50%, #78be20 100%);
-        color: transparent;
-        background-clip: text;
-    }
+  .u-text--gradient {
+    display: inline-block;
+    background-image: linear-gradient(
+      to right,
+      #0055a0 0,
+      #009de0 50%,
+      #78be20 100%
+    );
+    color: transparent;
+    background-clip: text;
+  }
 }
 ```
 

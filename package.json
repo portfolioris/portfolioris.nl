@@ -37,6 +37,7 @@
     "astro": "^2.0.14",
     "eslint": "^8.2.0",
     "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-import": "^2.25.2",
     "eslint-plugin-svelte3": "^4.0.0",
     "front-matter": "^4.0.2",
@@ -45,6 +46,7 @@
     "node-fetch": "^3.1.0",
     "node-html-parser": "^6.1.4",
     "sass": "^1.43.4",
+    "stylelint-config-prettier": "^9.0.5",
     "svelte": "^3.55.1",
     "svelte-preprocess": "^5.0.1",
     "xml2js": "^0.4.23"
