@@ -6,7 +6,9 @@ description: The journey to make websites the most accessible
 author: joris_hulsbosch
 date: 2020-06-12T13:30:42.762Z
 ---
+
 ## What?
+
 WCAG. It stands for Web Content Accessibility Guidelines. It’s definition:
 
 > "WCAG 2.1 covers a wide range of recommendations for making Web content more accessible. Following these guidelines will make content more accessible to a wider range of people with disabilities. […] Following these guidelines will also often make Web content more usable to users in general.”

@@ -7,7 +7,8 @@ description: My view on what's important on the job
 author: joris_hulsbosch
 date: 2020-04-24T13:29:04.185Z
 ---
-I wrote the following article for some new colleagues at *We are you* (WAY), to explain how we work and why we work this way.
+
+I wrote the following article for some new colleagues at _We are you_ (WAY), to explain how we work and why we work this way.
 
 ## Content first
 
@@ -98,7 +99,7 @@ Also, most front-end developers have Apple Macs, which can’t run Umbraco, beca
 
 ### Patternlab
 
-To create styleguides, we use Patternlab. It’s a Gulp-driven setup to create an interface where you can browse through all components. Changes to HTML, CSS and JS are hot-reloaded, which makes development fast. 
+To create styleguides, we use Patternlab. It’s a Gulp-driven setup to create an interface where you can browse through all components. Changes to HTML, CSS and JS are hot-reloaded, which makes development fast.
 
 ### Mustache
 
@@ -120,7 +121,7 @@ Only used in the HAS Hogeschool project. It is a nice way to conditionally load 
 
 ### Gulp
 
-Our Patternlab setup is powered by Gulp. A single npm command runs a hot-reloading local development server. Another one outputs bundled, minified CSS and JS and an svg sprite, all to be used by the Umbraco application. It runs on any system. We can automatically deploy and serve it on Netlify, so the whole team can see and use to styleguide. 
+Our Patternlab setup is powered by Gulp. A single npm command runs a hot-reloading local development server. Another one outputs bundled, minified CSS and JS and an svg sprite, all to be used by the Umbraco application. It runs on any system. We can automatically deploy and serve it on Netlify, so the whole team can see and use to styleguide.
 
 [HAS styleguide](https://has-hogeschool-styleguide.netlify.com)
 

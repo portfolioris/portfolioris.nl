@@ -7,9 +7,10 @@ description: Modern methodologies and features for a fast user experience
 author: joris_hulsbosch
 date: 2020-10-08T13:42:59.695Z
 ---
-Update September 22nd 2021: I've held a presentation about this in the front-end guild meeting at *We are you*. You can [view the slides of this presentation on Notist](https://noti.st/portfolioris/pyYftI/schouten-nelissen-front-end-methodes-technieken).
 
-Recently, me and my team at *We are you* launched the new website for *Schouten & Nelissen*. I am proud of the result and we get a lot of good remarks about the new site. I also hear people say that it’s really fast. While the back-end developers focused on the server’s response times, I’ve put a lot of effort in the front-end stack and methods, which contributes greatly to the overall speed.
+Update September 22nd 2021: I've held a presentation about this in the front-end guild meeting at _We are you_. You can [view the slides of this presentation on Notist](https://noti.st/portfolioris/pyYftI/schouten-nelissen-front-end-methodes-technieken).
+
+Recently, me and my team at _We are you_ launched the new website for _Schouten & Nelissen_. I am proud of the result and we get a lot of good remarks about the new site. I also hear people say that it’s really fast. While the back-end developers focused on the server’s response times, I’ve put a lot of effort in the front-end stack and methods, which contributes greatly to the overall speed.
 
 ## Components and a styleguide
 
@@ -41,16 +42,16 @@ I now use the modern native way of lazy loading images, with `<img loading=”la
 
 ## More nice tools
 
-* 1 SVG sprite for all icons
-* Gulp, to spin all of the above up in a hot-reloading local development server
-* 1 variable font, multiple-file fallback
-* My first use of the `inert` attribute
-* Custom form validation, modals, tabs
-* [SwiperJS](https://swiperjs.com/) for carousels
+- 1 SVG sprite for all icons
+- Gulp, to spin all of the above up in a hot-reloading local development server
+- 1 variable font, multiple-file fallback
+- My first use of the `inert` attribute
+- Custom form validation, modals, tabs
+- [SwiperJS](https://swiperjs.com/) for carousels
 
 ## Todo’s
 
-* No HTTP/2: current hosting solution doesn’t support it
+- No HTTP/2: current hosting solution doesn’t support it
 
 I hope you like this stack. We have an open-source scaffolding tool to setup all this tooling, so you can start using it right away in your project: [Pattern Lab Starterkit](https://github.com/weareyou/generator-patternlab-starterkit/)
 

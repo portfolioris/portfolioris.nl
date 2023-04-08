@@ -6,6 +6,7 @@ description: A transcript of my presentation at We are you
 author: joris_hulsbosch
 date: 2019-04-30T13:26:58.191Z
 ---
+
 I gave an internal presentation at We are you called Browsers & Design Systems. Here is a transcript of what I presented. You can view [the slides on Notist](https://noti.st/portfolioris/RZbJM6).
 
 ## Browsers

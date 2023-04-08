@@ -6,9 +6,10 @@ description: Recording a song in times of corona crisis
 author: joris_hulsbosch
 date: 2020-05-11T13:29:55.624Z
 ---
+
 ![Who are we playing Lockdown](blog/Who_are_we_-_Lockdown-8-1.jpg)
 
-For about half a year, I am in a cover band called *Who are we.* The band consists of 6 colleagues from *We are you*, my current employer. Before the corona crisis, we practiced once a month at the office. We performed for an audience only once: for all *We are you* colleagues from the Rotterdam office at the Christmas party. Since the lockdown of March 2020, we didn’t see each other anymore, let alone play together.
+For about half a year, I am in a cover band called _Who are we._ The band consists of 6 colleagues from _We are you_, my current employer. Before the corona crisis, we practiced once a month at the office. We performed for an audience only once: for all _We are you_ colleagues from the Rotterdam office at the Christmas party. Since the lockdown of March 2020, we didn’t see each other anymore, let alone play together.
 
 On Tuesday, March 24th of 2020, our lead singer Emil, proposed to write a song together, and record it at our homes. He was thinking of a rock song called Lockdown.
 
@@ -44,7 +45,7 @@ Because we were already planning the official release of the song, we had a bit 
 
 ## The website
 
-Since I had the logo in CSS and we knew the release date, we wanted a simple website to support the single. I created an animation of the artwork, and implemented a counter plugin (Flip, which is absolutely great by the way), that counted down to the 29th at 12PM. I created screen recordings of this, which were shown in a *We are you* internal video presentation.
+Since I had the logo in CSS and we knew the release date, we wanted a simple website to support the single. I created an animation of the artwork, and implemented a counter plugin (Flip, which is absolutely great by the way), that counted down to the 29th at 12PM. I created screen recordings of this, which were shown in a _We are you_ internal video presentation.
 
 ## The release
 
