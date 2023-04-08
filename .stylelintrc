@@ -1,5 +1,5 @@
 {
-  "extends": "@supple-kit/stylelint-config-supple",
+  "extends": ["@supple-kit/stylelint-config-supple", "stylelint-config-prettier"],
   "rules": {
     "selector-pseudo-class-no-unknown": [
       true,
