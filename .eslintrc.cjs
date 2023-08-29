@@ -3,14 +3,13 @@ module.exports = {
     ecmaVersion: 7,
     sourceType: 'module',
   },
-  extends: ['airbnb-base', "prettier"],
-  plugins: ['svelte3'],
-  overrides: [
-    {
-      files: '**/*.svelte',
-      processor: 'svelte3/svelte3',
-    },
-  ],
+  extends: ['airbnb-base', "prettier", 'plugin:svelte/recommended'],
+  // overrides: [
+  //   {
+  //     files: '*.svelte',
+  //     processor: 'svelte-eslint-parser',
+  //   },
+  // ],
   env: {
     browser: true,
     node: true,
@@ -19,14 +18,6 @@ module.exports = {
     'import/no-mutable-exports': 0,
     'import/prefer-default-export': 0,
     'import/first': 0,
-    // 'arrow-body-style': 'off',
-    // 'no-multiple-empty-lines': [
-    //   'error',
-    //   {
-    //     'max': 3,
-    //     'maxEOF': 1,
-    //   },
-    // ],
     // 'no-param-reassign': ['error', { 'props': false }],
   },
   settings: {

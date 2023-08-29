@@ -18,6 +18,9 @@
   }
 </style>
 
+{url}
+<!--
+
 <picture>
   <source
     srcset="{lazyload ? `${avifs.join(',')}` : null}"
@@ -32,3 +35,4 @@
     {alt}
   >
 </picture>
+-->

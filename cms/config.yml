@@ -1,16 +1,17 @@
 backend:
   name: git-gateway
-  branch: main # Branch to update
-  #  branch: feature/source-from-netlifycms # Branch to update
+#  branch: main # Branch to update
+  branch: refactor/astro-to-all # Branch to update
   local_backend: true
-media_folder: 'content/uploads' # Media files will be stored in the repo under content/uploads
+#media_folder: 'content/uploads' # Media files will be stored in the repo under content/uploads
+media_folder: 'src/assets' # Media files will be stored in the repo under content/uploads
 
-media_library:
-  name: cloudinary
-  output_filename_only: true
-  config:
-    cloud_name: portfolioris
-    api_key: 697687196319566
+#media_library:
+#  name: cloudinary
+#  output_filename_only: true
+#  config:
+#    cloud_name: portfolioris
+#    api_key: 697687196319566
 
 collections:
   - label: 'Global options'
@@ -151,6 +152,24 @@ collections:
     #    slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
     fields: # The fields for each document, usually in front matter
       - { label: template, name: 'template', widget: 'hidden', default: blog }
+      - label: Modular content
+        name: modular_content
+        widget: list
+        types:
+          - label: Text
+            name: text
+            widget: object
+            fields:
+              - label: 'Rich text'
+                name: richText
+                widget: markdown
+          - label: Image
+            name: image
+            widget: object
+            fields:
+              - Label: Image
+                name: image
+                widget: image
       - { label: 'Language', name: 'lang', widget: 'string', default: 'en' }
       - { label: 'Title', name: 'title', widget: 'string' }
       - { label: 'Subtitle', name: 'subtitle', widget: 'string' }

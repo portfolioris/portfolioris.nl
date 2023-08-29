@@ -1,17 +1,18 @@
 // import glob from 'glob';
 import fs from "fs";
-import fm from "front-matter";
+// import fm from "front-matter";
 import path from "path";
 import xml2js from "xml2js";
 import { parse } from "node-html-parser";
+/*
 
 export const getPages = (directory, uriPrefix = "") => {
   const pages = [];
 
-  // const files = import.meta.glob.sync("**/*.md", {
+  // const files = import.meta.glob.sync("**!/!*.md", {
   //   cwd: directory,
   // });
-  const files = import.meta.glob("/content/pages/**/*.md");
+  const files = import.meta.glob("/content/pages/!**!/!*.md");
   console.log(files);
 
   files.forEach((file) => {
@@ -28,6 +29,7 @@ export const getPages = (directory, uriPrefix = "") => {
 
   return pages;
 };
+*/
 
 export async function getMovies() {
   const response = await fetch(import.meta.env.VITE_IMDB_URL);

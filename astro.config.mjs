@@ -1,13 +1,8 @@
 import { defineConfig } from 'astro/config';
-import { svelte as sveltePlugin } from '@sveltejs/vite-plugin-svelte';
-import { remarkImage } from './src/utils/remark-image';
-
-// https://astro.build/config
 import svelte from "@astrojs/svelte";
 import sveltePreprocess from "svelte-preprocess";
-// import Figure from "./src/components/molecules/Figure.svelte";
+import remarkImage from './src/utils/remark-image';
 
-// https://astro.build/config
 export default defineConfig({
   publicDir: './static',
   integrations: [svelte({
@@ -15,18 +10,24 @@ export default defineConfig({
   })],
   site: 'https://www.portfolioris.nl',
   markdown: {
-    shikiConfig: {
-      wrap: true,
-    },
-    rehypePlugins: [
-      remarkImage,
-    ],
+    syntaxHighlight: 'prism',
+    // shikiConfig: {
+    //   wrap: true,
+    // },
+    // rehypePlugins: [
+    //   remarkImage,
+    // ],
   },
-  // vite: {
-  //   plugins: [
-  //     sveltePlugin({
-  //       preprocess: sveltePreprocess(),
-  //     }),
-  //   ]
-  // }
+  experimental: {
+    assets: true,
+  },
+  image: {
+    service: { entrypoint: 'astro/assets/services/sharp' },
+    // domains: ['res.cloudinary.com']
+  },
+  vite: {
+    css: {
+      devSourcemap: true,
+    }
+  }
 });

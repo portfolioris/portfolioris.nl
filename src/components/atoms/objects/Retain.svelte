@@ -14,15 +14,15 @@
       ========================================================================= */
 
   @include responsive.mq(desk) {
-    .o-retain--wall {
-      padding-inline-start: 9%;
-      padding-inline-end: 9%;
-    }
+    //.o-retain--wall {
+    //  padding-inline-start: 9%;
+    //  padding-inline-end: 9%;
+    //}
 
-    .o-retain--breakout {
-      padding-inline-start: calc(9% - var(--space-base));
-      padding-inline-end: calc(9% - var(--space-base));
-    }
+    //.o-retain--breakout {
+    //  padding-inline-start: calc(9% - var(--space-base));
+    //  padding-inline-end: calc(9% - var(--space-base));
+    //}
   }
 </style>
 
