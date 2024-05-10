@@ -36,14 +36,4 @@ modules:
       * Gulp, Webpack
 
       * Agile, Scrum, Git
-
-
-      ## I love
-
-
-      * The Web
-
-      * My wife, my kids and my friends
-
-      * Taking care of the environment
 ---
