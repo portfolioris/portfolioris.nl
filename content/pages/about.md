@@ -11,7 +11,7 @@ modules:
       Front-end UI developer from Eindhoven, the Netherlands. I specialize in responsive Web design and styleguides. I am a performance, progressive enhancement and accessibility advocate. I write clean, readable and scalable code to create beautiful online experiences for all users.
 
 
-      My current employer is [iO](https://www.iodigital.com), a digital agency in the Netherlands, where I work with clients like HAS Green Academy, Sazas and IBN. Before, I worked with Vesteda, Van Lanschot, Dunea, Vitens and Evides. Before iO I worked at digital agency [Partout d.n.a.](https://www.partout.nl/), for clients like Koopmans, Dr. Oetker, Weleda and Longfonds.
+      My current employer is [iO](https://www.iodigital.com), a digital agency in the Netherlands, where I work mainly for DAF. I also worked with HAS Green Academy, Sazas and IBN, Vesteda, Van Lanschot, Dunea, Vitens and Evides. Before iO I worked at digital agency [Partout d.n.a.](https://www.partout.nl/), for clients like Koopmans, Dr. Oetker, Weleda and Longfonds.
 
 
       I have a background in arts, graphic design, audiovisual design, animation, marketing, communication. I studied audiovisual design at St. Joost Academy in Breda, Communication and Design at SintLucas in Boxtel, and Interactive Media at Hogeschool van Amsterdam.
@@ -31,9 +31,9 @@ modules:
 
       * HTML, CSS and JavaScript
 
-      * Pattern-Lab and Storybook
+      * Pattern-Lab, Fractal and Storybook
 
-      * Gulp, Webpack
+      * Vite
 
       * Agile, Scrum, Git
 ---
