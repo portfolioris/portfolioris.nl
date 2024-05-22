@@ -1,5 +1,5 @@
 ---
 firstName: Joris
 lastName: Hulsbosch
-twitterHandle: '@Portfolioris'
+mastodonHandle: '@Portfolioris@mastodon.nl'
 ---

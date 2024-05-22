@@ -5,6 +5,8 @@ import { marked } from "marked";
 import hljs from "highlight.js/lib/core";
 import css from "highlight.js/lib/languages/css";
 import Figure from "../components/molecules/Figure.svelte";
+import { page } from "$app/stores";
+import { error } from "@sveltejs/kit";
 
 hljs.registerLanguage("css", css);
 const renderer = new marked.Renderer();
@@ -22,20 +24,27 @@ renderer.image = (href, title, text) =>
   }).html;
 
 export async function pageData(uri) {
+  // get site data
+  const siteFile = fs.readFileSync("content/globals/site.md");
+  const siteData = fm(siteFile.toString()).attributes;
+  // find page
   const pagesCollection = getPages("content/pages");
   const pageData = pagesCollection.find((page) => page.uri === uri);
+
+  if (!pageData) {
+    error(404, {
+      site: siteData,
+    });
+  }
+
   const segments = [];
   const pieces = uri.split("/");
-
   const pathData = pieces.map((segment) => {
     segments.push(segment);
     return pagesCollection.find((page) => page.uri === segments.join("/"));
   });
 
-  const siteFile = fs.readFileSync("content/globals/site.md");
-  const siteData = fm(siteFile.toString()).attributes;
-
-  if (pageData.modules) {
+  if (pageData?.modules) {
     if (pageData.modules.some((module) => module.type === "blogOverview")) {
       pageData.blogs = getPages("content/pages/blog", "blog/");
     }
@@ -49,11 +58,11 @@ export async function pageData(uri) {
     }
   }
 
-  if (pageData.template === "blog") {
+  if (pageData?.template === "blog") {
     // get author info
     if (fs.existsSync(`content/authors/${pageData.author}.md`)) {
       const authorFile = fs.readFileSync(
-        `content/authors/${pageData.author}.md`
+        `content/authors/${pageData.author}.md`,
       );
       pageData.author = fm(authorFile.toString()).attributes;
     }

@@ -3,38 +3,41 @@
     Describes toplevel styles such as HTML, body, etc.
     ========================================================================= */
 
-@use 'src/sass/vars';
-@use 'node_modules/@supple-kit/supple-css/tools/responsive';
-@use 'node_modules/@supple-kit/supple-css/tools/space';
+@use "src/sass/vars";
+@use "node_modules/@supple-kit/supple-css/tools/responsive";
+@use "node_modules/@supple-kit/supple-css/tools/space";
 
 html {
   // colors
   --green: 125, 255, 0;
-  --color-green: rgba(var(--green), 1);
-  --transparent-green: rgba(var(--green), 0);
+  --color-green: rgb(var(--green) 1);
+  --transparent-green: rgb(var(--green) 0);
   --color-white: #ffffff;
   --color-black: #000000;
   --color-gray-light: #f1f1f1;
   --color-background: var(--color-black);
   --color-foreground: var(--color-white);
+
   // fonts
-  --font-family-primary: 'Open Sans', sans-serif;
-  --font-family-secondary: 'Insignia', sans-serif;
-  --font-weight-bold: bold;
+  --font-family-primary: "Open Sans", sans-serif;
+  --font-family-secondary: "Insignia", sans-serif;
+  --font-weight-bold: 700;
+
   // animations
   --base-timing-function: cubic-bezier(0.55, 0, 0.1, 1);
   --base-transition-duration: 600ms;
   --base-transition-duration-short: 300ms;
+
   // spacing
-  --space-tiny: #{space.get('tiny')};
-  --space-small: #{space.get('small')};
-  --space-base: #{space.get('base')};
-  --space-large: #{space.get('large')};
-  --space-huge: #{space.get('huge')};
+  --space-tiny: #{space.get("tiny")};
+  --space-small: #{space.get("small")};
+  --space-base: #{space.get("base")};
+  --space-large: #{space.get("large")};
+  --space-huge: #{space.get("huge")};
 
   @media (prefers-color-scheme: light) {
     --color-background: var(--color-white);
-    --color-foreground: #{var(--color-black)};
+    --color-foreground: var(--color-black);
   }
   color-scheme: light dark; /* both supported */
   font-family: var(--font-family-primary);

@@ -59,6 +59,6 @@ So how would we manage accounts that are shared with your co-workers? You probab
 
 How can you and all co-workers keep things safe? I’m still not sure about that. We could keep a password database file on the central server. Also, in KeePass, there is an option to require a security key (a file) for opening a database file. We could give everyone a personal USB-stick with the key on it, which they have to keep with them.
 
-## Note
+## Note {#note}
 
 Since I've written this article, I've switched to 1Password. I also don't use Gmail and Facebook anymore.

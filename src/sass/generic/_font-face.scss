@@ -3,54 +3,20 @@
     Describes typography
     ========================================================================= */
 
-/* open-sans-300 - latin */
+/* Open Sans - latin */
 @font-face {
   font-family: Open Sans;
   font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url("/static/assets/fonts/open-sans-v15-latin/open-sans-v15-latin-400regular.woff2")
-      format("woff2"),
-    url("/static/assets/fonts/open-sans-v15-latin/open-sans-v15-latin-400regular.woff")
-      format("woff");
+  font-weight: 400 700;
+  src: url("/src/fonts/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTS-mu0SC55I(1).woff2") format("woff2");
 }
 
-/* open-sans-300italic - latin */
+/* Open Sans - latin - italic */
 @font-face {
   font-family: Open Sans;
   font-style: italic;
-  font-weight: 400;
-  font-display: swap;
-  src: url("/static/assets/fonts/open-sans-v15-latin/open-sans-v15-latin-400italic.woff2")
-      format("woff2"),
-    url("/static/assets/fonts/open-sans-v15-latin/open-sans-v15-latin-400italic.woff")
-      format("woff");
-}
-
-/* open-sans-700 - latin */
-@font-face {
-  font-family: Open Sans;
-  font-style: normal;
-  font-weight: 700;
-  font-display: swap;
-  src: local("Open Sans Bold"), local("OpenSans-Bold"),
-    url("/static/assets/fonts/open-sans-v15-latin/open-sans-v15-latin-700.woff2")
-      format("woff2"),
-    url("/static/assets/fonts/open-sans-v15-latin/open-sans-v15-latin-700.woff")
-      format("woff");
-}
-
-/* open-sans-700italic - latin */
-@font-face {
-  font-family: Open Sans;
-  font-style: italic;
-  font-weight: 700;
-  font-display: swap;
-  src: local("Open Sans Bold Italic"), local("OpenSans-BoldItalic"),
-    url("/static/assets/fonts/open-sans-v15-latin/open-sans-v15-latin-700italic.woff2")
-      format("woff2"),
-    url("/static/assets/fonts/open-sans-v15-latin/open-sans-v15-latin-700italic.woff")
-      format("woff");
+  font-weight: 400 700;
+  src: url("/src/fonts/memtYaGs126MiZpBA-UFUIcVXSCEkx2cmqvXlWqWuU6FxZCJgg(1).woff2") format("woff2");
 }
 
 /* montserrat-600 - latin */
@@ -59,7 +25,5 @@
   font-style: normal;
   font-weight: 600;
   font-display: swap;
-  src: local("Insignia"),
-    url("/static/assets/fonts/Insignia/Insignia.woff2") format("woff2"),
-    url("/static/assets/fonts/Insignia/Insignia.woff") format("woff");
+  src: url("/src/fonts/Insignia/Insignia.woff2") format("woff2");
 }

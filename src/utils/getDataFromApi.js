@@ -1,24 +1,23 @@
-import glob from 'glob';
-import fs from 'fs';
-import fm from 'front-matter';
-import path from 'path';
-import xml2js from 'xml2js';
-import { parse } from 'node-html-parser';
+import { glob } from "glob";
+import fs from "fs";
+import fm from "front-matter";
+import path from "path";
+import xml2js from "xml2js";
+import { parse } from "node-html-parser";
 
-export const getPages = (directory, uriPrefix = '') => {
-  const pages = [];
-
-  const files = glob.sync('**/*.md', {
+export const getPages = (directory, uriPrefix = "") => {
+  const files = glob.sync("**/*.md", {
     cwd: directory,
   });
 
-  files.forEach((file) => {
+  const pages = files.map((file) => {
     const fileData = fs.readFileSync(`${directory}/${file}`);
     const page = fm(fileData.toString()).attributes;
     page.uri = `${uriPrefix}${
-      path.dirname(file) === '.' ? '' : `${path.dirname(file)}/`
-    }${path.basename(file, '.md')}`;
-    pages.push(page);
+      path.dirname(file) === "." ? "" : `${path.dirname(file)}/`
+    }${path.basename(file, ".md")}`;
+    // pages.push(page);
+    return page;
   });
 
   // sort by date, descending
@@ -31,16 +30,16 @@ export async function getMovies() {
   const response = await fetch(import.meta.env.VITE_IMDB_URL);
   const result = await response.text();
   const html = parse(result);
-  const $items = html.querySelectorAll('#ratings-container .lister-item');
+  const $items = html.querySelectorAll("#ratings-container .lister-item");
   return [...$items].map(($item) => {
     return {
-      title: $item.querySelector('.lister-item-header a').innerText,
-      year: $item.querySelector('.lister-item-year').innerText,
-      href: $item.querySelector('.lister-item-header a').getAttribute('href'),
+      title: $item.querySelector(".lister-item-header a").innerText,
+      year: $item.querySelector(".lister-item-year").innerText,
+      href: $item.querySelector(".lister-item-header a").getAttribute("href"),
       watchDate: $item
-        .querySelectorAll('.text-muted')[2]
+        .querySelectorAll(".text-muted")[2]
         .innerText.substring(8),
-      rating: $item.querySelectorAll('.ipl-rating-star__rating')[1].innerText,
+      rating: $item.querySelectorAll(".ipl-rating-star__rating")[1].innerText,
     };
   });
 }

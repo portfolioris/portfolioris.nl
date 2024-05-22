@@ -32,8 +32,8 @@ collections:
             }
           - { label: 'Default author', name: 'author', widget: 'string' }
           - {
-              label: 'Default Twitter handle',
-              name: 'twitterHandle',
+              label: 'Default Mastondon handle',
+              name: 'mastodonHandle',
               widget: 'string',
             }
           - { label: 'Domain', name: 'domain', widget: 'string' }
@@ -61,7 +61,7 @@ collections:
     fields:
       - { label: First name, name: firstName, widget: string }
       - { label: Last name, name: lastName, widget: string }
-      - { label: Twitter handle, name: twitterHandle, widget: string }
+      - { label: Mastodon handle, name: mastodonHandle, widget: string }
 
   - name: pages
     label: Pages
