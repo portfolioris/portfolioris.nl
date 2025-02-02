@@ -1,11 +1,24 @@
 <script>
-  export let size = 'large';
+  export let size = "large";
   export let collapseTop = false;
   export let collapseBottom = false;
 </script>
 
+<div
+  class="o-layer"
+  class:o-layer--tiny={size === "tiny"}
+  class:o-layer--small={size === "small"}
+  class:o-layer--medium={size === "medium"}
+  class:o-layer--large={size === "large"}
+  class:o-layer--huge={size === "huge"}
+  class:o-layer--collapse-top={collapseTop}
+  class:o-layer--collapse-bottom={collapseBottom}
+>
+  <slot></slot>
+</div>
+
 <style lang="scss">
-  @use 'node_modules/@supple-kit/supple-css/tools/responsive';
+  @use "@supple-kit/supple-css/tools/responsive";
 
   /*  Module
       ========================================================================= */
@@ -13,8 +26,6 @@
   .o-layer {
     //
   }
-
-
 
   /*  Sizes
       ========================================================================= */
@@ -39,8 +50,6 @@
     padding-block: var(--space-large);
   }
 
-
-
   /*  Responsive
       ========================================================================= */
 
@@ -54,8 +63,6 @@
     }
   }
 
-
-
   /*  Overrides
       ========================================================================= */
 
@@ -67,16 +74,3 @@
     padding-block-end: 0;
   }
 </style>
-
-<div
-  class="o-layer"
-  class:o-layer--tiny={size === 'tiny'}
-  class:o-layer--small={size === 'small'}
-  class:o-layer--medium={size === 'medium'}
-  class:o-layer--large={size === 'large'}
-  class:o-layer--huge={size === 'huge'}
-  class:o-layer--collapse-top={collapseTop}
-  class:o-layer--collapse-bottom={collapseBottom}
->
-  <slot></slot>
-</div>

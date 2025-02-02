@@ -4,17 +4,37 @@
   export let label;
   export let icon = null;
   export let hideLabel = false;
-  export let modifier = '';
+  export let modifier = "";
   export let isActive = false;
   export let onClick = null;
 
-  let className = '';
+  let className = "";
   export { className as class };
 </script>
 
+<a
+  {href}
+  {type}
+  class="c-button {className}"
+  aria-current={isActive ? "true" : null}
+  class:c-button--transparent={modifier === "transparent"}
+  on:click={onClick}
+>
+  <span class="c-button__inner">
+    <span class="c-button__label" class:u-visually-hidden={hideLabel}>
+      {label}
+    </span>
+    {#if icon}
+      <span class="c-button__wrap-icon">
+        <mark>icon</mark>
+      </span>
+    {/if}
+  </span>
+</a>
+
 <style lang="scss">
-  @use 'src/sass/generic/utilities';
-  @use 'node_modules/@supple-kit/supple-css/utilities/visually-hidden';
+  @use "/src/sass/generic/utilities";
+  @use "@supple-kit/supple-css/utilities/visually-hidden";
 
   /*  Block
       ========================================================================= */
@@ -33,19 +53,18 @@
     background-color: var(--color-green);
     color: var(--color-black);
     appearance: none;
-    transition: var(--base-transition-duration-short) var(--base-timing-function);
+    transition: var(--base-transition-duration-short)
+      var(--base-timing-function);
     transition-property: background-color, box-shadow;
 
     #{utilities.$global-interaction-states},
-    &[aria-current='true'] {
+    &[aria-current="true"] {
       background-color: var(--color-green);
       color: var(--color-black);
       text-decoration: none;
       outline: none;
     }
   }
-
-
 
   /*  Elements
       ========================================================================= */
@@ -60,8 +79,6 @@
     padding: var(--space-small);
   }
 
-
-
   /*  Modifier
       ========================================================================= */
 
@@ -71,30 +88,8 @@
     color: var(--color-foreground);
 
     #{utilities.$global-interaction-states},
-    &[aria-current='true'] {
+    &[aria-current="true"] {
       box-shadow: 0 0 0 1px var(--color-black);
     }
   }
 </style>
-
-
-
-<a
-  href={href}
-  type={type}
-  class="c-button  {className}"
-  aria-current={isActive ? 'true' : null}
-  class:c-button--transparent={modifier === 'transparent'}
-  on:click={onClick}
->
-  <span class="c-button__inner">
-    <span class="c-button__label" class:u-visually-hidden="{hideLabel}">
-      {label}
-    </span>
-    {#if icon}
-      <span class="c-button__wrap-icon">
-        <mark>icon</mark>
-      </span>
-    {/if}
-  </span>
-</a>

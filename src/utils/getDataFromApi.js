@@ -1,12 +1,21 @@
-import { glob } from "glob";
-import fs from "fs";
-import fm from "front-matter";
-import path from "path";
+// import { glob } from "glob";
+// import fs from "fs";
+// import fm from "front-matter";
+// import path from "path";
 import xml2js from "xml2js";
 import { parse } from "node-html-parser";
 
+/*
 export const getPages = (directory, uriPrefix = "") => {
-  const files = glob.sync("**/*.md", {
+  const files = import.meta.glob(`${directory}/!**!/!*.md`);
+
+  console.log(files);
+
+  return [];
+
+  // const pages = files
+
+  const files = glob.sync("**!/!*.md", {
     cwd: directory,
   });
 
@@ -25,21 +34,24 @@ export const getPages = (directory, uriPrefix = "") => {
 
   return pages;
 };
+*/
 
 export async function getMovies() {
   const response = await fetch(import.meta.env.VITE_IMDB_URL);
   const result = await response.text();
   const html = parse(result);
-  const $items = html.querySelectorAll("#ratings-container .lister-item");
+  // const $items = html.querySelectorAll("#ratings-container .lister-item");
+  const $items = html.querySelectorAll(".ipc-metadata-list-summary-item");
   return [...$items].map(($item) => {
+    console.log($item.querySelector(".dli-user-list-item-date-added"));
     return {
-      title: $item.querySelector(".lister-item-header a").innerText,
-      year: $item.querySelector(".lister-item-year").innerText,
-      href: $item.querySelector(".lister-item-header a").getAttribute("href"),
-      watchDate: $item
-        .querySelectorAll(".text-muted")[2]
-        .innerText.substring(8),
-      rating: $item.querySelectorAll(".ipl-rating-star__rating")[1].innerText,
+      title: $item.querySelector(".ipc-title__text").innerText,
+      year: $item.querySelectorAll(".dli-title-metadata-item")[0].innerText,
+      href: $item.querySelector(".ipc-title-link-wrapper").getAttribute("href"),
+      // watchDate: $item
+      //   .querySelector(".dli-user-list-item-date-added")
+      //   .innerText.substring(8),
+      rating: $item.querySelector(".ipc-rating-star--rating").innerText,
     };
   });
 }

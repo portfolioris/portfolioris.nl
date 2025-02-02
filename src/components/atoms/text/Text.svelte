@@ -1,16 +1,26 @@
 <script>
-  import { marked } from 'marked';
-  import Flow from '../objects/Flow.svelte';
+  import { marked } from "marked";
+  import Flow from "../objects/Flow.svelte";
 
-  export let modifier = '';
+  export let modifier = "";
   export let markdown = null;
 </script>
 
+<div class:intro={modifier === "intro"} class:byline={modifier === "byline"}>
+  <Flow>
+    {#if markdown}
+      {@html marked(markdown)}
+    {:else}
+      <slot />
+    {/if}
+  </Flow>
+</div>
+
 <style global lang="scss">
-  @use 'node_modules/highlight.js/scss/a11y-light.scss'; // generated in rte, so cannot be scoped
-  @use 'node_modules/@supple-kit/supple-css/tools/typography';
-  @use 'src/sass/generic/utilities';
-  @use 'src/sass/generic/headings';
+  //@use 'highlight.js/scss/a11y-light.scss'; // generated in rte, so cannot be scoped
+  @use "@supple-kit/supple-css/tools/typography";
+  @use "/src/sass/generic/utilities";
+  @use "/src/sass/generic/headings";
 
   :global {
     th {
@@ -51,16 +61,3 @@
     @include typography.font-size(14px);
   }
 </style>
-
-<div
-  class:intro={modifier === 'intro'}
-  class:byline={modifier === 'byline'}
->
-  <Flow>
-    {#if markdown}
-      {@html marked(markdown)}
-    {:else}
-      <slot />
-    {/if}
-  </Flow>
-</div>

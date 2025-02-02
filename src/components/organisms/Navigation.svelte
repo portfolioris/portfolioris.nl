@@ -5,11 +5,10 @@
   import Footer from "./Footer.svelte";
   import Button from "../atoms/Button.svelte";
   import { getKeyCode } from "../../utils/utilities";
+  import { page } from "$app/state";
 
   let isLoaded = false;
   let menuIsOpen = false;
-  export let items = [];
-  export let activePage = "";
 
   onMount(() => {
     isLoaded = true;
@@ -47,7 +46,7 @@
 
 <div class="c-body-wrap">
   <div class="c-body-wrap__header">
-    <Header {items} {activePage} handleToggleMenu={toggleMenu} {menuIsOpen} />
+    <Header handleToggleMenu={toggleMenu} {menuIsOpen} />
   </div>
   <div
     class="c-body-wrap__main"
@@ -67,10 +66,10 @@
   >
     <Retain>
       <ul class="c-body-wrap__nav-list">
-        {#each items as item}
+        {#each page.data.site.primaryNav as item}
           <li class="c-body-wrap__nav-item">
             <Button
-              isActive={activePage === item.uri}
+              isActive={page.url.pathname === item.uri}
               label={item.label}
               href="/{item.uri === 'home' ? '' : item.uri}"
               onClick={() => {
@@ -85,7 +84,7 @@
 </div>
 
 <style lang="scss">
-  @use "node_modules/@supple-kit/supple-css/tools/responsive";
+  @use "@supple-kit/supple-css/tools/responsive";
 
   /*  Page wrappers
       ========================================================================= */

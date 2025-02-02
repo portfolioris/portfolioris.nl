@@ -1,15 +1,52 @@
 <script>
-  import Layer from '../atoms/objects/Layer.svelte';
-  import Retain from '../atoms/objects/Retain.svelte';
-  import DateString from '../atoms/text/DateString.svelte';
+  import Layer from "../atoms/objects/Layer.svelte";
+  import Retain from "../atoms/objects/Retain.svelte";
+  import DateString from "../atoms/text/DateString.svelte";
 
   export let items;
   export let collapseTop;
   export let collapseBottom;
 </script>
 
+<section>
+  <Layer {collapseBottom} {collapseTop}>
+    <Retain size="lap">
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">Title</th>
+            <th scope="col">Watched on</th>
+            <th scope="col">My rating</th>
+          </tr>
+        </thead>
+        <tbody>
+          {#each items as item}
+            <tr>
+              <td>
+                <a href="https://www.imdb.com/{item.href}">{item.title}</a>
+                ({item.year})
+              </td>
+              <td>
+                <span class="date-short">
+                  <DateString date={item.watchDate} as="short" />
+                </span>
+                <span class="date-long">
+                  <DateString date={item.watchDate} />
+                </span>
+              </td>
+              <td>
+                {item.rating} <small>/ 10</small>
+              </td>
+            </tr>
+          {/each}
+        </tbody>
+      </table>
+    </Retain>
+  </Layer>
+</section>
+
 <style lang="scss">
-  @use 'node_modules/@supple-kit/supple-css/tools/responsive';
+  @use "@supple-kit/supple-css/tools/responsive";
 
   th,
   td {
@@ -40,39 +77,3 @@
     }
   }
 </style>
-<section>
-  <Layer collapseBottom={collapseBottom} collapseTop={collapseTop}>
-    <Retain size="lap">
-      <table>
-        <thead>
-          <tr>
-            <th scope="col">Title</th>
-            <th scope="col">Watched on</th>
-            <th scope="col">My rating</th>
-          </tr>
-        </thead>
-        <tbody>
-          {#each items as item}
-            <tr>
-              <td>
-                <a href="https://www.imdb.com/{item.href}">{item.title}</a>
-                {item.year}
-              </td>
-              <td>
-                <span class="date-short">
-                  <DateString date={item.watchDate} as="short" />
-                </span>
-                <span class="date-long">
-                  <DateString date={item.watchDate} />
-                </span>
-              </td>
-              <td>
-                {item.rating} <small>/ 10</small>
-              </td>
-            </tr>
-          {/each}
-        </tbody>
-      </table>
-    </Retain>
-  </Layer>
-</section>

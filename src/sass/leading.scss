@@ -2,11 +2,11 @@
     Leading
     Global CSS: reset, typography
     ========================================================================= */
-@use 'src/sass/vars';
+@use "/src/sass/vars";
 
 /* Generic */
-@use 'node_modules/@supple-kit/supple-css/generic/reset';
+@use "@supple-kit/supple-css/generic/reset";
 
 /* Elements */
-@use 'generic/font-face';
-@use 'generic/toplevel';
+@use "generic/font-face";
+@use "generic/toplevel";

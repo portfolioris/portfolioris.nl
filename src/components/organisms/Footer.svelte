@@ -1,23 +1,8 @@
 <script>
-  import Layer from '../atoms/objects/Layer.svelte';
-  import Retain from '../atoms/objects/Retain.svelte';
-  import Layout from '../atoms/objects/Layout.svelte';
+  import Layer from "../atoms/objects/Layer.svelte";
+  import Retain from "../atoms/objects/Retain.svelte";
+  import Layout from "../atoms/objects/Layout.svelte";
 </script>
-
-<style lang="scss">
-  @use 'src/sass/generic/utilities';
-
-  footer {
-    background-color: var(--color-white);
-    color: var(--color-black);
-  }
-
-  a {
-    #{utilities.$global-interaction-states} {
-      color: var(--black);
-    }
-  }
-</style>
 
 <footer>
   <Layer size="medium">
@@ -40,3 +25,18 @@
     </Retain>
   </Layer>
 </footer>
+
+<style lang="scss">
+  @use "/src/sass/generic/utilities";
+
+  footer {
+    background-color: var(--color-white);
+    color: var(--color-black);
+  }
+
+  a {
+    #{utilities.$global-interaction-states} {
+      color: var(--black);
+    }
+  }
+</style>

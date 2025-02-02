@@ -3,9 +3,9 @@
     Describes toplevel styles such as HTML, body, etc.
     ========================================================================= */
 
-@use "src/sass/vars";
-@use "node_modules/@supple-kit/supple-css/tools/responsive";
-@use "node_modules/@supple-kit/supple-css/tools/space";
+@use "/src/sass/vars";
+@use "@supple-kit/supple-css/tools/responsive";
+@use "@supple-kit/supple-css/tools/space";
 
 html {
   // colors
@@ -34,16 +34,16 @@ html {
   --space-base: #{space.get("base")};
   --space-large: #{space.get("large")};
   --space-huge: #{space.get("huge")};
-
-  @media (prefers-color-scheme: light) {
-    --color-background: var(--color-white);
-    --color-foreground: var(--color-black);
-  }
   color-scheme: light dark; /* both supported */
   font-family: var(--font-family-primary);
   background-color: var(--color-background);
   color: var(--color-foreground);
   text-decoration-skip-ink: auto;
+
+  @media (prefers-color-scheme: light) {
+    --color-background: var(--color-white);
+    --color-foreground: var(--color-black);
+  }
 }
 
 body {

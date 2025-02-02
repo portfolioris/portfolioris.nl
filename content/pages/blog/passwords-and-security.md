@@ -37,7 +37,7 @@ KeePass let’s you create records of your (online) accounts. There are fields f
 
 What I really like about KeePass, is that it has a password generator. You can choose what kind of characters it may use. If you select all options, it generates a password like this:
 
-Y%K\*mw`KDPu<W5d7hdq(
+`Y%K\*mw'KDPu<W5d7hdq(`
 
 I certainly can’t remember this, you? But I don’t need to. I even never actually see the password: I just copy-paste them. So no one who looks at my screen, or looks at the keystrokes I make, or a keylogger can ever see my password too.
 

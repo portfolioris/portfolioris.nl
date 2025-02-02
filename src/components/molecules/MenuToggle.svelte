@@ -3,8 +3,40 @@
   export let menuIsOpen;
 </script>
 
+<button
+  type="button"
+  aria-expanded={menuIsOpen}
+  class="c-menu-toggle"
+  class:is-open={menuIsOpen}
+  on:click={handleToggleMenu}
+>
+  <svg viewBox="0 0 24 24" class="c-menu-toggle__icon">
+    <defs>
+      <path id="l" d="M0,0 L24,0" />
+    </defs>
+    <g fill="none" stroke="currentColor" stroke-width="2">
+      <use
+        xlink:href="#l"
+        class="c-menu-toggle__dash c-menu-toggle__dash--top"
+        y="6"
+      />
+      <use
+        xlink:href="#l"
+        class="c-menu-toggle__dash c-menu-toggle__dash--middle"
+        y="12"
+      />
+      <use
+        xlink:href="#l"
+        class="c-menu-toggle__dash c-menu-toggle__dash--bottom"
+        y="18"
+      />
+    </g>
+  </svg>
+  <span class="c-menu-toggle__label"> menu </span>
+</button>
+
 <style lang="scss">
-  @use 'node_modules/@supple-kit/supple-css/tools/typography';
+  @use "@supple-kit/supple-css/tools/typography";
 
   .c-menu-toggle {
     padding: var(--space-tiny);
@@ -53,7 +85,8 @@
   }
 
   .c-menu-toggle__dash {
-    transition: transform var(--base-transition-duration) var(--base-timing-function);
+    transition: transform var(--base-transition-duration)
+      var(--base-timing-function);
     transform-origin: center;
   }
 
@@ -62,25 +95,3 @@
     display: block;
   }
 </style>
-
-<button
-  type="button"
-  aria-expanded="{menuIsOpen}"
-  class="c-menu-toggle"
-  class:is-open={menuIsOpen}
-  on:click={handleToggleMenu}
->
-  <svg viewBox="0 0 24 24" class="c-menu-toggle__icon">
-    <defs>
-      <path id="l" d="M0,0 L24,0" />
-    </defs>
-    <g fill="none" stroke="currentColor" stroke-width="2">
-      <use xlink:href="#l" class="c-menu-toggle__dash  c-menu-toggle__dash--top" y="6" />
-      <use xlink:href="#l" class="c-menu-toggle__dash  c-menu-toggle__dash--middle" y="12" />
-      <use xlink:href="#l" class="c-menu-toggle__dash  c-menu-toggle__dash--bottom" y="18" />
-    </g>
-  </svg>
-  <span class="c-menu-toggle__label">
-    menu
-  </span>
-</button>

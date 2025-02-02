@@ -9,7 +9,7 @@
   export let content;
   export let title;
   export let subtitle;
-  export let author;
+  export let authorData;
   export let date;
   export let lang;
 </script>
@@ -27,9 +27,12 @@
           <Flow space="tiny">
             <Text modifier="intro">{subtitle}</Text>
             <Text modifier="byline">
-              Added by <a href="https://twitter.com/{author.twitterHandle}"
-                >{author.firstName} {author.lastName}</a
-              >, <DateString {date} />
+              {#if authorData}
+                Added by <a
+                  href="https://twitter.com/{authorData.mastodonHandle}"
+                  >{authorData.firstName} {authorData.lastName}</a
+                >, <DateString {date} />
+              {/if}
             </Text>
           </Flow>
         </Retain>
@@ -44,7 +47,7 @@
 </article>
 
 <style lang="scss">
-  @use "node_modules/@supple-kit/supple-css/tools/typography";
+  @use "@supple-kit/supple-css/tools/typography";
 
   article {
     :global(figcaption) {

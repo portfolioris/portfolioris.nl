@@ -1,14 +1,23 @@
 <script>
   export let isBreakout = false;
   export let noPadding = false;
-  export let size = '';
+  export let size = "";
 </script>
 
+<div
+  class="o-retain"
+  class:o-retain--lap={size === "lap"}
+  class:o-retain--desk={size === "desk"}
+  class:o-retain--wall={size === "wall"}
+  class:o-retain--breakout={isBreakout}
+  class:o-retain--no-padding={noPadding}
+>
+  <slot />
+</div>
+
 <style lang="scss">
-  @use 'node_modules/@supple-kit/supple-css/objects/retain';
-  @use 'node_modules/@supple-kit/supple-css/tools/responsive';
-
-
+  @use "@supple-kit/supple-css/objects/retain";
+  @use "@supple-kit/supple-css/tools/responsive";
 
   /*  Module
       ========================================================================= */
@@ -25,14 +34,3 @@
     }
   }
 </style>
-
-<div
-  class="o-retain"
-  class:o-retain--lap={size === 'lap'}
-  class:o-retain--desk={size === 'desk'}
-  class:o-retain--wall={size === 'wall'}
-  class:o-retain--breakout={isBreakout}
-  class:o-retain--no-padding={noPadding}
->
-  <slot />
-</div>
